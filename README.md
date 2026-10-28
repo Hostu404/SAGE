@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.svg" width="160" alt="SAGE logo: an eye of providence"></p>
+
 # SAGE
 
 Free, open forecasts of war and attacks on civilians, with every
@@ -47,7 +49,7 @@ automatically whenever new data comes out.
 
 | Next month | Deadly fighting | Major war | Attacks on civilians |
 |---|---|---|---|
-| **Picks the right country**: of one where it went on to happen and one where it didn't, how often SAGE rated the right one higher | 98.5 times in 100 | 98.5 times in 100 | 97.4 times in 100 |
+| **Picks the right country**: shown two countries, one where it then happened and one where it didn't, how often SAGE gave the higher chance to the right one | 98.5 times in 100 | 98.5 times in 100 | 97.4 times in 100 |
 | **Beats "same as last month"**, the forecast to beat | 21% smaller error | 22% smaller error | 18% smaller error |
 | **Honest percentages**: how far what it said was from what happened, on average | 0.5 points | 0.2 points | 0.5 points |
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SAGE's logo: an eye of providence. Made by the logo script from the same numbers as logo.svg. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:fillColor="#D6DAF0" android:strokeColor="#D9A23B" android:strokeWidth="5" android:strokeLineJoin="round" android:pathData="M54.00,7.81 L94.00,77.09 L14.00,77.09 Z" />
+    <path android:fillColor="#FFFFFF" android:strokeColor="#33345E" android:strokeWidth="1.75" android:pathData="M33.20,58.85 Q54.00,38.05 74.80,58.85 Q54.00,79.65 33.20,58.85 Z" />
+    <path android:fillColor="#B3242C" android:pathData="M45.68,58.85 a8.32,8.32 0 1,0 16.64,0 a8.32,8.32 0 1,0 -16.64,0 Z" />
+    <path android:fillColor="#3A0B10" android:pathData="M50.32,58.85 a3.68,3.68 0 1,0 7.36,0 a3.68,3.68 0 1,0 -7.36,0 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M55.26,55.94 a1.66,1.66 0 1,0 3.31,0 a1.66,1.66 0 1,0 -3.31,0 Z" />
+</vector>

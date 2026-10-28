@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- A sage leaf, inside the adaptive icon's 66dp safe zone. -->
+<!-- SAGE's logo: an eye of providence. Made by the logo script from the same numbers as logo.svg. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path
-        android:fillColor="#E3EDDC"
-        android:pathData="M54,28 C69,36 74,53 65,69 C61,76 54,80 54,80 C54,80 47,76 43,69 C34,53 39,36 54,28 Z" />
-    <path
-        android:strokeColor="#3F5E45"
-        android:strokeWidth="2.5"
-        android:strokeLineCap="round"
-        android:pathData="M54,38 L54,86 M54,52 L62,45 M54,62 L46,55 M54,70 L61,64" />
+    <path android:strokeColor="#D9A23B" android:strokeAlpha="0.85" android:strokeWidth="2.4" android:strokeLineCap="round" android:pathData="M59.44,33.72 L62.54,22.12 M68.85,39.15 L77.33,30.67 M74.28,48.56 L85.88,45.46 M74.28,59.44 L85.88,62.54 M68.85,68.85 L77.33,77.33 M59.44,74.28 L62.54,85.88 M48.56,74.28 L45.46,85.88 M39.15,68.85 L30.67,77.33 M33.72,59.44 L22.12,62.54 M33.72,48.56 L22.12,45.46 M39.15,39.15 L30.67,30.67 M48.56,33.72 L45.46,22.12" />
+    <path android:fillColor="#D6DAF0" android:strokeColor="#D9A23B" android:strokeWidth="2.8" android:strokeLineJoin="round" android:pathData="M54.00,23.98 L80.00,69.01 L28.00,69.01 Z" />
+    <path android:fillColor="#FFFFFF" android:strokeColor="#33345E" android:strokeWidth="0.98" android:pathData="M40.48,57.15 Q54.00,43.63 67.52,57.15 Q54.00,70.67 40.48,57.15 Z" />
+    <path android:fillColor="#B3242C" android:pathData="M48.59,57.15 a5.41,5.41 0 1,0 10.82,0 a5.41,5.41 0 1,0 -10.82,0 Z" />
+    <path android:fillColor="#3A0B10" android:pathData="M51.61,57.15 a2.39,2.39 0 1,0 4.78,0 a2.39,2.39 0 1,0 -4.78,0 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M54.82,55.26 a1.08,1.08 0 1,0 2.15,0 a1.08,1.08 0 1,0 -2.15,0 Z" />
 </vector>

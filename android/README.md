@@ -1,3 +1,5 @@
+<p align="center"><img src="../logo.svg" width="120" alt="SAGE logo: an eye of providence"></p>
+
 # SAGE for Android
 
 This folder is the Android app. The forecaster it shows is the rest of the
