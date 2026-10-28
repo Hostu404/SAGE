@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T20:59:02Z",
+ "generated": "2026-10-28T21:53:35Z",
  "data_through": "2026-09",
  "months": [
   "2026-10",
@@ -14385,7 +14385,7 @@
     }
    }
   },
-  "checked_through": "2026-10-26"
+  "checked_through": "2026-10-27"
  },
  "countries": [
   {
@@ -22657,7 +22657,7 @@
    "alert": {
     "on": true,
     "since": "2026-10-12",
-    "last": "2026-10-25",
+    "last": "2026-10-27",
     "kind": "aimed",
     "times_usual": 4.7
    },
