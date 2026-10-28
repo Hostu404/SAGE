@@ -63,6 +63,16 @@ fun HomeScreen(model: SageModel, f: Forecast) {
                 bottom = pad.calculateBottomPadding() + 8.dp),
         ) {
             item { Freshness(model, f) }
+            f.world?.let { w ->
+                item {
+                    SectionTitle("Global threat level")
+                    SageCard {
+                        ThreatLevel(w, Modifier.align(Alignment.CenterHorizontally))
+                        Text(w.text.removePrefix("Global threat level: ${w.level}. "),
+                            style = MaterialTheme.typography.bodyMedium, modifier = Modifier.padding(top = 12.dp))
+                    }
+                }
+            }
             if (model.changes.isNotEmpty()) item {
                 SectionTitle("Since you last looked")
                 SageCard {
@@ -85,7 +95,8 @@ fun HomeScreen(model: SageModel, f: Forecast) {
             }
             item {
                 SectionTitle("Where the world is leaning")
-                SageCard { Bullets(f.summary) }
+                // The threat level has its own card above.
+                SageCard { Bullets(f.summary.filterNot { it.startsWith("Global threat level") }) }
             }
             item { SectionTitle("Your countries") }
             if (followed.isEmpty()) item {

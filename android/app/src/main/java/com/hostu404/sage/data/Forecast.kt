@@ -22,6 +22,8 @@ data class Forecast(
     val pairs: List<Relation>,
     /** Each country's ISO code ("FRA"), by id. */
     val iso3: Map<Int, String> = emptyMap(),
+    /** The global threat level, if the file has one. */
+    val world: World? = null,
 ) {
     /** Every country the app can show: those SAGE forecasts, plus those it only follows relations for. */
     val places: List<Place> by lazy {
@@ -72,6 +74,7 @@ data class Forecast(
                 alertRecord = o.optJSONObject("alert_record")?.let(AlertRecord::parse),
                 countries = o.optJSONArray("countries").objects().map(Country::parse),
                 pairs = pairs.objects().map(Relation::parse),
+                world = o.optJSONObject("world")?.let(World::parse),
                 iso3 = o.optJSONObject("iso3")?.let { m ->
                     m.keys().asSequence().mapNotNull { k -> k.toIntOrNull()?.let { it to m.optString(k) } }.toMap()
                 } ?: emptyMap(),
@@ -81,6 +84,34 @@ data class Forecast(
 }
 
 data class Question(val title: String, val text: String)
+
+/**
+ * How dangerous next month looks for the world as a whole: SAGE's expected
+ * number of countries with deadly fighting and at war, against every month
+ * since 1989. [score] is the share of those months that were calmer.
+ */
+data class World(
+    val level: String,
+    /** 0 = Low ... 4 = Severe. */
+    val rank: Int,
+    val score: Double,
+    val expectedFighting: Double,
+    val expectedWars: Double,
+    val text: String,
+) {
+    companion object {
+        val LEVELS = listOf("Low", "Guarded", "Elevated", "High", "Severe")
+
+        fun parse(o: JSONObject) = World(
+            level = o.optString("level"),
+            rank = o.optInt("rank").coerceIn(0, LEVELS.lastIndex),
+            score = o.optDouble("score", 0.0),
+            expectedFighting = o.optDouble("expected_fighting", 0.0),
+            expectedWars = o.optDouble("expected_wars", 0.0),
+            text = o.optString("text"),
+        )
+    }
+}
 
 data class Place(val id: Int, val name: String, val country: Country?)
 

@@ -41,3 +41,24 @@ def test_every_country_in_the_file_gets_its_iso_code():
     pairs_ = {"pairs": [{"a": 220, "b": 365}]}
     codes = forecast._codes(entries, pairs_, {200: "GBR", 220: "FRA", 345: "SRB", 365: "RUS", 2: "USA"})
     assert codes == {"200": "GBR", "220": "FRA", "345": "SRB", "365": "RUS"}
+
+
+def test_the_global_threat_level_compares_next_month_with_every_month_on_record():
+    import pandas as pd
+    from sage import world
+    # Ten months on record: 2 countries fighting in each, one of them at war in the last two.
+    rows = []
+    for i in range(10):
+        month = f"2000-{i + 1:02d}"
+        rows += [{"month": month, "state": 1500 if i >= 8 else 30}, {"month": month, "state": 40},
+                 {"month": month, "state": 0}]
+    frame = pd.DataFrame(rows)
+    entry = lambda f, w: {"name": "X", "fighting": {"chance": [0, f, 0]}, "major_war": {"chance": [0, w, 0]}}
+    calm = world.threat(frame, [entry(0.3, 0.0), entry(0.2, 0.0)], "2000-12", "December")
+    # Fewer fighting than any month (0 calmer), and no war like 8 of 10 months (ties count half: 0.4).
+    assert calm["score"] == 0.2 and calm["level"] == "Guarded" and calm["expected_fighting"] == 0.5
+    tense = world.threat(frame, [entry(0.99, 0.9), entry(0.99, 0.6), entry(0.9, 0.2)], "2000-12", "December")
+    assert tense["level"] == "Severe" and tense["rank"] == 4
+    assert tense["text"].startswith("Global threat level: Severe. SAGE expects about 3 countries to see deadly "
+                                    "fighting in December and about 2 to be at full-scale war, more than in")
+    assert world.level_for(0.5) == (2, "Elevated") and world.level_for(0.949) == (3, "High")

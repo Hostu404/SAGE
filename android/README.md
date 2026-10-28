@@ -8,13 +8,16 @@ world is leaning, the countries you follow, build-up alerts, and how tense
 things are between countries. Free, no ads, no accounts.
 
 <p>
-<img src="docs/01-home.png" width="200" alt="Home screen, in France">
+<img src="docs/01-home.png" width="200" alt="Home screen">
 <img src="docs/03-united-kingdom.png" width="200" alt="United Kingdom">
 <img src="docs/05-yemen-alert.png" width="200" alt="Yemen with a build-up alert">
 </p>
 
 ## What it shows
 
+- **Global threat level:** Low, Guarded, Elevated, High or Severe, in its
+  colour, saying how next month compares with every month since 1989 for the
+  world as a whole.
 - **Home:** a few sentences on where the world is leaning, the country you're
   in, the countries you've starred, any build-up alerts, and the tensest pairs
   of countries that aren't fighting.

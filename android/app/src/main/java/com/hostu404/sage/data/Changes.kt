@@ -13,8 +13,16 @@ object Changes {
     const val WORTH_TELLING = 0.05
     private val WATCHED = listOf("fighting", "major_war")
 
+    /** Notices about the whole world rather than one country carry this id. */
+    const val WORLD = -1
+
     fun between(old: Forecast, new: Forecast, followed: Set<Int>): List<Notice> {
         val notices = mutableListOf<Notice>()
+        val worldWas = old.world
+        val worldNow = new.world
+        if (worldWas != null && worldNow != null && worldNow.rank > worldWas.rank) {
+            notices += Notice(WORLD, "Global threat level up: ${worldNow.level}", "It was ${worldWas.level}. ${worldNow.text}")
+        }
         for (id in followed) {
             val before = old.countries.firstOrNull { it.id == id }
             val now = new.countries.firstOrNull { it.id == id }

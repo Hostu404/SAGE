@@ -14,7 +14,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from . import summary, tension
+from . import summary, tension, world
 from .backtest import HORIZONS
 from .features import FIRST_TRAINING_MONTH, NEVER, QUESTIONS, Question, feature_columns, month_index, month_name
 from .gdelt import EARLY_DAYS
@@ -158,12 +158,15 @@ def make(frame: pd.DataFrame, countries: pd.DataFrame, record: dict | None = Non
         out.append(entry)
     out.sort(key=lambda e: e["name"])
 
+    next_month = month_name(last + HORIZONS[world.NEXT])
+    threat = world.threat(frame, out, next_month, pd.Period(next_month, freq="M").strftime("%B"))
     return {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "data_through": month_name(last),
         "months": [month_name(last + h) for h in HORIZONS],
         "questions": {q.key: {"title": q.title, "text": q.text} for q in QUESTIONS.values()},
-        "summary": summary.world(out, month_name(last), pair_forecasts),
+        "world": threat,
+        "summary": [threat["text"], *summary.world(out, month_name(last), pair_forecasts)],
         "pairs": pair_forecasts,
         "record": record,
         "alert_record": alert_record,

@@ -55,6 +55,13 @@ class ForecastTest {
         assertNull(WhereYouAre.parse("<html>blocked</html>"))
     }
 
+    @Test fun readsTheGlobalThreatLevel() {
+        val w = bundledForecast().world!!
+        assertEquals("High", w.level)
+        assertEquals(3, w.rank)
+        assertTrue(w.text.startsWith("Global threat level: High."))
+    }
+
     @Test fun relationsComeTensestFirst() {
         val f = bundledForecast()
         val order = f.relationsOf(365).map { Tension.order(it.tension) }
@@ -97,6 +104,14 @@ class ChangesTest {
 
     private fun relation(tension: String) =
         Relation(200, 365, listOf("United Kingdom", "Russia"), tension, 0.003, 0.001, null, "")
+
+    @Test fun theGlobalThreatLevelRisingIsNews() {
+        fun level(rank: Int, name: String) = com.hostu404.sage.data.World(name, rank, 0.5, 15.0, 1.0, "Global threat level: $name.")
+        val old = forecast(emptyList()).copy(world = level(2, "Elevated"))
+        val new = forecast(emptyList()).copy(world = level(3, "High"))
+        assertEquals(listOf("Global threat level up: High"), Changes.between(old, new, emptySet()).map { it.title })
+        assertTrue(Changes.between(new, old, emptySet()).isEmpty())
+    }
 
     @Test fun anAlertStartingIsNews() {
         val notices = Changes.between(forecast(listOf(country(1, "Yemen", 0.3))),

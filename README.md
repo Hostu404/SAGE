@@ -21,6 +21,19 @@ leaning, for example:
 > (16%). It's leaning worse: deaths are up 37% on the three months before
 > and the news shows fighting at about 7 times the usual level.
 
+## Global threat level
+
+One reading for the whole world, from **Low** through **Guarded**,
+**Elevated** and **High** to **Severe** (the five colours of the old US
+threat advisory: green, blue, yellow, orange, red). SAGE adds up its
+chances to get how many countries it expects to see deadly fighting next
+month, and how many to be at full-scale war, and compares each with every
+month since 1989. The level is the share of those months that were calmer:
+under 20% is Low, under 50% Guarded, under 80% Elevated, under 95% High,
+and 95% or more Severe. In October 2026 it was **High**: about 19 countries
+expected to see deadly fighting and about 2 at full-scale war, more than in
+93% of months since 1989.
+
 ## How good is it?
 
 **Good. On the same countries and months, SAGE beats ViEWS, the leading
