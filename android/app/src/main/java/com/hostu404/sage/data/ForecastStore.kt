@@ -13,6 +13,9 @@ import java.net.URL
  */
 const val FORECAST_URL = "https://hostu404.github.io/SAGE/forecasts/latest.json"
 
+/** SAGE's code and data, for "View source". */
+const val REPO_URL = "https://github.com/Hostu404/SAGE"
+
 sealed interface Refresh {
     /** A newer forecast; [old] is the one it replaced, if there was one. */
     data class Updated(val old: Forecast?, val new: Forecast) : Refresh

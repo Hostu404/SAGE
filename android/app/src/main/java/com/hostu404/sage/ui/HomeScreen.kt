@@ -82,9 +82,6 @@ fun HomeScreen(model: SageModel, f: Forecast) {
                             modifier = Modifier.padding(top = 8.dp))
                     }
                 }
-                Text("Found from your internet connection. A VPN can make this another country.",
-                    style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(top = 6.dp))
             }
             item {
                 SectionTitle("Where the world is leaning")
