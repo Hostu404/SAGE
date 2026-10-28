@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T21:53:35Z",
+ "generated": "2026-10-28T23:34:15Z",
  "data_through": "2026-09",
  "months": [
   "2026-10",
@@ -20,7 +20,31 @@
    "text": "Armed groups kill at least 10 civilians"
   }
  },
+ "world": {
+  "level": "High",
+  "rank": 3,
+  "levels": [
+   "Low",
+   "Guarded",
+   "Elevated",
+   "High",
+   "Severe"
+  ],
+  "score": 0.934,
+  "month": "2026-11",
+  "expected_fighting": 18.8,
+  "expected_wars": 2.1,
+  "last_month": {
+   "month": "2026-09",
+   "fighting": 18,
+   "wars": 2
+  },
+  "since": "1989-01",
+  "alerts": 2,
+  "text": "Global threat level: High. SAGE expects about 19 countries to see deadly fighting in November and about 2 to be at full-scale war, more than in 93% of months since 1989."
+ },
  "summary": [
+  "Global threat level: High. SAGE expects about 19 countries to see deadly fighting in November and about 2 to be at full-scale war, more than in 93% of months since 1989.",
   "Most likely to see full-scale war in November: Ukraine (96%), Yemen (67%).",
   "Among countries below the fighting mark last month, the highest chance of deadly fighting in November: Burkina Faso (67%), Colombia (46%), Cameroon (30%).",
   "Most tense between countries not already fighting: Saudi Arabia–Yemen, Germany–Russia, Iran–Saudi Arabia, United Kingdom–Israel.",
