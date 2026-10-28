@@ -84,7 +84,7 @@ Every month's forecasts are kept unchanged in `forecasts/history/`, so the
 live record can be checked against what happened.
 
 ## Why is SAGE?
-[https://www.youtube.com/watch?v=Kt9fCcgG](https://www.youtube.com/watch?v=Kt9fCcgG-1g)
+[https://www.youtube.com/watch?v=Kt9fCcgG-1g](https://www.youtube.com/watch?v=Kt9fCcgG-1g)
 
 ## Between countries
 
