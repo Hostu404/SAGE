@@ -168,6 +168,9 @@ within six months) and a `summary`. The full list is under `pairs`.
 - **Benchmark:** [ViEWS](https://viewsforecasting.org)'s monthly forecasts,
   as published at the time. Averaging them in was tested and made SAGE
   worse, so they're only used for comparison.
+- **Map:** the website's world map is drawn from
+  [Natural Earth](https://www.naturalearthdata.com)'s countries (public
+  domain) by `tools/world_map.py`.
 
 No paid services, no API keys.
 

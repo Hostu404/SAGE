@@ -1,9 +1,10 @@
 // SAGE's website. Reads the day's forecast (forecasts/latest.json, written by
-// the daily run) and shows it the way the app does. No libraries, no cookies,
-// no tracking.
+// the daily run) and shows it as a dashboard. No libraries, no cookies, no
+// tracking.
 "use strict";
 
 const DATA_URL = "forecasts/latest.json";
+const MAP_URL = "site/world.json";
 const APP_URL = "https://github.com/Hostu404/SAGE/releases/latest/download/app-release.apk";
 const REPO_URL = "https://github.com/Hostu404/SAGE";
 // The country lookup the app uses too: it answers with "loc=GB".
@@ -12,11 +13,18 @@ const LOOKUP_URL = "https://www.cloudflare.com/cdn-cgi/trace";
 const ISO = "ADAND AEARE AFAFG AGATG AIAIA ALALB AMARM AOAGO AQATA ARARG ASASM ATAUT AUAUS AWABW AXALA AZAZE BABIH BBBRB BDBGD BEBEL BFBFA BGBGR BHBHR BIBDI BJBEN BLBLM BMBMU BNBRN BOBOL BQBES BRBRA BSBHS BTBTN BVBVT BWBWA BYBLR BZBLZ CACAN CCCCK CDCOD CFCAF CGCOG CHCHE CICIV CKCOK CLCHL CMCMR CNCHN COCOL CRCRI CUCUB CVCPV CWCUW CXCXR CYCYP CZCZE DEDEU DJDJI DKDNK DMDMA DODOM DZDZA ECECU EEEST EGEGY EHESH ERERI ESESP ETETH FIFIN FJFJI FKFLK FMFSM FOFRO FRFRA GAGAB GBGBR GDGRD GEGEO GFGUF GGGGY GHGHA GIGIB GLGRL GMGMB GNGIN GPGLP GQGNQ GRGRC GSSGS GTGTM GUGUM GWGNB GYGUY HKHKG HMHMD HNHND HRHRV HTHTI HUHUN IDIDN IEIRL ILISR IMIMN ININD IOIOT IQIRQ IRIRN ISISL ITITA JEJEY JMJAM JOJOR JPJPN KEKEN KGKGZ KHKHM KIKIR KMCOM KNKNA KPPRK KRKOR KWKWT KYCYM KZKAZ LALAO LBLBN LCLCA LILIE LKLKA LRLBR LSLSO LTLTU LULUX LVLVA LYLBY MAMAR MCMCO MDMDA MEMNE MFMAF MGMDG MHMHL MKMKD MLMLI MMMMR MNMNG MOMAC MPMNP MQMTQ MRMRT MSMSR MTMLT MUMUS MVMDV MWMWI MXMEX MYMYS MZMOZ NANAM NCNCL NENER NFNFK NGNGA NINIC NLNLD NONOR NPNPL NRNRU NUNIU NZNZL OMOMN PAPAN PEPER PFPYF PGPNG PHPHL PKPAK PLPOL PMSPM PNPCN PRPRI PSPSE PTPRT PWPLW PYPRY QAQAT REREU ROROU RSSRB RURUS RWRWA SASAU SBSLB SCSYC SDSDN SESWE SGSGP SHSHN SISVN SJSJM SKSVK SLSLE SMSMR SNSEN SOSOM SRSUR SSSSD STSTP SVSLV SXSXM SYSYR SZSWZ TCTCA TDTCD TFATF TGTGO THTHA TJTJK TKTKL TLTLS TMTKM TNTUN TOTON TRTUR TTTTO TVTUV TWTWN TZTZA UAUKR UGUGA UMUMI USUSA UYURY UZUZB VAVAT VCVCT VEVEN VGVGB VIVIR VNVNM VUVUT WFWLF WSWSM YEYEM YTMYT ZAZAF ZMZMB ZWZWE XKXKX";
 const NEXT = 1; // "next month" among the three forecast months
 const QUESTIONS = ["fighting", "major_war", "attacks"];
+const MEASURES = { fighting: "Deadly fighting", major_war: "Full-scale war" };
 const TENSION = ["at war", "fighting", "very high", "high", "above usual", "usual"];
-const THREAT_TEXT = ["#fff", "#fff", "#1b1c19", "#1b1c19", "#fff"];
-const RELATIONS_SHOWN = 6;
+const THREAT_TEXT = ["#fff", "#fff", "#111", "#111", "#fff"];
+const RISKS_SHOWN = 10;
+// The map's shades of risk: under 1%, 1-5%, 5-20%, 20-40%, 40-80%, 80% or more.
+const MAP_BINS = [0.01, 0.05, 0.2, 0.4, 0.8];
+const MAP_LABELS = ["Under 1%", "1–5%", "5–20%", "20–40%", "40–80%", "80%+"];
 
-const S = { data: null, places: [], byId: new Map(), iso3ToId: new Map(), here: undefined };
+const S = {
+  data: null, places: [], byId: new Map(), iso3ToId: new Map(), idToIso3: new Map(),
+  here: undefined, measure: "fighting",
+};
 
 // ---------- Words: the same as SAGE's summaries ----------
 
@@ -35,9 +43,20 @@ function pct(p) {
   if (p < 0.005) return "under 1%";
   return Math.round(p * 100) + "%";
 }
+/** The same, short enough for a column of numbers. */
+function pctShort(p) {
+  if (p >= 0.995) return ">99%";
+  if (p < 0.005) return "<1%";
+  return Math.round(p * 100) + "%";
+}
 function chanceColor(p) {
   const level = p >= 0.8 ? 3 : p >= 0.4 ? 2 : p >= 0.2 ? 1 : 0;
   return `var(--chance-${level})`;
+}
+function mapColor(p) {
+  let i = 0;
+  while (i < MAP_BINS.length && p >= MAP_BINS[i]) i++;
+  return `var(--map-${i})`;
 }
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 function monthName(m, withYear) {
@@ -67,9 +86,21 @@ function h(tag, attrs, ...children) {
   }
   return el;
 }
-const chip = (text, color, cls) => h("span", { class: "chip" + (cls ? " " + cls : ""), style: `--dot:${color}` }, text);
-const section = (title, ...body) => [h("h2", null, title), ...body];
+function svgEl(tag, attrs) {
+  const el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  for (const [k, v] of Object.entries(attrs || {})) if (v != null) el.setAttribute(k, v);
+  return el;
+}
+const tag = (text, color) => h("span", { class: "tag" }, h("i", { style: `background:${color}` }), text);
+const flag = () => h("span", { class: "flag" }, "Alert");
+const mbar = (p) => h("span", { class: "mbar", "aria-hidden": "true" },
+  h("i", { style: `width:${Math.max(2, p * 100)}%;background:${chanceColor(p)}` }));
 const bullets = (lines) => h("ul", { class: "bullets" }, lines.map((l) => h("li", null, l)));
+/** A dashboard panel: a titled box, with an optional note on the right of the title. */
+const panel = (cls, title, right, ...body) => h("section", { class: `panel ${cls || ""}` },
+  h("header", null, h("h2", null, title), right ? h("span", { class: "right" }, right) : null), ...body);
+const stat = (value, label, color, cls) => h("div", { class: "stat" + (cls ? " " + cls : "") },
+  h("b", { style: color ? `color:${color}` : null }, value), h("span", null, label));
 
 function status(c) {
   if (!c) return "Relations only";
@@ -89,16 +120,27 @@ function tensionColor(t) {
   if (t === "at war" || t === "fighting") return "var(--chance-3)";
   if (t === "very high") return "var(--chance-2)";
   if (t === "high") return "var(--chance-1)";
-  if (t === "above usual") return "color-mix(in srgb, var(--chance-1) 65%, transparent)";
+  if (t === "above usual") return "color-mix(in srgb, var(--chance-1) 60%, transparent)";
   return "var(--calm)";
+}
+function tensionFill(t) {
+  if (t === "at war" || t === "fighting") return "var(--map-5)";
+  if (t === "very high") return "var(--map-4)";
+  if (t === "high") return "var(--map-3)";
+  if (t === "above usual") return "var(--map-2)";
+  return "var(--map-0)";
 }
 function relationsOf(id) {
   return S.data.pairs.pairs.filter((p) => p.a === id || p.b === id)
     .sort((x, y) => tensionOrder(x.tension) - tensionOrder(y.tension) || y.clash_6 - x.clash_6);
 }
 const other = (p, id) => (id === p.a ? p.names[1] : p.names[0]);
+const otherId = (p, id) => (id === p.a ? p.b : p.a);
 const pairLink = (p) => `#/pair/${p.a}-${p.b}`;
 const nextMonth = () => S.data.months[NEXT];
+const question = (k) => (S.data.questions || {})[k] || { title: MEASURES[k] || k, text: "" };
+const chanceOf = (place, key) => (place && place.country && place.country[key] ? place.country[key].chance[NEXT] : null);
+const alertOn = (c) => !!(c && c.alert && c.alert.on);
 
 // ---------- Loading ----------
 
@@ -113,6 +155,7 @@ function prepare(d) {
   if (!d.pairs) d.pairs = { pairs: [] };
   S.places = [...S.byId.values()].sort((a, b) => a.name.localeCompare(b.name));
   S.iso3ToId = new Map(Object.entries(d.iso3 || {}).map(([id, code]) => [code, Number(id)]));
+  S.idToIso3 = new Map(Object.entries(d.iso3 || {}).map(([id, code]) => [Number(id), code]));
 }
 
 function placeForIso2(iso2) {
@@ -148,119 +191,290 @@ async function findHere() {
   return found;
 }
 
-// ---------- Pieces ----------
-
-function placeCard(place) {
-  const c = place.country;
-  const month = monthName(nextMonth());
-  let line = null;
-  if (c) {
-    const s = (c.last_month || {}).state || 0;
-    const [what, key] = s >= 1000 ? ["Full-scale war continuing", "major_war"]
-      : s >= 25 ? ["More deadly fighting", "fighting"] : ["Deadly fighting", "fighting"];
-    const p = c[key].chance[NEXT];
-    line = h("p", null, `${what} in ${month}: ${chanceWord(p)} (${pct(p)})`);
+let worldMap = null;
+/** The map's country shapes (site/world.json), fetched once; null if they can't be. */
+function loadWorld() {
+  if (!worldMap) {
+    worldMap = fetch(MAP_URL).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null);
   }
-  const tense = relationsOf(place.id).find((r) => r.tension !== "usual");
-  return h("a", { class: "card", href: `#/country/${place.id}` },
-    h("div", { class: "row" },
-      h("span", { class: "name grow" }, place.name),
-      c && c.alert && c.alert.on ? h("span", { class: "chip alert" }, "Alert") : null,
-      chip(status(c), statusColor(c))),
-    line ? h("div", { style: "margin-top:8px" }, line) : null,
-    tense ? h("p", { class: "sub", style: "margin-top:4px" }, `Tension with ${other(tense, place.id)}: ${tense.tension}`) : null);
+  return worldMap;
 }
 
-function relationRow(p, name) {
-  return h("a", { href: pairLink(p) },
-    h("span", { class: "grow" },
-      h("span", { class: "name-sm" }, name),
-      h("span", { class: "small", style: "display:block" }, `Deadly clashes in six months: ${pct(p.clash_6)}`)),
-    chip(cap(p.tension), tensionColor(p.tension)));
+// ---------- The map ----------
+
+/**
+ * A world map, drawn once the shapes arrive. opts.fill(place) colours each
+ * country (place is null for countries SAGE has nothing on), opts.tip(place)
+ * is the line under its name on hover, opts.picked outlines countries and
+ * opts.zoom frames them.
+ */
+function mapBody(opts) {
+  const wrap = h("div", { class: "map-wrap" }, h("p", { class: "empty" }, "Loading the map…"));
+  loadWorld().then((world) => {
+    if (!world) { wrap.replaceChildren(h("p", { class: "empty" }, "The map couldn't be loaded.")); return; }
+    wrap.replaceChildren(...drawMap(world, opts, wrap));
+  });
+  return wrap;
 }
 
-function chanceBlock(label, p) {
-  return h("div", null,
-    h("div", { class: "chance-head" },
-      h("span", null, label),
-      h("span", { class: "word", style: `color:${chanceColor(p)}` }, cap(chanceWord(p))),
-      h("span", { class: "pct", style: `color:${chanceColor(p)}` }, pct(p))),
-    h("div", { class: "bar", "aria-hidden": "true" },
-      h("i", { style: `width:${Math.max(1.5, p * 100)}%;background:${chanceColor(p)}` })));
+function drawMap(world, opts, wrap) {
+  const view = opts.zoom ? frame(world, opts.zoom) : world.viewBox;
+  const svg = svgEl("svg", { viewBox: view.join(" "), role: "img", "aria-label": opts.label });
+  const tip = h("div", { class: "tip", hidden: true });
+  const dots = [];
+  const shade = (el, place) => {
+    el.style.fill = opts.fill(place);
+    if (!place) return;
+    el.classList.add("live");
+    el.dataset.id = place.id;
+    if (opts.picked && opts.picked.has(place.id)) el.classList.add("picked");
+  };
+  for (const [code, c] of Object.entries(world.countries)) {
+    const id = S.iso3ToId.get(code);
+    const place = id != null ? S.byId.get(id) : null;
+    const el = svgEl("path", { d: c.d });
+    shade(el, place);
+    svg.append(el);
+    if (c.dot && place) dots.push([c.dot, place]);
+  }
+  // Countries too small to see get a dot to hover and click.
+  for (const [[x, y], place] of dots) {
+    const dot = svgEl("circle", { cx: x, cy: y, r: (view[2] / 380).toFixed(2) });
+    shade(dot, place);
+    svg.append(dot);
+  }
+  for (const el of svg.querySelectorAll(".picked")) svg.append(el); // outlines on top
+  svg.addEventListener("click", (e) => {
+    const id = e.target.dataset && e.target.dataset.id;
+    if (id) location.hash = `#/country/${id}`;
+  });
+  svg.addEventListener("pointermove", (e) => {
+    const id = e.target.dataset && e.target.dataset.id;
+    if (!id || e.pointerType === "touch") { tip.hidden = true; return; }
+    const place = S.byId.get(Number(id));
+    tip.replaceChildren(h("b", null, place.name), opts.tip(place));
+    const r = wrap.getBoundingClientRect();
+    tip.style.left = `${Math.min(Math.max(e.clientX - r.left, 90), r.width - 90)}px`;
+    tip.style.top = `${e.clientY - r.top}px`;
+    tip.hidden = false;
+  });
+  svg.addEventListener("pointerleave", () => { tip.hidden = true; });
+  if (opts.onDraw) opts.onDraw(svg);
+  return [svg, tip];
 }
 
-// ---------- Pages ----------
+/** A view of the map framing these countries, or the whole world if they're spread wide. */
+function frame(world, ids) {
+  const [vx, vy, vw, vh] = world.viewBox;
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  for (const id of ids) {
+    const c = world.countries[S.idToIso3.get(id)];
+    if (!c) continue;
+    x0 = Math.min(x0, c.box[0]); y0 = Math.min(y0, c.box[1]);
+    x1 = Math.max(x1, c.box[2]); y1 = Math.max(y1, c.box[3]);
+  }
+  if (!isFinite(x0)) return world.viewBox;
+  let w = Math.max(x1 - x0, 50) * 1.6, ht = Math.max(y1 - y0, 25) * 1.6;
+  if (w / ht > vw / vh) ht = w * vh / vw; else w = ht * vw / vh;
+  if (w > vw * 0.75) return world.viewBox;
+  const x = Math.min(Math.max((x0 + x1) / 2 - w / 2, vx), vx + vw - w);
+  const y = Math.min(Math.max((y0 + y1) / 2 - ht / 2, vy), vy + vh - ht);
+  return [x, y, w, ht].map((v) => Math.round(v * 10) / 10);
+}
+
+const legend = (items) => h("div", { class: "legend" }, items.map(([label, color]) => tag(label, color)));
+const riskLegend = () => legend([["Not forecast", "var(--map-none)"], ...MAP_LABELS.map((l, i) => [l, `var(--map-${i})`])]);
+
+// ---------- Home ----------
 
 function homePage() {
-  const d = S.data;
-  const out = [];
-  out.push(h("p", { class: "fresh" },
-    `Conflict data to ${monthName(d.data_through, true)}` +
-    (d.alert_record && d.alert_record.checked_through ? ` · news to ${dayName(d.alert_record.checked_through)}` : "")));
+  const risks = risksPanel();
+  const panels = [
+    S.data.world ? threatPanel(S.data.world) : null,
+    herePanel(),
+    riskMapPanel(risks.refresh), risks.el,
+    alertsPanel(), tensionPanel(), briefPanel(), allPanel(), appPanel(),
+  ];
+  return { title: "SAGE: war and conflict forecasts", body: [h("div", { class: "grid home" }, panels)] };
+}
 
-  if (d.world) {
-    const w = d.world;
-    const r = Math.max(0, Math.min(4, w.rank));
-    out.push(...section("Global threat level",
-      h("div", { class: "card threat" },
+function threatPanel(w) {
+  const r = Math.max(0, Math.min(4, w.rank));
+  const levels = w.levels || ["Low", "Guarded", "Elevated", "High", "Severe"];
+  const month = monthName(w.month || nextMonth());
+  const lm = w.last_month;
+  const count = (n) => (n == null ? "–" : String(Math.round(n)));
+  const alerts = S.data.countries.filter(alertOn).length;
+  return panel("a-threat", "Global threat level", `Forecast for ${monthName(w.month || nextMonth(), true)}`,
+    h("div", { class: "threat-row" },
+      h("div", { class: "threat-level" },
         h("span", { class: "level", style: `background:var(--threat-${r});color:${THREAT_TEXT[r]}` }, w.level.toUpperCase()),
-        h("p", null, w.text.replace(`Global threat level: ${w.level}. `, "")))));
-  }
+        h("div", { class: "meter", "aria-hidden": "true" },
+          levels.map((_, i) => h("span", { class: i === r ? "now" : null, style: `background:var(--threat-${i})` }))),
+        h("div", { class: "meter-ends", "aria-hidden": "true" }, h("span", null, levels[0]), h("span", null, levels[levels.length - 1]))),
+      stat(count(w.expected_fighting), `countries expected to see deadly fighting in ${month}` +
+        (lm ? ` (${lm.fighting} in ${monthName(lm.month)})` : "")),
+      stat(count(w.expected_wars), `expected to be at full-scale war` + (lm ? ` (${lm.wars} in ${monthName(lm.month)})` : "")),
+      stat(w.score == null ? "–" : `${Math.round(w.score * 100)}%`, "of months since 1989 were calmer than this"),
+      stat(String(alerts), alerts === 1 ? "build-up alert in the news" : "build-up alerts in the news", null, alerts ? "hot" : null)));
+}
 
-  const hereSlot = h("div");
-  out.push(hereSlot);
-  const fillHere = (iso2) => {
-    hereSlot.replaceChildren();
-    if (!iso2) return;
-    const place = placeForIso2(iso2);
-    hereSlot.append(...section("Where you are", place ? placeCard(place) :
-      h("div", { class: "card" }, h("div", { class: "name" }, regionName(iso2)),
-        h("p", { style: "margin-top:8px" }, "No organised violence has been recorded here since 1989, and SAGE sees no tension with another country worth following."))));
-  };
-  if (S.here !== undefined) fillHere(S.here);
-  else findHere().then((iso2) => { S.here = iso2; fillHere(iso2); });
-
-  const world = (d.summary || []).filter((l) => !l.startsWith("Global threat level"));
-  if (world.length) out.push(...section("Where the world is leaning", h("div", { class: "card" }, bullets(world))));
-
-  const search = h("input", { class: "search", type: "search", placeholder: "Type a country, like France", "aria-label": "Find a country", autocomplete: "off" });
-  const results = h("div", { class: "results" });
-  search.addEventListener("input", () => {
-    const q = search.value.trim().toLowerCase();
-    results.replaceChildren();
-    if (!q) return;
-    const found = S.places.filter((p) => p.name.toLowerCase().includes(q))
-      .sort((a, b) => (a.name.toLowerCase().startsWith(q) ? 0 : 1) - (b.name.toLowerCase().startsWith(q) ? 0 : 1));
-    if (!found.length) {
-      results.append(h("p", { class: "small" }, `No country called "${search.value.trim()}". SAGE covers every country with organised violence since 1989, and those in tense relations with another.`));
+function herePanel() {
+  const body = h("div", { class: "body" }, h("p", { class: "note" }, "Finding where you are…"));
+  const fill = (iso2) => {
+    if (!iso2) {
+      body.replaceChildren(h("p", { class: "note" }, "SAGE couldn't tell where you are. Find your country under All countries."));
       return;
     }
-    const list = h("div", { class: "card list" });
-    for (const p of found.slice(0, 12)) {
-      list.append(h("a", { href: `#/country/${p.id}` },
-        h("span", { class: "grow name-sm" }, p.name),
-        p.country && p.country.alert && p.country.alert.on ? h("span", { class: "chip alert" }, "Alert") : null,
-        chip(status(p.country), statusColor(p.country))));
+    const place = placeForIso2(iso2);
+    if (!place) {
+      body.replaceChildren(h("p", { class: "place-name" }, regionName(iso2)),
+        h("p", { class: "note" }, "No organised violence has been recorded here since 1989, and SAGE sees no tension with another country worth following."));
+      return;
     }
-    results.append(list);
-  });
-  out.push(...section("Find a country", search, results));
-
-  const alerts = d.countries.filter((c) => c.alert && c.alert.on);
-  if (alerts.length) out.push(...section("Build-up alerts", alerts.map((c) => placeCard(S.byId.get(c.id)))));
-
-  const tense = d.pairs.pairs.filter((p) => p.tension === "very high" || p.tension === "high")
-    .sort((x, y) => tensionOrder(x.tension) - tensionOrder(y.tension) || y.clash_6 - x.clash_6).slice(0, 6);
-  if (tense.length) out.push(...section("Tensest between countries not fighting",
-    h("div", { class: "card list" }, tense.map((p) => relationRow(p, `${p.names[0]} and ${p.names[1]}`)))));
-
-  out.push(...section("Get the app",
-    h("div", { class: "card" },
-      h("p", null, "The same forecasts on your Android phone, with the country you're in and the ones you follow on the home screen. Free, no ads, no accounts."),
-      h("div", { class: "buttons" }, h("a", { class: "button", href: APP_URL }, "Download for Android"),
-        h("a", { class: "button ghost", href: "#/about" }, "How SAGE works")))));
-  return { title: "SAGE: war and conflict forecasts", body: out };
+    body.replaceChildren(...placeSummary(place));
+  };
+  if (S.here !== undefined) fill(S.here);
+  else findHere().then((iso2) => { S.here = iso2; fill(iso2); });
+  return panel("a-here", "Where you are", null, body);
 }
+
+function placeSummary(place) {
+  const c = place.country;
+  const month = monthName(nextMonth());
+  const tense = relationsOf(place.id).find((r) => r.tension !== "usual");
+  return [
+    h("p", { class: "place-name" }, h("a", { href: `#/country/${place.id}` }, place.name)),
+    h("p", { class: "tags" }, tag(status(c), statusColor(c)), alertOn(c) ? flag() : null),
+    c ? h("div", { class: "meters" }, Object.keys(MEASURES).filter((k) => c[k]).map((k) => {
+      const p = c[k].chance[NEXT];
+      return h("div", null,
+        h("div", { class: "top" }, h("span", null, `${MEASURES[k]} in ${month}`),
+          h("span", { class: "num", style: `color:${chanceColor(p)}` }, pct(p))),
+        mbar(p));
+    })) : null,
+    tense ? h("p", { class: "note" }, `Tension with ${other(tense, place.id)}: ${tense.tension}.`) : null,
+  ];
+}
+
+function riskMapPanel(onChange) {
+  const title = h("h2");
+  const fill = (place) => { const p = chanceOf(place, S.measure); return p == null ? "var(--map-none)" : mapColor(p); };
+  let svg = null;
+  const buttons = Object.keys(MEASURES).map((key) => h("button", {
+    type: "button", "data-key": key, onclick: () => { S.measure = key; update(); onChange(); },
+  }, key === "fighting" ? "Fighting" : "War"));
+  const update = () => {
+    title.textContent = `${MEASURES[S.measure]} in ${monthName(nextMonth())}`;
+    for (const b of buttons) b.setAttribute("aria-pressed", String(b.dataset.key === S.measure));
+    if (svg) for (const el of svg.querySelectorAll("[data-id]")) el.style.fill = fill(S.byId.get(Number(el.dataset.id)));
+  };
+  const map = mapBody({
+    label: "World map of the chance of each country's forecast",
+    fill,
+    tip: (place) => {
+      const p = chanceOf(place, S.measure);
+      return p == null ? "No forecast of its own" : `${MEASURES[S.measure]}: ${pct(p)}`;
+    },
+    onDraw: (el) => { svg = el; },
+  });
+  update();
+  return h("section", { class: "panel a-map" },
+    h("header", null, title, h("span", { class: "right toggle", role: "group", "aria-label": "Show on the map" }, buttons)),
+    map, riskLegend());
+}
+
+function risksPanel() {
+  const title = h("h2");
+  const list = h("ol", { class: "rows ranked" });
+  const refresh = () => {
+    const key = S.measure;
+    title.textContent = `Most likely: ${MEASURES[key].toLowerCase()}`;
+    const ranked = S.data.countries.filter((c) => c[key])
+      .sort((a, b) => b[key].chance[NEXT] - a[key].chance[NEXT]).slice(0, RISKS_SHOWN);
+    list.replaceChildren(...ranked.map((c, i) => {
+      const p = c[key].chance[NEXT];
+      return h("li", null, h("a", { href: `#/country/${c.id}` },
+        h("span", { class: "rank" }, String(i + 1)),
+        h("span", { class: "name" }, c.name, alertOn(c) ? flag() : null),
+        mbar(p), h("span", { class: "pct", style: `color:${chanceColor(p)}` }, pctShort(p))));
+    }));
+  };
+  refresh();
+  const el = h("section", { class: "panel a-risks" },
+    h("header", null, title, h("span", { class: "right" }, monthName(nextMonth()))), list);
+  return { el, refresh };
+}
+
+function alertShort(c) {
+  const a = c.alert;
+  const who = a.kind === "aimed" ? "other countries' forces massing against it" : "its forces mobilising and threats of force";
+  return `News of ${who} far above usual` + (a.since ? ` since ${dayName(a.since)}` : "") +
+    (a.times_usual ? `, up to about ${Math.round(a.times_usual)}×.` : ".");
+}
+
+function alertsPanel() {
+  const alerts = S.data.countries.filter(alertOn);
+  return panel("a-alerts", "Build-up alerts", alerts.length ? String(alerts.length) : null,
+    alerts.length ? h("div", null, alerts.map((c) => h("div", { class: "alert-item" },
+      h("p", { class: "place-name" }, h("a", { href: `#/country/${c.id}` }, c.name), tag(status(c), statusColor(c))),
+      h("p", null, alertShort(c)))))
+      : h("p", { class: "empty" }, "No build-up alerts right now."));
+}
+
+function pairRow(p, name) {
+  return h("li", null, h("a", { href: pairLink(p) },
+    h("span", { class: "name" }, name),
+    tag(p.tension, tensionColor(p.tension)),
+    h("span", { class: "pct", style: `color:${chanceColor(p.clash_6)}` }, pctShort(p.clash_6))));
+}
+
+function tensionPanel() {
+  const tense = S.data.pairs.pairs.filter((p) => p.tension === "very high" || p.tension === "high")
+    .sort((x, y) => tensionOrder(x.tension) - tensionOrder(y.tension) || y.clash_6 - x.clash_6).slice(0, 8);
+  return panel("a-tension", "Tensest relations", "Clashes, 6 months",
+    tense.length ? h("ul", { class: "rows" }, tense.map((p) => pairRow(p, `${p.names[0]} – ${p.names[1]}`)))
+      : h("p", { class: "empty" }, "No relations between countries are unusually tense right now."));
+}
+
+function briefPanel() {
+  const lines = (S.data.summary || []).filter((l) => !l.startsWith("Global threat level"));
+  return panel("a-brief", "Summary", null, h("ul", { class: "lines" }, lines.map((l) => h("li", null, l))));
+}
+
+function allPanel() {
+  const search = h("input", { class: "search", type: "search", placeholder: "Find a country", "aria-label": "Find a country", autocomplete: "off" });
+  const list = h("ul", { class: "rows scroll" });
+  const fill = () => {
+    const q = search.value.trim().toLowerCase();
+    const found = !q ? S.places : S.places.filter((p) => p.name.toLowerCase().includes(q))
+      .sort((a, b) => (a.name.toLowerCase().startsWith(q) ? 0 : 1) - (b.name.toLowerCase().startsWith(q) ? 0 : 1));
+    list.replaceChildren(...found.map((p) => {
+      const v = chanceOf(p, "fighting");
+      return h("li", null, h("a", { href: `#/country/${p.id}` },
+        h("span", { class: "name" }, p.name, alertOn(p.country) ? flag() : null),
+        tag(status(p.country), statusColor(p.country)),
+        h("span", { class: "pct", style: v == null ? null : `color:${chanceColor(v)}` }, v == null ? "–" : pctShort(v))));
+    }));
+    if (!found.length) {
+      list.append(h("li", null, h("p", { class: "empty" },
+        `No country called "${search.value.trim()}". SAGE covers every country with organised violence since 1989, and those in tense relations with another.`)));
+    }
+  };
+  search.addEventListener("input", fill);
+  fill();
+  return panel("a-all", "All countries", `Fighting in ${monthName(nextMonth())}`, search, list);
+}
+
+function appPanel() {
+  return panel("a-app", "Android app", null, h("div", { class: "app-strip" },
+    h("p", null, h("b", null, "SAGE on your phone. "),
+      "The same forecasts, with where you are, the countries you follow and what's changed since you last looked. Free, no ads, no accounts."),
+    h("div", { class: "buttons" }, h("a", { class: "button", href: APP_URL }, "Download APK"),
+      h("a", { class: "button ghost", href: REPO_URL }, "View source"))));
+}
+
+// ---------- A country ----------
 
 function alertText(c) {
   const a = c.alert;
@@ -273,81 +487,128 @@ function alertText(c) {
   return `News of ${who} has been far above usual${since}${times}.${past} An alert is a warning sign, not a forecast.`;
 }
 
+const tensionLegend = (self) => legend([[self, "var(--text)"], ["At war or fighting", "var(--map-5)"],
+  ["Very high", "var(--map-4)"], ["High", "var(--map-3)"], ["Above usual", "var(--map-2)"], ["Usual", "var(--map-0)"]]);
+
 function countryPage(id) {
   const place = S.byId.get(id);
   if (!place) return notFound();
   const c = place.country;
-  const out = [h("a", { class: "back", href: "#/" }, "← Home"), h("h1", null, place.name),
-    h("div", { class: "row" }, chip(status(c), statusColor(c)), c ? h("span", { class: "sub" }, c.region) : null)];
-  if (!c) {
-    out.push(h("p", { style: "margin-top:16px" }, `There's been no organised violence recorded in ${place.name} since 1989, so SAGE doesn't forecast fighting inside it. It does follow ${place.name}'s relations with other countries, below.`));
+  const month = monthName(nextMonth());
+  const keys = c ? QUESTIONS.filter((k) => c[k]) : [];
+  const head = h("section", { class: "panel a-head" }, h("div", { class: "head-row" + (keys.length ? "" : " solo") },
+    h("div", { class: "who" }, h("p", { class: "kicker" }, c ? c.region : "Relations only"), h("h1", null, place.name),
+      h("p", { class: "tags" }, tag(status(c), statusColor(c)), alertOn(c) ? flag() : null)),
+    keys.map((k) => {
+      const p = c[k].chance[NEXT];
+      return stat(pctShort(p), `${question(k).title} in ${month}: ${chanceWord(p)}`, chanceColor(p));
+    })));
+
+  const panels = [head];
+  if (c) {
+    const summary = alertOn(c) ? c.summary.split(" Warning: ")[0] : c.summary;
+    panels.push(panel("a-situation", "Situation", null, h("div", { class: "body" }, h("p", null, summary),
+      alertOn(c) ? h("div", { class: "alert-box" }, h("b", null, "Build-up alert"), alertText(c)) : null)));
+    panels.push(chancesPanel(c));
   } else {
-    if (c.alert && c.alert.on) out.push(h("div", { class: "alert-card" }, h("b", null, "⚠ Build-up alert"), alertText(c)));
-    const summary = c.alert && c.alert.on ? c.summary.split(" Warning: ")[0] : c.summary;
-    out.push(...section("Where things stand", h("div", { class: "card" }, h("p", null, summary))));
-    out.push(h("h2", null, "The chances"));
-    for (const key of QUESTIONS) {
-      const o = c[key];
-      if (!o) continue;
-      const q = (S.data.questions || {})[key] || { title: key, text: "" };
-      const p = o.chance[NEXT];
-      out.push(h("div", { class: "card" },
-        h("div", { class: "name" }, q.title), h("div", { class: "small" }, q.text),
-        chanceBlock(monthName(nextMonth()), p),
-        h("p", { class: "small", style: "margin-top:8px" },
-          S.data.months.map((m, i) => `${monthName(m).slice(0, 3)} ${pct(o.chance[i])}`).join(" · ")),
-        o.usual ? h("p", { class: "small", style: "margin-top:0" }, `Usual for a country in its situation: ${pct(o.usual[NEXT])}`) : null,
-        o.why && o.why.length ? h("div", { class: "why" }, h("b", null, "Why"), bullets(o.why)) : null));
-    }
+    panels.push(panel("a-situation", "Situation", null, h("div", { class: "body" }, h("p", null,
+      `There's been no organised violence recorded in ${place.name} since 1989, so SAGE doesn't forecast fighting inside it. It does follow ${place.name}'s relations with other countries.`))));
   }
+
   const rel = relationsOf(id);
-  if (rel.length) {
-    const list = h("div", { class: "card list" });
-    const fill = (all) => {
-      list.replaceChildren(...(all ? rel : rel.slice(0, RELATIONS_SHOWN)).map((p) => relationRow(p, other(p, id))));
-      if (rel.length > RELATIONS_SHOWN) {
-        list.append(h("button", { class: "more", type: "button", onclick: () => fill(!all) }, all ? "Show fewer" : `Show all ${rel.length}`));
-      }
-    };
-    fill(false);
-    out.push(...section("Relations with other countries", list));
+  const tension = new Map(rel.map((p) => [otherId(p, id), p.tension]));
+  panels.push(h("section", { class: "panel a-map" }, h("header", null, h("h2", null, "Relations map")),
+    mapBody({
+      label: `Map of ${place.name}'s relations with other countries`,
+      fill: (pl) => (!pl ? "var(--map-none)" : pl.id === id ? "var(--text)" : tension.has(pl.id) ? tensionFill(tension.get(pl.id)) : "var(--map-none)"),
+      tip: (pl) => (pl.id === id ? "This country" : tension.has(pl.id) ? `Tension: ${tension.get(pl.id)}` : "No relation SAGE follows"),
+      picked: new Set([id]),
+      zoom: [id, ...rel.filter((p) => p.tension !== "usual").map((p) => otherId(p, id))],
+    }), tensionLegend(place.name)));
+  panels.push(relationsPanel(rel, id));
+
+  const whys = keys.filter((k) => c[k].why && c[k].why.length);
+  if (whys.length) {
+    panels.push(panel("a-why", "Why", null, h("div", { class: "why-cols" },
+      whys.map((k) => h("div", null, h("h3", null, question(k).title), bullets(c[k].why))))));
   }
-  return { title: `SAGE: ${place.name}`, body: out };
+  return {
+    title: `SAGE: ${place.name}`,
+    body: [h("a", { class: "back", href: "#/" }, "← Overview"), h("div", { class: "grid country" + (c ? "" : " bare") }, panels)],
+  };
 }
+
+function chancesPanel(c) {
+  const months = S.data.months;
+  const rows = QUESTIONS.filter((k) => c[k]).map((k) => {
+    const o = c[k];
+    const q = question(k);
+    return h("tr", null,
+      h("th", { scope: "row" }, q.title, q.text ? h("span", null, q.text) : null),
+      months.map((m, i) => h("td", { class: i === NEXT ? "next" : null },
+        h("span", { style: `color:${chanceColor(o.chance[i])}` }, pctShort(o.chance[i])), mbar(o.chance[i]))),
+      h("td", { class: "usual" }, o.usual ? pctShort(o.usual[NEXT]) : "–"));
+  });
+  return panel("a-chances", "The chances", "Next three months",
+    h("table", { class: "chances" },
+      h("thead", null, h("tr", null, h("td"),
+        months.map((m, i) => h("th", { scope: "col", class: i === NEXT ? "next" : null }, monthName(m).slice(0, 3))),
+        h("th", { scope: "col" }, "Usual"))),
+      h("tbody", null, rows)),
+    h("div", { class: "note body" },
+      h("p", { class: "phone-only" }, QUESTIONS.filter((k) => c[k] && question(k).text).map((k) => `${question(k).title}: ${question(k).text}. `)),
+      h("p", null, `Usual: how often it happens in ${monthName(nextMonth())} to countries in the same situation.`)));
+}
+
+function relationsPanel(rel, id) {
+  return panel("a-relations", "Relations", "Clashes, 6 months",
+    rel.length ? h("ul", { class: "rows scroll" }, rel.map((p) => pairRow(p, other(p, id))))
+      : h("p", { class: "empty" }, "None that SAGE follows."));
+}
+
+// ---------- Two countries ----------
 
 function pairPage(a, b) {
   const p = S.data.pairs.pairs.find((x) => x.a === a && x.b === b);
   if (!p) return notFound();
   const title = `${p.names[0]} and ${p.names[1]}`;
+  const head = h("section", { class: "panel a-head" }, h("div", { class: "head-row" },
+    h("div", { class: "who" }, h("p", { class: "kicker" }, "Between countries"), h("h1", null, title),
+      h("p", { class: "tags" }, tag(`Tension: ${p.tension}`, tensionColor(p.tension)),
+        h("a", { href: `#/country/${p.a}` }, p.names[0]), h("a", { href: `#/country/${p.b}` }, p.names[1]))),
+    stat(pctShort(p.clash_6), `Deadly clashes in the next six months: ${chanceWord(p.clash_6)}`, chanceColor(p.clash_6)),
+    stat(pctShort(p.war_6), `War in the next six months: ${chanceWord(p.war_6)}`, chanceColor(p.war_6)),
+    p.usual_6 != null ? stat(pctShort(p.usual_6), "Usual chance of clashes for two countries like these") : null));
+  const situation = panel("a-situation", "Situation", null, h("div", { class: "body" }, h("p", null, p.summary),
+    h("p", { class: "note" }, "Deadly clashes: at least one death in fighting between the two governments' forces. War: 1,000 or more deaths in a month.")));
+  const map = h("section", { class: "panel a-map" }, h("header", null, h("h2", null, "Map")),
+    mapBody({
+      label: `Map of ${title}`,
+      fill: (pl) => (!pl ? "var(--map-none)" : pl.id === a ? "var(--text)" : pl.id === b ? "var(--pick-2)" : "var(--map-none)"),
+      tip: (pl) => (pl.id === a || pl.id === b ? `Tension: ${p.tension}` : "Not in this pair"),
+      picked: new Set([a, b]),
+      zoom: [a, b],
+    }), legend([[p.names[0], "var(--text)"], [p.names[1], "var(--pick-2)"]]));
   return {
     title: `SAGE: ${title}`,
-    body: [h("a", { class: "back", href: `#/country/${a}` }, `← ${p.names[0]}`),
-      h("h1", null, title), chip(`Tension: ${p.tension}`, tensionColor(p.tension)),
-      ...section("Where things stand", h("div", { class: "card" }, h("p", null, p.summary))),
-      ...section("In the next six months", h("div", { class: "card" },
-        chanceBlock("Deadly clashes", p.clash_6),
-        h("div", { style: "margin-top:14px" }, chanceBlock("War", p.war_6)),
-        h("p", { class: "small", style: "margin-top:14px" },
-          "Deadly clashes: at least one death in fighting between the two governments' forces. War: 1,000 or more deaths in a month." +
-          (p.last_fought ? ` They last fought in ${p.last_fought}.` : "")))),
-      h("div", { class: "buttons" },
-        h("a", { class: "button ghost", href: `#/country/${p.a}` }, p.names[0]),
-        h("a", { class: "button ghost", href: `#/country/${p.b}` }, p.names[1]))],
+    body: [h("a", { class: "back", href: `#/country/${a}` }, `← ${p.names[0]}`), h("div", { class: "grid pair" }, head, map, situation)],
   };
 }
 
+// ---------- About ----------
+
 function aboutPage() {
   const d = S.data;
-  const out = [h("h1", null, "About SAGE"),
+  const panels = [panel("wide", "About SAGE", null, h("div", { class: "body" },
     h("p", null, "SAGE forecasts war and deadly violence, country by country, a few months ahead. It looks at how much fighting there's been, what the news says each side is doing, and what happened in similar situations since 1989. It's free, with no ads and no accounts."),
     h("div", { class: "buttons" }, h("a", { class: "button", href: REPO_URL }, "View source"),
-      h("a", { class: "button ghost", href: APP_URL }, "Download for Android"))];
-  out.push(...section("How it works", bullets([
+      h("a", { class: "button ghost", href: APP_URL }, "Download APK"))))];
+  panels.push(panel("", "How it works", null, h("div", { class: "body" }, bullets([
     "Each month, SAGE reads the latest count of people killed in organised violence (UCDP) and forecasts the next three months for every country where there's been any since 1989.",
     "Each day, it reads the world's news (GDELT): who is threatening, mobilising or attacking whom, compared with what's usual for that country.",
     "When several warning signs are far above usual at once, it raises a build-up alert.",
     "Between countries, it also takes into account whether they share a border and how often they've clashed in the past (Correlates of War).",
-    "The global threat level compares how many countries SAGE expects to see deadly fighting and full-scale war next month with every month since 1989."])));
+    "The global threat level compares how many countries SAGE expects to see deadly fighting and full-scale war next month with every month since 1989."]))));
   const rec = d.record && d.record.scores && (d.record.scores.fighting_2 || d.record.scores.fighting_1);
   if (rec) {
     const lines = [
@@ -357,25 +618,27 @@ function aboutPage() {
     ];
     const al = d.alert_record && d.alert_record.questions && d.alert_record.questions.fighting;
     if (al && al.alerts) lines.push(`After past build-up alerts, deadly fighting followed within three months in ${al.followed} of ${al.alerts} cases (${Math.round(100 * al.followed / al.alerts)}%), against ${pct(al.usual)} for an ordinary country.`);
-    out.push(...section("How accurate it is", bullets(lines),
-      h("p", { class: "small", style: "margin-top:10px" }, h("a", { href: `${REPO_URL}/blob/main/reports/backtest.md` }, "The full results"))));
+    panels.push(panel("", "How accurate it is", null, h("div", { class: "body" }, bullets(lines),
+      h("p", { class: "note", style: "margin-top:10px" }, h("a", { href: `${REPO_URL}/blob/main/reports/backtest.md` }, "The full results")))));
   }
-  out.push(...section("What it can't do", bullets([
+  panels.push(panel("", "What it can't do", null, h("div", { class: "body" }, bullets([
     "It can't see surprises that don't show up in the news first.",
     "Most build-ups never turn into war, so even serious warning signs often come with small percentages. A small chance isn't no chance.",
-    "It forecasts countries, not towns or people, and it isn't a warning service: for travel and safety, follow official advice."])));
-  out.push(...section("Privacy", h("p", null, "No cookies, no tracking, no accounts. The forecasts are one public file, updated every day.")));
-  out.push(...section("Where the numbers come from", bullets([
+    "It forecasts countries, not towns or people, and it isn't a warning service: for travel and safety, follow official advice."]))));
+  panels.push(panel("", "Privacy", null, h("div", { class: "body" }, h("p", null, "No cookies, no tracking, no accounts. The forecasts are one public file, updated every day."))));
+  panels.push(panel("", "Where the numbers come from", null, h("div", { class: "body" }, bullets([
     "Uppsala Conflict Data Program (UCDP): Georeferenced Event Dataset and Candidate Events, CC BY 4.0.",
     "The GDELT Project.",
     "Correlates of War Project: Dyadic Militarized Interstate Disputes and Direct Contiguity.",
-    "ViEWS (Uppsala University and PRIO), used to check SAGE against."])));
-  out.push(...section("Licence", h("p", null, "SAGE is free to use and share with credit. Its code is open source under the Apache License 2.0, and its forecasts are licensed under Creative Commons Attribution 4.0: if you copy or share them, credit \"SAGE (github.com/Hostu404/SAGE)\".")));
-  return { title: "About SAGE", body: out };
+    "ViEWS (Uppsala University and PRIO), used to check SAGE against.",
+    "Map: Natural Earth (public domain)."]))));
+  panels.push(panel("", "Licence", null, h("div", { class: "body" }, h("p", null, "SAGE is free to use and share with credit. Its code is open source under the Apache License 2.0, and its forecasts are licensed under Creative Commons Attribution 4.0: if you copy or share them, credit \"SAGE (github.com/Hostu404/SAGE)\"."))));
+  return { title: "About SAGE", body: [h("div", { class: "grid about" }, panels)] };
 }
 
 function notFound() {
-  return { title: "SAGE", body: [h("h1", null, "Not found"), h("p", null, "SAGE has nothing at this address. "), h("a", { href: "#/" }, "Back to the forecast")] };
+  return { title: "SAGE", body: [h("div", { class: "grid about" }, panel("wide", "Not found", null, h("div", { class: "body" },
+    h("p", null, "SAGE has nothing at this address."), h("a", { href: "#/" }, "Back to the overview"))))] };
 }
 
 // ---------- Routing ----------
@@ -393,8 +656,8 @@ function route() {
   document.title = page.title;
   main.replaceChildren(...page.body.flat(Infinity));
   for (const a of document.querySelectorAll("nav a[data-route]")) {
-    a.toggleAttribute("aria-current", a.dataset.route === (path === "about" ? "about" : path ? "" : "home"));
-    if (a.hasAttribute("aria-current")) a.setAttribute("aria-current", "page");
+    const here = a.dataset.route === (path === "about" ? "about" : path ? "" : "home");
+    if (here) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   }
   window.scrollTo(0, 0);
 }
@@ -409,8 +672,12 @@ async function start() {
     main.replaceChildren(h("p", { class: "loading" }, "The forecast couldn't be loaded. Check your connection and try again."));
     return;
   }
+  const d = S.data;
+  const news = d.alert_record && d.alert_record.checked_through ? `, news to ${dayName(d.alert_record.checked_through)}` : "";
+  const stamp = document.getElementById("stamp");
+  if (stamp) stamp.textContent = `Updated ${dayName(d.generated)} · data to ${monthName(d.data_through, true)}${news}`;
   const made = document.getElementById("made");
-  if (made) made.textContent = `Forecast made ${dayName(S.data.generated)}, from conflict data to ${monthName(S.data.data_through, true)}.`;
+  if (made) made.textContent = `Forecast made ${dayName(d.generated)}, from conflict data to ${monthName(d.data_through, true)}${news}.`;
   window.addEventListener("hashchange", route);
   route();
 }
