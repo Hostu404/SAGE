@@ -83,6 +83,9 @@ What it can't do:
 Every month's forecasts are kept unchanged in `forecasts/history/`, so the
 live record can be checked against what happened.
 
+## Why is SAGE?
+[https://www.youtube.com/watch?v=Kt9fCcgG](https://www.youtube.com/watch?v=Kt9fCcgG-1g)
+
 ## Between countries
 
 SAGE also follows about 800 pairs of countries with real friction between
