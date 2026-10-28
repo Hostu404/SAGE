@@ -5,6 +5,7 @@
 Free, open forecasts of war and attacks on civilians, with every
 forecast scored in public.
 
+**[See today's forecast at wysesage.xyz](https://wysesage.xyz)** ·
 **[Download the Android app](https://github.com/Hostu404/SAGE/releases/latest/download/app-release.apk)**
 (the latest version, as an APK, for Android 8.0 or newer) ·
 [all releases](https://github.com/Hostu404/SAGE/releases)
@@ -174,7 +175,8 @@ No paid services, no API keys.
 
 | Path | What |
 |---|---|
-| `forecasts/latest.json` | Today's forecasts, for the app and website (also served at hostu404.github.io/SAGE/forecasts/latest.json) |
+| `index.html`, `site/` | The website, wysesage.xyz, served by GitHub Pages from this repository |
+| `forecasts/latest.json` | Today's forecasts, for the app and website (served at wysesage.xyz/forecasts/latest.json) |
 | `forecasts/history/` | Each month's forecasts, kept as first published |
 | `reports/backtest.md` | How SAGE would have done since 2018, and every build-up alert |
 | `data/country_month.csv` | Deaths per country per month since 1989 (from UCDP) |
