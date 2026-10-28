@@ -99,7 +99,8 @@ fun AboutScreen(model: SageModel, f: Forecast) {
 @Composable
 private fun Accuracy(f: Forecast) {
     val record = f.record ?: return
-    val fighting = record.scores["fighting_1"] ?: return
+    // "_2" is next month: "_1" is the month already under way when the forecast is made.
+    val fighting = record.scores["fighting_2"] ?: record.scores["fighting_1"] ?: return
     SectionTitle("How accurate it is")
     val lines = mutableListOf(
         "SAGE was replayed month by month from ${Words.monthYear(record.from)} to ${Words.monthYear(record.to)}, " +

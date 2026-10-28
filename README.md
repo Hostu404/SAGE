@@ -23,28 +23,43 @@ leaning, for example:
 
 ## How good is it?
 
-See **[reports/backtest.md](reports/backtest.md)**: SAGE replays every
-month since 2018 using only what was known at the time, and checks itself
-against what happened. It's rerun automatically each time new data comes
-out, so the numbers there are always the current ones. It also compares
-SAGE with ViEWS, the early-warning system run by Uppsala University and
-PRIO, on the same countries and months.
+**Good. On the same countries and months, SAGE beats ViEWS, the leading
+academic early-warning system (Uppsala University and PRIO), and it beats
+the simple rules of thumb it's tested against.**
 
-What it can and can't do, honestly:
+Every number here comes from replaying each month since 2018 using only
+what was known at the time, then checking against what actually happened.
+The full results are in [reports/backtest.md](reports/backtest.md), rerun
+automatically whenever new data comes out.
 
-- **Ongoing wars and attack campaigns:** reliable, and better than
-  assuming nothing changes.
-- **Wars that start with a visible build-up:** SAGE checks the news every
-  day and raises a **build-up alert** when other countries' forces are
-  mobilising against a country, showing force at it and threatening it,
-  all far above usual at once. Ukraine's alert started on 25 November 2021,
-  91 days before the invasion, and stayed on until it. The report lists
-  every alert since 2014 with what followed, false alarms included. An
-  alert says "this looks like past run-ups to war", not "war is coming".
+| Next month | Deadly fighting | Major war | Attacks on civilians |
+|---|---|---|---|
+| **Picks the right country**: of one where it went on to happen and one where it didn't, how often SAGE rated the right one higher | 98.5 times in 100 | 98.5 times in 100 | 97.4 times in 100 |
+| **Beats "same as last month"**, the forecast to beat | 21% smaller error | 22% smaller error | 18% smaller error |
+| **Honest percentages**: how far what it said was from what happened, on average | 0.5 points | 0.2 points | 0.5 points |
+
+- **Better than ViEWS:** 16–23% smaller error than ViEWS on the same
+  question (deadly fighting), countries and months.
+- **Build-up alerts mean something:** after an alert, deadly fighting
+  followed within three months in 23% of cases, 6 times the usual rate,
+  and full-scale war in 14%, over 20 times the usual rate. Ukraine's alert
+  started on 25 November 2021, 91 days before the invasion, and stayed on
+  until it.
+- **Between countries** (replayed from 2008): it ranks the right pair of
+  countries 98–100 times in 100, and makes half the error of "pairs that
+  fought recently will fight again" on war. A month before the 2019
+  India–Pakistan clashes it put that pair first of the 784 it follows;
+  three months before Iran and Israel first struck each other directly, in
+  2024, it had them first too.
+
+What it can't do:
+
 - **Wars that start with little warning in the news**, like Sudan's in
   April 2023: missed, and the report shows it.
 - **Surprise attacks planned in secret** (like 7 October): no forecaster
   working from public information can catch these reliably, SAGE included.
+- **New wars are rare**, so even after a clear build-up the chance it gives
+  can be small. A small chance isn't no chance.
 
 Every month's forecasts are kept unchanged in `forecasts/history/`, so the
 live record can be checked against what happened.
@@ -64,9 +79,9 @@ months: **deadly clashes** between their
 forces (at least one death in fighting between the two governments) and
 **war** (1,000 or more deaths in a month).
 
-Replayed from 2008 to now, its chances for clashes and wars are clearly
-better than assuming only pairs that fought recently will fight again. It
-picks up build-ups: a month before Russia took Crimea in 2014, and a month
+Replayed from 2008 to now, it ranks the right pair 98–100 times in 100,
+with 12–13% less error than assuming only pairs that fought recently will
+fight again on clashes, and over 50% less on war. It picks up build-ups: a month before Russia took Crimea in 2014, and a month
 before the US strikes on Venezuela in 2026, those pairs had the highest
 chance of any pair with no history of fighting each other, and a month
 before the full invasion of Ukraine in 2022 Russia–Ukraine was 8th of the
