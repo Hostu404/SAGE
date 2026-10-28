@@ -1,0 +1,131 @@
+country_id,name,region,lat,lon
+2,United States of America,Americas,36.162,-84.235
+20,Canada,Americas,45.733,-73.583
+41,Haiti,Americas,18.55,-72.335
+42,Dominican Republic,Americas,18.567,-69.983
+51,Jamaica,Americas,18.0,-76.8
+52,Trinidad and Tobago,Americas,10.65,-61.517
+70,Mexico,Americas,24.766,-103.477
+80,Belize,Americas,17.5,-88.417
+90,Guatemala,Americas,14.967,-90.787
+91,Honduras,Americas,15.5,-87.92
+92,El Salvador,Americas,13.752,-89.072
+93,Nicaragua,Americas,13.0,-85.167
+94,Costa Rica,Americas,10.002,-83.225
+95,Panama,Americas,8.967,-79.533
+100,Colombia,Americas,6.203,-75.004
+101,Venezuela,Americas,10.373,-66.879
+110,Guyana,Americas,6.404,-58.24
+130,Ecuador,Americas,-1.207,-80.228
+135,Peru,Americas,-12.043,-75.889
+140,Brazil,Americas,-5.217,-42.802
+145,Bolivia,Americas,-18.9,-66.415
+150,Paraguay,Americas,-22.547,-55.733
+155,Chile,Americas,-33.525,-70.674
+160,Argentina,Americas,-32.958,-60.639
+200,United Kingdom,Europe,54.583,-5.933
+210,Netherlands,Europe,51.781,5.594
+211,Belgium,Europe,50.733,4.393
+220,France,Europe,43.294,5.378
+230,Spain,Europe,43.083,-2.667
+260,Germany,Europe,51.943,8.6
+290,Poland,Europe,50.473,23.934
+305,Austria,Europe,48.208,16.374
+325,Italy,Europe,43.683,10.85
+338,Malta,Europe,35.373,15.202
+339,Albania,Europe,42.358,20.076
+343,North Macedonia,Europe,42.032,21.429
+344,Croatia,Europe,45.16,16.385
+345,Serbia,Europe,43.505,19.216
+346,Bosnia-Herzegovina,Europe,44.258,18.077
+352,Cyprus,Europe,35.067,33.1
+359,Moldova,Europe,47.0,29.483
+360,Romania,Europe,45.76,25.0
+365,Russia,Europe,43.318,45.564
+369,Ukraine,Europe,48.268,37.504
+371,Armenia,Europe,40.25,45.417
+372,Georgia,Europe,42.779,41.676
+373,Azerbaijan,Europe,40.0,46.917
+380,Sweden,Europe,57.436,15.442
+404,Guinea-Bissau,Africa,11.858,-15.583
+420,Gambia,Africa,13.419,-16.292
+432,Mali,Africa,15.069,-3.516
+433,Senegal,Africa,12.583,-16.267
+434,Benin,Africa,11.34,2.757
+435,Mauritania,Africa,17.34,-13.379
+436,Niger,Africa,14.186,3.544
+437,Ivory Coast,Africa,6.364,-5.633
+438,Guinea,Africa,9.367,-10.733
+439,Burkina Faso,Africa,13.259,-1.015
+450,Liberia,Africa,6.5,-10.0
+451,Sierra Leone,Africa,8.38,-11.583
+452,Ghana,Africa,10.969,-0.242
+461,Togo,Africa,6.902,1.205
+471,Cameroon,Africa,6.367,10.667
+475,Nigeria,Africa,11.098,11.961
+482,Central African Republic,Africa,5.933,19.183
+483,Chad,Africa,13.447,16.523
+484,Congo,Africa,-4.259,15.0
+490,DR Congo,Africa,-0.667,29.204
+500,Uganda,Africa,2.767,32.583
+501,Kenya,Africa,0.65,37.971
+510,Tanzania,Africa,-6.42,39.182
+516,Burundi,Africa,-3.382,29.486
+517,Rwanda,Africa,-2.115,29.506
+520,Somalia,Africa,2.067,45.367
+522,Djibouti,Africa,11.847,42.744
+530,Ethiopia,Africa,9.433,38.747
+531,Eritrea,Africa,15.0,37.803
+540,Angola,Africa,-10.842,15.667
+541,Mozambique,Africa,-12.069,39.958
+551,Zambia,Africa,-14.3,31.409
+552,Zimbabwe,Africa,-18.006,31.071
+560,South Africa,Africa,-29.568,30.267
+565,Namibia,Africa,-17.964,21.335
+570,Lesotho,Africa,-29.317,27.483
+571,Botswana,Africa,-24.637,26.405
+572,Kingdom of eSwatini,Africa,-26.483,31.333
+580,Madagascar,Africa,-18.917,47.358
+581,Comoros,Africa,-12.163,44.396
+600,Morocco,Africa,26.35,-11.305
+615,Algeria,Africa,36.534,3.263
+616,Tunisia,Africa,35.207,8.852
+620,Libya,Africa,32.118,16.39
+625,Sudan,Africa,13.0,28.0
+626,South Sudan,Africa,7.583,30.775
+630,Iran,Middle East,34.797,50.417
+640,Turkey,Middle East,37.93,41.756
+645,Iraq,Middle East,34.918,43.786
+651,Egypt,Middle East,30.5,32.906
+652,Syria,Middle East,35.133,36.714
+660,Lebanon,Middle East,33.355,35.476
+663,Jordan,Middle East,31.95,35.967
+666,Israel,Middle East,31.517,34.45
+670,Saudi Arabia,Middle East,18.25,43.982
+678,Yemen,Middle East,14.66,44.583
+690,Kuwait,Middle East,29.338,47.658
+692,Bahrain,Middle East,26.194,50.55
+694,Qatar,Middle East,25.287,51.533
+696,United Arab Emirates,Middle East,24.451,54.397
+698,Oman,Middle East,21.0,57.0
+700,Afghanistan,Asia,34.0,67.61
+702,Tajikistan,Asia,38.717,70.086
+703,Kyrgyzstan,Asia,40.002,71.0
+704,Uzbekistan,Asia,40.963,69.25
+710,China,Asia,34.086,91.347
+750,India,Asia,33.051,75.65
+760,Bhutan,Asia,26.843,90.877
+770,Pakistan,Asia,32.97,70.505
+771,Bangladesh,Asia,23.484,90.409
+775,Myanmar,Asia,21.56,96.221
+780,Sri Lanka,Asia,8.917,80.498
+790,Nepal,Asia,28.0,84.0
+800,Thailand,Asia,6.426,101.38
+811,Cambodia,Asia,13.0,104.0
+812,Laos,Asia,18.913,103.434
+820,Malaysia,Asia,5.155,119.174
+840,Philippines,Asia,8.0,123.886
+850,Indonesia,Asia,4.45,97.667
+900,Australia,Asia,-37.814,144.963
+910,Papua New Guinea,Asia,-6.144,154.741
+940,Solomon Islands,Asia,-7.05,155.75

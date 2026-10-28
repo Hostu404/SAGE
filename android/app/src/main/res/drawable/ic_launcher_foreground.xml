@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A sage leaf, inside the adaptive icon's 66dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#E3EDDC"
+        android:pathData="M54,28 C69,36 74,53 65,69 C61,76 54,80 54,80 C54,80 47,76 43,69 C34,53 39,36 54,28 Z" />
+    <path
+        android:strokeColor="#3F5E45"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,38 L54,86 M54,52 L62,45 M54,62 L46,55 M54,70 L61,64" />
+</vector>

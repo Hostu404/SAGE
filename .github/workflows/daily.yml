@@ -1,0 +1,53 @@
+# Once a day: fetch new conflict data and news, rerun the backtest when
+# UCDP publishes a new month, write today's forecasts, and commit the
+# results back to the repo. Free on public repos. Can also be run by
+# hand from the Actions tab (Daily forecast → Run workflow).
+
+name: Daily forecast
+
+on:
+  schedule:
+    - cron: "41 6 * * *"   # 06:41 UTC every day
+  workflow_dispatch:
+
+permissions:
+  contents: write   # to commit the new data and forecasts
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -e .
+
+      # Last runs' news days, so each run only downloads what's new.
+      - uses: actions/cache@v4
+        with:
+          path: data/raw/gdelt
+          key: gdelt-${{ github.run_id }}
+          restore-keys: gdelt-
+
+      - name: Update data and forecasts
+        run: python -m sage update
+
+      - name: Commit the results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data reports forecasts
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+          else
+            git commit -m "Daily update $(date -u +%Y-%m-%d)"
+            git push
+          fi
