@@ -5,6 +5,10 @@
 Free, open forecasts of war and attacks on civilians, with every
 forecast scored in public.
 
+**[Download the Android app](https://github.com/Hostu404/SAGE/releases/latest/download/app-release.apk)**
+(the latest version, as an APK, for Android 8.0 or newer) ·
+[all releases](https://github.com/Hostu404/SAGE/releases)
+
 For each country, every month, SAGE gives the chance of:
 
 | Question | Means |

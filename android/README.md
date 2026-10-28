@@ -9,6 +9,10 @@ SAGE's war and conflict forecasts on your phone, in plain English: where the
 world is leaning, the countries you follow, build-up alerts, and how tense
 things are between countries. Free, no ads, no accounts.
 
+**[Download the latest version](https://github.com/Hostu404/SAGE/releases/latest/download/app-release.apk)**
+(Android 8.0 or newer). Open the file and allow installing from your
+browser or files app if asked.
+
 <p>
 <img src="docs/01-home.png" width="200" alt="Home screen">
 <img src="docs/03-united-kingdom.png" width="200" alt="United Kingdom">
@@ -64,7 +68,10 @@ Refresh it from the SAGE project before each release.
 ```
 
 The release build is signed with the debug key so it installs straight from
-the file. A Play Store build would use a real upload key. Screenshots are
+the file. For a real release, use Android Studio's Build → Generate Signed
+App Bundle or APK with your own key, kept outside the repository, and attach
+the APK to a GitHub release under Android Studio's own name,
+`app-release.apk`, so the download link above always gets the newest one. Screenshots are
 written to `app/build/outputs/roborazzi/`.
 
 ## Privacy
