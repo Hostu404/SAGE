@@ -9,9 +9,9 @@ SAGE's war and conflict forecasts on your phone: the same dark dashboard as
 [wysesage.xyz](https://wysesage.xyz), plus your own watchlist, a home-screen
 widget and sharing. Free, no ads, no accounts.
 
-**[Download the latest version](https://github.com/Hostu404/SAGE/releases/latest/download/app-release.apk)**
-(Android 8.0 or newer). Open the file and allow installing from your
-browser or files app if asked.
+**[Get the latest version](https://github.com/Hostu404/SAGE/releases/latest)** (Android 8.0 or newer): download
+`app-release.apk` from the release, open it, and allow installing from
+your browser or files app if asked.
 
 <p>
 <img src="docs/01-home.png" width="200" alt="Overview">
@@ -83,9 +83,9 @@ app/src/main/assets/`.
 The release build is signed with the debug key so it installs straight from
 the file. For a real release, use Android Studio's Build → Generate Signed
 App Bundle or APK with your own key, kept outside the repository, and attach
-the APK to a GitHub release under Android Studio's own name,
-`app-release.apk`, so the download link above always gets the newest one. Screenshots are
-written to `app/build/outputs/roborazzi/`.
+the APK to a new GitHub release under Android Studio's own name,
+`app-release.apk`; the link above always opens the newest release.
+Screenshots are written to `app/build/outputs/roborazzi/`.
 
 ## Privacy
 

@@ -5,7 +5,8 @@
 
 const DATA_URL = "forecasts/latest.json";
 const MAP_URL = "site/world.json";
-const APP_URL = "https://github.com/Hostu404/SAGE/releases/latest/download/app-release.apk";
+// The latest release's page, where the APK is (app-release.apk).
+const APP_URL = "https://github.com/Hostu404/SAGE/releases/latest";
 const REPO_URL = "https://github.com/Hostu404/SAGE";
 // The country lookup the app uses too: it answers with "loc=GB".
 const LOOKUP_URL = "https://www.cloudflare.com/cdn-cgi/trace";
@@ -517,8 +518,8 @@ function tablePanel() {
 function appPanel() {
   return panel("a-app", "Android app", null, h("div", { class: "app-strip" },
     h("p", null, h("b", null, "SAGE on your phone. "),
-      "The same forecasts, with where you are, the countries you follow and what's changed since you last looked. Free, no ads, no accounts."),
-    h("div", { class: "buttons" }, h("a", { class: "button", href: APP_URL }, "Download APK"),
+      "The same forecasts, plus the countries you follow with what's changed since you last looked, a home-screen widget, and forecasts to share as pictures. Free, no ads, no accounts."),
+    h("div", { class: "buttons" }, h("a", { class: "button", href: APP_URL }, "Get the app"),
       h("a", { class: "button ghost", href: REPO_URL }, "View source"))));
 }
 
@@ -653,7 +654,7 @@ function aboutPage() {
   const panels = [panel("wide", "About SAGE", null, h("div", { class: "body" },
     h("p", null, "SAGE forecasts war and deadly violence, country by country, a few months ahead. It looks at how much fighting there's been, what the news says each side is doing, and what happened in similar situations since 1989. It's free, with no ads and no accounts."),
     h("div", { class: "buttons" }, h("a", { class: "button", href: REPO_URL }, "View source"),
-      h("a", { class: "button ghost", href: APP_URL }, "Download APK"))))];
+      h("a", { class: "button ghost", href: APP_URL }, "Get the app"))))];
   panels.push(panel("", "How it works", null, h("div", { class: "body" }, bullets([
     "Each month, SAGE reads the latest count of people killed in organised violence (UCDP), which runs about a month behind, and forecasts the three months after it for every country where there's been any since 1989. The first of those months is usually already under way.",
     "Each day, it reads the world's news (GDELT): who is threatening, mobilising or attacking whom, compared with what's usual for that country.",
