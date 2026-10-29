@@ -390,8 +390,11 @@ def raised_steps(row: pd.Series, direction: str, steps: list[str] | None = None)
     return sorted(out, key=lambda x: -x[1])
 
 
-def describe(row: pd.Series, names: dict[int, str], clash: float, war: float, last_fought: str | None) -> str:
-    """A few sentences on one pair, from the side of country a."""
+def describe(row: pd.Series, names: dict[int, str], clash: float, war: float, last_fought: str | None,
+             past: ties.Past | None = None) -> str:
+    """A few sentences on one pair, from the side of country a. `last_fought`
+    is the month of their last deadly clash in UCDP's data (1989 on), and
+    `past` their history in the dispute record (ties.history)."""
     from .summary import pct, word
     a, b = names.get(int(row["a"]), str(row["a"])), names.get(int(row["b"]), str(row["b"]))
     level = tension_of(row)
@@ -415,8 +418,24 @@ def describe(row: pd.Series, names: dict[int, str], clash: float, war: float, la
     if last_fought:
         s.append(f"They last fought in {last_fought}.")
     elif level in ("high", "very high", "above usual"):
-        s.append(f"Their forces haven't fought each other since at least 1989. Since 1990, about "
-                 f"{DISPUTES_DEADLY * 100:.0f} in 100 military stand-offs between countries led to deaths, "
+        # UCDP only counts clashes between two governments' forces, so it has
+        # nothing for Australia and Afghanistan in 2001; the dispute record
+        # does. In a dispute with several countries its deaths can be someone
+        # else's (Britain and Israel's in 1956 were Israel fighting Jordan),
+        # so short of a war it says "deadly military stand-off", not "fought".
+        if past and past.deadly:
+            if past.war:
+                text = f"They were last at war in {past.deadly}"
+                later = f"; their last military stand-off was in {past.last}"
+            else:
+                text = f"Their last deadly military stand-off was in {past.deadly}"
+                later = f"; their last of any kind was in {past.last}"
+            s.append(text + (later if past.last > past.deadly else "") + ".")
+        elif past:
+            s.append(f"There's no record of their forces fighting each other; their last military stand-off was in {past.last}.")
+        else:
+            s.append("There's no record of their forces fighting each other.")
+        s.append(f"Since 1990, about {DISPUTES_DEADLY * 100:.0f} in 100 military stand-offs between countries led to deaths, "
                  f"and about {DISPUTES_WAR * 100:.0f} in 100 to war.")
     return " ".join(s)
 
@@ -440,6 +459,7 @@ def make(news: pd.DataFrame, fights: pd.DataFrame, panel: pd.DataFrame | None,
         chances[name] = pd.Series(p["sage"].to_numpy(), index=now.index)
         chances[name + "_usual"] = pd.Series(p["recent"].to_numpy(), index=now.index)
     fought = fights[fights["deaths"] >= 1].groupby(["a", "b"])["month"].max()
+    past = ties.history(raw_dir) if raw_dir is not None else {}
     out = []
     for (a, b), row in now.iterrows():
         last = fought.get((a, b))
@@ -456,7 +476,7 @@ def make(news: pd.DataFrame, fights: pd.DataFrame, panel: pd.DataFrame | None,
             "usual_6": round(float(chances["clash_usual"][(a, b)]), 4),
             "raised": {d: [k for k, _ in raised_steps(row, d, counted)] for d in ("ab", "ba")},
             "last_fought": last_fought,
-            "summary": describe(row, names, clash, war, last_fought),
+            "summary": describe(row, names, clash, war, last_fought, past.get((int(a), int(b)))),
         })
     order = {"at war": 0, "fighting": 1, "very high": 2, "high": 3, "above usual": 4, "usual": 5}
     out.sort(key=lambda e: (order[e["tension"]], -e["clash_6"]))

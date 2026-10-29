@@ -676,6 +676,7 @@ function aboutPage() {
   panels.push(panel("", "What it can't do", null, h("div", { class: "body" }, bullets([
     "It can't see surprises that don't show up in the news first.",
     "Most build-ups never turn into war, so even serious warning signs often come with small percentages. A small chance isn't no chance.",
+    "Three months out, a war that only just started gets too low a chance. Each month is forecast on its own, so the third month can drop sharply: since 2018, when SAGE gave a war under three months old less than 30% for three months on (11% on average), it was still going about a third of the time (8 of 25 forecasts). Such flare-ups really do split: some stopped within weeks (Azerbaijan in 2020, Lebanon in 2024), others kept going (Ethiopia's Tigray war in 2020, Russia's Kursk region in 2024).",
     "Between countries, chances under about a third run low: since 2018, when SAGE said about 5% for deadly clashes within six months, they followed about 7% of the time, and at about 20%, about 29%. Higher chances have been close.",
     "It forecasts countries, not towns or people, and it isn't a warning service: for travel and safety, follow official advice."]))));
   panels.push(panel("", "Privacy", null, h("div", { class: "body" }, h("p", null, "No cookies, no tracking, no accounts. The forecasts are one public file, updated every day."))));

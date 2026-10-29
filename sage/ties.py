@@ -18,6 +18,7 @@ import io
 import urllib.request
 import zipfile
 from pathlib import Path
+from typing import NamedTuple
 
 import numpy as np
 import pandas as pd
@@ -78,4 +79,29 @@ def build(raw_dir: Path, frame: pd.DataFrame) -> pd.DataFrame:
     # Any dispute at all, deadly or not: not a model feature, but one of the
     # signs that two countries could come to blows (tension.relevant).
     out["disputes_before"] = np.log1p(before(mid))
+    return out
+
+
+class Past(NamedTuple):
+    """A pair's past in the dispute record (1816-2014)."""
+    deadly: int | None  # the last year of a military dispute with deaths, or of a war
+    war: bool           # whether they were at war that year
+    last: int           # the last year of any military dispute
+
+
+def history(raw_dir: Path) -> dict[tuple[int, int], Past]:
+    """Each pair's past in the dispute record. It has a row for each pair
+    and year of a dispute, and deaths are marked in the years they
+    happened (Iraq and Saudi Arabia's 1990-91 dispute only in 1991); whole
+    wars can have them left at 0 (Germany and Russia's until 1945), so a
+    war counts as deadly too."""
+    mid = _ordered(pd.read_csv(mid_file(raw_dir / "mid"), low_memory=False), "statea", "stateb")
+    deadly = mid[(mid["fatlev"] >= 1) | (mid["war"] == 1)].groupby(["a", "b"])["year"].max()
+    war = mid[mid["war"] == 1]
+    war_years = set(zip(war["a"], war["b"], war["year"]))
+    out = {}
+    for (a, b), last in mid.groupby(["a", "b"])["year"].max().items():
+        year = deadly.get((a, b))
+        year = None if year is None or pd.isna(year) else int(year)
+        out[(int(a), int(b))] = Past(year, year is not None and (a, b, year) in war_years, int(last))
     return out

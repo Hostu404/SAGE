@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from sage import pairs, tension
+from sage import pairs, tension, ties
 
 
 def test_fighting_between_governments_is_counted_per_pair_and_month():
@@ -70,6 +70,45 @@ def test_a_pair_summary_reads_plainly():
     assert "From Russia towards United Kingdom: threats (about 4× usual)" in text
     assert "Deadly clashes between their forces in the next six months: extremely unlikely (under 1%)" in text
     assert "about 8 in 100 military stand-offs" in text
+
+
+def test_a_pair_summary_says_when_they_fought_from_the_dispute_record():
+    # Australia was in the 2001 invasion of Afghanistan, but UCDP's fighting
+    # data, which only counts two governments' forces, has no clash between them.
+    row = pd.Series({"a": 700, "b": 900, "climb": 2, "deaths_last12": 0.0, "since_clash": tension.NEVER,
+                     "border": 0.0, "sea_near": 0.0, "disputes_before": np.log1p(1), "ab_threaten_surge": np.log(3)})
+    names = {700: "Afghanistan", 900: "Australia"}
+    assert tension.tension_of(row) == "above usual"
+    def text(past):
+        return tension.describe(row, names, 0.001, 0.0, None, past)
+    assert "Their last deadly military stand-off was in 2001. Since 1990" in text(ties.Past(2001, False, 2001))
+    assert "Their last deadly military stand-off was in 1995; their last of any kind was in 2005." in text(ties.Past(1995, False, 2005))
+    assert "They were last at war in 1982; their last military stand-off was in 2012." in text(ties.Past(1982, True, 2012))
+    assert "There's no record of their forces fighting each other; their last military stand-off was in 1997." in text(ties.Past(None, False, 1997))
+    assert "There's no record of their forces fighting each other. Since 1990" in text(None)
+    assert "1989" not in text(None)
+    # A deadly clash in UCDP's data still comes first.
+    assert "They last fought in March 2003." in tension.describe(row, names, 0.001, 0.0, "March 2003", ties.Past(2001, False, 2001))
+
+
+def test_the_dispute_record_is_read_year_by_year(tmp_path):
+    (tmp_path / "mid").mkdir()
+    pd.DataFrame({
+        # One row per pair and year of a dispute, as in the record.
+        "disno":  [258, 258, 4678, 4678, 3957, 3957, 4273, 4273, 1],
+        "statea": [255, 365, 255, 255, 645, 645, 670, 670, 2],
+        "stateb": [365, 255, 365, 365, 670, 670, 645, 645, 20],
+        "year":   [1941, 1945, 2012, 2014, 1990, 1991, 2001, 2003, 1997],
+        "fatlev": [0, 6, 0, 0, 0, 6, 1, 0, 0],
+        "war":    [1, 1, 0, 0, 0, 1, 0, 0, 0],
+    }).to_csv(tmp_path / "mid" / "dyadic_mid_4.03.csv", index=False)
+    past = ties.history(tmp_path)
+    # Germany (255 in the record, 260 in SAGE) and Russia at war until 1945.
+    assert past[(260, 365)] == ties.Past(1945, True, 2014)
+    # Iraq and Saudi Arabia: at war in 1991 (only that year's row says so),
+    # then deaths in 2001 in a dispute that wasn't a war.
+    assert past[(645, 670)] == ties.Past(2001, False, 2003)
+    assert past[(2, 20)] == ties.Past(None, False, 1997)
 
 
 def test_far_apart_strangers_get_no_tension_from_someone_elses_attack():

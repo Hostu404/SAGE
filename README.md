@@ -79,6 +79,16 @@ What it can't do:
   working from public information can catch these reliably, SAGE included.
 - **New wars are rare**, so even after a clear build-up the chance it gives
   can be small. A small chance isn't no chance.
+- **Three months out, a war that only just started gets too low a
+  chance.** Each month is forecast on its own, so the third month can drop
+  sharply. Since 2018, when SAGE gave a war under three months old less
+  than 30% for three months on (11% on average), it was still going about
+  a third of the time (8 of 25 forecasts). Such flare-ups really do split:
+  some stopped within weeks (Azerbaijan in 2020, Lebanon in 2024), others
+  kept going (Ethiopia's Tigray war in 2020, Russia's Kursk region in
+  2024). A fix making the months line up was tested in the replay and
+  didn't help overall, and 25 forecasts are too few to learn a reliable
+  correction from.
 - **Between countries, chances under about a third run low.** Since 2018,
   when SAGE said about 5% for deadly clashes within six months, they
   followed about 7% of the time; when it said about 20%, about 29%. Higher
