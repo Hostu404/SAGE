@@ -72,6 +72,21 @@ def test_a_pair_summary_reads_plainly():
     assert "about 8 in 100 military stand-offs" in text
 
 
+def test_far_apart_strangers_get_no_tension_from_someone_elses_attack():
+    # News of Saudi Arabia "fighting" the Philippines in October 2026 was
+    # Filipino workers caught in Iranian and Houthi attacks on Saudi Arabia.
+    row = pd.Series({"a": 670, "b": 840, "climb": 1, "deaths_last12": 0.0, "since_clash": tension.NEVER,
+                     "ab_fight_surge": np.log(3), "border": 0.0, "sea_near": 0.0, "disputes_before": 0.0})
+    names = {670: "Saudi Arabia", 840: "Philippines"}
+    text = tension.describe(row, names, 0.0007, 0.0, None)
+    assert tension.tension_of(row) == "usual"
+    assert text.startswith("Tension between Saudi Arabia and Philippines is at its usual level.")
+    assert "fighting" not in text
+    # The same news between neighbours, with a major power, or after a past dispute still counts.
+    for change in ({"border": 1.0}, {"a": 2}, {"disputes_before": np.log1p(1)}):
+        assert tension.tension_of(pd.Series({**row.to_dict(), **change})) == "above usual"
+
+
 def test_the_line_model_reads_news_spikes_on_a_fixed_scale():
     rows = pd.DataFrame({f: [0.0, 0.0] for f in tension.SIMPLE})
     rows.loc[0, "max_mobilize_surge"] = 9.0  # thousands of times usual
@@ -101,3 +116,5 @@ def test_borders_and_past_deadly_disputes_count_only_what_came_before(tmp_path):
     # The Kargil dispute (May 1999) only counts from the month after it began;
     # the 2010 one wasn't deadly.
     assert np.expm1(t["deadly_disputes_before"]).round().tolist() == [0, 1, 2, 0, 0]
+    assert np.expm1(t["disputes_before"]).round().tolist() == [0, 1, 3, 0, 0]
+    assert "disputes_before" not in tension.feature_columns(t)

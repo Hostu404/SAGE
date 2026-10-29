@@ -62,13 +62,20 @@ def build(raw_dir: Path, frame: pd.DataFrame) -> pd.DataFrame:
 
     mid = pd.read_csv(mid_file(raw_dir / "mid"), low_memory=False).drop_duplicates(["disno", "statea", "stateb"])
     mid = _ordered(mid, "statea", "stateb")
-    mid = mid[mid["fatlev"] >= 1]
     mid = mid.assign(start=mid["strtyr"] * 12 + mid["strtmnth"].clip(lower=1) - 1).sort_values("start")
-    deadly = np.zeros(len(frame))
     rows_of = frame.groupby(["a", "b"]).indices
-    for pair, d in mid.groupby(["a", "b"]):
-        rows = rows_of.get(pair)
-        if rows is not None:
-            deadly[rows] = np.searchsorted(d["start"].to_numpy(), frame["mi"].to_numpy()[rows], side="left")
-    out["deadly_disputes_before"] = np.log1p(deadly)
+
+    def before(disputes: pd.DataFrame) -> np.ndarray:
+        """How many of these disputes each row's pair had begun before its month."""
+        n = np.zeros(len(frame))
+        for pair, d in disputes.groupby(["a", "b"]):
+            rows = rows_of.get(pair)
+            if rows is not None:
+                n[rows] = np.searchsorted(d["start"].to_numpy(), frame["mi"].to_numpy()[rows], side="left")
+        return n
+
+    out["deadly_disputes_before"] = np.log1p(before(mid[mid["fatlev"] >= 1]))
+    # Any dispute at all, deadly or not: not a model feature, but one of the
+    # signs that two countries could come to blows (tension.relevant).
+    out["disputes_before"] = np.log1p(before(mid))
     return out

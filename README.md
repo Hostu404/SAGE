@@ -102,6 +102,14 @@ months: **deadly clashes** between their
 forces (at least one death in fighting between the two governments) and
 **war** (1,000 or more deaths in a month).
 
+How tense a pair is ("above usual", "high", "very high") is only given for
+countries that could plausibly come to blows: neighbours by land or within
+400 miles by sea, pairs with a major power, or pairs with a past dispute or
+clash. Between any other two, the news gets it wrong: Filipino workers
+killed in attacks on Saudi Arabia read as Saudi Arabia "fighting" the
+Philippines, and Pakistan promising to defend Saudi Arabia reads as
+Pakistan threatening it.
+
 Replayed from 2008 to now, it ranks the right pair 98–100 times in 100,
 with 12–13% less error than assuming only pairs that fought recently will
 fight again on clashes, and over 50% less on war. It picks up build-ups: a month before Russia took Crimea in 2014, and a month

@@ -312,6 +312,33 @@ STEP_WORDS = {
 DISPUTES_DEADLY, DISPUTES_WAR = 0.077, 0.013
 
 
+# The major powers today, as Correlates of War lists them (Gleditsch and
+# Ward numbers): the United States, Britain, France, Germany, Russia, China
+# and Japan.
+MAJOR_POWERS = {2, 200, 220, 255, 260, 365, 710, 740}
+
+
+def relevant(row: pd.Series) -> bool:
+    """Whether two countries could plausibly come to blows: neighbours by
+    land or within 400 miles by sea, a major power between them, or a past
+    military dispute or clash (what political scientists call politically
+    relevant pairs). Between any other two, news of fighting is nearly
+    always someone else's attack with one side's citizens among the victims,
+    and their threats are often one promising to defend the other, so
+    their tension stays at usual. Without the ties data, every pair counts."""
+    if "border" not in row.index:
+        return True
+    if int(row["a"]) in MAJOR_POWERS or int(row["b"]) in MAJOR_POWERS:
+        return True
+    return bool(row["border"] > 0 or row["sea_near"] > 0 or row.get("disputes_before", 0) > 0
+                or row["deaths_last12"] > 0 or row.get("since_clash", NEVER) < NEVER)
+
+
+def tension_of(row: pd.Series) -> str:
+    """How tense two countries are, from the news: tension_word, for the pairs that could come to blows."""
+    return tension_word(row["climb"] if relevant(row) else 0.0, row["deaths_last12"])
+
+
 def tension_word(climb: float, deaths_last12: float) -> str:
     if deaths_last12 >= np.log1p(1000):
         return "at war"
@@ -340,7 +367,8 @@ def describe(row: pd.Series, names: dict[int, str], clash: float, war: float, la
     """A few sentences on one pair, from the side of country a."""
     from .summary import pct, word
     a, b = names.get(int(row["a"]), str(row["a"])), names.get(int(row["b"]), str(row["b"]))
-    level = tension_word(row["climb"], row["deaths_last12"])
+    level = tension_of(row)
+    shown = relevant(row)
     s = []
     if level == "at war":
         s.append(f"{a} and {b} are at war.")
@@ -351,7 +379,7 @@ def describe(row: pd.Series, names: dict[int, str], clash: float, war: float, la
     else:
         s.append(f"Tension between {a} and {b} is {level}.")
     for direction, who, whom in (("ab", a, b), ("ba", b, a)):
-        steps = raised_steps(row, direction)[:2]
+        steps = raised_steps(row, direction)[:2] if shown else []
         if steps:
             parts = [f"{STEP_WORDS[k]} (about {v:.0f}× usual)" for k, v in steps]
             s.append(f"From {who} towards {whom}: " + " and ".join(parts) + ".")
@@ -393,12 +421,13 @@ def make(news: pd.DataFrame, fights: pd.DataFrame, panel: pd.DataFrame | None,
         clash = max(float(chances["clash"][(a, b)]), war)  # a war is also a clash
         row = row.copy()
         row["a"], row["b"] = a, b
+        shown = relevant(row)
         out.append({
             "a": int(a), "b": int(b), "names": [names.get(int(a), str(a)), names.get(int(b), str(b))],
-            "tension": tension_word(row["climb"], row["deaths_last12"]),
+            "tension": tension_of(row),
             "clash_6": round(clash, 4), "war_6": round(war, 4),
             "usual_6": round(float(chances["clash_usual"][(a, b)]), 4),
-            "raised": {"ab": [k for k, _ in raised_steps(row, "ab")], "ba": [k for k, _ in raised_steps(row, "ba")]},
+            "raised": {d: [k for k, _ in raised_steps(row, d)] if shown else [] for d in ("ab", "ba")},
             "last_fought": last_fought,
             "summary": describe(row, names, clash, war, last_fought),
         })
