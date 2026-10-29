@@ -105,10 +105,15 @@ forces (at least one death in fighting between the two governments) and
 How tense a pair is ("above usual", "high", "very high") is only given for
 countries that could plausibly come to blows: neighbours by land or within
 400 miles by sea, pairs with a major power, or pairs with a past dispute or
-clash. Between any other two, the news gets it wrong: Filipino workers
-killed in attacks on Saudi Arabia read as Saudi Arabia "fighting" the
-Philippines, and Pakistan promising to defend Saudi Arabia reads as
-Pakistan threatening it.
+clash. And news of attacks and fighting only counts between neighbours or
+countries that have actually fought. Elsewhere the news gets it wrong:
+Filipino workers killed in attacks on Saudi Arabia read as Saudi Arabia
+"fighting" the Philippines, and Pakistan promising to defend Saudi Arabia
+reads as Pakistan threatening it. Checked against every month since 1990,
+the flags these rules remove were followed by clashes no more often than
+pairs that weren't flagged at all, and a "very high" pair now clashes
+within six months 2.4% of the time, against 1.8% before. These rules
+change only the words, not the chances.
 
 Replayed from 2008 to now, it ranks the right pair 98–100 times in 100,
 with 12–13% less error than assuming only pairs that fought recently will

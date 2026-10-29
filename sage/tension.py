@@ -334,9 +334,36 @@ def relevant(row: pd.Series) -> bool:
                 or row["deaths_last12"] > 0 or row.get("since_clash", NEVER) < NEVER)
 
 
+# Attacks and fighting: news of them is only taken as between the two
+# countries themselves when they're neighbours or have fought (counted_steps).
+PHYSICAL = ("assault", "fight", "heavy_weapons")
+
+
+def counted_steps(row: pd.Series) -> list[str]:
+    """The steps of the ladder that count towards how tense two countries
+    are: none unless they could come to blows (relevant), and attacks and
+    fighting only between neighbours (by land, or within 400 miles by sea)
+    or countries that have fought since 1989. Between others, news of
+    fighting is nearly always someone else's attack with one side's
+    citizens among the victims: Americans in the Paris attacks, British
+    tourists in Tunisia. Without the ties data, every step counts."""
+    if not relevant(row):
+        return []
+    if "border" not in row.index:
+        return list(STEPS)
+    near_or_fought = bool(row["border"] > 0 or row["sea_near"] > 0 or row["deaths_last12"] > 0
+                          or row.get("since_clash", NEVER) < NEVER)
+    return [s for s in STEPS if near_or_fought or s not in PHYSICAL]
+
+
 def tension_of(row: pd.Series) -> str:
-    """How tense two countries are, from the news: tension_word, for the pairs that could come to blows."""
-    return tension_word(row["climb"] if relevant(row) else 0.0, row["deaths_last12"])
+    """How tense two countries are, from the news (tension_word), counting only counted_steps."""
+    steps = counted_steps(row)
+    if len(steps) == len(STEPS):
+        climb = row["climb"]
+    else:
+        climb = sum(1 for s in steps if raised_steps(row, "ab", [s]) or raised_steps(row, "ba", [s]))
+    return tension_word(climb, row["deaths_last12"])
 
 
 def tension_word(climb: float, deaths_last12: float) -> str:
@@ -353,10 +380,10 @@ def tension_word(climb: float, deaths_last12: float) -> str:
     return "usual"
 
 
-def raised_steps(row: pd.Series, direction: str) -> list[tuple[str, float]]:
-    """Steps of the ladder at least twice their usual from one side, biggest first."""
+def raised_steps(row: pd.Series, direction: str, steps: list[str] | None = None) -> list[tuple[str, float]]:
+    """Steps of the ladder (or just `steps`) at least twice their usual from one side, biggest first."""
     out = []
-    for step in STEPS:
+    for step in STEPS if steps is None else steps:
         surge = row.get(f"{direction}_{step}_surge")
         if surge is not None and np.isfinite(surge) and surge >= np.log(2):
             out.append((step, float(np.exp(surge))))
@@ -368,7 +395,7 @@ def describe(row: pd.Series, names: dict[int, str], clash: float, war: float, la
     from .summary import pct, word
     a, b = names.get(int(row["a"]), str(row["a"])), names.get(int(row["b"]), str(row["b"]))
     level = tension_of(row)
-    shown = relevant(row)
+    counted = counted_steps(row)
     s = []
     if level == "at war":
         s.append(f"{a} and {b} are at war.")
@@ -379,7 +406,7 @@ def describe(row: pd.Series, names: dict[int, str], clash: float, war: float, la
     else:
         s.append(f"Tension between {a} and {b} is {level}.")
     for direction, who, whom in (("ab", a, b), ("ba", b, a)):
-        steps = raised_steps(row, direction)[:2] if shown else []
+        steps = raised_steps(row, direction, counted)[:2]
         if steps:
             parts = [f"{STEP_WORDS[k]} (about {v:.0f}× usual)" for k, v in steps]
             s.append(f"From {who} towards {whom}: " + " and ".join(parts) + ".")
@@ -421,13 +448,13 @@ def make(news: pd.DataFrame, fights: pd.DataFrame, panel: pd.DataFrame | None,
         clash = max(float(chances["clash"][(a, b)]), war)  # a war is also a clash
         row = row.copy()
         row["a"], row["b"] = a, b
-        shown = relevant(row)
+        counted = counted_steps(row)
         out.append({
             "a": int(a), "b": int(b), "names": [names.get(int(a), str(a)), names.get(int(b), str(b))],
             "tension": tension_of(row),
             "clash_6": round(clash, 4), "war_6": round(war, 4),
             "usual_6": round(float(chances["clash_usual"][(a, b)]), 4),
-            "raised": {d: [k for k, _ in raised_steps(row, d)] if shown else [] for d in ("ab", "ba")},
+            "raised": {d: [k for k, _ in raised_steps(row, d, counted)] for d in ("ab", "ba")},
             "last_fought": last_fought,
             "summary": describe(row, names, clash, war, last_fought),
         })

@@ -82,9 +82,19 @@ def test_far_apart_strangers_get_no_tension_from_someone_elses_attack():
     assert tension.tension_of(row) == "usual"
     assert text.startswith("Tension between Saudi Arabia and Philippines is at its usual level.")
     assert "fighting" not in text
-    # The same news between neighbours, with a major power, or after a past dispute still counts.
-    for change in ({"border": 1.0}, {"a": 2}, {"disputes_before": np.log1p(1)}):
+    # Fighting counts between neighbours, or countries that have fought.
+    for change in ({"border": 1.0}, {"sea_near": 1.0}, {"since_clash": 30.0}):
         assert tension.tension_of(pd.Series({**row.to_dict(), **change})) == "above usual"
+    # With a major power or after a past dispute, threats count but news of
+    # fighting doesn't: Americans killed in the Paris attacks aren't the US
+    # fighting France.
+    for change in ({"a": 2, "b": 220}, {"disputes_before": np.log1p(1)}):
+        far = pd.Series({**row.to_dict(), **change})
+        assert tension.tension_of(far) == "usual"
+        assert "fighting" not in tension.describe(far, {2: "United States", 220: "France", 670: "Saudi Arabia", 840: "Philippines"}, 0.001, 0.0, None)
+        threats = pd.Series({**far.to_dict(), "ba_threaten_surge": np.log(3), "climb": 2})
+        assert tension.tension_of(threats) == "above usual"
+        assert "threats (about 3× usual)" in tension.describe(threats, {2: "United States", 220: "France", 670: "Saudi Arabia", 840: "Philippines"}, 0.001, 0.0, None)
 
 
 def test_the_line_model_reads_news_spikes_on_a_fixed_scale():
