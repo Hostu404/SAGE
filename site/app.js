@@ -108,6 +108,8 @@ function svgEl(tag, attrs) {
   for (const [k, v] of Object.entries(attrs || {})) if (v != null) el.setAttribute(k, v);
   return el;
 }
+/** Replace an element's contents, skipping the empty slots (null) that the browser would print as "null". */
+const replaceKids = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter((k) => k != null && k !== false));
 const tag = (text, color, title) => h("span", { class: "tag", title }, h("i", { style: `background:${color}` }), text);
 const flag = () => h("span", { class: "flag", title: ALERT_MEANS }, "Alert");
 const mbar = (p) => h("span", { class: "mbar", "aria-hidden": "true" },
@@ -268,7 +270,7 @@ function drawMap(world, opts, wrap) {
   const placeAt = (e) => { const id = e.target.dataset && e.target.dataset.id; return id ? S.byId.get(Number(id)) : null; };
   const showTip = (e, place, pinned) => {
     const link = pinned ? href(place) : null;
-    tip.replaceChildren(h("b", null, place.name), h("span", null, opts.tip(place)), link ? h("a", { href: link }, "Open ›") : null);
+    replaceKids(tip, h("b", null, place.name), h("span", null, opts.tip(place)), link ? h("a", { href: link }, "Open ›") : null);
     const r = wrap.getBoundingClientRect();
     const y = e.clientY - r.top;
     tip.classList.toggle("pinned", !!pinned);
@@ -367,7 +369,7 @@ function herePanel() {
         h("p", { class: "note" }, "No organised violence has been recorded here since 1989, and SAGE sees no tension with another country worth following."));
       return;
     }
-    body.replaceChildren(...placeSummary(place));
+    replaceKids(body, placeSummary(place));
   };
   if (S.here !== undefined) fill(S.here);
   else findHere().then((iso2) => { S.here = iso2; fill(iso2); });
@@ -598,7 +600,7 @@ function chancesPanel(c) {
         h("span", { style: `color:${chanceColor(o.chance[i])}` }, pctShort(o.chance[i])), mbar(o.chance[i]))),
       h("td", { class: "usual" }, o.usual ? pctShort(o.usual[NEXT]) : "–"));
   });
-  return panel("a-chances", "The chances", "Next three months",
+  return panel("a-chances", "The chances", `${monthName(months[0])} to ${monthName(months[months.length - 1], true)}`,
     h("table", { class: "chances" },
       h("thead", null, h("tr", null, h("td"),
         months.map((m, i) => h("th", { scope: "col", class: i === NEXT ? "next" : null }, monthName(m).slice(0, 3))),
@@ -653,7 +655,7 @@ function aboutPage() {
     h("div", { class: "buttons" }, h("a", { class: "button", href: REPO_URL }, "View source"),
       h("a", { class: "button ghost", href: APP_URL }, "Download APK"))))];
   panels.push(panel("", "How it works", null, h("div", { class: "body" }, bullets([
-    "Each month, SAGE reads the latest count of people killed in organised violence (UCDP) and forecasts the next three months for every country where there's been any since 1989.",
+    "Each month, SAGE reads the latest count of people killed in organised violence (UCDP), which runs about a month behind, and forecasts the three months after it for every country where there's been any since 1989. The first of those months is usually already under way.",
     "Each day, it reads the world's news (GDELT): who is threatening, mobilising or attacking whom, compared with what's usual for that country.",
     "When several warning signs are far above usual at once, it raises a build-up alert.",
     "Between countries, it also takes into account whether they share a border and how often they've clashed in the past (Correlates of War).",
@@ -789,7 +791,7 @@ function route() {
   else if (path === "about") page = aboutPage();
   else page = notFound();
   document.title = page.title;
-  main.replaceChildren(...page.body.flat(Infinity));
+  replaceKids(main, page.body);
   for (const a of document.querySelectorAll("nav a[data-route]")) {
     const here = a.dataset.route === (path === "about" ? "about" : path ? "" : "home");
     if (here) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
