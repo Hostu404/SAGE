@@ -275,41 +275,41 @@ For every pair of countries with real friction between them, SAGE reads each sid
 
 | | Pair-months | It happened | Error: SAGE | Error: "clashed recently?" | Ranking (AUC) |
 |---|---|---|---|---|---|
-| Deadly clashes, within 3 months | 174,048 | 519 | 0.00148 | 0.00168 | 98.8% |
-| Deadly clashes, within 6 months | 171,696 | 683 | 0.00186 | 0.00214 | 97.7% |
+| Deadly clashes, within 3 months | 174,048 | 519 | 0.00148 | 0.00168 | 98.7% |
+| Deadly clashes, within 6 months | 171,696 | 683 | 0.00184 | 0.00214 | 97.7% |
 | War, within 3 months | 174,048 | 59 | 0.00012 | 0.00032 | 100.0% |
 | War, within 6 months | 171,696 | 62 | 0.00015 | 0.00034 | 99.5% |
 
-"Clashed recently?" says pairs that fought in the last six months will fight again, and others won't: the forecast to beat. For **new clashes** (pairs that hadn't fought for a year or more), 165 of 170,879 pair-months saw fighting within six months; SAGE rated those at 4.6% on average, against 0.07% for pairs that stayed calm (ranking 91%).
+"Clashed recently?" says pairs that fought in the last six months will fight again, and others won't: the forecast to beat. For **new clashes** (pairs that hadn't fought for a year or more), 165 of 170,879 pair-months saw fighting within six months; SAGE rated those at 5.1% on average, against 0.06% for pairs that stayed calm (ranking 91%).
 
 When SAGE said… (deadly clashes within 6 months)
 
 | SAGE said | Pair-months | It happened |
 |---|---|---|
-| 0%–2% (avg 0.0%) | 170,291 | 0.1% |
-| 2%–5% (avg 3.1%) | 295 | 6.4% |
-| 5%–10% (avg 7.3%) | 141 | 12.1% |
-| 10%–20% (avg 14.5%) | 164 | 22.6% |
-| 20%–35% (avg 26.4%) | 113 | 25.7% |
-| 35%–50% (avg 42.9%) | 96 | 49.0% |
-| 50%–65% (avg 58.6%) | 133 | 55.6% |
-| 65%–80% (avg 72.9%) | 142 | 60.6% |
-| 80%–90% (avg 85.3%) | 126 | 73.8% |
-| 90%–95% (avg 93.0%) | 117 | 92.3% |
-| 95%–100% (avg 96.4%) | 78 | 91.0% |
+| 0%–2% (avg 0.0%) | 170,358 | 0.1% |
+| 2%–5% (avg 3.2%) | 266 | 6.0% |
+| 5%–10% (avg 7.2%) | 134 | 10.4% |
+| 10%–20% (avg 14.2%) | 133 | 25.6% |
+| 20%–35% (avg 26.4%) | 115 | 32.2% |
+| 35%–50% (avg 42.2%) | 96 | 46.9% |
+| 50%–65% (avg 57.8%) | 117 | 52.1% |
+| 65%–80% (avg 72.4%) | 155 | 65.8% |
+| 80%–90% (avg 85.3%) | 117 | 71.8% |
+| 90%–95% (avg 93.0%) | 123 | 91.1% |
+| 95%–100% (avg 96.2%) | 82 | 90.2% |
 
 Before well-known clashes: the chance SAGE gave of deadly clashes within six months, the month before and three months before, and where that ranked among all the pairs it follows (1 = the highest in the world that month):
 
 | Clash | Began | A month before | Three months before |
 |---|---|---|---|
-| Russia–Ukraine, Crimea and Donbas | Mar 2014 | 1.2% (#5 of 784) | 0.3% (#20 of 784) |
-| China–India, Galwan valley | Jun 2020 | 0.2% (#17 of 784) | 0.1% (#115 of 784) |
-| India–Pakistan, Pulwama and Balakot | Feb 2019 | 96.3% (#1 of 784) | 93.2% (#1 of 784) |
-| Russia–Ukraine, full invasion | Feb 2022 | 2.0% (#8 of 784) | 2.8% (#9 of 784) |
-| Iran–Israel, first direct strikes | Apr 2024 | 95.1% (#2 of 784) | 97.6% (#1 of 784) |
-| India–Pakistan, Operation Sindoor | May 2025 | 93.9% (#2 of 784) | 79.3% (#5 of 784) |
-| Thailand–Cambodia border war | Jul 2025 | 83.7% (#7 of 784) | 0.3% (#22 of 784) |
-| United States–Venezuela | Jan 2026 | 2.0% (#9 of 784) | 0.2% (#16 of 784) |
+| Russia–Ukraine, Crimea and Donbas | Mar 2014 | 1.2% (#5 of 784) | 0.1% (#29 of 784) |
+| China–India, Galwan valley | Jun 2020 | 0.4% (#9 of 784) | 0.1% (#69 of 784) |
+| India–Pakistan, Pulwama and Balakot | Feb 2019 | 96.2% (#1 of 784) | 94.6% (#1 of 784) |
+| Russia–Ukraine, full invasion | Feb 2022 | 1.7% (#7 of 784) | 3.3% (#10 of 784) |
+| Iran–Israel, first direct strikes | Apr 2024 | 95.0% (#2 of 784) | 97.4% (#1 of 784) |
+| India–Pakistan, Operation Sindoor | May 2025 | 92.2% (#2 of 784) | 84.4% (#5 of 784) |
+| Thailand–Cambodia border war | Jul 2025 | 82.0% (#7 of 784) | 0.2% (#24 of 784) |
+| United States–Venezuela | Jan 2026 | 2.7% (#8 of 784) | 0.2% (#17 of 784) |
 
 ## Before the big surprises
 

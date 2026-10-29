@@ -61,25 +61,43 @@ def build(raw_dir: Path, frame: pd.DataFrame) -> pd.DataFrame:
     out["border"] = (kind == 1).astype(float)
     out["sea_near"] = ((kind >= 2) & (kind <= 5)).astype(float)
 
-    mid = pd.read_csv(mid_file(raw_dir / "mid"), low_memory=False).drop_duplicates(["disno", "statea", "stateb"])
-    mid = _ordered(mid, "statea", "stateb")
-    mid = mid.assign(start=mid["strtyr"] * 12 + mid["strtmnth"].clip(lower=1) - 1).sort_values("start")
+    years = _ordered(pd.read_csv(mid_file(raw_dir / "mid"), low_memory=False), "statea", "stateb")
+    years = years.assign(start=years["strtyr"] * 12 + years["strtmnth"].clip(lower=1) - 1)
+    mid = years.drop_duplicates(["disno", "statea", "stateb"]).sort_values("start")
     rows_of = frame.groupby(["a", "b"]).indices
 
-    def before(disputes: pd.DataFrame) -> np.ndarray:
-        """How many of these disputes each row's pair had begun before its month."""
+    def before(disputes: pd.DataFrame, when: str = "start") -> np.ndarray:
+        """How many of these disputes each row's pair had by its month."""
         n = np.zeros(len(frame))
         for pair, d in disputes.groupby(["a", "b"]):
             rows = rows_of.get(pair)
             if rows is not None:
-                n[rows] = np.searchsorted(d["start"].to_numpy(), frame["mi"].to_numpy()[rows], side="left")
+                n[rows] = np.searchsorted(d[when].to_numpy(), frame["mi"].to_numpy()[rows], side="left")
         return n
 
-    out["deadly_disputes_before"] = np.log1p(before(mid[mid["fatlev"] >= 1]))
+    out["deadly_disputes_before"] = np.log1p(before(deadly_disputes(years), "known"))
     # Any dispute at all, deadly or not: not a model feature, but one of the
     # signs that two countries could come to blows (tension.relevant).
     out["disputes_before"] = np.log1p(before(mid))
     return out
+
+
+def deadly_disputes(years: pd.DataFrame) -> pd.DataFrame:
+    """Each pair's deadly disputes, from the record's rows (one per pair
+    and year of a dispute), and the month each became known as deadly.
+
+    Deaths are marked in the year they happened, and whole wars can have
+    them left at 0 (Germany and Russia's until 1945), so a dispute is deadly
+    if any year of it had deaths or a war. Judging it by its first year
+    alone missed nearly half of them. It's known from the dispute's start
+    if the deaths came in its first year, else from the end of its first
+    deadly year, so a replay never sees deaths before they happened.
+    """
+    deadly = years[(years["fatlev"] >= 1) | (years["war"] == 1)]
+    first = deadly.groupby(["disno", "a", "b"]).agg(
+        year=("year", "min"), strtyr=("strtyr", "first"), start=("start", "first")).reset_index()
+    first["known"] = np.where(first["year"] == first["strtyr"], first["start"], first["year"] * 12 + 11)
+    return first.sort_values("known")
 
 
 class Past(NamedTuple):

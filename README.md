@@ -90,8 +90,8 @@ What it can't do:
   didn't help overall, and 25 forecasts are too few to learn a reliable
   correction from.
 - **Between countries, chances under about a third run low.** Since 2018,
-  when SAGE said about 5% for deadly clashes within six months, they
-  followed about 7% of the time; when it said about 20%, about 29%. Higher
+  when SAGE said about 4% for deadly clashes within six months, they
+  followed about 6% of the time; when it said about 21%, about 34%. Higher
   chances have been close. A correction learned from earlier years was
   tested and didn't hold up, because how far off it was kept changing.
 
@@ -130,12 +130,12 @@ within six months 2.4% of the time, against 1.8% before. These rules
 change only the words, not the chances.
 
 Replayed from 2008 to now, it ranks the right pair 98–100 times in 100,
-with 12–13% less error than assuming only pairs that fought recently will
+with 12–14% less error than assuming only pairs that fought recently will
 fight again on clashes, and over 50% less on war. It picks up build-ups: a month before Russia took Crimea in 2014, and a month
 before the US strikes on Venezuela in 2026, those pairs had the highest
 chance of any pair with no history of fighting each other, and a month
-before the full invasion of Ukraine in 2022 Russia–Ukraine was 8th of the
-784 pairs it follows, behind seven that had fought in recent years. But
+before the full invasion of Ukraine in 2022 Russia–Ukraine was 7th of the
+784 pairs it follows, behind six that had fought in recent years. But
 the chances it gives stay small (1–3%), because most build-ups never turn
 into fighting, and sudden clashes with no build-up in the news (China and
 India in the Galwan valley, 2020) still get low numbers. The report has

@@ -68,8 +68,8 @@ fun AboutScreen(model: SageModel, f: Forecast) {
                         "It can't see surprises that don't show up in the news first.",
                         "Most build-ups never turn into war, so even serious warning signs often come with small percentages. A " +
                             "small chance isn't no chance.",
-                        "Between countries, chances under about a third run low: since 2018, when SAGE said about 5% for deadly " +
-                            "clashes within six months, they followed about 7% of the time, and at about 20%, about 29%. Higher " +
+                        "Between countries, chances under about a third run low: since 2018, when SAGE said about 4% for deadly " +
+                            "clashes within six months, they followed about 6% of the time, and at about 21%, about 34%. Higher " +
                             "chances have been close.",
                         "It forecasts countries, not towns or people, and it isn't a warning service: for travel and safety, follow " +
                             "official advice.",

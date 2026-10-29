@@ -111,6 +111,24 @@ def test_the_dispute_record_is_read_year_by_year(tmp_path):
     assert past[(2, 20)] == ties.Past(None, False, 1997)
 
 
+def test_a_dispute_is_deadly_from_when_its_deaths_are_known():
+    years = pd.DataFrame({
+        "disno":  [258, 258, 258, 3957, 3957, 1612, 4342],
+        "a":      [260, 260, 260, 645, 645, 645, 260],
+        "b":      [365, 365, 365, 670, 670, 670, 365],
+        "year":   [1941, 1942, 1945, 1990, 1991, 1973, 1999],
+        "strtyr": [1941, 1941, 1941, 1990, 1990, 1973, 1999],
+        "start":  [1941 * 12 + 5] * 3 + [1990 * 12 + 7] * 2 + [1973 * 12 + 9, 1999 * 12],
+        "fatlev": [0, 0, 6, 0, 6, 1, 0],
+        "war":    [1, 1, 1, 0, 1, 0, 0],
+    })
+    known = ties.deadly_disputes(years).set_index("disno")["known"]
+    assert known[258] == 1941 * 12 + 5      # a war: deadly from its start, though deaths are only marked in 1945
+    assert known[3957] == 1991 * 12 + 11    # deaths came in its second year: known from the end of that year
+    assert known[1612] == 1973 * 12 + 9     # deaths in its first year: from its start
+    assert 4342 not in known.index          # no deaths, no war
+
+
 def test_far_apart_strangers_get_no_tension_from_someone_elses_attack():
     # News of Saudi Arabia "fighting" the Philippines in October 2026 was
     # Filipino workers caught in Iranian and Houthi attacks on Saudi Arabia.
@@ -154,7 +172,8 @@ def test_borders_and_past_deadly_disputes_count_only_what_came_before(tmp_path):
                           columns=["state1no", "state2no", "year", "conttype"])
     border.to_csv(tmp_path / "cow" / "contiguity.csv", index=False)
     pd.DataFrame({"disno": [1, 2, 3], "statea": [750, 770, 750], "stateb": [770, 750, 770],
-                  "strtyr": [1999, 2001, 2010], "strtmnth": [5, 12, 1], "fatlev": [3, 1, 0]}
+                  "strtyr": [1999, 2001, 2010], "strtmnth": [5, 12, 1], "year": [1999, 2001, 2010],
+                  "fatlev": [3, 1, 0], "war": [0, 0, 0]}
                  ).to_csv(tmp_path / "mid" / "dyadic_mid_4.03.csv", index=False)
     frame = pd.DataFrame({"a": [750, 750, 750, 2, 20], "b": [770, 770, 770, 365, 900],
                           "month": ["1999-05", "2000-01", "2020-01", "2020-01", "2020-01"]})

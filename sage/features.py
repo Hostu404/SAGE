@@ -2,6 +2,12 @@
 
 Everything computed for month t uses only months up to t, so a forecast
 made at the end of t never sees what came after.
+
+Tested and left out: coups and coup attempts (Powell and Thyne's list),
+as months since the last one, for the trees alone and for the outbreak
+model too. In the 2018-2026 replay neither moved any question's error by
+more than about 1% either way, they helped in as many years as they hurt,
+and percentages for attacks on civilians got less honest.
 """
 
 from __future__ import annotations
