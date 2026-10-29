@@ -1,59 +1,65 @@
 package com.hostu404.sage.ui
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.em
+import androidx.compose.ui.unit.sp
 
-private val Light = lightColorScheme(
-    primary = Color(0xFF3F5E45), onPrimary = Color.White,
-    primaryContainer = Color(0xFFDCE8D6), onPrimaryContainer = Color(0xFF10200F),
-    secondary = Color(0xFF5B6458), onSecondary = Color.White,
-    secondaryContainer = Color(0xFFE2E6DC), onSecondaryContainer = Color(0xFF181D16),
-    background = Color(0xFFFAFAF6), onBackground = Color(0xFF1B1C19),
-    surface = Color(0xFFFAFAF6), onSurface = Color(0xFF1B1C19),
-    surfaceVariant = Color(0xFFE3E6DD), onSurfaceVariant = Color(0xFF4A4F47),
-    surfaceContainerLowest = Color.White, surfaceContainerLow = Color(0xFFF4F5EF),
-    surfaceContainer = Color(0xFFEFF1E9), surfaceContainerHigh = Color(0xFFE9EBE3),
-    surfaceContainerHighest = Color(0xFFE3E6DD),
-    outline = Color(0xFF7A8075), outlineVariant = Color(0xFFC8CCC2),
-    error = Color(0xFFB3261E), onError = Color.White,
-    errorContainer = Color(0xFFF9DEDA), onErrorContainer = Color(0xFF410E0B),
+/** The website's colours: a dark dashboard, with colour only where it means something. */
+object Sage {
+    val bg = Color(0xFF0B0D10)
+    val panel = Color(0xFF12161B)
+    val panel2 = Color(0xFF181D24)
+    val line = Color(0xFF232A32)
+    val lineStrong = Color(0xFF34404C)
+    val text = Color(0xFFE7EAEE)
+    val muted = Color(0xFF98A3AD)
+    val faint = Color(0xFF6B7781)
+
+    /** How likely: unlikely or less, a real possibility, as likely as not or likely, very likely or more. */
+    val chance = listOf(Color(0xFF98A3AD), Color(0xFFE5B84F), Color(0xFFF28B4B), Color(0xFFFF5B4F))
+    val calm = Color(0xFF6B7781)
+    val alert = Color(0xFFFF5B4F)
+    val alertBg = Color(0xFF2A1214)
+
+    /** The second country of a pair, on its map. */
+    val pick2 = Color(0xFF8EA4BB)
+
+    /** The map: no forecast, then under 1%, 1-5%, 5-20%, 20-40%, 40-80% and 80% or more. */
+    val mapNone = Color(0xFF1B2129)
+    val map = listOf(Color(0xFF2A3440), Color(0xFF4D4434), Color(0xFF8A5426), Color(0xFFC4651D), Color(0xFFEA4B2B), Color(0xFFFF2B3B))
+    val mapLabels = listOf("Under 1%", "1–5%", "5–20%", "20–40%", "40–80%", "80%+")
+}
+
+val Mono = FontFamily.Monospace
+
+/** Small capitals labels, as on the website: monospace and spaced out. */
+fun label(size: TextUnit = 11.sp, weight: FontWeight = FontWeight.SemiBold) =
+    TextStyle(fontFamily = Mono, fontSize = size, fontWeight = weight, letterSpacing = 0.08.em)
+
+/** Numbers: monospace, so columns line up. */
+fun mono(size: TextUnit, weight: FontWeight = FontWeight.SemiBold) = TextStyle(fontFamily = Mono, fontSize = size, fontWeight = weight)
+
+private val Scheme = darkColorScheme(
+    primary = Sage.text, onPrimary = Sage.bg,
+    secondary = Sage.muted, onSecondary = Sage.bg,
+    background = Sage.bg, onBackground = Sage.text,
+    surface = Sage.bg, onSurface = Sage.text,
+    surfaceVariant = Sage.panel2, onSurfaceVariant = Sage.muted,
+    surfaceContainerLowest = Sage.bg, surfaceContainerLow = Sage.panel, surfaceContainer = Sage.panel,
+    surfaceContainerHigh = Sage.panel2, surfaceContainerHighest = Sage.panel2,
+    outline = Sage.lineStrong, outlineVariant = Sage.line,
+    error = Sage.alert, onError = Sage.bg, errorContainer = Sage.alertBg, onErrorContainer = Color(0xFFFBE3E1),
 )
-
-private val Dark = darkColorScheme(
-    primary = Color(0xFFA6C9A6), onPrimary = Color(0xFF10331A),
-    primaryContainer = Color(0xFF2A4630), onPrimaryContainer = Color(0xFFC8E6C6),
-    secondary = Color(0xFFC0C9BB), onSecondary = Color(0xFF2B3229),
-    secondaryContainer = Color(0xFF41493E), onSecondaryContainer = Color(0xFFDCE5D6),
-    background = Color(0xFF121512), onBackground = Color(0xFFE3E5DE),
-    surface = Color(0xFF121512), onSurface = Color(0xFFE3E5DE),
-    surfaceVariant = Color(0xFF424840), onSurfaceVariant = Color(0xFFC2C7BD),
-    surfaceContainerLowest = Color(0xFF0D100D), surfaceContainerLow = Color(0xFF1A1D19),
-    surfaceContainer = Color(0xFF1E221E), surfaceContainerHigh = Color(0xFF282C27),
-    surfaceContainerHighest = Color(0xFF333731),
-    outline = Color(0xFF8C9288), outlineVariant = Color(0xFF424840),
-    error = Color(0xFFF2B8B5), onError = Color(0xFF601410),
-    errorContainer = Color(0xFF8C1D18), onErrorContainer = Color(0xFFF9DEDA),
-)
-
-/** Colours for how likely something is: 0 = unlikely or less ... 3 = very likely or more. */
-class RiskColors(val levels: List<Color>, val calm: Color)
-
-private val LightRisk = RiskColors(
-    listOf(Color(0xFF5E7D63), Color(0xFF946300), Color(0xFFB5531F), Color(0xFFB3261E)), Color(0xFF7A8075))
-private val DarkRisk = RiskColors(
-    listOf(Color(0xFF9CC39F), Color(0xFFE0B44C), Color(0xFFF29A6B), Color(0xFFF2A19A)), Color(0xFF8C9288))
-
-val LocalRisk = staticCompositionLocalOf { LightRisk }
 
 @Composable
-fun SageTheme(dark: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    CompositionLocalProvider(LocalRisk provides if (dark) DarkRisk else LightRisk) {
-        MaterialTheme(colorScheme = if (dark) Dark else Light, content = content)
-    }
+fun SageTheme(content: @Composable () -> Unit) {
+    MaterialTheme(colorScheme = Scheme, typography = Typography(), content = content)
 }

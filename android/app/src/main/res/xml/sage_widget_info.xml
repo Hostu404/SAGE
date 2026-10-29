@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android redraws the widget about every three hours; SageWidget then fetches a newer forecast. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_description"
+    android:initialLayout="@layout/widget_sage"
+    android:minWidth="180dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="150dp"
+    android:minResizeHeight="100dp"
+    android:previewLayout="@layout/widget_sage"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellWidth="3"
+    android:targetCellHeight="2"
+    android:updatePeriodMillis="10800000"
+    android:widgetCategory="home_screen" />

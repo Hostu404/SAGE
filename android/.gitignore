@@ -1,5 +1,7 @@
 .gradle/
 build/
+# The Kotlin compiler's caches.
+.kotlin/
 local.properties
 *.iml
 .idea/

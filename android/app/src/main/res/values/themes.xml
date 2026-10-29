@@ -1,5 +1,6 @@
 <resources>
-    <style name="Theme.Sage" parent="android:Theme.Material.Light.NoActionBar">
+    <!-- Dark like the website, from the first frame. -->
+    <style name="Theme.Sage" parent="android:Theme.Material.NoActionBar">
         <item name="android:windowBackground">@color/background</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>

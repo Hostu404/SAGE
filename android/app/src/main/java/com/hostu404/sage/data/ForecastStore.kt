@@ -94,8 +94,14 @@ class Prefs(context: Context) {
         get() = sp.getString(HERE, null)
         set(value) = sp.edit().putString(HERE, value).apply()
 
+    /** Your watchlist as you last marked it seen. */
+    var seen: Seen?
+        get() = Seen.parse(sp.getString(SEEN, null))
+        set(value) = sp.edit().putString(SEEN, value?.toJson()).apply()
+
     private companion object {
         const val FOLLOWED = "followed"
         const val HERE = "here"
+        const val SEEN = "seen"
     }
 }

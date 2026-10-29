@@ -1,179 +1,242 @@
 package com.hostu404.sage.ui
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.filled.StarBorder
-import androidx.compose.material.icons.filled.Warning
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material.icons.outlined.Share
+import androidx.compose.material.icons.outlined.StarOutline
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.hostu404.sage.SageModel
-import com.hostu404.sage.data.Alert
+import com.hostu404.sage.Screen
 import com.hostu404.sage.data.Country
 import com.hostu404.sage.data.Forecast
-import com.hostu404.sage.data.Outlook
+import com.hostu404.sage.data.Place
 import com.hostu404.sage.data.Words
 
-private const val RELATIONS_SHOWN = 6
-
-@OptIn(ExperimentalMaterial3Api::class)
+/** One country: as on the website's country page. */
 @Composable
 fun PlaceScreen(model: SageModel, f: Forecast, id: Int) {
-    val place = f.place(id)
-    val following = id in model.followed
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(place?.name ?: "Not found") },
-                navigationIcon = {
-                    IconButton(onClick = { model.back() }) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back") }
-                },
-                actions = {
-                    if (place != null) IconButton(onClick = { model.toggleFollow(id) }) {
-                        Icon(if (following) Icons.Filled.Star else Icons.Filled.StarBorder,
-                            if (following) "Stop following" else "Follow on the home screen",
-                            tint = if (following) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
-                },
-            )
-        },
-    ) { pad ->
-        var allRelations by rememberSaveable(id) { mutableStateOf(false) }
-        val relations = f.relationsOf(id)
-        LazyColumn(
-            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = pad.calculateTopPadding(),
-                bottom = pad.calculateBottomPadding() + 8.dp),
-        ) {
-            if (place == null) {
-                item { Text("SAGE has nothing on this country.", style = MaterialTheme.typography.bodyLarge) }
-                return@LazyColumn
+    val place = f.place(id) ?: return
+    val c = place.country
+    val context = LocalContext.current
+    Column(Modifier.fillMaxSize().background(Sage.bg)) {
+        TopBar(title = place.name, onBack = { model.back() }, actions = {
+            val on = id in model.followed
+            IconButton(onClick = { model.toggleFollow(id) }) {
+                Icon(if (on) Icons.Filled.Star else Icons.Outlined.StarOutline, if (on) "Stop following" else "Follow",
+                    tint = if (on) Sage.chance[1] else Sage.text)
             }
-            val c = place.country
-            item {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Chip(c?.status ?: "Relations only", statusColor(c))
-                    if (c != null) Text("  ${c.region}", style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant)
+            IconButton(onClick = { Share.country(context, f, place) }) { Icon(Icons.Outlined.Share, "Share", tint = Sage.text) }
+        })
+        val bottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+        LazyColumn(contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 12.dp, bottom = bottom + 8.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            item { CountryHead(place, f) }
+            if (c != null) {
+                item { Situation(c, f) }
+                item { Chances(c, f) }
+            } else item {
+                Panel("Situation") {
+                    Body("There's been no organised violence recorded in ${place.name} since 1989, so SAGE doesn't forecast " +
+                        "fighting inside it. It does follow ${place.name}'s relations with other countries.", Modifier.padding(14.dp))
                 }
             }
-            if (c == null) item {
-                Text(
-                    "There's been no organised violence recorded in ${place.name} since 1989, so SAGE doesn't forecast " +
-                        "fighting inside it. It does follow ${place.name}'s relations with other countries, below.",
-                    style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(top = 16.dp),
-                )
-            } else {
-                if (c.alert.on) item { AlertCard(c, f) }
-                item {
-                    SectionTitle("Where things stand")
-                    // The alert card above already says what the summary's last "Warning:" sentence does.
-                    val summary = if (c.alert.on) c.summary.substringBefore(" Warning: ") else c.summary
-                    SageCard { Text(summary, style = MaterialTheme.typography.bodyLarge) }
-                }
-                item { SectionTitle("The chances") }
-                Forecast.QUESTION_KEYS.forEach { key ->
-                    val outlook = c.outlooks[key] ?: return@forEach
-                    item(key) { OutlookCard(f, key, outlook, Modifier.padding(bottom = 10.dp)) }
-                }
-            }
-            if (relations.isNotEmpty()) item {
-                SectionTitle("Relations with other countries")
-                SageCard {
-                    val shown = if (allRelations) relations else relations.take(RELATIONS_SHOWN)
-                    shown.forEachIndexed { i, r ->
-                        if (i > 0) HorizontalDivider(Modifier.padding(vertical = 10.dp))
-                        RelationRow(r, r.other(id)) { model.showRelation(r) }
-                    }
-                    if (relations.size > RELATIONS_SHOWN) {
-                        TextButton(onClick = { allRelations = !allRelations }, modifier = Modifier.align(Alignment.End)) {
-                            Text(if (allRelations) "Show fewer" else "Show all ${relations.size}")
-                        }
-                    }
-                }
-            }
-            item { Disclaimer() }
+            item { RelationsMap(model, f, place) }
+            item { Relations(model, f, id) }
+            if (c != null && c.outlooks.values.any { it.why.isNotEmpty() }) item { Why(c, f) }
+            item { Footer(made(f)) }
         }
     }
 }
 
+/** A panel without a title, like the website's head panels. */
 @Composable
-private fun AlertCard(c: Country, f: Forecast) {
-    val a: Alert = c.alert
-    val who = if (a.kind == "aimed") "other countries' forces massing against ${c.name}"
-    else "${c.name}'s forces mobilising and threats of force"
-    val since = a.since?.let { " since ${Words.day(it)}" } ?: ""
-    val times = a.timesUsual?.let { ", up to about ${"%.0f".format(it)} times usual" } ?: ""
-    val record = f.alertRecord?.questions?.get(if (c.lastMonth.state < 25) "fighting" else "major_war")
-    val past = record?.takeIf { it.alerts > 0 }?.let {
-        val what = if (c.lastMonth.state < 25) "deadly fighting" else "full-scale war"
-        " After past alerts like this, $what followed within three months in ${it.followed} of ${it.alerts} cases."
-    } ?: ""
-    Card(
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer),
-        modifier = Modifier.padding(top = 16.dp),
-    ) {
+fun HeadBox(content: @Composable ColumnScope.() -> Unit) {
+    val shape = RoundedCornerShape(6.dp)
+    Column(Modifier.fillMaxWidth().clip(shape).background(Sage.panel).border(1.dp, Sage.line, shape), content = content)
+}
+
+@Composable
+private fun CountryHead(place: Place, f: Forecast) {
+    val c = place.country
+    HeadBox {
         Column(Modifier.padding(16.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Filled.Warning, null, tint = MaterialTheme.colorScheme.onErrorContainer)
-                Spacer(Modifier.width(8.dp))
-                Text("Build-up alert", style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onErrorContainer)
+            Text((c?.region ?: "Relations only").uppercase(), style = label(11.sp), color = Sage.muted)
+            Text(place.name, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = Sage.text,
+                modifier = Modifier.padding(top = 4.dp))
+            // A place with relations only says so above; nothing to add here.
+            if (c != null) Row(Modifier.padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                StatusTag(c)
+                Text("IN ${Words.month(f.dataThrough).uppercase()}", style = label(10.5.sp, FontWeight.Normal), color = Sage.faint)
+                if (c.alert.on) Flag()
             }
-            Text("News of $who has been far above usual$since$times.$past An alert is a warning sign, not a forecast.",
-                style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onErrorContainer,
-                modifier = Modifier.padding(top = 8.dp))
+        }
+        if (c != null) {
+            HorizontalDivider(color = Sage.line)
+            StatGrid(com.hostu404.sage.data.Forecast.QUESTION_KEYS.mapNotNull { k ->
+                chanceOf(c, k)?.let { p ->
+                    StatItem(Words.pctShort(p), "${f.questions[k]?.title ?: k} in ${nextMonth(f)}: ${Words.chance(p)}", chanceColor(p))
+                }
+            })
         }
     }
 }
 
-/** One question: next month's chance in words and numbers, the three months, the usual, and why. */
 @Composable
-private fun OutlookCard(f: Forecast, key: String, o: Outlook, modifier: Modifier = Modifier) {
-    val q = f.questions[key]
-    val next = o.chance.getOrNull(Forecast.NEXT) ?: return
-    SageCard(modifier) {
-        Text(q?.title ?: key, style = MaterialTheme.typography.titleMedium)
-        q?.text?.let {
-            Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+private fun Situation(c: Country, f: Forecast) {
+    Panel("Situation") {
+        Body(if (c.alert.on) c.summary.substringBefore(" Warning: ") else c.summary, Modifier.padding(14.dp))
+        if (c.alert.on) {
+            val shape = RoundedCornerShape(4.dp)
+            Column(Modifier.padding(start = 14.dp, end = 14.dp, bottom = 14.dp).fillMaxWidth().clip(shape).background(Sage.alertBg)
+                .border(1.dp, Sage.alert.copy(alpha = 0.45f), shape).padding(12.dp)) {
+                Text("BUILD-UP ALERT", style = label(11.sp, FontWeight.Bold), color = Sage.alert)
+                Body(alertText(c, f), Modifier.padding(top = 4.dp))
+            }
         }
-        val month = f.months.getOrNull(Forecast.NEXT)?.let { Words.month(it) } ?: "Next month"
-        ChanceLine(next, Modifier.padding(top = 12.dp), label = month)
-        Text(
-            f.months.zip(o.chance).joinToString("   ") { (m, p) -> "${Words.month(m).take(3)} ${Words.pct(p)}" },
-            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(top = 8.dp),
-        )
-        o.usual.getOrNull(Forecast.NEXT)?.let {
-            Text("Usual for a country in its situation: ${Words.pct(it)}", style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+}
+
+/** The three questions by month, next month picked out, with the usual for countries like it. */
+@Composable
+private fun Chances(c: Country, f: Forecast) {
+    val months = f.months
+    val first = months.firstOrNull()?.let(Words::month) ?: ""
+    val last = months.lastOrNull()?.let(Words::monthYear) ?: ""
+    Panel("The chances", right = { Note("$first to $last") }) {
+        Row(Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 8.dp)) {
+            Spacer(Modifier.weight(1f))
+            months.forEachIndexed { i, m ->
+                Text(Words.monthShort(m).uppercase(), style = label(10.sp), textAlign = TextAlign.End,
+                    color = if (i == com.hostu404.sage.data.Forecast.NEXT) Sage.text else Sage.muted, modifier = Modifier.width(CELL))
+            }
+            Text("USUAL", style = label(10.sp), color = Sage.muted, textAlign = TextAlign.End, modifier = Modifier.width(CELL))
         }
-        if (o.why.isNotEmpty()) {
-            Text("Why", style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(top = 12.dp, bottom = 6.dp))
-            Bullets(o.why)
+        HorizontalDivider(color = Sage.line)
+        val keys = com.hostu404.sage.data.Forecast.QUESTION_KEYS.filter { c.outlooks[it] != null }
+        keys.forEachIndexed { row, k ->
+            val o = c.outlooks.getValue(k)
+            if (row > 0) HorizontalDivider(color = Sage.line)
+            Row(Modifier.fillMaxWidth().padding(start = 14.dp, end = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text(f.questions[k]?.title ?: k, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold,
+                    color = Sage.text, modifier = Modifier.weight(1f).padding(vertical = 12.dp))
+                months.indices.forEach { i ->
+                    val p = o.chance.getOrNull(i)
+                    Column(Modifier.width(CELL).background(if (i == com.hostu404.sage.data.Forecast.NEXT) Sage.panel2 else Sage.panel)
+                        .padding(vertical = 12.dp), horizontalAlignment = Alignment.End) {
+                        Pct(p)
+                        if (p != null) MBar(p, Modifier.width(36.dp).padding(top = 6.dp))
+                    }
+                }
+                Text(o.usual.getOrNull(com.hostu404.sage.data.Forecast.NEXT)?.let(Words::pctShort) ?: "–",
+                    style = mono(13.5.sp, FontWeight.Normal), color = Sage.muted, textAlign = TextAlign.End, modifier = Modifier.width(CELL))
+            }
+        }
+        HorizontalDivider(color = Sage.line)
+        val defs = keys.mapNotNull { k -> f.questions[k]?.let { q -> "${q.title}: ${q.text.replaceFirstChar { it.lowercase() }}." } }
+        Text((defs + "Usual: how often it happens in ${nextMonth(f)} to countries in the same situation.").joinToString(" "),
+            style = MaterialTheme.typography.bodySmall, color = Sage.muted, modifier = Modifier.padding(14.dp))
+    }
+}
+
+private val CELL = 52.dp
+
+@Composable
+private fun RelationsMap(model: SageModel, f: Forecast, place: Place) {
+    val id = place.id
+    val rel = f.relationsOf(id)
+    val tension = rel.associate { it.otherId(id) to it.tension }
+    var picked by remember { mutableStateOf<Place?>(null) }
+    Panel("Relations map") {
+        WorldMap(f, fill = { p ->
+            when {
+                p == null -> Sage.mapNone
+                p.id == id -> Sage.text
+                else -> tension[p.id]?.let(::tensionFill) ?: Sage.mapNone
+            }
+        }, description = "Map of ${place.name}'s relations with other countries",
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp),
+            picked = setOfNotNull(id, picked?.id),
+            zoom = listOf(id) + rel.filter { it.tension != "usual" }.map { it.otherId(id) },
+            marks = setOf(id) + rel.filter { it.tension != "usual" }.map { it.otherId(id) },
+            onTap = { picked = it })
+        val pick = picked
+        if (pick != null) {
+            val r = rel.firstOrNull { it.otherId(id) == pick.id }
+            MapPick(pick,
+                when { pick.id == id -> "This country"; r != null -> "Tension: ${r.tension} · clashes in six months: ${Words.pctShort(r.clash6)}"; else -> "No relation SAGE follows" },
+                if (pick.id == id) null else "Open ›") {
+                if (r != null) model.open(Screen.Pair(r.a, r.b)) else model.open(Screen.Place(pick.id))
+            }
+        }
+        Legend(listOf(place.name to Sage.text, "At war or fighting" to Sage.map[5], "Very high" to Sage.map[4],
+            "High" to Sage.map[3], "Above usual" to Sage.map[2], "Usual" to Sage.map[0]))
+    }
+}
+
+@Composable
+private fun Relations(model: SageModel, f: Forecast, id: Int) {
+    val rel = f.relationsOf(id)
+    Panel("Relations", right = { Note("Next six months") }) {
+        if (rel.isEmpty()) {
+            Body("None that SAGE follows.", Modifier.padding(14.dp), Sage.muted)
+            return@Panel
+        }
+        RowsHead("Country", "Tension", "Clashes")
+        rel.forEachIndexed { i, r ->
+            if (i > 0) HorizontalDivider(color = Sage.line)
+            ListRow({ model.open(Screen.Pair(r.a, r.b)) }) {
+                Name(r.other(id), Modifier.weight(1f))
+                Tag(r.tension, tensionColor(r.tension))
+                Pct(r.clash6, Modifier.width(44.dp))
+            }
+        }
+    }
+}
+
+@Composable
+private fun Why(c: Country, f: Forecast) {
+    Panel("Why") {
+        val keys = com.hostu404.sage.data.Forecast.QUESTION_KEYS.filter { c.outlooks[it]?.why?.isNotEmpty() == true }
+        keys.forEachIndexed { i, k ->
+            if (i > 0) HorizontalDivider(color = Sage.line)
+            Column(Modifier.padding(14.dp)) {
+                Text((f.questions[k]?.title ?: k).uppercase(), style = label(11.sp), color = Sage.muted)
+                Bullets(c.outlooks.getValue(k).why, Modifier.padding(top = 8.dp))
+            }
         }
     }
 }

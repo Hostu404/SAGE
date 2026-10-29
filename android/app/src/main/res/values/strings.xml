@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SAGE</string>
+    <string name="widget_label">SAGE: threat level</string>
+    <string name="widget_description">The global threat level and where you are, updated a few times a day.</string>
 </resources>

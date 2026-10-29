@@ -45,6 +45,9 @@ data class Forecast(
         return place(id)
     }
 
+    /** The two countries' relation, either way round. */
+    fun relation(a: Int, b: Int): Relation? = pairs.firstOrNull { (it.a == a && it.b == b) || (it.a == b && it.b == a) }
+
     /** This country's relations, tensest first. */
     fun relationsOf(id: Int): List<Relation> =
         pairs.filter { it.a == id || it.b == id }
@@ -98,6 +101,12 @@ data class World(
     val expectedFighting: Double,
     val expectedWars: Double,
     val text: String,
+    /** The month it's about, e.g. "2026-11". */
+    val month: String? = null,
+    /** Last month of data, and how many countries had deadly fighting and were at war in it. */
+    val lastMonth: String? = null,
+    val lastFighting: Int? = null,
+    val lastWars: Int? = null,
 ) {
     companion object {
         val LEVELS = listOf("Low", "Guarded", "Elevated", "High", "Severe")
@@ -109,6 +118,10 @@ data class World(
             expectedFighting = o.optDouble("expected_fighting", 0.0),
             expectedWars = o.optDouble("expected_wars", 0.0),
             text = o.optString("text"),
+            month = o.optString("month").ifEmpty { null },
+            lastMonth = o.optJSONObject("last_month")?.optString("month")?.ifEmpty { null },
+            lastFighting = o.optJSONObject("last_month")?.takeIf { it.has("fighting") }?.optInt("fighting"),
+            lastWars = o.optJSONObject("last_month")?.takeIf { it.has("wars") }?.optInt("wars"),
         )
     }
 }
@@ -198,6 +211,8 @@ data class Relation(
     val war6: Double,
     val lastFought: String?,
     val summary: String,
+    /** How often pairs in the same position clash within six months. */
+    val usual6: Double? = null,
 ) {
     fun other(id: Int): String = if (id == a) names[1] else names[0]
     fun otherId(id: Int): Int = if (id == a) b else a
@@ -212,6 +227,7 @@ data class Relation(
                 clash6 = o.optDouble("clash_6", 0.0), war6 = o.optDouble("war_6", 0.0),
                 lastFought = if (o.isNull("last_fought")) null else o.optString("last_fought").ifEmpty { null },
                 summary = o.optString("summary"),
+                usual6 = o.optDouble("usual_6").takeUnless { it.isNaN() },
             )
         }
     }

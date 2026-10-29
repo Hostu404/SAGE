@@ -26,6 +26,13 @@ object Words {
         else -> "${(p * 100).roundToInt()}%"
     }
 
+    /** The same, short enough for a column of numbers. */
+    fun pctShort(p: Double): String = when {
+        p >= 0.995 -> ">99%"
+        p < 0.005 -> "<1%"
+        else -> "${(p * 100).roundToInt()}%"
+    }
+
     /** 0 = unlikely or less, 1 = a real possibility, 2 = as likely as not or likely, 3 = very likely or more. */
     fun level(p: Double): Int = when {
         p >= 0.8 -> 3
@@ -37,6 +44,11 @@ object Words {
     /** "2026-11" -> "November". */
     fun month(m: String): String = runCatching {
         YearMonth.parse(m).format(DateTimeFormatter.ofPattern("MMMM", Locale.UK))
+    }.getOrDefault(m)
+
+    /** "2026-11" -> "Nov". */
+    fun monthShort(m: String): String = runCatching {
+        YearMonth.parse(m).format(DateTimeFormatter.ofPattern("MMM", Locale.UK))
     }.getOrDefault(m)
 
     /** "2026-09" -> "September 2026". */
