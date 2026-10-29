@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T23:34:15Z",
+ "generated": "2026-10-29T00:44:24Z",
  "data_through": "2026-09",
  "months": [
   "2026-10",
@@ -371,28 +371,6 @@
     "summary": "Tension between Russia and Denmark is high. From Russia towards Denmark: criticism and demands (about 2× usual). From Denmark towards Russia: fighting (about 2× usual) and criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
-    "a": 670,
-    "b": 770,
-    "names": [
-     "Saudi Arabia",
-     "Pakistan"
-    ],
-    "tension": "high",
-    "clash_6": 0.0012,
-    "war_6": 0.0001,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [],
-     "ba": [
-      "words",
-      "threaten",
-      "threaten_force"
-     ]
-    },
-    "last_fought": null,
-    "summary": "Tension between Saudi Arabia and Pakistan is high. From Pakistan towards Saudi Arabia: criticism and demands (about 3× usual) and threats (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
     "a": 160,
     "b": 200,
     "names": [
@@ -439,27 +417,6 @@
     "summary": "Tension between Ethiopia and Eritrea is above usual. From Ethiopia towards Eritrea: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: very unlikely (2%); war: extremely unlikely (under 1%). They last fought in June 2016."
    },
    {
-    "a": 630,
-    "b": 663,
-    "names": [
-     "Iran",
-     "Jordan"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0046,
-    "war_6": 0.0001,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "heavy_weapons",
-      "fight"
-     ],
-     "ba": []
-    },
-    "last_fought": null,
-    "summary": "Tension between Iran and Jordan is above usual. From Iran towards Jordan: shelling and air strikes (about 3× usual) and fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
     "a": 290,
     "b": 365,
     "names": [
@@ -498,30 +455,6 @@
     },
     "last_fought": null,
     "summary": "Tension between Niger and Nigeria is above usual. From Niger towards Nigeria: seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 630,
-    "b": 678,
-    "names": [
-     "Iran",
-     "Yemen"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0021,
-    "war_6": 0.0001,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "fight",
-      "coerce"
-     ],
-     "ba": [
-      "fight",
-      "coerce"
-     ]
-    },
-    "last_fought": null,
-    "summary": "Tension between Iran and Yemen is above usual. From Iran towards Yemen: fighting (about 3× usual) and seizures and arrests (about 2× usual). From Yemen towards Iran: fighting (about 2× usual) and seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
     "a": 2,
@@ -588,46 +521,6 @@
     "summary": "Tension between Spain and Morocco is above usual. From Spain towards Morocco: criticism and demands (about 3× usual). From Morocco towards Spain: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
-    "a": 530,
-    "b": 651,
-    "names": [
-     "Ethiopia",
-     "Egypt"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0015,
-    "war_6": 0.0,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "words"
-     ],
-     "ba": []
-    },
-    "last_fought": null,
-    "summary": "Tension between Ethiopia and Egypt is above usual. From Ethiopia towards Egypt: criticism and demands (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 630,
-    "b": 732,
-    "names": [
-     "Iran",
-     "South Korea"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0015,
-    "war_6": 0.0001,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "threaten"
-     ],
-     "ba": []
-    },
-    "last_fought": null,
-    "summary": "Tension between Iran and South Korea is above usual. From Iran towards South Korea: threats (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
     "a": 645,
     "b": 670,
     "names": [
@@ -670,26 +563,6 @@
     },
     "last_fought": null,
     "summary": "Tension between Russia and Norway is above usual. From Norway towards Russia: seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 475,
-    "b": 560,
-    "names": [
-     "Nigeria",
-     "South Africa"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0011,
-    "war_6": 0.0,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [],
-     "ba": [
-      "fight"
-     ]
-    },
-    "last_fought": null,
-    "summary": "Tension between Nigeria and South Africa is above usual. From South Africa towards Nigeria: fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
     "a": 700,
@@ -752,26 +625,6 @@
     "summary": "Tension between Russia and Japan is above usual. From Russia towards Japan: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
-    "a": 670,
-    "b": 840,
-    "names": [
-     "Saudi Arabia",
-     "Philippines"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0007,
-    "war_6": 0.0,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "fight"
-     ],
-     "ba": []
-    },
-    "last_fought": null,
-    "summary": "Tension between Saudi Arabia and Philippines is above usual. From Saudi Arabia towards Philippines: fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
     "a": 2,
     "b": 670,
     "names": [
@@ -792,27 +645,6 @@
     },
     "last_fought": null,
     "summary": "Tension between United States of America and Saudi Arabia is above usual. From United States of America towards Saudi Arabia: criticism and demands (about 2× usual). From Saudi Arabia towards United States of America: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 20,
-    "b": 666,
-    "names": [
-     "Canada",
-     "Israel"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0006,
-    "war_6": 0.0002,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "reduce_relations",
-      "coerce"
-     ],
-     "ba": []
-    },
-    "last_fought": null,
-    "summary": "Tension between Canada and Israel is above usual. From Canada towards Israel: sanctions and expulsions (about 4× usual) and seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
     "a": 220,
@@ -875,26 +707,6 @@
     },
     "last_fought": null,
     "summary": "Tension between United States of America and Haiti is above usual. From United States of America towards Haiti: seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 210,
-    "b": 666,
-    "names": [
-     "Netherlands",
-     "Israel"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0005,
-    "war_6": 0.0001,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [],
-     "ba": [
-      "coerce"
-     ]
-    },
-    "last_fought": null,
-    "summary": "Tension between Netherlands and Israel is above usual. From Israel towards Netherlands: seizures and arrests (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
     "a": 220,
@@ -979,66 +791,6 @@
     },
     "last_fought": null,
     "summary": "Tension between United States of America and Jordan is above usual. From United States of America towards Jordan: shelling and air strikes (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 70,
-    "b": 900,
-    "names": [
-     "Mexico",
-     "Australia"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0004,
-    "war_6": 0.0,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "fight"
-     ],
-     "ba": []
-    },
-    "last_fought": null,
-    "summary": "Tension between Mexico and Australia is above usual. From Mexico towards Australia: fighting (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 305,
-    "b": 630,
-    "names": [
-     "Austria",
-     "Iran"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0004,
-    "war_6": 0.0001,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [],
-     "ba": [
-      "words"
-     ]
-    },
-    "last_fought": null,
-    "summary": "Tension between Austria and Iran is above usual. From Iran towards Austria: criticism and demands (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 640,
-    "b": 670,
-    "names": [
-     "Turkey",
-     "Saudi Arabia"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0004,
-    "war_6": 0.0001,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "words"
-     ],
-     "ba": []
-    },
-    "last_fought": null,
-    "summary": "Tension between Turkey and Saudi Arabia is above usual. From Turkey towards Saudi Arabia: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
     "a": 666,
@@ -1165,6 +917,24 @@
     },
     "last_fought": "September 2022",
     "summary": "Tension between Tajikistan and Kyrgyzstan is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). They last fought in September 2022."
+   },
+   {
+    "a": 630,
+    "b": 663,
+    "names": [
+     "Iran",
+     "Jordan"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0046,
+    "war_6": 0.0001,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Iran and Jordan is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
     "a": 775,
@@ -1365,6 +1135,24 @@
     "summary": "Tension between Iran and Lebanon is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
+    "a": 630,
+    "b": 678,
+    "names": [
+     "Iran",
+     "Yemen"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0021,
+    "war_6": 0.0001,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Iran and Yemen is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
     "a": 365,
     "b": 710,
     "names": [
@@ -1563,6 +1351,24 @@
     "summary": "Tension between Niger and Chad is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
+    "a": 530,
+    "b": 651,
+    "names": [
+     "Ethiopia",
+     "Egypt"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0015,
+    "war_6": 0.0,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Ethiopia and Egypt is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
     "a": 630,
     "b": 640,
     "names": [
@@ -1579,6 +1385,24 @@
     },
     "last_fought": null,
     "summary": "Tension between Iran and Turkey is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
+    "a": 630,
+    "b": 732,
+    "names": [
+     "Iran",
+     "South Korea"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0015,
+    "war_6": 0.0001,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Iran and South Korea is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
     "a": 652,
@@ -1833,6 +1657,24 @@
     "summary": "Tension between Iran and Pakistan is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
+    "a": 670,
+    "b": 770,
+    "names": [
+     "Saudi Arabia",
+     "Pakistan"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0012,
+    "war_6": 0.0001,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Saudi Arabia and Pakistan is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
     "a": 678,
     "b": 770,
     "names": [
@@ -1867,6 +1709,24 @@
     },
     "last_fought": null,
     "summary": "Tension between Azerbaijan and Iran is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
+    "a": 475,
+    "b": 560,
+    "names": [
+     "Nigeria",
+     "South Africa"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0011,
+    "war_6": 0.0,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Nigeria and South Africa is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
     "a": 2,
@@ -2643,6 +2503,24 @@
     "summary": "Tension between Israel and Malaysia is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
+    "a": 670,
+    "b": 840,
+    "names": [
+     "Saudi Arabia",
+     "Philippines"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0007,
+    "war_6": 0.0,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Saudi Arabia and Philippines is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
     "a": 770,
     "b": 780,
     "names": [
@@ -2731,6 +2609,24 @@
     },
     "last_fought": "April 2003",
     "summary": "Tension between United States of America and Iraq is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). They last fought in April 2003."
+   },
+   {
+    "a": 20,
+    "b": 666,
+    "names": [
+     "Canada",
+     "Israel"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0006,
+    "war_6": 0.0002,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Canada and Israel is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
     "a": 41,
@@ -3379,6 +3275,24 @@
     },
     "last_fought": null,
     "summary": "Tension between Belize and Guatemala is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
+    "a": 210,
+    "b": 666,
+    "names": [
+     "Netherlands",
+     "Israel"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0005,
+    "war_6": 0.0001,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Netherlands and Israel is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
     "a": 220,
@@ -4245,6 +4159,24 @@
     "summary": "Tension between Canada and Iran is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
+    "a": 70,
+    "b": 900,
+    "names": [
+     "Mexico",
+     "Australia"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0004,
+    "war_6": 0.0,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Mexico and Australia is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
     "a": 100,
     "b": 130,
     "names": [
@@ -4603,6 +4535,24 @@
     },
     "last_fought": null,
     "summary": "Tension between Austria and Italy is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
+    "a": 305,
+    "b": 630,
+    "names": [
+     "Austria",
+     "Iran"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0004,
+    "war_6": 0.0001,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Austria and Iran is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
     "a": 316,
@@ -5053,6 +5003,24 @@
     },
     "last_fought": null,
     "summary": "Tension between Iran and Japan is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
+    "a": 640,
+    "b": 670,
+    "names": [
+     "Turkey",
+     "Saudi Arabia"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0004,
+    "war_6": 0.0001,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between Turkey and Saudi Arabia is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
     "a": 645,
@@ -14987,18 +14955,9 @@
      "usual_6": 0.001,
      "last_fought": null,
      "summary": "Tension between Afghanistan and Australia is above usual. From Afghanistan towards Australia: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    },
-    {
-     "with": "Mexico",
-     "tension": "above usual",
-     "clash_6": 0.0004,
-     "war_6": 0.0,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Mexico and Australia is above usual. From Mexico towards Australia: fighting (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Australia was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). Tension with Afghanistan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Mexico is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Australia was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). Tension with Afghanistan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 305,
@@ -15073,18 +15032,8 @@
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
     ]
    },
-   "relations": [
-    {
-     "with": "Iran",
-     "tension": "above usual",
-     "clash_6": 0.0004,
-     "war_6": 0.0001,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Austria and Iran is above usual. From Iran towards Austria: criticism and demands (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    }
-   ],
-   "summary": "Austria was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). Tension with Iran is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "relations": [],
+   "summary": "Austria was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%)."
   },
   {
    "id": 373,
@@ -16371,18 +16320,9 @@
      "usual_6": 0.001,
      "last_fought": null,
      "summary": "Tension between United States of America and Canada is above usual. From United States of America towards Canada: sanctions and expulsions (about 3× usual). From Canada towards United States of America: sanctions and expulsions (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    },
-    {
-     "with": "Israel",
-     "tension": "above usual",
-     "clash_6": 0.0006,
-     "war_6": 0.0002,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Canada and Israel is above usual. From Canada towards Israel: sanctions and expulsions (about 4× usual) and seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Canada was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). Tension with United States of America is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Israel is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Canada was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). Tension with United States of America is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 482,
@@ -17568,18 +17508,8 @@
      "None in September 2026; the last month at this level was July 2019"
     ]
    },
-   "relations": [
-    {
-     "with": "Ethiopia",
-     "tension": "above usual",
-     "clash_6": 0.0015,
-     "war_6": 0.0,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Ethiopia and Egypt is above usual. From Ethiopia towards Egypt: criticism and demands (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    }
-   ],
-   "summary": "Egypt was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). It's leaning worse: the news shows shelling and air strikes at about 3 times the usual level. Tension with Ethiopia is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "relations": [],
+   "summary": "Egypt was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). It's leaning worse: the news shows shelling and air strikes at about 3 times the usual level."
   },
   {
    "id": 92,
@@ -17844,15 +17774,6 @@
      "usual_6": 0.001,
      "last_fought": null,
      "summary": "Tension between Ethiopia and Sudan is above usual. From Ethiopia towards Sudan: criticism and demands (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    },
-    {
-     "with": "Egypt",
-     "tension": "above usual",
-     "clash_6": 0.0015,
-     "war_6": 0.0,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Ethiopia and Egypt is above usual. From Ethiopia towards Egypt: criticism and demands (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
    "summary": "Fighting is going on in Ethiopia: 563 people were killed in fighting involving the government in September. More deadly fighting in November is very likely (95%), and escalation to full-scale war is unlikely (15%). It's leaning worse: deaths are up 37% on the three months before and the news shows fighting at about 7 times the usual level. Armed groups killing 10 or more civilians in November is likely (73%). Tension with Eritrea is above usual; deadly clashes between their forces in the next six months are very unlikely (2%). Tension with Sudan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
@@ -19543,15 +19464,6 @@
    },
    "relations": [
     {
-     "with": "Iran",
-     "tension": "above usual",
-     "clash_6": 0.0046,
-     "war_6": 0.0001,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Iran and Jordan is above usual. From Iran towards Jordan: shelling and air strikes (about 3× usual) and fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    },
-    {
      "with": "United States of America",
      "tension": "above usual",
      "clash_6": 0.0004,
@@ -19561,7 +19473,7 @@
      "summary": "Tension between United States of America and Jordan is above usual. From United States of America towards Jordan: shelling and air strikes (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Jordan was largely calm in September. Deadly fighting in November is extremely unlikely (1%). Tension with Iran is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with United States of America is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Jordan was largely calm in September. Deadly fighting in November is extremely unlikely (1%). Tension with United States of America is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 501,
@@ -20717,18 +20629,8 @@
      "17 civilians killed by armed groups in September 2026, 9 months in a row at this level"
     ]
    },
-   "relations": [
-    {
-     "with": "Australia",
-     "tension": "above usual",
-     "clash_6": 0.0004,
-     "war_6": 0.0,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Mexico and Australia is above usual. From Mexico towards Australia: fighting (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    }
-   ],
-   "summary": "Mexico saw some armed clashes in September (3 killed), below the level SAGE counts as fighting. Deadly fighting in November is very unlikely (5%), lower than usual for a country in its situation. Armed groups killing 10 or more civilians in November is very likely (80%). Tension with Australia is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "relations": [],
+   "summary": "Mexico saw some armed clashes in September (3 killed), below the level SAGE counts as fighting. Deadly fighting in November is very unlikely (5%), lower than usual for a country in its situation. Armed groups killing 10 or more civilians in November is very likely (80%)."
   },
   {
    "id": 359,
@@ -21282,18 +21184,8 @@
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
     ]
    },
-   "relations": [
-    {
-     "with": "Israel",
-     "tension": "above usual",
-     "clash_6": 0.0005,
-     "war_6": 0.0001,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Netherlands and Israel is above usual. From Israel towards Netherlands: seizures and arrests (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    }
-   ],
-   "summary": "Netherlands was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). Tension with Israel is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "relations": [],
+   "summary": "Netherlands was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%)."
   },
   {
    "id": 93,
@@ -21558,18 +21450,9 @@
      "usual_6": 0.001,
      "last_fought": null,
      "summary": "Tension between Niger and Nigeria is above usual. From Niger towards Nigeria: seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    },
-    {
-     "with": "South Africa",
-     "tension": "above usual",
-     "clash_6": 0.0011,
-     "war_6": 0.0,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Nigeria and South Africa is above usual. From South Africa towards Nigeria: fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Fighting is going on in Nigeria: 153 people were killed in fighting involving the government in September. More deadly fighting in November is almost certain (98%). It's leaning calmer: deaths are down 34% on the three months before. Armed groups killing 10 or more civilians in November is very likely (91%). Tension with Niger is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with South Africa is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Fighting is going on in Nigeria: 153 people were killed in fighting involving the government in September. More deadly fighting in November is almost certain (98%). It's leaning calmer: deaths are down 34% on the three months before. Armed groups killing 10 or more civilians in November is very likely (91%). Tension with Niger is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 343,
@@ -21823,15 +21706,6 @@
      "usual_6": 0.001,
      "last_fought": "November 2025",
      "summary": "India and Pakistan have clashed in the past year. Deadly clashes between their forces in the next six months: a real possibility (36%); war: extremely unlikely (under 1%). They last fought in November 2025."
-    },
-    {
-     "with": "Saudi Arabia",
-     "tension": "high",
-     "clash_6": 0.0012,
-     "war_6": 0.0001,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Saudi Arabia and Pakistan is high. From Pakistan towards Saudi Arabia: criticism and demands (about 3× usual) and threats (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
    "summary": "Fighting is going on in Pakistan: 646 people were killed in fighting involving the government in September. More deadly fighting in November is almost certain (99%). It's leaning worse: deaths are up 100% on the three months before and the news shows troop mobilisations and military alerts at about 4 times the usual level. Armed groups killing 10 or more civilians in November is very likely (85%)."
@@ -22215,18 +22089,8 @@
      "None in September 2026; the last month at this level was January 2025"
     ]
    },
-   "relations": [
-    {
-     "with": "Saudi Arabia",
-     "tension": "above usual",
-     "clash_6": 0.0007,
-     "war_6": 0.0,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Saudi Arabia and Philippines is above usual. From Saudi Arabia towards Philippines: fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    }
-   ],
-   "summary": "Philippines saw some armed clashes in September (14 killed), below the level SAGE counts as fighting. Deadly fighting in November is unlikely (16%). It's leaning calmer: deaths are down 35% on the three months before. Tension with Saudi Arabia is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "relations": [],
+   "summary": "Philippines saw some armed clashes in September (14 killed), below the level SAGE counts as fighting. Deadly fighting in November is unlikely (16%). It's leaning calmer: deaths are down 35% on the three months before."
   },
   {
    "id": 290,
@@ -22773,13 +22637,13 @@
      "summary": "Tension between Iran and Saudi Arabia is high. From Iran towards Saudi Arabia: criticism and demands (about 2× usual) and fighting (about 2× usual). From Saudi Arabia towards Iran: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     },
     {
-     "with": "Pakistan",
-     "tension": "high",
-     "clash_6": 0.0012,
+     "with": "Iraq",
+     "tension": "above usual",
+     "clash_6": 0.0015,
      "war_6": 0.0001,
      "usual_6": 0.001,
      "last_fought": null,
-     "summary": "Tension between Saudi Arabia and Pakistan is high. From Pakistan towards Saudi Arabia: criticism and demands (about 3× usual) and threats (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
+     "summary": "Tension between Iraq and Saudi Arabia is above usual. From Iraq towards Saudi Arabia: fighting (about 3× usual) and criticism and demands (about 3× usual). From Saudi Arabia towards Iraq: criticism and demands (about 4× usual) and fighting (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
    "summary": "Fighting is going on in Saudi Arabia: 25 people were killed in fighting involving the government in September. More deadly fighting in November is unlikely (19%). It's leaning worse: deaths are 25 times the three months before and the news shows troop mobilisations and military alerts at about 9 times the usual level. Tension with Yemen is very high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Iran is high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Warning: news of other countries' forces massing against it has been far above usual since 12 October (up to about 5 times). After past alerts like this, it escalated to full-scale war within three months in 8 of 59 cases."
@@ -23240,18 +23104,8 @@
      "The last three months: 5× the three before"
     ]
    },
-   "relations": [
-    {
-     "with": "Nigeria",
-     "tension": "above usual",
-     "clash_6": 0.0011,
-     "war_6": 0.0,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Nigeria and South Africa is above usual. From South Africa towards Nigeria: fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    }
-   ],
-   "summary": "South Africa saw some armed clashes in September (4 killed), below the level SAGE counts as fighting. Deadly fighting in November is very unlikely (3%), lower than usual for a country in its situation. Armed groups killing 10 or more civilians in November is about as likely as not (45%). Tension with Nigeria is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "relations": [],
+   "summary": "South Africa saw some armed clashes in September (4 killed), below the level SAGE counts as fighting. Deadly fighting in November is very unlikely (3%), lower than usual for a country in its situation. Armed groups killing 10 or more civilians in November is about as likely as not (45%)."
   },
   {
    "id": 626,
@@ -24295,18 +24149,8 @@
      "None in September 2026; the last month at this level was January 2017"
     ]
    },
-   "relations": [
-    {
-     "with": "Saudi Arabia",
-     "tension": "above usual",
-     "clash_6": 0.0004,
-     "war_6": 0.0001,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Turkey and Saudi Arabia is above usual. From Turkey towards Saudi Arabia: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    }
-   ],
-   "summary": "Turkey saw some armed clashes in September (1 killed), below the level SAGE counts as fighting. Deadly fighting in November is very unlikely (3%). It's leaning worse: the news shows troop mobilisations and military alerts at about 4 times the usual level. Tension with Saudi Arabia is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "relations": [],
+   "summary": "Turkey saw some armed clashes in September (1 killed), below the level SAGE counts as fighting. Deadly fighting in November is very unlikely (3%). It's leaning worse: the news shows troop mobilisations and military alerts at about 4 times the usual level."
   },
   {
    "id": 500,
@@ -25013,15 +24857,6 @@
      "summary": "Tension between Saudi Arabia and Yemen is very high. From Saudi Arabia towards Yemen: fighting (about 8× usual) and shelling and air strikes (about 5× usual). From Yemen towards Saudi Arabia: fighting (about 8× usual) and shelling and air strikes (about 5× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     },
     {
-     "with": "Iran",
-     "tension": "above usual",
-     "clash_6": 0.0021,
-     "war_6": 0.0001,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between Iran and Yemen is above usual. From Iran towards Yemen: fighting (about 3× usual) and seizures and arrests (about 2× usual). From Yemen towards Iran: fighting (about 2× usual) and seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    },
-    {
      "with": "Djibouti",
      "tension": "above usual",
      "clash_6": 0.0005,
@@ -25029,9 +24864,18 @@
      "usual_6": 0.001,
      "last_fought": null,
      "summary": "Tension between Djibouti and Yemen is above usual. From Djibouti towards Yemen: fighting (about 4× usual). From Yemen towards Djibouti: fighting (about 6× usual) and seizures and arrests (about 4× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
+    },
+    {
+     "with": "Israel",
+     "tension": "usual",
+     "clash_6": 0.1115,
+     "war_6": 0.0001,
+     "usual_6": 0.001,
+     "last_fought": "September 2025",
+     "summary": "Tension between Israel and Yemen is at its usual level. Deadly clashes between their forces in the next six months: unlikely (11%); war: extremely unlikely (under 1%). They last fought in September 2025."
     }
    ],
-   "summary": "Yemen is at full-scale war: 2,892 people were killed in fighting involving the government in September. A war on this scale continuing into November is likely (67%). It's leaning worse: deaths are 44 times the three months before and the news shows fighting at about 6 times the usual level. Armed groups killing 10 or more civilians in November is unlikely (17%). Tension with Saudi Arabia is very high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Iran is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Warning: news of other countries' forces massing against it has been far above usual since 14 October (up to about 4 times)."
+   "summary": "Yemen is at full-scale war: 2,892 people were killed in fighting involving the government in September. A war on this scale continuing into November is likely (67%). It's leaning worse: deaths are 44 times the three months before and the news shows fighting at about 6 times the usual level. Armed groups killing 10 or more civilians in November is unlikely (17%). Tension with Saudi Arabia is very high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Djibouti is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Warning: news of other countries' forces massing against it has been far above usual since 14 October (up to about 4 times)."
   },
   {
    "id": 551,
