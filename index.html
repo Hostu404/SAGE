@@ -24,13 +24,23 @@
 <body>
   <header class="topbar">
     <div class="wrap">
-      <a class="brand" href="#/"><img src="logo.svg" alt=""><span>SAGE</span></a>
+      <a class="brand" href="#/" aria-label="SAGE overview"><img src="logo.svg" alt=""><span>SAGE</span></a>
       <span class="stamp" id="stamp"></span>
+      <div class="find">
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="Search countries" aria-label="Search countries" autocomplete="off" spellcheck="false"
+          role="combobox" aria-expanded="false" aria-controls="q-list" aria-autocomplete="list">
+        <kbd aria-hidden="true">/</kbd>
+        <ul id="q-list" role="listbox" aria-label="Countries" hidden></ul>
+      </div>
       <nav aria-label="Main">
-        <a href="#/" data-route="home">Overview</a>
+        <a href="#/" data-route="home" class="wide">Overview</a>
         <a href="#/about" data-route="about">About</a>
         <a href="https://github.com/Hostu404/SAGE/releases/latest/download/app-release.apk">Get the app</a>
       </nav>
+      <button id="find-toggle" class="find-toggle" type="button" aria-label="Search countries">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </header>
 

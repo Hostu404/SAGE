@@ -20,10 +20,27 @@ const RISKS_SHOWN = 10;
 // The map's shades of risk: under 1%, 1-5%, 5-20%, 20-40%, 40-80%, 80% or more.
 const MAP_BINS = [0.01, 0.05, 0.2, 0.4, 0.8];
 const MAP_LABELS = ["Under 1%", "1–5%", "5–20%", "20–40%", "40–80%", "80%+"];
+// Other names people search by.
+const ALIASES = {
+  uk: 200, britain: 200, "great britain": 200, england: 200, scotland: 200, wales: 200, "northern ireland": 200,
+  us: 2, usa: 2, america: 2, "united states": 2, uae: 696, emirates: 696, drc: 490, zaire: 490,
+  "democratic republic of the congo": 490, "republic of the congo": 484, "cote d ivoire": 437, burma: 775,
+  czechia: 316, bosnia: 346, turkiye: 640, "east timor": 860, dprk: 731, macedonia: 343, holland: 210, persia: 630, car: 482,
+};
+const STATUS_MEANS = {
+  "At war": "Last month: 1,000 or more killed in fighting involving the government",
+  "Fighting": "Last month: 25 or more killed in fighting involving the government",
+  "Some clashes": "Last month: some killed in fighting involving the government",
+  "Attacks on civilians": "Last month: armed groups killed 10 or more civilians",
+  "Calm": "Last month: no deaths in fighting involving the government",
+  "Relations only": "No organised violence here since 1989. SAGE follows its relations with other countries",
+};
+const TENSION_MEANS = "How tense, from the news, against what's usual for these two countries";
+const ALERT_MEANS = "Build-up alert: news of troop build-ups, alerts and threats far above usual. A warning sign, not a forecast";
 
 const S = {
   data: null, places: [], byId: new Map(), iso3ToId: new Map(), idToIso3: new Map(),
-  here: undefined, measure: "fighting",
+  here: undefined, measure: "fighting", path: undefined, scroll: new Map(),
 };
 
 // ---------- Words: the same as SAGE's summaries ----------
@@ -91,8 +108,8 @@ function svgEl(tag, attrs) {
   for (const [k, v] of Object.entries(attrs || {})) if (v != null) el.setAttribute(k, v);
   return el;
 }
-const tag = (text, color) => h("span", { class: "tag" }, h("i", { style: `background:${color}` }), text);
-const flag = () => h("span", { class: "flag" }, "Alert");
+const tag = (text, color, title) => h("span", { class: "tag", title }, h("i", { style: `background:${color}` }), text);
+const flag = () => h("span", { class: "flag", title: ALERT_MEANS }, "Alert");
 const mbar = (p) => h("span", { class: "mbar", "aria-hidden": "true" },
   h("i", { style: `width:${Math.max(2, p * 100)}%;background:${chanceColor(p)}` }));
 const bullets = (lines) => h("ul", { class: "bullets" }, lines.map((l) => h("li", null, l)));
@@ -115,6 +132,8 @@ function statusColor(c) {
   return { "At war": "var(--chance-3)", "Fighting": "var(--chance-2)", "Some clashes": "var(--chance-1)",
     "Attacks on civilians": "var(--chance-1)", "Calm": "var(--chance-0)" }[status(c)] || "var(--calm)";
 }
+const statusTag = (c) => tag(status(c), statusColor(c), STATUS_MEANS[status(c)]);
+const tensionTag = (t, text) => tag(text || t, tensionColor(t), TENSION_MEANS);
 const tensionOrder = (t) => { const i = TENSION.indexOf(t); return i < 0 ? TENSION.length : i; };
 function tensionColor(t) {
   if (t === "at war" || t === "fighting") return "var(--chance-3)";
@@ -221,6 +240,7 @@ function drawMap(world, opts, wrap) {
   const view = opts.zoom ? frame(world, opts.zoom) : world.viewBox;
   const svg = svgEl("svg", { viewBox: view.join(" "), role: "img", "aria-label": opts.label });
   const tip = h("div", { class: "tip", hidden: true });
+  const href = opts.href || ((place) => `#/country/${place.id}`);
   const dots = [];
   const shade = (el, place) => {
     el.style.fill = opts.fill(place);
@@ -244,21 +264,35 @@ function drawMap(world, opts, wrap) {
     svg.append(dot);
   }
   for (const el of svg.querySelectorAll(".picked")) svg.append(el); // outlines on top
+
+  const placeAt = (e) => { const id = e.target.dataset && e.target.dataset.id; return id ? S.byId.get(Number(id)) : null; };
+  const showTip = (e, place, pinned) => {
+    const link = pinned ? href(place) : null;
+    tip.replaceChildren(h("b", null, place.name), h("span", null, opts.tip(place)), link ? h("a", { href: link }, "Open ›") : null);
+    const r = wrap.getBoundingClientRect();
+    const y = e.clientY - r.top;
+    tip.classList.toggle("pinned", !!pinned);
+    tip.classList.toggle("below", y < 90);
+    tip.style.left = `${Math.min(Math.max(e.clientX - r.left, 90), r.width - 90)}px`;
+    tip.style.top = `${y}px`;
+    tip.hidden = false;
+  };
+  let pointer = "mouse";
+  svg.addEventListener("pointerdown", (e) => { pointer = e.pointerType; });
   svg.addEventListener("click", (e) => {
-    const id = e.target.dataset && e.target.dataset.id;
-    if (id) location.hash = `#/country/${id}`;
+    const place = placeAt(e);
+    if (!place) { tip.hidden = true; return; }
+    // A tap says what's there first; a click goes straight to it.
+    if (pointer !== "mouse") { showTip(e, place, true); return; }
+    const link = href(place);
+    if (link) location.hash = link;
   });
   svg.addEventListener("pointermove", (e) => {
-    const id = e.target.dataset && e.target.dataset.id;
-    if (!id || e.pointerType === "touch") { tip.hidden = true; return; }
-    const place = S.byId.get(Number(id));
-    tip.replaceChildren(h("b", null, place.name), opts.tip(place));
-    const r = wrap.getBoundingClientRect();
-    tip.style.left = `${Math.min(Math.max(e.clientX - r.left, 90), r.width - 90)}px`;
-    tip.style.top = `${e.clientY - r.top}px`;
-    tip.hidden = false;
+    if (e.pointerType !== "mouse") return;
+    const place = placeAt(e);
+    if (place) showTip(e, place, false); else tip.hidden = true;
   });
-  svg.addEventListener("pointerleave", () => { tip.hidden = true; });
+  svg.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") tip.hidden = true; });
   if (opts.onDraw) opts.onDraw(svg);
   return [svg, tip];
 }
@@ -289,13 +323,13 @@ const riskLegend = () => legend([["Not forecast", "var(--map-none)"], ...MAP_LAB
 
 function homePage() {
   const risks = risksPanel();
-  const panels = [
-    S.data.world ? threatPanel(S.data.world) : null,
-    herePanel(),
-    riskMapPanel(risks.refresh), risks.el,
-    alertsPanel(), tensionPanel(), briefPanel(), allPanel(), appPanel(),
-  ];
-  return { title: "SAGE: war and conflict forecasts", body: [h("div", { class: "grid home" }, panels)] };
+  return {
+    title: "SAGE: war and conflict forecasts",
+    body: [h("div", { class: "grid home" },
+      S.data.world ? threatPanel(S.data.world) : null, herePanel(),
+      riskMapPanel(risks.refresh), risks.el,
+      alertsPanel(), tensionPanel(), briefPanel(), tablePanel(), appPanel())],
+  };
 }
 
 function threatPanel(w) {
@@ -307,23 +341,24 @@ function threatPanel(w) {
   const alerts = S.data.countries.filter(alertOn).length;
   return panel("a-threat", "Global threat level", `Forecast for ${monthName(w.month || nextMonth(), true)}`,
     h("div", { class: "threat-row" },
-      h("div", { class: "threat-level" },
+      h("div", { class: "threat-level", title: "How many countries SAGE expects to see deadly fighting and war next month, against every month since 1989" },
         h("span", { class: "level", style: `background:var(--threat-${r});color:${THREAT_TEXT[r]}` }, w.level.toUpperCase()),
-        h("div", { class: "meter", "aria-hidden": "true" },
-          levels.map((_, i) => h("span", { class: i === r ? "now" : null, style: `background:var(--threat-${i})` }))),
+        h("div", { class: "meter" },
+          levels.map((name, i) => h("span", { class: i === r ? "now" : null, title: name, style: `background:var(--threat-${i})` }))),
         h("div", { class: "meter-ends", "aria-hidden": "true" }, h("span", null, levels[0]), h("span", null, levels[levels.length - 1]))),
-      stat(count(w.expected_fighting), `countries expected to see deadly fighting in ${month}` +
-        (lm ? ` (${lm.fighting} in ${monthName(lm.month)})` : "")),
-      stat(count(w.expected_wars), `expected to be at full-scale war` + (lm ? ` (${lm.wars} in ${monthName(lm.month)})` : "")),
-      stat(w.score == null ? "–" : `${Math.round(w.score * 100)}%`, "of months since 1989 were calmer than this"),
-      stat(String(alerts), alerts === 1 ? "build-up alert in the news" : "build-up alerts in the news", null, alerts ? "hot" : null)));
+      h("div", { class: "stats" },
+        stat(count(w.expected_fighting), `countries expected to see deadly fighting in ${month}` +
+          (lm ? `, against ${lm.fighting} in ${monthName(lm.month)}` : "")),
+        stat(count(w.expected_wars), `expected to be at full-scale war` + (lm ? `, against ${lm.wars} in ${monthName(lm.month)}` : "")),
+        stat(w.score == null ? "–" : `${Math.round(w.score * 100)}%`, "of months since 1989 were calmer"),
+        stat(String(alerts), alerts === 1 ? "build-up alert" : "build-up alerts", null, alerts ? "hot" : null))));
 }
 
 function herePanel() {
   const body = h("div", { class: "body" }, h("p", { class: "note" }, "Finding where you are…"));
   const fill = (iso2) => {
     if (!iso2) {
-      body.replaceChildren(h("p", { class: "note" }, "SAGE couldn't tell where you are. Find your country under All countries."));
+      body.replaceChildren(h("p", { class: "note" }, "SAGE couldn't tell where you are."));
       return;
     }
     const place = placeForIso2(iso2);
@@ -345,7 +380,7 @@ function placeSummary(place) {
   const tense = relationsOf(place.id).find((r) => r.tension !== "usual");
   return [
     h("p", { class: "place-name" }, h("a", { href: `#/country/${place.id}` }, place.name)),
-    h("p", { class: "tags" }, tag(status(c), statusColor(c)), alertOn(c) ? flag() : null),
+    h("p", { class: "tags" }, statusTag(c), alertOn(c) ? flag() : null),
     c ? h("div", { class: "meters" }, Object.keys(MEASURES).filter((k) => c[k]).map((k) => {
       const p = c[k].chance[NEXT];
       return h("div", null,
@@ -353,7 +388,7 @@ function placeSummary(place) {
           h("span", { class: "num", style: `color:${chanceColor(p)}` }, pct(p))),
         mbar(p));
     })) : null,
-    tense ? h("p", { class: "note" }, `Tension with ${other(tense, place.id)}: ${tense.tension}.`) : null,
+    tense ? h("p", { class: "note" }, "Tension with ", h("a", { href: pairLink(tense) }, other(tense, place.id)), `: ${tense.tension}.`) : null,
   ];
 }
 
@@ -363,6 +398,7 @@ function riskMapPanel(onChange) {
   let svg = null;
   const buttons = Object.keys(MEASURES).map((key) => h("button", {
     type: "button", "data-key": key, onclick: () => { S.measure = key; update(); onChange(); },
+    title: `${question(key).title}: ${question(key).text || MEASURES[key]}`,
   }, key === "fighting" ? "Fighting" : "War"));
   const update = () => {
     title.textContent = `${MEASURES[S.measure]} in ${monthName(nextMonth())}`;
@@ -370,7 +406,7 @@ function riskMapPanel(onChange) {
     if (svg) for (const el of svg.querySelectorAll("[data-id]")) el.style.fill = fill(S.byId.get(Number(el.dataset.id)));
   };
   const map = mapBody({
-    label: "World map of the chance of each country's forecast",
+    label: "World map of each country's chance",
     fill,
     tip: (place) => {
       const p = chanceOf(place, S.measure);
@@ -417,23 +453,27 @@ function alertsPanel() {
   const alerts = S.data.countries.filter(alertOn);
   return panel("a-alerts", "Build-up alerts", alerts.length ? String(alerts.length) : null,
     alerts.length ? h("div", null, alerts.map((c) => h("div", { class: "alert-item" },
-      h("p", { class: "place-name" }, h("a", { href: `#/country/${c.id}` }, c.name), tag(status(c), statusColor(c))),
+      h("p", { class: "place-name" }, h("a", { href: `#/country/${c.id}` }, c.name), statusTag(c)),
       h("p", null, alertShort(c)))))
       : h("p", { class: "empty" }, "No build-up alerts right now."));
 }
 
+/** A row of column names over a list. */
+const rowsHead = (...names) => h("li", { class: "rows-head", "aria-hidden": "true" }, names.map((n) => h("span", null, n)));
+
 function pairRow(p, name) {
   return h("li", null, h("a", { href: pairLink(p) },
     h("span", { class: "name" }, name),
-    tag(p.tension, tensionColor(p.tension)),
+    tensionTag(p.tension),
     h("span", { class: "pct", style: `color:${chanceColor(p.clash_6)}` }, pctShort(p.clash_6))));
 }
 
 function tensionPanel() {
   const tense = S.data.pairs.pairs.filter((p) => p.tension === "very high" || p.tension === "high")
     .sort((x, y) => tensionOrder(x.tension) - tensionOrder(y.tension) || y.clash_6 - x.clash_6).slice(0, 8);
-  return panel("a-tension", "Tensest relations", "Clashes, 6 months",
-    tense.length ? h("ul", { class: "rows" }, tense.map((p) => pairRow(p, `${p.names[0]} – ${p.names[1]}`)))
+  return panel("a-tension", "Tensest relations", "Next six months",
+    tense.length ? h("ul", { class: "rows" }, rowsHead("Countries", "Tension", "Clashes"),
+      tense.map((p) => pairRow(p, `${p.names[0]} – ${p.names[1]}`)))
       : h("p", { class: "empty" }, "No relations between countries are unusually tense right now."));
 }
 
@@ -442,28 +482,34 @@ function briefPanel() {
   return panel("a-brief", "Summary", null, h("ul", { class: "lines" }, lines.map((l) => h("li", null, l))));
 }
 
-function allPanel() {
-  const search = h("input", { class: "search", type: "search", placeholder: "Find a country", "aria-label": "Find a country", autocomplete: "off" });
-  const list = h("ul", { class: "rows scroll" });
+/** Every country, sortable by name, how things stood last month, or either chance. */
+function tablePanel() {
+  const cols = [["name", "Country"], ["status", "Last month"], ["fighting", "Fighting"], ["major_war", "War"]];
+  const severity = ["Relations only", "Calm", "Attacks on civilians", "Some clashes", "Fighting", "At war"];
+  let by = "name", desc = false;
+  const tbody = h("tbody");
+  const heads = cols.map(([key, label]) => {
+    const th = h("th", { scope: "col", class: key === "status" ? "status-col" : key === "name" ? null : "num" },
+      h("button", { type: "button", onclick: () => { desc = by === key ? !desc : key !== "name"; by = key; fill(); } }, label));
+    return [key, th];
+  });
+  const cell = (p) => h("td", { class: "num" },
+    p == null ? h("span", { class: "faint" }, "–") : [h("span", { style: `color:${chanceColor(p)}` }, pctShort(p)), mbar(p)]);
   const fill = () => {
-    const q = search.value.trim().toLowerCase();
-    const found = !q ? S.places : S.places.filter((p) => p.name.toLowerCase().includes(q))
-      .sort((a, b) => (a.name.toLowerCase().startsWith(q) ? 0 : 1) - (b.name.toLowerCase().startsWith(q) ? 0 : 1));
-    list.replaceChildren(...found.map((p) => {
-      const v = chanceOf(p, "fighting");
-      return h("li", null, h("a", { href: `#/country/${p.id}` },
-        h("span", { class: "name" }, p.name, alertOn(p.country) ? flag() : null),
-        tag(status(p.country), statusColor(p.country)),
-        h("span", { class: "pct", style: v == null ? null : `color:${chanceColor(v)}` }, v == null ? "–" : pctShort(v))));
-    }));
-    if (!found.length) {
-      list.append(h("li", null, h("p", { class: "empty" },
-        `No country called "${search.value.trim()}". SAGE covers every country with organised violence since 1989, and those in tense relations with another.`)));
-    }
+    const value = (pl) => (by === "name" ? 0 : by === "status" ? severity.indexOf(status(pl.country))
+      : chanceOf(pl, by) == null ? -1 : chanceOf(pl, by));
+    const rows = [...S.places].sort((a, b) => (desc ? -1 : 1) * (value(a) - value(b)) || (by === "name" && desc ? -1 : 1) * a.name.localeCompare(b.name));
+    for (const [key, th] of heads) th.setAttribute("aria-sort", key === by ? (desc ? "descending" : "ascending") : "none");
+    tbody.replaceChildren(...rows.map((pl) => h("tr", { onclick: (e) => { if (e.target.tagName !== "A") location.hash = `#/country/${pl.id}`; } },
+      h("td", null, h("a", { href: `#/country/${pl.id}` }, pl.name), alertOn(pl.country) ? flag() : null,
+        h("div", { class: "sub" }, statusTag(pl.country))),
+      h("td", { class: "status-col" }, statusTag(pl.country)),
+      cell(chanceOf(pl, "fighting")), cell(chanceOf(pl, "major_war")))));
   };
-  search.addEventListener("input", fill);
   fill();
-  return panel("a-all", "All countries", `Fighting in ${monthName(nextMonth())}`, search, list);
+  return panel("a-all", "Every country", `Chance in ${monthName(nextMonth())}`,
+    h("div", { class: "table-scroll" }, h("table", { class: "list" },
+      h("thead", null, h("tr", null, heads.map(([, th]) => th))), tbody)));
 }
 
 function appPanel() {
@@ -498,7 +544,8 @@ function countryPage(id) {
   const keys = c ? QUESTIONS.filter((k) => c[k]) : [];
   const head = h("section", { class: "panel a-head" }, h("div", { class: "head-row" + (keys.length ? "" : " solo") },
     h("div", { class: "who" }, h("p", { class: "kicker" }, c ? c.region : "Relations only"), h("h1", null, place.name),
-      h("p", { class: "tags" }, tag(status(c), statusColor(c)), alertOn(c) ? flag() : null)),
+      h("p", { class: "tags" }, statusTag(c), c ? h("span", { class: "when" }, `in ${monthName(S.data.data_through)}`) : null,
+        alertOn(c) ? flag() : null)),
     keys.map((k) => {
       const p = c[k].chance[NEXT];
       return stat(pctShort(p), `${question(k).title} in ${month}: ${chanceWord(p)}`, chanceColor(p));
@@ -517,11 +564,13 @@ function countryPage(id) {
 
   const rel = relationsOf(id);
   const tension = new Map(rel.map((p) => [otherId(p, id), p.tension]));
+  const pairWith = new Map(rel.map((p) => [otherId(p, id), p]));
   panels.push(h("section", { class: "panel a-map" }, h("header", null, h("h2", null, "Relations map")),
     mapBody({
       label: `Map of ${place.name}'s relations with other countries`,
       fill: (pl) => (!pl ? "var(--map-none)" : pl.id === id ? "var(--text)" : tension.has(pl.id) ? tensionFill(tension.get(pl.id)) : "var(--map-none)"),
       tip: (pl) => (pl.id === id ? "This country" : tension.has(pl.id) ? `Tension: ${tension.get(pl.id)}` : "No relation SAGE follows"),
+      href: (pl) => (pl.id === id ? null : pairWith.has(pl.id) ? pairLink(pairWith.get(pl.id)) : `#/country/${pl.id}`),
       picked: new Set([id]),
       zoom: [id, ...rel.filter((p) => p.tension !== "usual").map((p) => otherId(p, id))],
     }), tensionLegend(place.name)));
@@ -553,7 +602,7 @@ function chancesPanel(c) {
     h("table", { class: "chances" },
       h("thead", null, h("tr", null, h("td"),
         months.map((m, i) => h("th", { scope: "col", class: i === NEXT ? "next" : null }, monthName(m).slice(0, 3))),
-        h("th", { scope: "col" }, "Usual"))),
+        h("th", { scope: "col", title: `How often it happens in ${monthName(nextMonth())} to countries in the same situation` }, "Usual"))),
       h("tbody", null, rows)),
     h("div", { class: "note body" },
       h("p", { class: "phone-only" }, QUESTIONS.filter((k) => c[k] && question(k).text).map((k) => `${question(k).title}: ${question(k).text}. `)),
@@ -561,8 +610,8 @@ function chancesPanel(c) {
 }
 
 function relationsPanel(rel, id) {
-  return panel("a-relations", "Relations", "Clashes, 6 months",
-    rel.length ? h("ul", { class: "rows scroll" }, rel.map((p) => pairRow(p, other(p, id))))
+  return panel("a-relations", "Relations", "Next six months",
+    rel.length ? h("ul", { class: "rows scroll" }, rowsHead("Country", "Tension", "Clashes"), rel.map((p) => pairRow(p, other(p, id))))
       : h("p", { class: "empty" }, "None that SAGE follows."));
 }
 
@@ -574,7 +623,7 @@ function pairPage(a, b) {
   const title = `${p.names[0]} and ${p.names[1]}`;
   const head = h("section", { class: "panel a-head" }, h("div", { class: "head-row" },
     h("div", { class: "who" }, h("p", { class: "kicker" }, "Between countries"), h("h1", null, title),
-      h("p", { class: "tags" }, tag(`Tension: ${p.tension}`, tensionColor(p.tension)),
+      h("p", { class: "tags" }, tensionTag(p.tension, `Tension: ${p.tension}`),
         h("a", { href: `#/country/${p.a}` }, p.names[0]), h("a", { href: `#/country/${p.b}` }, p.names[1]))),
     stat(pctShort(p.clash_6), `Deadly clashes in the next six months: ${chanceWord(p.clash_6)}`, chanceColor(p.clash_6)),
     stat(pctShort(p.war_6), `War in the next six months: ${chanceWord(p.war_6)}`, chanceColor(p.war_6)),
@@ -641,6 +690,90 @@ function notFound() {
     h("p", null, "SAGE has nothing at this address."), h("a", { href: "#/" }, "Back to the overview"))))] };
 }
 
+// ---------- Search ----------
+
+const norm = (t) => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+/** Countries matching what's been typed, best first: whole names, then starts of names and words, then anywhere. */
+function findPlaces(text) {
+  const q = norm(text);
+  if (!q) return [];
+  const found = [];
+  for (const p of S.places) {
+    const name = norm(p.name);
+    let score = name === q ? 0 : name.startsWith(q) ? 1 : name.split(" ").some((w) => w.startsWith(q)) ? 2 : name.includes(q) ? 3 : 9;
+    for (const [alias, id] of Object.entries(ALIASES)) {
+      if (id === p.id && (alias === q || (q.length >= 2 && alias.startsWith(q)))) score = Math.min(score, alias === q ? 0 : 2);
+    }
+    if (score < 9) found.push([score, p]);
+  }
+  return found.sort((a, b) => a[0] - b[0] || a[1].name.localeCompare(b[1].name)).map(([, p]) => p);
+}
+
+/** The search box in the top bar: type, pick with the arrows or the mouse, press / to jump to it. */
+function setUpSearch() {
+  const input = document.getElementById("q");
+  const list = document.getElementById("q-list");
+  const toggle = document.getElementById("find-toggle");
+  if (!input || !list) return;
+  let found = [], active = -1;
+  const close = () => {
+    list.hidden = true;
+    input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
+  };
+  const done = () => { input.value = ""; close(); input.blur(); document.body.classList.remove("finding"); };
+  const go = (place) => { done(); location.hash = `#/country/${place.id}`; };
+  const mark = () => {
+    [...list.children].forEach((li, i) => li.classList.toggle("active", i === active));
+    if (active >= 0) { input.setAttribute("aria-activedescendant", `q-${active}`); list.children[active].scrollIntoView({ block: "nearest" }); }
+  };
+  const show = () => {
+    found = findPlaces(input.value).slice(0, 8);
+    list.replaceChildren(...found.map((p, i) => {
+      const v = chanceOf(p, "fighting");
+      return h("li", { id: `q-${i}`, role: "option", onclick: () => go(p) },
+        h("span", { class: "name" }, p.name), statusTag(p.country),
+        h("span", { class: "pct", style: v == null ? null : `color:${chanceColor(v)}` }, v == null ? "–" : pctShort(v)));
+    }));
+    if (!found.length) list.append(h("li", { class: "none" }, "No country by that name"));
+    const open = !!input.value.trim();
+    list.hidden = !open;
+    input.setAttribute("aria-expanded", String(open));
+    active = found.length ? 0 : -1;
+    mark();
+  };
+  input.addEventListener("input", show);
+  input.addEventListener("focus", () => { if (input.value.trim()) show(); });
+  input.addEventListener("blur", () => setTimeout(close, 200));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      if (!found.length) return;
+      active = (active + (e.key === "ArrowDown" ? 1 : found.length - 1)) % found.length;
+      mark();
+      e.preventDefault();
+    } else if (e.key === "Enter") {
+      if (found.length) go(found[Math.max(active, 0)]);
+      e.preventDefault();
+    } else if (e.key === "Escape") {
+      done();
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+    if (e.key === "/" && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      document.body.classList.add("finding");
+      input.focus();
+    }
+  });
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      if (document.body.classList.toggle("finding")) input.focus(); else done();
+    });
+  }
+}
+
 // ---------- Routing ----------
 
 function route() {
@@ -648,6 +781,8 @@ function route() {
   const path = location.hash.replace(/^#\/?/, "");
   let m, page;
   if (!S.data) return;
+  if (S.path !== undefined) S.scroll.set(S.path, window.scrollY);
+  S.path = path;
   if (!path) page = homePage();
   else if ((m = path.match(/^country\/(\d+)$/))) page = countryPage(Number(m[1]));
   else if ((m = path.match(/^pair\/(\d+)-(\d+)$/))) page = pairPage(Number(m[1]), Number(m[2]));
@@ -659,7 +794,11 @@ function route() {
     const here = a.dataset.route === (path === "about" ? "about" : path ? "" : "home");
     if (here) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   }
-  window.scrollTo(0, 0);
+  document.body.classList.remove("finding");
+  // Back on the overview, carry on where you left it; every other page starts at the top.
+  const y = path ? 0 : S.scroll.get("") || 0;
+  window.scrollTo(0, y);
+  if (y) loadWorld().then(() => requestAnimationFrame(() => window.scrollTo(0, y)));
 }
 
 async function start() {
@@ -678,6 +817,7 @@ async function start() {
   if (stamp) stamp.textContent = `Updated ${dayName(d.generated)} · data to ${monthName(d.data_through, true)}${news}`;
   const made = document.getElementById("made");
   if (made) made.textContent = `Forecast made ${dayName(d.generated)}, from conflict data to ${monthName(d.data_through, true)}${news}.`;
+  setUpSearch();
   window.addEventListener("hashchange", route);
   route();
 }
