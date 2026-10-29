@@ -7,7 +7,11 @@ name: Daily forecast
 
 on:
   schedule:
-    - cron: "41 6 * * *"   # 06:41 UTC every day
+    - cron: "41 6 * * *"    # 06:41 UTC every day
+    # Backups: GitHub now and then never starts a scheduled run. These
+    # stop straight away if today's update is already in.
+    - cron: "41 12 * * *"
+    - cron: "41 18 * * *"
   workflow_dispatch:
 
 permissions:
@@ -18,10 +22,46 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Today's update is in once the forecast has yesterday's news, the
+  # newest GDELT publishes. Until then every scheduled run updates (so a
+  # morning run that came before GDELT's file is caught up too). Run by
+  # hand, it always updates.
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      due: ${{ steps.due.outputs.due }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }}   # the branch as it is now, not when this run was queued
+
+      - id: due
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          python3 - <<'EOF'
+          import json, os
+          from datetime import date, timedelta
+          try:
+              last = json.load(open("data/alerts.json"))["checked_through"]
+          except (OSError, ValueError, KeyError):
+              last = ""
+          yesterday = (date.today() - timedelta(days=1)).isoformat()
+          due = os.environ["EVENT"] != "schedule" or last < yesterday
+          print(f"News checked through {last or 'unknown'}; yesterday was {yesterday}.")
+          print("Updating." if due else "Today's update is already in. Nothing to do.")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write(f"due={'true' if due else 'false'}\n")
+          EOF
+
   update:
+    needs: check
+    if: needs.check.outputs.due == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:

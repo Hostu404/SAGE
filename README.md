@@ -226,7 +226,10 @@ every day since 2013, about 15 GB downloaded over a couple of hours; each
 file is reduced to a few kilobytes and deleted).
 
 The **Daily forecast** GitHub Action runs `python -m sage update` every
-morning and commits the results, free on a public repo.
+morning and commits the results, free on a public repo. GitHub now and
+then never starts a scheduled run, so it tries again at 12:41 and 18:41
+UTC; those stop straight away if the forecast already has yesterday's
+news.
 
 ## Licence
 
