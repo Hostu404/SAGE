@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T00:44:24Z",
+ "generated": "2026-10-29T01:04:33Z",
  "data_through": "2026-09",
  "months": [
   "2026-10",
@@ -384,17 +384,15 @@
     "raised": {
      "ab": [
       "words",
-      "fight",
       "threaten",
       "reduce_relations"
      ],
      "ba": [
-      "words",
-      "fight"
+      "words"
      ]
     },
     "last_fought": null,
-    "summary": "Tension between Argentina and United Kingdom is high. From Argentina towards United Kingdom: criticism and demands (about 5× usual) and fighting (about 3× usual). From United Kingdom towards Argentina: criticism and demands (about 4× usual) and fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
+    "summary": "Tension between Argentina and United Kingdom is high. From Argentina towards United Kingdom: criticism and demands (about 5× usual) and threats (about 2× usual). From United Kingdom towards Argentina: criticism and demands (about 4× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
     "a": 530,
@@ -771,26 +769,6 @@
     },
     "last_fought": null,
     "summary": "Tension between Djibouti and Yemen is above usual. From Djibouti towards Yemen: fighting (about 4× usual). From Yemen towards Djibouti: fighting (about 6× usual) and seizures and arrests (about 4× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-   },
-   {
-    "a": 2,
-    "b": 663,
-    "names": [
-     "United States of America",
-     "Jordan"
-    ],
-    "tension": "above usual",
-    "clash_6": 0.0004,
-    "war_6": 0.0001,
-    "usual_6": 0.001,
-    "raised": {
-     "ab": [
-      "heavy_weapons"
-     ],
-     "ba": []
-    },
-    "last_fought": null,
-    "summary": "Tension between United States of America and Jordan is above usual. From United States of America towards Jordan: shelling and air strikes (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
    },
    {
     "a": 666,
@@ -4067,6 +4045,24 @@
     },
     "last_fought": null,
     "summary": "Tension between United States of America and Nigeria is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
+   },
+   {
+    "a": 2,
+    "b": 663,
+    "names": [
+     "United States of America",
+     "Jordan"
+    ],
+    "tension": "usual",
+    "clash_6": 0.0004,
+    "war_6": 0.0001,
+    "usual_6": 0.001,
+    "raised": {
+     "ab": [],
+     "ba": []
+    },
+    "last_fought": null,
+    "summary": "Tension between United States of America and Jordan is at its usual level. Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%)."
    },
    {
     "a": 2,
@@ -14788,7 +14784,7 @@
      "war_6": 0.0002,
      "usual_6": 0.001,
      "last_fought": null,
-     "summary": "Tension between Argentina and United Kingdom is high. From Argentina towards United Kingdom: criticism and demands (about 5× usual) and fighting (about 3× usual). From United Kingdom towards Argentina: criticism and demands (about 4× usual) and fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
+     "summary": "Tension between Argentina and United Kingdom is high. From Argentina towards United Kingdom: criticism and demands (about 5× usual) and threats (about 2× usual). From United Kingdom towards Argentina: criticism and demands (about 4× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
    "summary": "Argentina was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). Tension with United Kingdom is high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
@@ -19462,18 +19458,8 @@
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
     ]
    },
-   "relations": [
-    {
-     "with": "United States of America",
-     "tension": "above usual",
-     "clash_6": 0.0004,
-     "war_6": 0.0001,
-     "usual_6": 0.001,
-     "last_fought": null,
-     "summary": "Tension between United States of America and Jordan is above usual. From United States of America towards Jordan: shelling and air strikes (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
-    }
-   ],
-   "summary": "Jordan was largely calm in September. Deadly fighting in November is extremely unlikely (1%). Tension with United States of America is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "relations": [],
+   "summary": "Jordan was largely calm in September. Deadly fighting in November is extremely unlikely (1%)."
   },
   {
    "id": 501,
@@ -24486,7 +24472,7 @@
      "war_6": 0.0002,
      "usual_6": 0.001,
      "last_fought": null,
-     "summary": "Tension between Argentina and United Kingdom is high. From Argentina towards United Kingdom: criticism and demands (about 5× usual) and fighting (about 3× usual). From United Kingdom towards Argentina: criticism and demands (about 4× usual) and fighting (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
+     "summary": "Tension between Argentina and United Kingdom is high. From Argentina towards United Kingdom: criticism and demands (about 5× usual) and threats (about 2× usual). From United Kingdom towards Argentina: criticism and demands (about 4× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their forces haven't fought each other since at least 1989. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
    "summary": "United Kingdom was largely calm in September. Deadly fighting in November is extremely unlikely (under 1%). Tension with Israel is high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Argentina is high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
