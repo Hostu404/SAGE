@@ -80,6 +80,11 @@ What it can't do:
   working from public information can catch these reliably, SAGE included.
 - **New wars are rare**, so even after a clear build-up the chance it gives
   can be small. A small chance isn't no chance.
+- **Between countries, chances under about a third run low.** Since 2018,
+  when SAGE said about 5% for deadly clashes within six months, they
+  followed about 7% of the time; when it said about 20%, about 29%. Higher
+  chances have been close. A correction learned from earlier years was
+  tested and didn't hold up, because how far off it was kept changing.
 
 Every month's forecasts are kept unchanged in `forecasts/history/`, so the
 live record can be checked against what happened.
