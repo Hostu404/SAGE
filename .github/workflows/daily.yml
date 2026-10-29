@@ -49,5 +49,9 @@ jobs:
             echo "Nothing changed"
           else
             git commit -m "Daily update $(date -u +%Y-%m-%d)"
+            # If someone pushed while this ran, put today's update on top
+            # of theirs rather than failing (it only touches data,
+            # reports and forecasts, which people don't edit by hand).
+            git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
