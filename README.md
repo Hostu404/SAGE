@@ -6,10 +6,8 @@ Free, open forecasts of war and attacks on civilians, with every
 forecast scored in public.
 
 **[See today's forecast at wysesage.xyz](https://wysesage.xyz)** ·
-**[Get the Android app](https://github.com/Hostu404/SAGE/releases/latest)**
-(the latest release; download `app-release.apk` from it, for Android 8.0
-or newer) ·
-[all releases](https://github.com/Hostu404/SAGE/releases)
+**[Get the latest APK](https://github.com/Hostu404/SAGE/releases/latest)**
+
 
 For each country, every month, SAGE gives the chance of:
 
