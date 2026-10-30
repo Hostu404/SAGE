@@ -101,7 +101,8 @@ fun Pct(p: Double?, modifier: Modifier = Modifier, short: Boolean = true) = Text
     modifier = modifier,
 )
 
-data class StatItem(val value: String, val label: String, val color: Color = Sage.text)
+/** A big number and what it counts; with [onClick], tapping it opens what it's made of. */
+data class StatItem(val value: String, val label: String, val color: Color = Sage.text, val onClick: (() -> Unit)? = null)
 
 /** Big numbers with a line under each, two to a row, with lines between them. */
 @Composable
@@ -112,9 +113,11 @@ fun StatGrid(stats: List<StatItem>, modifier: Modifier = Modifier) {
             Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
                 row.forEachIndexed { j, s ->
                     if (j > 0) VerticalDivider(color = Sage.line)
-                    Column(Modifier.weight(1f).padding(horizontal = 14.dp, vertical = 12.dp)) {
+                    Column(Modifier.weight(1f).fillMaxHeight().let { m -> s.onClick?.let { m.clickable(onClick = it) } ?: m }
+                        .padding(horizontal = 14.dp, vertical = 12.dp)) {
                         Text(s.value, style = mono(26.sp, FontWeight.Bold), color = s.color)
-                        Text(s.label, style = MaterialTheme.typography.bodySmall, color = Sage.muted, modifier = Modifier.padding(top = 4.dp))
+                        Text(s.label + if (s.onClick != null) " ›" else "", style = MaterialTheme.typography.bodySmall,
+                            color = Sage.muted, modifier = Modifier.padding(top = 4.dp))
                     }
                 }
             }

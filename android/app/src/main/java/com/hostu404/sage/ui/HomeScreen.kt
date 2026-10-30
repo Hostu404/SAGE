@@ -62,7 +62,7 @@ fun HomeScreen(model: SageModel, f: Forecast) {
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             item { Freshness(model, f) }
-            f.world?.let { w -> item { ThreatPanel(w, f) } }
+            f.world?.let { w -> item { ThreatPanel(model, w, f) } }
             item { WatchlistPanel(model, f) }
             item { RiskMapPanel(model, f) }
             item { MostLikelyPanel(model, f) }
@@ -83,22 +83,29 @@ private fun Freshness(model: SageModel, f: Forecast) {
         style = label(10.5.sp, FontWeight.Normal), color = Sage.faint)
 }
 
+/** The level and the four numbers behind it; tapping any of them opens what it's made of. */
 @Composable
-private fun ThreatPanel(w: World, f: Forecast) {
+private fun ThreatPanel(model: SageModel, w: World, f: Forecast) {
     val month = w.month?.let(Words::month) ?: nextMonth(f)
     val last = w.lastMonth?.let(Words::month)
     val alerts = f.countries.count { it.alert.on }
+    var open by rememberSaveable { mutableStateOf<String?>(null) }
     Panel("Global threat level", right = { Note("For ${w.month?.let(Words::monthYear) ?: month}") }) {
-        ThreatBlock(w, Modifier.padding(14.dp))
+        ThreatBlock(w, Modifier.clickable { open = ThreatPart.LEVEL }.padding(14.dp))
         HorizontalDivider(color = Sage.line)
         StatGrid(listOf(
             StatItem("${w.expectedFighting.roundToInt()}", "countries expected to see deadly fighting in $month" +
-                (if (w.lastFighting != null && last != null) ", against ${w.lastFighting} in $last" else "")),
+                (if (w.lastFighting != null && last != null) ", against ${w.lastFighting} in $last" else "")) { open = ThreatPart.FIGHTING },
             StatItem("${w.expectedWars.roundToInt()}", "expected to be at full-scale war" +
-                (if (w.lastWars != null && last != null) ", against ${w.lastWars} in $last" else "")),
-            StatItem("${(w.score * 100).roundToInt()}%", "of months since 1989 were calmer"),
-            StatItem("$alerts", if (alerts == 1) "build-up alert" else "build-up alerts", if (alerts > 0) Sage.alert else Sage.text),
+                (if (w.lastWars != null && last != null) ", against ${w.lastWars} in $last" else "")) { open = ThreatPart.WAR },
+            StatItem("${(w.score * 100).roundToInt()}%", "of months since 1989 were calmer") { open = ThreatPart.HISTORY },
+            StatItem("$alerts", if (alerts == 1) "build-up alert" else "build-up alerts", if (alerts > 0) Sage.alert else Sage.text) {
+                open = ThreatPart.ALERTS
+            },
         ))
+    }
+    open?.let { part ->
+        ThreatSheet(part, w, f, onOpen = { id -> open = null; model.open(Screen.Place(id)) }, onDismiss = { open = null })
     }
 }
 

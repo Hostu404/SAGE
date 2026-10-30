@@ -107,9 +107,20 @@ data class World(
     val lastMonth: String? = null,
     val lastFighting: Int? = null,
     val lastWars: Int? = null,
+    /** The first month on record, e.g. "1989-01". */
+    val since: String? = null,
+    /** The two shares of months that were calmer, which [score] averages, if the file has them. */
+    val calmerFighting: Double? = null,
+    val calmerWars: Double? = null,
+    /** How many countries had deadly fighting, and were at full-scale war, each month from [since]. */
+    val historyFighting: List<Int> = emptyList(),
+    val historyWars: List<Int> = emptyList(),
 ) {
     companion object {
         val LEVELS = listOf("Low", "Guarded", "Elevated", "High", "Severe")
+
+        /** Where each level starts: the share of months since 1989 that were calmer. */
+        val FROM = listOf(0.0, 0.2, 0.5, 0.8, 0.95)
 
         fun parse(o: JSONObject) = World(
             level = o.optString("level"),
@@ -122,6 +133,11 @@ data class World(
             lastMonth = o.optJSONObject("last_month")?.optString("month")?.ifEmpty { null },
             lastFighting = o.optJSONObject("last_month")?.takeIf { it.has("fighting") }?.optInt("fighting"),
             lastWars = o.optJSONObject("last_month")?.takeIf { it.has("wars") }?.optInt("wars"),
+            since = o.optString("since").ifEmpty { null },
+            calmerFighting = o.optJSONObject("calmer")?.optDouble("fighting")?.takeUnless { it.isNaN() },
+            calmerWars = o.optJSONObject("calmer")?.optDouble("wars")?.takeUnless { it.isNaN() },
+            historyFighting = o.optJSONObject("history")?.optJSONArray("fighting").ints(),
+            historyWars = o.optJSONObject("history")?.optJSONArray("wars").ints(),
         )
     }
 }
@@ -274,6 +290,9 @@ object Tension {
 
 private fun JSONArray?.strings(): List<String> =
     if (this == null) emptyList() else (0 until length()).map { optString(it) }
+
+private fun JSONArray?.ints(): List<Int> =
+    if (this == null) emptyList() else (0 until length()).map { optInt(it, 0) }
 
 private fun JSONArray?.doubles(): List<Double> =
     if (this == null) emptyList() else (0 until length()).map { optDouble(it, 0.0) }

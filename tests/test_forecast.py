@@ -57,6 +57,9 @@ def test_the_global_threat_level_compares_next_month_with_every_month_on_record(
     calm = world.threat(frame, [entry(0.3, 0.0), entry(0.2, 0.0)], "2000-12", "December")
     # Fewer fighting than any month (0 calmer), and no war like 8 of 10 months (ties count half: 0.4).
     assert calm["score"] == 0.2 and calm["level"] == "Guarded" and calm["expected_fighting"] == 0.5
+    # The two shares behind it, and every month on record for an app to draw.
+    assert calm["calmer"] == {"fighting": 0.0, "wars": 0.4}
+    assert calm["history"] == {"fighting": [2] * 10, "wars": [0] * 8 + [1] * 2}
     tense = world.threat(frame, [entry(0.99, 0.9), entry(0.99, 0.6), entry(0.9, 0.2)], "2000-12", "December")
     assert tense["level"] == "Severe" and tense["rank"] == 4
     assert tense["text"].startswith("Global threat level: Severe. SAGE expects about 3 countries to see deadly "

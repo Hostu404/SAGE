@@ -42,7 +42,8 @@ def threat(frame: pd.DataFrame, entries: list[dict], next_month: str, month_word
     })
     expected_fighting = sum(e["fighting"]["chance"][NEXT] for e in entries)
     expected_wars = sum(e["major_war"]["chance"][NEXT] for e in entries)
-    score = (_calmer(history["fighting"], expected_fighting) + _calmer(history["wars"], expected_wars)) / 2
+    calmer = {"fighting": _calmer(history["fighting"], expected_fighting), "wars": _calmer(history["wars"], expected_wars)}
+    score = (calmer["fighting"] + calmer["wars"]) / 2
     rank, name = level_for(score)
     last = history.iloc[-1]
     alerts = [e["name"] for e in entries if (e.get("alert") or {}).get("on")]
@@ -68,4 +69,8 @@ def threat(frame: pd.DataFrame, entries: list[dict], next_month: str, month_word
         "since": str(history.index[0]),
         "alerts": len(alerts),
         "text": text,
+        # The two shares the level averages, and every month on record, so an
+        # app can show what the reading is compared with.
+        "calmer": {k: round(v, 3) for k, v in calmer.items()},
+        "history": {"fighting": [int(v) for v in history["fighting"]], "wars": [int(v) for v in history["wars"]]},
     }

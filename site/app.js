@@ -342,19 +342,178 @@ function threatPanel(w) {
   const lm = w.last_month;
   const count = (n) => (n == null ? "–" : String(Math.round(n)));
   const alerts = S.data.countries.filter(alertOn).length;
-  return panel("a-threat", "Global threat level", `Forecast for ${monthName(w.month || nextMonth(), true)}`,
+  // Each part opens what it's made of, under the panel; again closes it.
+  const detail = h("div", { class: "threat-detail", id: "threat-detail", "aria-live": "polite" });
+  const openers = [];
+  const show = (key) => {
+    S.threatOpen = key;
+    for (const b of openers) b.setAttribute("aria-expanded", String(b.dataset.key === key));
+    replaceKids(detail, key ? threatDetail(w, key) : []);
+    detail.hidden = !key;
+  };
+  const opener = (key, el) => {
+    el.dataset.key = key;
+    el.setAttribute("aria-controls", "threat-detail");
+    el.addEventListener("click", () => show(S.threatOpen === key ? null : key));
+    openers.push(el);
+    return el;
+  };
+  const statButton = (key, value, label, cls) => opener(key, h("button", { type: "button", class: "stat opens" + (cls ? " " + cls : "") },
+    h("b", null, value), h("span", null, label)));
+  const el = panel("a-threat", "Global threat level", `Forecast for ${monthName(w.month || nextMonth(), true)}`,
     h("div", { class: "threat-row" },
-      h("div", { class: "threat-level", title: "How many countries SAGE expects to see deadly fighting and war next month, against every month since 1989" },
+      opener("level", h("button", { type: "button", class: "threat-level opens", title: "What the levels mean" },
         h("span", { class: "level", style: `background:var(--threat-${r});color:${THREAT_TEXT[r]}` }, w.level.toUpperCase()),
-        h("div", { class: "meter" },
+        h("span", { class: "meter" },
           levels.map((name, i) => h("span", { class: i === r ? "now" : null, title: name, style: `background:var(--threat-${i})` }))),
-        h("div", { class: "meter-ends", "aria-hidden": "true" }, h("span", null, levels[0]), h("span", null, levels[levels.length - 1]))),
+        h("span", { class: "meter-ends", "aria-hidden": "true" }, h("span", null, levels[0]), h("span", null, levels[levels.length - 1])))),
       h("div", { class: "stats" },
-        stat(count(w.expected_fighting), `countries expected to see deadly fighting in ${month}` +
+        statButton("fighting", count(w.expected_fighting), `countries expected to see deadly fighting in ${month}` +
           (lm ? `, against ${lm.fighting} in ${monthName(lm.month)}` : "")),
-        stat(count(w.expected_wars), `expected to be at full-scale war` + (lm ? `, against ${lm.wars} in ${monthName(lm.month)}` : "")),
-        stat(w.score == null ? "–" : `${Math.round(w.score * 100)}%`, "of months since 1989 were calmer"),
-        stat(String(alerts), alerts === 1 ? "build-up alert" : "build-up alerts", null, alerts ? "hot" : null))));
+        statButton("major_war", count(w.expected_wars), `expected to be at full-scale war` + (lm ? `, against ${lm.wars} in ${monthName(lm.month)}` : "")),
+        statButton("history", w.score == null ? "–" : `${Math.round(w.score * 100)}%`, "of months since 1989 were calmer"),
+        statButton("alerts", String(alerts), alerts === 1 ? "build-up alert" : "build-up alerts", alerts ? "hot" : null))),
+    detail);
+  show(S.threatOpen || null);
+  return el;
+}
+
+// Where the global threat level's numbers come from (see sage/world.py).
+const THREAT_BOUNDS = [0, 0.2, 0.5, 0.8, 0.95, 1];
+const QUESTION_WORDS = {
+  fighting: { what: "deadly fighting", rule: "25 or more killed in fighting involving the government", threshold: 25 },
+  major_war: { what: "full-scale war", rule: "1,000 or more killed in fighting involving the government", threshold: 1000 },
+};
+const tenths = (x) => (Math.round(x * 10) / 10).toLocaleString("en-GB", { maximumFractionDigits: 1 });
+
+function threatDetail(w, key) {
+  if (key === "level") return levelDetail(w);
+  if (key === "history") return historyDetail(w);
+  if (key === "alerts") return alertsDetail();
+  return expectedDetail(w, key);
+}
+
+function expectedDetail(w, key) {
+  const q = QUESTION_WORDS[key];
+  const month = monthName(w.month || nextMonth());
+  const last = w.last_month ? monthName(w.last_month.month) : "last month";
+  const expected = key === "fighting" ? w.expected_fighting : w.expected_wars;
+  const ranked = S.data.countries.filter((c) => c[key]).sort((a, b) => b[key].chance[NEXT] - a[key].chance[NEXT]);
+  const shown = Math.max(5, Math.round(expected));
+  const rest = ranked.slice(shown);
+  const restSum = rest.reduce((sum, c) => sum + c[key].chance[NEXT], 0);
+  const had = S.data.countries.filter((c) => (c.last_month || {}).state >= q.threshold)
+    .sort((a, b) => b.last_month.state - a.last_month.state);
+  const likely = (c, i) => {
+    const p = c[key].chance[NEXT];
+    const fresh = !((c.last_month || {}).state >= q.threshold) && p >= 0.4;
+    return h("li", null, h("a", { href: `#/country/${c.id}` },
+      h("span", { class: "rank" }, String(i + 1)),
+      h("span", { class: "name" }, c.name, fresh ? h("span", { class: "new", title: `Not in ${last}` }, "new") : null, alertOn(c) ? flag() : null),
+      mbar(p), h("span", { class: "pct", style: `color:${chanceColor(p)}` }, pctShort(p))));
+  };
+  const happened = (c) => h("li", null, h("a", { href: `#/country/${c.id}` },
+    h("span", { class: "name" }, c.name),
+    h("span", { class: "pct", style: `color:${chanceColor(c[key] ? c[key].chance[NEXT] : 0)}`, title: `Chance in ${month}` },
+      c[key] ? pctShort(c[key].chance[NEXT]) : "–"),
+    h("span", { class: "num" }, c.last_month.state.toLocaleString("en-GB"))));
+  return [
+    h("p", { class: "lead" }, `SAGE gives every country a chance of ${q.what} in ${month} (${q.rule}). ` +
+      `Added up, they come to about ${tenths(expected)} countries. The ${shown} most likely:`),
+    h("div", { class: "detail-cols" },
+      h("div", null,
+        h("h3", null, `Most likely in ${month}`),
+        h("ol", { class: "rows ranked" }, ranked.slice(0, shown).map(likely)),
+        rest.length ? h("p", { class: "note" }, `The other ${rest.length} countries add up to about ${tenths(restSum)}.`) : null),
+      h("div", null,
+        h("h3", null, `Had it in ${last}: ${had.length}`),
+        had.length ? h("ul", { class: "rows had" }, rowsHead("Country", month.slice(0, 3), "Killed"), had.map(happened))
+          : h("p", { class: "empty" }, "None."))),
+  ];
+}
+
+function historyDetail(w) {
+  const since = (w.since || "1989-01").slice(0, 4);
+  const month = monthName(w.month || nextMonth());
+  const c = w.calmer;
+  const lines = c
+    ? [`In ${Math.round(c.fighting * 100)}% of months since ${since}, fewer countries had deadly fighting than the ${tenths(w.expected_fighting)} SAGE expects in ${month}.`,
+      `In ${Math.round(c.wars * 100)}% of them, fewer were at full-scale war than the ${tenths(w.expected_wars)} it expects.`,
+      `The level takes the average: ${Math.round(w.score * 100)}%.`]
+    : [`Since ${since}, ${Math.round(w.score * 100)}% of months were calmer than SAGE expects ${month} to be, going by how many countries had deadly fighting and full-scale war.`];
+  const hist = w.history;
+  return [
+    h("p", { class: "lead" }, lines.join(" ")),
+    hist ? h("div", { class: "detail-cols" },
+      historyChart(hist.fighting, w.expected_fighting, w.since, "Countries with deadly fighting, each month"),
+      historyChart(hist.wars, w.expected_wars, w.since, "Countries at full-scale war, each month")) : null,
+    h("p", { class: "note" }, levelLine(w)),
+  ];
+}
+
+/** Every month on record as a line, with what SAGE expects next month as a dashed line across it. */
+function historyChart(values, expected, since, title) {
+  const W = 420, H = 170, pad = { l: 26, r: 8, t: 10, b: 22 };
+  const top = Math.max(1, Math.ceil(Math.max(...values, expected) * 1.1));
+  const x = (i) => pad.l + (i / Math.max(1, values.length - 1)) * (W - pad.l - pad.r);
+  const y = (v) => H - pad.b - (v / top) * (H - pad.t - pad.b);
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, class: "history-chart", role: "img",
+    "aria-label": `${title} since ${since.slice(0, 4)}; SAGE expects ${tenths(expected)} next month` });
+  const first = Number(since.slice(0, 4)), firstMonth = Number(since.slice(5, 7)) - 1;
+  for (const v of [0, Math.round(top / 2), top]) {
+    svg.append(svgEl("line", { x1: pad.l, x2: W - pad.r, y1: y(v), y2: y(v), class: "grid" }));
+    const t = svgEl("text", { x: pad.l - 6, y: y(v) + 4, class: "tick", "text-anchor": "end" });
+    t.textContent = String(v);
+    svg.append(t);
+  }
+  for (let year = Math.ceil(first / 10) * 10; ; year += 10) {
+    const i = (year - first) * 12 - firstMonth;
+    if (i >= values.length) break;
+    const t = svgEl("text", { x: x(i), y: H - 4, class: "tick", "text-anchor": "middle" });
+    t.textContent = String(year);
+    svg.append(t);
+  }
+  svg.append(svgEl("polyline", { points: values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" "), class: "line" }));
+  svg.append(svgEl("line", { x1: pad.l, x2: W - pad.r, y1: y(expected), y2: y(expected), class: "expected" }));
+  const most = Math.max(...values), at = values.indexOf(most);
+  const mostMonth = monthName(`${first + Math.floor((firstMonth + at) / 12)}-${String((firstMonth + at) % 12 + 1).padStart(2, "0")}`, true);
+  return h("figure", { class: "history" }, h("figcaption", null, title), svg,
+    h("p", { class: "note" }, h("span", { class: "key expected" }), ` Expected next month: ${tenths(expected)}. Most on record: ${most}, in ${mostMonth}.`));
+}
+
+function levelLine(w) {
+  const r = Math.max(0, Math.min(4, w.rank));
+  const levels = w.levels || ["Low", "Guarded", "Elevated", "High", "Severe"];
+  const lo = Math.round(THREAT_BOUNDS[r] * 100), hi = Math.round(THREAT_BOUNDS[r + 1] * 100);
+  return `${levels[r]} means ${r === 4 ? `${lo}% or more` : `${lo}% to ${hi}%`} of months were calmer.` +
+    (r < 4 ? ` ${hi}% or more would be ${levels[r + 1]}.` : "");
+}
+
+function levelDetail(w) {
+  const r = Math.max(0, Math.min(4, w.rank));
+  const levels = w.levels || ["Low", "Guarded", "Elevated", "High", "Severe"];
+  return [
+    h("p", { class: "lead" }, `The level compares how many countries SAGE expects to see deadly fighting and full-scale war in ` +
+      `${monthName(w.month || nextMonth())} with every month since 1989: the more months that were calmer, the higher it is.`),
+    h("ul", { class: "levels" }, levels.map((name, i) => h("li", { class: i === r ? "now" : null },
+      h("i", { style: `background:var(--threat-${i})` }), h("b", null, name),
+      h("span", null, i === 4 ? `${Math.round(THREAT_BOUNDS[i] * 100)}% or more of months calmer`
+        : `${Math.round(THREAT_BOUNDS[i] * 100)}% to ${Math.round(THREAT_BOUNDS[i + 1] * 100)}% of months calmer`),
+      i === r ? h("span", { class: "here" }, `now: ${Math.round(w.score * 100)}%`) : null))),
+  ];
+}
+
+function alertsDetail() {
+  const alerts = S.data.countries.filter(alertOn);
+  return [
+    h("p", { class: "lead" }, "An alert goes out when news of troop build-ups, military alerts and threats of force against a country " +
+      "is far above its usual. It's a warning sign, not a forecast: most build-ups never turn into war."),
+    alerts.length ? h("div", { class: "detail-alerts" }, alerts.map((c) => h("div", { class: "alert-item" },
+      h("p", { class: "place-name" }, h("a", { href: `#/country/${c.id}` }, c.name), statusTag(c)),
+      h("p", null, alertShort(c), ` Deadly fighting in ${monthName(nextMonth())}: `,
+        h("b", { style: `color:${chanceColor(c.fighting.chance[NEXT])}` }, pctShort(c.fighting.chance[NEXT])), "."))))
+      : h("p", { class: "empty" }, "No build-up alerts right now."),
+  ];
 }
 
 function herePanel() {

@@ -6,6 +6,16 @@ import android.graphics.Canvas
 import android.view.View
 import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.test.performClick
+import com.hostu404.sage.ui.Sage
+import com.hostu404.sage.ui.ThreatDetail
+import com.hostu404.sage.ui.ThreatPart
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
@@ -113,6 +123,33 @@ class ScreenshotTest {
     }
 
     @Test fun about() { model(Screen.About); shot("10-about") }
+
+    /** Each part of the global threat level, opened: what it's made of. */
+    @Test fun threatDetails() {
+        val f = bundledForecast()
+        var part by mutableStateOf(ThreatPart.FIGHTING)
+        compose.setContent { SageTheme { Box(Modifier.background(Sage.panel)) { ThreatDetail(part, f.world!!, f, onOpen = {}) } } }
+        listOf(ThreatPart.FIGHTING, ThreatPart.WAR, ThreatPart.HISTORY, ThreatPart.ALERTS, ThreatPart.LEVEL).forEachIndexed { i, p ->
+            part = p
+            compose.waitForIdle()
+            shot("13${'a' + i}-threat-$p")
+        }
+    }
+
+    @Test fun tappingAThreatNumberOpensWhatItsMadeOf() {
+        model()
+        compose.onNodeWithText("build-up alerts ›").performClick()
+        compose.waitForIdle()
+        compose.onNodeWithText("An alert goes out", substring = true).assertExists()
+    }
+
+    @Test fun aCountryInTheDetailsOpensIt() {
+        val f = bundledForecast()
+        var opened: Int? = null
+        compose.setContent { SageTheme { ThreatDetail(ThreatPart.ALERTS, f.world!!, f, onOpen = { opened = it }) } }
+        compose.onNodeWithText("Yemen").performClick()
+        assertEquals(678, opened)
+    }
 
     @Test fun widget() {
         val f = bundledForecast()

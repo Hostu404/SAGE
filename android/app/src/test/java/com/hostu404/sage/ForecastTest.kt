@@ -16,6 +16,7 @@ import com.hostu404.sage.data.WhereYouAre
 import com.hostu404.sage.data.Words
 import com.hostu404.sage.data.World
 import com.hostu404.sage.ui.Share
+import org.json.JSONObject
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
@@ -69,6 +70,16 @@ class ForecastTest {
         assertEquals("2026-09", w.lastMonth)
         assertNotNull(w.lastFighting)
         assertNotNull(bundledForecast().relation(369, 365)?.usual6)
+        // Every month on record, so the app can draw what the level is compared with.
+        assertEquals("1989-01", w.since)
+        assertEquals(453, w.historyFighting.size) // January 1989 to September 2026
+        assertEquals(w.historyFighting.size, w.historyWars.size)
+        assertEquals(w.lastFighting, w.historyFighting.last())
+        assertEquals(w.lastWars, w.historyWars.last())
+        assertEquals(w.score, (w.calmerFighting!! + w.calmerWars!!) / 2, 0.002)
+        // A file from before them still opens.
+        val old = World.parse(JSONObject("""{"level": "High", "rank": 3, "score": 0.93}"""))
+        assertTrue(old.historyFighting.isEmpty() && old.calmerFighting == null && old.since == null)
     }
 
     @Test fun relationsComeTensestFirst() {
