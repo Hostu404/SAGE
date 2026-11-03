@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T01:17:00Z",
+ "generated": "2026-11-03T14:39:44Z",
  "data_through": "2026-09",
  "months": [
   "2026-10",
@@ -40,7 +40,7 @@
    "wars": 2
   },
   "since": "1989-01",
-  "alerts": 2,
+  "alerts": 1,
   "text": "Global threat level: High. SAGE expects about 19 countries to see deadly fighting in November and about 2 to be at full-scale war, more than in 93% of months since 1989.",
   "calmer": {
    "fighting": 0.945,
@@ -965,7 +965,7 @@
   "Among countries below the fighting mark last month, the highest chance of deadly fighting in November: Burkina Faso (67%), Colombia (46%), Cameroon (30%).",
   "Most tense between countries not already fighting: Germany–Russia, Saudi Arabia–Yemen, United Kingdom–Israel, Iran–Saudi Arabia.",
   "Highest chance of new clashes between countries in the next six months: Israel–Yemen (11%).",
-  "Build-up alerts: Saudi Arabia, Yemen."
+  "Build-up alerts: Saudi Arabia."
  ],
  "pairs": {
   "as_of": "2026-09",
@@ -15289,7 +15289,7 @@
     }
    }
   },
-  "checked_through": "2026-11-01"
+  "checked_through": "2026-11-02"
  },
  "countries": [
   {
@@ -25674,11 +25674,7 @@
     "group_civ": 13
    },
    "alert": {
-    "on": true,
-    "since": "2026-10-14",
-    "last": "2026-10-25",
-    "kind": "aimed",
-    "times_usual": 3.5
+    "on": false
    },
    "fighting": {
     "chance": [
@@ -25697,7 +25693,6 @@
      9
     ],
     "why": [
-     "Build-up alert since 14 October 2026: news of other countries' forces massing against it up to about 4× usual",
      "2,892 killed in fighting involving the government in September 2026, 8 months in a row at this level",
      "The last three months: 44× the three before",
      "News reports of fighting this month: about 6× the past year's usual",
@@ -25721,7 +25716,6 @@
      2
     ],
     "why": [
-     "Build-up alert since 14 October 2026: news of other countries' forces massing against it up to about 4× usual",
      "2,892 killed in fighting involving the government in September 2026, 2 months in a row at this level",
      "The last three months: 44× the three before",
      "News reports of fighting this month: about 6× the past year's usual",
@@ -25779,7 +25773,7 @@
      "summary": "Tension between Israel and Yemen is at its usual level. Deadly clashes between their forces in the next six months: unlikely (11%); war: extremely unlikely (under 1%). They last fought in September 2025."
     }
    ],
-   "summary": "Yemen is at full-scale war: 2,892 people were killed in fighting involving the government in September. A war on this scale continuing into November is likely (67%). It's leaning worse: deaths are 44 times the three months before and the news shows fighting at about 6 times the usual level. Armed groups killing 10 or more civilians in November is unlikely (17%). Tension with Saudi Arabia is very high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Djibouti is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Warning: news of other countries' forces massing against it has been far above usual since 14 October (up to about 4 times)."
+   "summary": "Yemen is at full-scale war: 2,892 people were killed in fighting involving the government in September. A war on this scale continuing into November is likely (67%). It's leaning worse: deaths are 44 times the three months before and the news shows fighting at about 6 times the usual level. Armed groups killing 10 or more civilians in November is unlikely (17%). Tension with Saudi Arabia is very high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Djibouti is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 551,
