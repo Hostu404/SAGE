@@ -1,574 +1,574 @@
 {
- "generated": "2026-10-29T14:25:08Z",
- "data_through": "2026-09",
+ "generated": "2026-11-21T15:06:25Z",
+ "data_through": "2026-10",
  "forecasts_made_from": "2018-01",
- "forecasts_made_to": "2026-08",
+ "forecasts_made_to": "2026-09",
  "results": [
   {
    "question": "fighting",
    "title": "Deadly fighting",
    "text": "At least 25 people killed in fighting involving the government",
    "ahead": 1,
-   "forecasts": 13520,
-   "happened": 1721,
+   "forecasts": 13650,
+   "happened": 1739,
    "first_month": 24216,
-   "last_month": 24319,
+   "last_month": 24320,
    "brier": {
-    "base_rate": 0.11197149610859466,
-    "last_month": 0.03513529212207899,
-    "sage": 0.026984131021660397
+    "base_rate": 0.11205445481761227,
+    "last_month": 0.0351222451891509,
+    "sage": 0.0269523735244579
    },
    "log_loss": {
-    "base_rate": 0.3858302246461207,
-    "last_month": 0.12442087811035972,
-    "sage": 0.090975706411421
+    "base_rate": 0.3860519399026874,
+    "last_month": 0.12431580334339086,
+    "sage": 0.09086250005713278
    },
    "auc": {
-    "base_rate": 0.5315363689858589,
-    "last_month": 0.9673904056021845,
-    "sage": 0.9878436156975456
+    "base_rate": 0.5314154302064638,
+    "last_month": 0.9676663643317032,
+    "sage": 0.9879017173034683
    },
-   "skill_vs_base_rate": 0.7590089267406943,
-   "skill_vs_last_month": 0.23199354859771926,
+   "skill_vs_base_rate": 0.7594707540335859,
+   "skill_vs_last_month": 0.23261245460516966,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 9974,
-     "said": 0.002473836880246568,
-     "happened": 0.0014036494886705434
+     "forecasts": 10064,
+     "said": 0.0024771259353144875,
+     "happened": 0.0013910969793322733
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 634,
-     "said": 0.032186326714306754,
-     "happened": 0.026813880126182965
+     "forecasts": 640,
+     "said": 0.03191409149673834,
+     "happened": 0.0265625
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 368,
-     "said": 0.07205150362380042,
-     "happened": 0.05434782608695652
+     "forecasts": 376,
+     "said": 0.07221615026450755,
+     "happened": 0.05585106382978723
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 335,
-     "said": 0.1449473813814868,
-     "happened": 0.13432835820895522
+     "forecasts": 336,
+     "said": 0.1449516256130559,
+     "happened": 0.13095238095238096
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 329,
-     "said": 0.2774104588492287,
-     "happened": 0.2917933130699088
+     "forecasts": 331,
+     "said": 0.2763849168472815,
+     "happened": 0.29003021148036257
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 255,
-     "said": 0.4242600301071783,
-     "happened": 0.43137254901960786
+     "forecasts": 260,
+     "said": 0.4231643067212448,
+     "happened": 0.4346153846153846
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 208,
-     "said": 0.5786399226744665,
-     "happened": 0.5817307692307693
+     "forecasts": 212,
+     "said": 0.5785609472126644,
+     "happened": 0.5801886792452831
     },
     {
      "from": 0.65,
      "to": 0.8,
-     "forecasts": 218,
-     "said": 0.7280611044709432,
-     "happened": 0.7293577981651376
+     "forecasts": 222,
+     "said": 0.7293540884928428,
+     "happened": 0.7342342342342343
     },
     {
      "from": 0.8,
      "to": 0.9,
-     "forecasts": 208,
-     "said": 0.8550449964184667,
-     "happened": 0.8413461538461539
+     "forecasts": 215,
+     "said": 0.8560719988346718,
+     "happened": 0.8325581395348837
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 213,
-     "said": 0.9270816650486018,
-     "happened": 0.9530516431924883
+     "forecasts": 214,
+     "said": 0.9279360439631058,
+     "happened": 0.9626168224299065
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 778,
-     "said": 0.9754361375154935,
-     "happened": 0.9781491002570694
+     "forecasts": 780,
+     "said": 0.9750090937418825,
+     "happened": 0.9782051282051282
     }
    ],
    "new": {
-    "forecasts": 10654,
+    "forecasts": 10750,
     "happened": 51,
-    "auc": 0.9307650627920696,
-    "flagged": 21,
+    "auc": 0.9310674078024518,
+    "flagged": 20,
     "flagged_and_happened": 6,
-    "mean_when_happened": 0.08893116723889409,
-    "mean_when_calm": 0.005680070371566839
+    "mean_when_happened": 0.08852608718001234,
+    "mean_when_calm": 0.0056614785387673365
    },
    "by_year": [
     {
      "year": 2018,
      "forecasts": 1560,
      "happened": 168,
-     "sage_brier": 0.026866235093401854,
-     "skill_vs_last_month": 0.22285394830709082
+     "sage_brier": 0.026866232214676974,
+     "skill_vs_last_month": 0.22285403157851558
     },
     {
      "year": 2019,
      "forecasts": 1560,
      "happened": 183,
-     "sage_brier": 0.0292019815944249,
-     "skill_vs_last_month": 0.2374181704158339
+     "sage_brier": 0.02917965335767884,
+     "skill_vs_last_month": 0.23800125097062907
     },
     {
      "year": 2020,
      "forecasts": 1560,
      "happened": 184,
-     "sage_brier": 0.026189440693533347,
-     "skill_vs_last_month": 0.21840156868496363
+     "sage_brier": 0.026189440397925878,
+     "skill_vs_last_month": 0.21840157750708156
     },
     {
      "year": 2021,
      "forecasts": 1560,
      "happened": 196,
-     "sage_brier": 0.024516784579823172,
-     "skill_vs_last_month": 0.2986603188890905
+     "sage_brier": 0.024516814339281164,
+     "skill_vs_last_month": 0.298659467574812
     },
     {
      "year": 2022,
      "forecasts": 1560,
      "happened": 193,
-     "sage_brier": 0.02246917603294801,
-     "skill_vs_last_month": 0.28674334220617803
+     "sage_brier": 0.022278646092757787,
+     "skill_vs_last_month": 0.292791483364112
     },
     {
      "year": 2023,
      "forecasts": 1560,
      "happened": 188,
-     "sage_brier": 0.027023235169301194,
-     "skill_vs_last_month": 0.19296380733443608
+     "sage_brier": 0.02702320963226422,
+     "skill_vs_last_month": 0.19296456998601952
     },
     {
      "year": 2024,
      "forecasts": 1560,
      "happened": 233,
-     "sage_brier": 0.025547818883351798,
-     "skill_vs_last_month": 0.22401329360248412
+     "sage_brier": 0.02554375357987388,
+     "skill_vs_last_month": 0.22413677269362453
     },
     {
      "year": 2025,
      "forecasts": 1560,
      "happened": 224,
-     "sage_brier": 0.03285365223010406,
-     "skill_vs_last_month": 0.15596928348722494
+     "sage_brier": 0.03285365046702225,
+     "skill_vs_last_month": 0.15596932878189074
+    },
+    {
+     "year": 2026,
+     "forecasts": 1170,
+     "happened": 170,
+     "sage_brier": 0.0285091576767008,
+     "skill_vs_last_month": 0.26665386499013666
+    }
+   ],
+   "views": {
+    "forecasts": 7353,
+    "from": 24264,
+    "to": 24320,
+    "sage": 0.027385604142752738,
+    "views": 0.036299249468244255,
+    "last_month": 0.035215920311798966,
+    "average": 0.029084270345741084
+   }
+  },
+  {
+   "question": "fighting",
+   "title": "Deadly fighting",
+   "text": "At least 25 people killed in fighting involving the government",
+   "ahead": 2,
+   "forecasts": 13520,
+   "happened": 1727,
+   "first_month": 24216,
+   "last_month": 24319,
+   "brier": {
+    "base_rate": 0.11232864235191152,
+    "last_month": 0.037524613350632,
+    "sage": 0.029680075993822556
+   },
+   "log_loss": {
+    "base_rate": 0.3868172314806481,
+    "last_month": 0.13147817997332514,
+    "sage": 0.10110801220087298
+   },
+   "auc": {
+    "base_rate": 0.5307917247092543,
+    "last_month": 0.9653398660182885,
+    "sage": 0.9849136162791949
+   },
+   "skill_vs_base_rate": 0.7357746397322367,
+   "skill_vs_last_month": 0.20905045132669764,
+   "calibration": [
+    {
+     "from": 0.0,
+     "to": 0.02,
+     "forecasts": 9670,
+     "said": 0.0028195551329010843,
+     "happened": 0.001654601861427094
+    },
+    {
+     "from": 0.02,
+     "to": 0.05,
+     "forecasts": 783,
+     "said": 0.03282014537238461,
+     "happened": 0.03065134099616858
+    },
+    {
+     "from": 0.05,
+     "to": 0.1,
+     "forecasts": 436,
+     "said": 0.07186053723441752,
+     "happened": 0.05504587155963303
+    },
+    {
+     "from": 0.1,
+     "to": 0.2,
+     "forecasts": 389,
+     "said": 0.1399526651176489,
+     "happened": 0.12853470437017994
+    },
+    {
+     "from": 0.2,
+     "to": 0.35,
+     "forecasts": 328,
+     "said": 0.2793582619431653,
+     "happened": 0.2682926829268293
+    },
+    {
+     "from": 0.35,
+     "to": 0.5,
+     "forecasts": 283,
+     "said": 0.4234190507292432,
+     "happened": 0.4098939929328622
+    },
+    {
+     "from": 0.5,
+     "to": 0.65,
+     "forecasts": 237,
+     "said": 0.5750244398161025,
+     "happened": 0.6160337552742616
+    },
+    {
+     "from": 0.65,
+     "to": 0.8,
+     "forecasts": 262,
+     "said": 0.7295908484265194,
+     "happened": 0.767175572519084
+    },
+    {
+     "from": 0.8,
+     "to": 0.9,
+     "forecasts": 221,
+     "said": 0.8536726323638073,
+     "happened": 0.8235294117647058
+    },
+    {
+     "from": 0.9,
+     "to": 0.95,
+     "forecasts": 190,
+     "said": 0.9297062182351794,
+     "happened": 0.9263157894736842
+    },
+    {
+     "from": 0.95,
+     "to": 1.0,
+     "forecasts": 721,
+     "said": 0.9741655215602798,
+     "happened": 0.9764216366158114
+    }
+   ],
+   "new": {
+    "forecasts": 10654,
+    "happened": 61,
+    "auc": 0.9161323670286441,
+    "flagged": 6,
+    "flagged_and_happened": 2,
+    "mean_when_happened": 0.05690390691913712,
+    "mean_when_calm": 0.00686721300865601
+   },
+   "by_year": [
+    {
+     "year": 2018,
+     "forecasts": 1560,
+     "happened": 172,
+     "sage_brier": 0.028344299715845928,
+     "skill_vs_last_month": 0.17633492511323412
+    },
+    {
+     "year": 2019,
+     "forecasts": 1560,
+     "happened": 181,
+     "sage_brier": 0.03314459318619289,
+     "skill_vs_last_month": 0.18461123707573335
+    },
+    {
+     "year": 2020,
+     "forecasts": 1560,
+     "happened": 182,
+     "sage_brier": 0.03017905853198531,
+     "skill_vs_last_month": 0.13322566702520888
+    },
+    {
+     "year": 2021,
+     "forecasts": 1560,
+     "happened": 200,
+     "sage_brier": 0.026208625966528752,
+     "skill_vs_last_month": 0.3006634282601387
+    },
+    {
+     "year": 2022,
+     "forecasts": 1560,
+     "happened": 190,
+     "sage_brier": 0.02471684230928421,
+     "skill_vs_last_month": 0.2464116742031237
+    },
+    {
+     "year": 2023,
+     "forecasts": 1560,
+     "happened": 193,
+     "sage_brier": 0.03188466800254035,
+     "skill_vs_last_month": 0.17305596975775328
+    },
+    {
+     "year": 2024,
+     "forecasts": 1560,
+     "happened": 235,
+     "sage_brier": 0.026412523764074523,
+     "skill_vs_last_month": 0.21721126492031206
+    },
+    {
+     "year": 2025,
+     "forecasts": 1560,
+     "happened": 225,
+     "sage_brier": 0.03554680466076217,
+     "skill_vs_last_month": 0.19798893433528142
     },
     {
      "year": 2026,
      "forecasts": 1040,
-     "happened": 152,
-     "sage_brier": 0.028791216866252644,
-     "skill_vs_last_month": 0.271370475223666
+     "happened": 149,
+     "sage_brier": 0.03118486371387199,
+     "skill_vs_last_month": 0.2689456237640946
     }
    ],
    "views": {
     "forecasts": 7224,
     "from": 24264,
     "to": 24319,
-    "sage": 0.027444234206668056,
-    "views": 0.035520159911406425,
-    "last_month": 0.03523715694998902,
-    "average": 0.028880425739569105
+    "sage": 0.03009230366908188,
+    "views": 0.03627805416943522,
+    "last_month": 0.03840722809374263,
+    "average": 0.031199425301018126
    }
   },
   {
    "question": "fighting",
    "title": "Deadly fighting",
    "text": "At least 25 people killed in fighting involving the government",
-   "ahead": 2,
+   "ahead": 3,
    "forecasts": 13390,
-   "happened": 1709,
+   "happened": 1712,
    "first_month": 24216,
    "last_month": 24318,
    "brier": {
-    "base_rate": 0.11224756972086522,
-    "last_month": 0.037462562973743216,
-    "sage": 0.029521327407866442
+    "base_rate": 0.11242527797600689,
+    "last_month": 0.038926283753577796,
+    "sage": 0.03101198929298073
    },
    "log_loss": {
-    "base_rate": 0.3866009558002403,
-    "last_month": 0.13126718191063633,
-    "sage": 0.10060544017873448
+    "base_rate": 0.387084394109117,
+    "last_month": 0.13908963443345898,
+    "sage": 0.10511179498744282
    },
    "auc": {
-    "base_rate": 0.5309259774754369,
-    "last_month": 0.9656025957042461,
-    "sage": 0.985004179517843
+    "base_rate": 0.5300571667629683,
+    "last_month": 0.9602892770654301,
+    "sage": 0.9838368795546543
    },
-   "skill_vs_base_rate": 0.7369980705927137,
-   "skill_vs_last_month": 0.2119779036859446,
+   "skill_vs_base_rate": 0.7241546576420375,
+   "skill_vs_last_month": 0.20331492496685222,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 9589,
-     "said": 0.002865585393207321,
-     "happened": 0.0015642924183960787
+     "forecasts": 9492,
+     "said": 0.0031680064413129403,
+     "happened": 0.0014749262536873156
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 763,
-     "said": 0.033028469855346236,
-     "happened": 0.03014416775884666
+     "forecasts": 770,
+     "said": 0.033192619771754237,
+     "happened": 0.02987012987012987
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 433,
-     "said": 0.07175067437241853,
-     "happened": 0.06004618937644342
+     "forecasts": 461,
+     "said": 0.07148268068624061,
+     "happened": 0.06724511930585683
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 389,
-     "said": 0.14063583951631634,
-     "happened": 0.13110539845758354
+     "forecasts": 432,
+     "said": 0.13930196665684808,
+     "happened": 0.12962962962962962
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 321,
-     "said": 0.27808941892881683,
-     "happened": 0.2554517133956386
+     "forecasts": 322,
+     "said": 0.27738412162913945,
+     "happened": 0.2484472049689441
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 286,
-     "said": 0.4231745809572165,
-     "happened": 0.4090909090909091
+     "forecasts": 334,
+     "said": 0.4210599134015584,
+     "happened": 0.4281437125748503
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 238,
-     "said": 0.5761735805711887,
-     "happened": 0.6260504201680672
+     "forecasts": 262,
+     "said": 0.5713387675812336,
+     "happened": 0.6374045801526718
     },
     {
      "from": 0.65,
      "to": 0.8,
-     "forecasts": 251,
-     "said": 0.7296790789718154,
-     "happened": 0.7768924302788844
+     "forecasts": 260,
+     "said": 0.7247949944102235,
+     "happened": 0.7615384615384615
     },
     {
      "from": 0.8,
      "to": 0.9,
-     "forecasts": 226,
-     "said": 0.8537738527548717,
-     "happened": 0.827433628318584
+     "forecasts": 193,
+     "said": 0.8550879543761132,
+     "happened": 0.8704663212435233
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 197,
-     "said": 0.9293680022194684,
-     "happened": 0.9238578680203046
+     "forecasts": 273,
+     "said": 0.9300160844700056,
+     "happened": 0.9340659340659341
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 697,
-     "said": 0.9736807584946863,
-     "happened": 0.9784791965566715
+     "forecasts": 591,
+     "said": 0.9703345519004883,
+     "happened": 0.9763113367174281
     }
    ],
    "new": {
     "forecasts": 10557,
-    "happened": 60,
-    "auc": 0.9144723889365216,
-    "flagged": 6,
-    "flagged_and_happened": 2,
-    "mean_when_happened": 0.057968385616580353,
-    "mean_when_calm": 0.006926534940402534
+    "happened": 71,
+    "auc": 0.9213276991723371,
+    "flagged": 5,
+    "flagged_and_happened": 3,
+    "mean_when_happened": 0.06742826875305274,
+    "mean_when_calm": 0.007698659700160537
    },
    "by_year": [
     {
      "year": 2018,
      "forecasts": 1560,
      "happened": 172,
-     "sage_brier": 0.028423175628160224,
-     "skill_vs_last_month": 0.17404284752181653
+     "sage_brier": 0.03011668329028173,
+     "skill_vs_last_month": 0.20201048562324486
     },
     {
      "year": 2019,
      "forecasts": 1560,
-     "happened": 181,
-     "sage_brier": 0.03302709983617655,
-     "skill_vs_last_month": 0.18750168610865603
+     "happened": 185,
+     "sage_brier": 0.035039010412537,
+     "skill_vs_last_month": 0.16940072953019303
     },
     {
      "year": 2020,
      "forecasts": 1560,
-     "happened": 182,
-     "sage_brier": 0.030190676266911295,
-     "skill_vs_last_month": 0.13289199344720526
+     "happened": 180,
+     "sage_brier": 0.03304461088884279,
+     "skill_vs_last_month": 0.2047436689997515
     },
     {
      "year": 2021,
      "forecasts": 1560,
-     "happened": 200,
-     "sage_brier": 0.02617534265389143,
-     "skill_vs_last_month": 0.30155154188294575
+     "happened": 199,
+     "sage_brier": 0.026790535101517042,
+     "skill_vs_last_month": 0.2516036743440272
     },
     {
      "year": 2022,
      "forecasts": 1560,
-     "happened": 190,
-     "sage_brier": 0.024581629456637007,
-     "skill_vs_last_month": 0.2505341598336749
+     "happened": 188,
+     "sage_brier": 0.025901639067942153,
+     "skill_vs_last_month": 0.23495444387515219
     },
     {
      "year": 2023,
      "forecasts": 1560,
-     "happened": 193,
-     "sage_brier": 0.03155567012857542,
-     "skill_vs_last_month": 0.18158868610330248
+     "happened": 200,
+     "sage_brier": 0.03371342436248375,
+     "skill_vs_last_month": 0.19385849071073114
     },
     {
      "year": 2024,
      "forecasts": 1560,
-     "happened": 235,
-     "sage_brier": 0.026136565257058427,
-     "skill_vs_last_month": 0.2253898552197907
+     "happened": 234,
+     "sage_brier": 0.026991449528590613,
+     "skill_vs_last_month": 0.1995054669331212
     },
     {
      "year": 2025,
      "forecasts": 1560,
-     "happened": 225,
-     "sage_brier": 0.03552918630045081,
-     "skill_vs_last_month": 0.1983864417923772
+     "happened": 227,
+     "sage_brier": 0.036691234955177655,
+     "skill_vs_last_month": 0.1715908899455152
     },
     {
      "year": 2026,
      "forecasts": 910,
-     "happened": 131,
-     "sage_brier": 0.03046636809655854,
-     "skill_vs_last_month": 0.28276633075405844
+     "happened": 127,
+     "sage_brier": 0.030681692269791765,
+     "skill_vs_last_month": 0.22705720583601885
     }
    ],
    "views": {
     "forecasts": 7095,
     "from": 24264,
     "to": 24318,
-    "sage": 0.02980929342194973,
-    "views": 0.03556868696687809,
-    "last_month": 0.03830089364932347,
-    "average": 0.03079593094610296
-   }
-  },
-  {
-   "question": "fighting",
-   "title": "Deadly fighting",
-   "text": "At least 25 people killed in fighting involving the government",
-   "ahead": 3,
-   "forecasts": 13260,
-   "happened": 1694,
-   "first_month": 24216,
-   "last_month": 24317,
-   "brier": {
-    "base_rate": 0.11234441552983655,
-    "last_month": 0.03896864125284009,
-    "sage": 0.0310937572405891
-   },
-   "log_loss": {
-    "base_rate": 0.38686893390270766,
-    "last_month": 0.13913296186360738,
-    "sage": 0.10541521805388354
-   },
-   "auc": {
-    "base_rate": 0.5301962904339778,
-    "last_month": 0.9603982155897645,
-    "sage": 0.9837421943280809
-   },
-   "skill_vs_base_rate": 0.7232282789140401,
-   "skill_vs_last_month": 0.20208259151650698,
-   "calibration": [
-    {
-     "from": 0.0,
-     "to": 0.02,
-     "forecasts": 9392,
-     "said": 0.0031568200003795365,
-     "happened": 0.0014906303236797275
-    },
-    {
-     "from": 0.02,
-     "to": 0.05,
-     "forecasts": 767,
-     "said": 0.03296037262359615,
-     "happened": 0.027379400260756193
-    },
-    {
-     "from": 0.05,
-     "to": 0.1,
-     "forecasts": 468,
-     "said": 0.07151273307855509,
-     "happened": 0.06837606837606838
-    },
-    {
-     "from": 0.1,
-     "to": 0.2,
-     "forecasts": 424,
-     "said": 0.14082219474004973,
-     "happened": 0.1320754716981132
-    },
-    {
-     "from": 0.2,
-     "to": 0.35,
-     "forecasts": 312,
-     "said": 0.2761894869966358,
-     "happened": 0.25
-    },
-    {
-     "from": 0.35,
-     "to": 0.5,
-     "forecasts": 331,
-     "said": 0.4193629794149502,
-     "happened": 0.4078549848942598
-    },
-    {
-     "from": 0.5,
-     "to": 0.65,
-     "forecasts": 266,
-     "said": 0.5690077585608051,
-     "happened": 0.6616541353383458
-    },
-    {
-     "from": 0.65,
-     "to": 0.8,
-     "forecasts": 256,
-     "said": 0.725804444536963,
-     "happened": 0.76953125
-    },
-    {
-     "from": 0.8,
-     "to": 0.9,
-     "forecasts": 203,
-     "said": 0.8556113029359455,
-     "happened": 0.8719211822660099
-    },
-    {
-     "from": 0.9,
-     "to": 0.95,
-     "forecasts": 269,
-     "said": 0.9302819325124612,
-     "happened": 0.9330855018587361
-    },
-    {
-     "from": 0.95,
-     "to": 1.0,
-     "forecasts": 572,
-     "said": 0.9692898930636846,
-     "happened": 0.9737762237762237
-    }
-   ],
-   "new": {
-    "forecasts": 10460,
-    "happened": 70,
-    "auc": 0.9204482331912553,
-    "flagged": 6,
-    "flagged_and_happened": 3,
-    "mean_when_happened": 0.06853410618003904,
-    "mean_when_calm": 0.007740037883082378
-   },
-   "by_year": [
-    {
-     "year": 2018,
-     "forecasts": 1560,
-     "happened": 172,
-     "sage_brier": 0.030256859399160733,
-     "skill_vs_last_month": 0.19829629624942113
-    },
-    {
-     "year": 2019,
-     "forecasts": 1560,
-     "happened": 185,
-     "sage_brier": 0.035041326108379935,
-     "skill_vs_last_month": 0.16934583599138797
-    },
-    {
-     "year": 2020,
-     "forecasts": 1560,
-     "happened": 180,
-     "sage_brier": 0.033107466664296974,
-     "skill_vs_last_month": 0.20323097291935233
-    },
-    {
-     "year": 2021,
-     "forecasts": 1560,
-     "happened": 199,
-     "sage_brier": 0.02662211273551916,
-     "skill_vs_last_month": 0.25630857028557796
-    },
-    {
-     "year": 2022,
-     "forecasts": 1560,
-     "happened": 188,
-     "sage_brier": 0.025955291949939546,
-     "skill_vs_last_month": 0.23336972181035442
-    },
-    {
-     "year": 2023,
-     "forecasts": 1560,
-     "happened": 200,
-     "sage_brier": 0.03368620171090325,
-     "skill_vs_last_month": 0.1945094275362521
-    },
-    {
-     "year": 2024,
-     "forecasts": 1560,
-     "happened": 234,
-     "sage_brier": 0.027279313013311032,
-     "skill_vs_last_month": 0.19096820236182832
-    },
-    {
-     "year": 2025,
-     "forecasts": 1560,
-     "happened": 227,
-     "sage_brier": 0.03670143471552171,
-     "skill_vs_last_month": 0.17136060131119402
-    },
-    {
-     "year": 2026,
-     "forecasts": 780,
-     "happened": 109,
-     "sage_brier": 0.03129386049594996,
-     "skill_vs_last_month": 0.22812753439555022
-    }
-   ],
-   "views": {
-    "forecasts": 6966,
-    "from": 24264,
-    "to": 24317,
-    "sage": 0.031188603122121128,
-    "views": 0.038743398664944015,
-    "last_month": 0.0389561734071164,
-    "average": 0.03302806669262629
+    "sage": 0.031045063182136096,
+    "views": 0.03879264255391121,
+    "last_month": 0.038881938949347855,
+    "average": 0.0329443359936992
    }
   },
   {
@@ -576,178 +576,178 @@
    "title": "Major war",
    "text": "At least 1,000 people killed in fighting involving the government",
    "ahead": 1,
-   "forecasts": 13520,
-   "happened": 171,
+   "forecasts": 13650,
+   "happened": 173,
    "first_month": 24216,
-   "last_month": 24319,
+   "last_month": 24320,
    "brier": {
-    "base_rate": 0.012529989994424178,
-    "last_month": 0.004332418422685839,
-    "sage": 0.003558136480912998
+    "base_rate": 0.012555578427294467,
+    "last_month": 0.0043040998289109855,
+    "sage": 0.0035568666729941588
    },
    "log_loss": {
-    "base_rate": 0.07049069315196559,
-    "last_month": 0.01984798995609263,
-    "sage": 0.015179703758186988
+    "base_rate": 0.07061124445220628,
+    "last_month": 0.019737826334034675,
+    "sage": 0.015165043859134251
    },
    "auc": {
-    "base_rate": 0.542029562632328,
-    "last_month": 0.9711976585406886,
-    "sage": 0.9907759698144155
+    "base_rate": 0.5420691042456833,
+    "last_month": 0.9714866389794474,
+    "sage": 0.9900191763230957
    },
-   "skill_vs_base_rate": 0.7160303813094534,
-   "skill_vs_last_month": 0.17871818144768026,
+   "skill_vs_base_rate": 0.7167102500620827,
+   "skill_vs_last_month": 0.17360962468797803,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 13182,
-     "said": 0.0008391248987938425,
-     "happened": 0.0009103322712790169
+     "forecasts": 13305,
+     "said": 0.0008467627011214856,
+     "happened": 0.0009019165727170237
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 87,
-     "said": 0.029434482363919427,
-     "happened": 0.08045977011494253
+     "forecasts": 89,
+     "said": 0.029364656767981306,
+     "happened": 0.06741573033707865
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 49,
-     "said": 0.0753833026810149,
-     "happened": 0.10204081632653061
+     "forecasts": 51,
+     "said": 0.07469170711290447,
+     "happened": 0.13725490196078433
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 31,
-     "said": 0.13409015005315772,
-     "happened": 0.22580645161290322
+     "forecasts": 32,
+     "said": 0.13460574688128646,
+     "happened": 0.1875
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 15,
-     "said": 0.262413667129557,
-     "happened": 0.4666666666666667
+     "forecasts": 16,
+     "said": 0.2654077116396446,
+     "happened": 0.4375
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 8,
-     "said": 0.4170282903324875,
-     "happened": 0.25
+     "forecasts": 9,
+     "said": 0.4236735468852559,
+     "happened": 0.4444444444444444
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 17,
-     "said": 0.5737544848628984,
-     "happened": 0.6470588235294118
+     "forecasts": 16,
+     "said": 0.5862982335372031,
+     "happened": 0.5625
     },
     {
      "from": 0.65,
      "to": 0.8,
      "forecasts": 13,
-     "said": 0.7454890515420942,
+     "said": 0.7295250059049979,
      "happened": 0.8461538461538461
     },
     {
      "from": 0.8,
      "to": 0.9,
      "forecasts": 44,
-     "said": 0.8666446204304457,
-     "happened": 0.8636363636363636
+     "said": 0.8603871442305465,
+     "happened": 0.8863636363636364
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 42,
-     "said": 0.9270802218571964,
-     "happened": 0.9285714285714286
+     "forecasts": 39,
+     "said": 0.9277453283090682,
+     "happened": 0.9230769230769231
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 32,
-     "said": 0.9627319365340667,
+     "forecasts": 36,
+     "said": 0.9629205267868899,
      "happened": 1.0
     }
    ],
    "new": {
-    "forecasts": 13143,
+    "forecasts": 13268,
     "happened": 14,
-    "auc": 0.915478820060281,
+    "auc": 0.9049424432516329,
     "flagged": 1,
     "flagged_and_happened": 0,
-    "mean_when_happened": 0.025894711662472945,
-    "mean_when_calm": 0.0009940265873098688
+    "mean_when_happened": 0.02593075561135719,
+    "mean_when_calm": 0.001022395223403038
    },
    "by_year": [
     {
      "year": 2018,
      "forecasts": 1560,
      "happened": 17,
-     "sage_brier": 0.0019041304945579295,
-     "skill_vs_last_month": 0.26176816078100584
+     "sage_brier": 0.0019041287489772185,
+     "skill_vs_last_month": 0.2617688375430568
     },
     {
      "year": 2019,
      "forecasts": 1560,
      "happened": 16,
-     "sage_brier": 0.0022656117383337312,
-     "skill_vs_last_month": 0.33506792008516795
+     "sage_brier": 0.0022446463817539127,
+     "skill_vs_last_month": 0.3412210212193577
     },
     {
      "year": 2020,
      "forecasts": 1560,
      "happened": 18,
-     "sage_brier": 0.003544228380266869,
-     "skill_vs_last_month": 0.24210466954310772
+     "sage_brier": 0.0035307581626483416,
+     "skill_vs_last_month": 0.24498513150491608
     },
     {
      "year": 2021,
      "forecasts": 1560,
      "happened": 18,
-     "sage_brier": 0.005733078116150331,
-     "skill_vs_last_month": 0.12644056853637886
+     "sage_brier": 0.005690685356579275,
+     "skill_vs_last_month": 0.13290002961449376
     },
     {
      "year": 2022,
      "forecasts": 1560,
      "happened": 14,
-     "sage_brier": 0.00274348032797104,
-     "skill_vs_last_month": 0.006613347462720687
+     "sage_brier": 0.0028038834866661757,
+     "skill_vs_last_month": -0.015258029199642698
     },
     {
      "year": 2023,
      "forecasts": 1560,
      "happened": 18,
-     "sage_brier": 0.0014436076089177283,
-     "skill_vs_last_month": 0.4686426683787204
+     "sage_brier": 0.0014436026715587968,
+     "skill_vs_last_month": 0.4686444857021058
     },
     {
      "year": 2024,
      "forecasts": 1560,
      "happened": 35,
-     "sage_brier": 0.0057739021253862205,
-     "skill_vs_last_month": 0.030493650576368547
+     "sage_brier": 0.005961332418843078,
+     "skill_vs_last_month": -0.0009781090126637082
     },
     {
      "year": 2025,
      "forecasts": 1560,
      "happened": 23,
-     "sage_brier": 0.004434441702258177,
-     "skill_vs_last_month": 0.2395767729814231
+     "sage_brier": 0.0044707127228075655,
+     "skill_vs_last_month": 0.23335697613994522
     },
     {
      "year": 2026,
-     "forecasts": 1040,
-     "happened": 12,
-     "sage_brier": 0.004492053511105929,
-     "skill_vs_last_month": 0.020090741373732568
+     "forecasts": 1170,
+     "happened": 14,
+     "sage_brier": 0.004097111251819365,
+     "skill_vs_last_month": 0.030452761038017417
     }
    ],
    "views": null
@@ -757,178 +757,178 @@
    "title": "Major war",
    "text": "At least 1,000 people killed in fighting involving the government",
    "ahead": 2,
-   "forecasts": 13390,
-   "happened": 169,
+   "forecasts": 13520,
+   "happened": 171,
    "first_month": 24216,
-   "last_month": 24318,
+   "last_month": 24319,
    "brier": {
-    "base_rate": 0.012503587601504417,
-    "last_month": 0.0055447317013442845,
-    "sage": 0.004332109005141386
+    "base_rate": 0.012529673163790559,
+    "last_month": 0.005510858474992956,
+    "sage": 0.004302245812000315
    },
    "log_loss": {
-    "base_rate": 0.07034176939296875,
-    "last_month": 0.024590572026087464,
-    "sage": 0.019569421350401583
+    "base_rate": 0.07046471434528243,
+    "last_month": 0.02445165791842291,
+    "sage": 0.019477783564145788
    },
    "auc": {
-    "base_rate": 0.5433750501824022,
-    "last_month": 0.9623550304809141,
-    "sage": 0.9845120435527306
+    "base_rate": 0.5433963776772818,
+    "last_month": 0.9627534138615198,
+    "sage": 0.9845955125534515
    },
-   "skill_vs_base_rate": 0.6535307190857644,
-   "skill_vs_last_month": 0.21869817360304478,
+   "skill_vs_base_rate": 0.656635432085064,
+   "skill_vs_last_month": 0.21931477073437022,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 12980,
-     "said": 0.0011050280252121153,
-     "happened": 0.001694915254237288
+     "forecasts": 13101,
+     "said": 0.0011265323980814072,
+     "happened": 0.0016792611251049538
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 146,
-     "said": 0.029365992411315003,
-     "happened": 0.0273972602739726
+     "forecasts": 151,
+     "said": 0.028861631277314944,
+     "happened": 0.026490066225165563
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 51,
-     "said": 0.0690056049725172,
-     "happened": 0.17647058823529413
+     "forecasts": 55,
+     "said": 0.06975981006722033,
+     "happened": 0.16363636363636364
     },
     {
      "from": 0.1,
      "to": 0.2,
      "forecasts": 24,
-     "said": 0.13761405734846935,
-     "happened": 0.08333333333333333
+     "said": 0.14632248864220732,
+     "happened": 0.125
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 32,
-     "said": 0.26035781866529895,
-     "happened": 0.125
+     "forecasts": 31,
+     "said": 0.2663826905375807,
+     "happened": 0.12903225806451613
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 18,
-     "said": 0.43735005085000916,
-     "happened": 0.3333333333333333
+     "forecasts": 17,
+     "said": 0.4311921588306184,
+     "happened": 0.29411764705882354
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 18,
-     "said": 0.57196334691253,
-     "happened": 0.6666666666666666
+     "forecasts": 16,
+     "said": 0.565324129242214,
+     "happened": 0.625
     },
     {
      "from": 0.65,
      "to": 0.8,
-     "forecasts": 19,
-     "said": 0.7330184990624904,
-     "happened": 0.8421052631578947
+     "forecasts": 24,
+     "said": 0.7208545193844168,
+     "happened": 0.8333333333333334
     },
     {
      "from": 0.8,
      "to": 0.9,
-     "forecasts": 21,
-     "said": 0.8602166314776015,
-     "happened": 0.8095238095238095
+     "forecasts": 26,
+     "said": 0.860481339227168,
+     "happened": 0.8846153846153846
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 49,
-     "said": 0.9297785674881672,
-     "happened": 0.9591836734693877
+     "forecasts": 55,
+     "said": 0.9296618614367733,
+     "happened": 0.9636363636363636
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 32,
-     "said": 0.9594297988894792,
-     "happened": 0.9375
+     "forecasts": 20,
+     "said": 0.9620125817483286,
+     "happened": 0.9
     }
    ],
    "new": {
-    "forecasts": 13019,
+    "forecasts": 13143,
     "happened": 21,
-    "auc": 0.90636105188344,
+    "auc": 0.9046367060770353,
     "flagged": 0,
     "flagged_and_happened": 0,
-    "mean_when_happened": 0.01158200899469294,
-    "mean_when_calm": 0.0013137766230345812
+    "mean_when_happened": 0.011679321033981985,
+    "mean_when_calm": 0.0013381980798926453
    },
    "by_year": [
     {
      "year": 2018,
      "forecasts": 1560,
      "happened": 16,
-     "sage_brier": 0.0022128625626206457,
-     "skill_vs_last_month": 0.2937404820329359
+     "sage_brier": 0.002212836608324994,
+     "skill_vs_last_month": 0.2937487656329416
     },
     {
      "year": 2019,
      "forecasts": 1560,
      "happened": 17,
-     "sage_brier": 0.0030822582739608393,
-     "skill_vs_last_month": 0.28436090954219073
+     "sage_brier": 0.003116072812349491,
+     "skill_vs_last_month": 0.2765098460212845
     },
     {
      "year": 2020,
      "forecasts": 1560,
      "happened": 19,
-     "sage_brier": 0.0036382034893594497,
-     "skill_vs_last_month": 0.4174299407726624
+     "sage_brier": 0.0036423136218859536,
+     "skill_vs_last_month": 0.4167718027228252
     },
     {
      "year": 2021,
      "forecasts": 1560,
      "happened": 16,
-     "sage_brier": 0.00512226181819231,
-     "skill_vs_last_month": 0.15191221770519647
+     "sage_brier": 0.005122237732573578,
+     "skill_vs_last_month": 0.1519162055370764
     },
     {
      "year": 2022,
      "forecasts": 1560,
      "happened": 14,
-     "sage_brier": 0.0038930638159138014,
-     "skill_vs_last_month": -0.041845109982566964
+     "sage_brier": 0.0035709695298461615,
+     "skill_vs_last_month": 0.04435238709445677
     },
     {
      "year": 2023,
      "forecasts": 1560,
      "happened": 20,
-     "sage_brier": 0.0038023989754356574,
-     "skill_vs_last_month": 0.2618703729564579
+     "sage_brier": 0.0038023993751185835,
+     "skill_vs_last_month": 0.26187029536917394
     },
     {
      "year": 2024,
      "forecasts": 1560,
      "happened": 33,
-     "sage_brier": 0.007745477237276542,
-     "skill_vs_last_month": 0.00655503461291318
+     "sage_brier": 0.007683924452986836,
+     "skill_vs_last_month": 0.014449874631791926
     },
     {
      "year": 2025,
      "forecasts": 1560,
      "happened": 24,
-     "sage_brier": 0.0055239003597668075,
-     "skill_vs_last_month": 0.322354396638442
+     "sage_brier": 0.005552680711878355,
+     "skill_vs_last_month": 0.3188237610727399
     },
     {
      "year": 2026,
-     "forecasts": 910,
-     "happened": 10,
-     "sage_brier": 0.003708872734178597,
-     "skill_vs_last_month": 0.28618406649588757
+     "forecasts": 1040,
+     "happened": 12,
+     "sage_brier": 0.003874043288558159,
+     "skill_vs_last_month": 0.1927560761499605
     }
    ],
    "views": null
@@ -938,178 +938,178 @@
    "title": "Major war",
    "text": "At least 1,000 people killed in fighting involving the government",
    "ahead": 3,
-   "forecasts": 13260,
-   "happened": 167,
+   "forecasts": 13390,
+   "happened": 169,
    "first_month": 24216,
-   "last_month": 24317,
+   "last_month": 24318,
    "brier": {
-    "base_rate": 0.012476635370273947,
-    "last_month": 0.005924146758201726,
-    "sage": 0.004897861625332269
+    "base_rate": 0.01250323304529772,
+    "last_month": 0.005946607930156168,
+    "sage": 0.0049389530504198005
    },
    "log_loss": {
-    "base_rate": 0.07018656578331808,
-    "last_month": 0.02641429200629331,
-    "sage": 0.022705937251530913
+    "base_rate": 0.07031201176258746,
+    "last_month": 0.02647012201056088,
+    "sage": 0.022885492060652997
    },
    "auc": {
-    "base_rate": 0.5469099226125768,
-    "last_month": 0.9561339400173152,
-    "sage": 0.9778749992568136
+    "base_rate": 0.5468659998952715,
+    "last_month": 0.9563306806591093,
+    "sage": 0.9778087487675381
    },
-   "skill_vs_base_rate": 0.6074373034094105,
-   "skill_vs_last_month": 0.17323762809363374,
+   "skill_vs_base_rate": 0.6049859238385333,
+   "skill_vs_last_month": 0.1694503642364572,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 12842,
-     "said": 0.0011859774823037704,
-     "happened": 0.0022582152312723876
+     "forecasts": 12965,
+     "said": 0.0011872430955827682,
+     "happened": 0.002236791361357501
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 159,
-     "said": 0.03005201797909006,
-     "happened": 0.018867924528301886
+     "forecasts": 165,
+     "said": 0.030177643092399068,
+     "happened": 0.024242424242424242
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 39,
-     "said": 0.07018213936235289,
-     "happened": 0.1282051282051282
+     "forecasts": 41,
+     "said": 0.07063553155161696,
+     "happened": 0.12195121951219512
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 38,
-     "said": 0.14555082459675178,
-     "happened": 0.07894736842105263
+     "forecasts": 36,
+     "said": 0.14762696867975725,
+     "happened": 0.08333333333333333
     },
     {
      "from": 0.2,
      "to": 0.35,
      "forecasts": 25,
-     "said": 0.2657377706565336,
+     "said": 0.2641312890622621,
      "happened": 0.24
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 22,
-     "said": 0.42281322304577446,
-     "happened": 0.36363636363636365
+     "forecasts": 21,
+     "said": 0.4196701415299104,
+     "happened": 0.3333333333333333
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 20,
-     "said": 0.5788843187420676,
-     "happened": 0.45
+     "forecasts": 21,
+     "said": 0.5793736508268379,
+     "happened": 0.47619047619047616
     },
     {
      "from": 0.65,
      "to": 0.8,
      "forecasts": 17,
-     "said": 0.7344667243767544,
+     "said": 0.7363649401716844,
      "happened": 1.0
     },
     {
      "from": 0.8,
      "to": 0.9,
-     "forecasts": 56,
-     "said": 0.8637755063601781,
-     "happened": 0.8571428571428571
+     "forecasts": 54,
+     "said": 0.8643933251661964,
+     "happened": 0.8703703703703703
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 33,
-     "said": 0.9211651650913354,
-     "happened": 0.9090909090909091
+     "forecasts": 32,
+     "said": 0.91906712401269,
+     "happened": 0.875
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 9,
-     "said": 0.9577209628503655,
+     "forecasts": 13,
+     "said": 0.9585395232628193,
      "happened": 1.0
     }
    ],
    "new": {
-    "forecasts": 12894,
-    "happened": 26,
-    "auc": 0.8882947562229502,
+    "forecasts": 13019,
+    "happened": 27,
+    "auc": 0.8913034802043424,
     "flagged": 0,
     "flagged_and_happened": 0,
-    "mean_when_happened": 0.00627396281883326,
-    "mean_when_calm": 0.0013660646873747838
+    "mean_when_happened": 0.0069833135495470785,
+    "mean_when_calm": 0.0013704370077742187
    },
    "by_year": [
     {
      "year": 2018,
      "forecasts": 1560,
      "happened": 15,
-     "sage_brier": 0.002796201992291299,
-     "skill_vs_last_month": -0.07412525713099272
+     "sage_brier": 0.002796176525590277,
+     "skill_vs_last_month": -0.07411547442328459
     },
     {
      "year": 2019,
      "forecasts": 1560,
      "happened": 17,
-     "sage_brier": 0.00307846575943568,
-     "skill_vs_last_month": 0.29110476493185444
+     "sage_brier": 0.003078420853421609,
+     "skill_vs_last_month": 0.2911151056865967
     },
     {
      "year": 2020,
      "forecasts": 1560,
      "happened": 19,
-     "sage_brier": 0.004405928087743325,
-     "skill_vs_last_month": 0.3019509094959759
+     "sage_brier": 0.004406657120894932,
+     "skill_vs_last_month": 0.3018354058113283
     },
     {
      "year": 2021,
      "forecasts": 1560,
      "happened": 16,
-     "sage_brier": 0.00712869896328524,
-     "skill_vs_last_month": 0.0532241293337441
+     "sage_brier": 0.007155151941852692,
+     "skill_vs_last_month": 0.049710859669264695
     },
     {
      "year": 2022,
      "forecasts": 1560,
      "happened": 14,
-     "sage_brier": 0.0038892546066598642,
-     "skill_vs_last_month": -0.03571894310355295
+     "sage_brier": 0.00388926608301424,
+     "skill_vs_last_month": -0.0357219992875335
     },
     {
      "year": 2023,
      "forecasts": 1560,
      "happened": 21,
-     "sage_brier": 0.004245541358683279,
-     "skill_vs_last_month": 0.27479768595951215
+     "sage_brier": 0.00424553919715539,
+     "skill_vs_last_month": 0.27479805518098355
     },
     {
      "year": 2024,
      "forecasts": 1560,
      "happened": 33,
-     "sage_brier": 0.007978835598862076,
-     "skill_vs_last_month": 0.15182975305237678
+     "sage_brier": 0.007978832322331117,
+     "skill_vs_last_month": 0.15183010135584019
     },
     {
      "year": 2025,
      "forecasts": 1560,
      "happened": 24,
-     "sage_brier": 0.006599640447311223,
-     "skill_vs_last_month": 0.19476133647089178
+     "sage_brier": 0.006725499772723276,
+     "skill_vs_last_month": 0.17940492489111148
     },
     {
      "year": 2026,
-     "forecasts": 780,
-     "happened": 8,
-     "sage_brier": 0.003018514002104625,
-     "skill_vs_last_month": 0.35933263012898164
+     "forecasts": 910,
+     "happened": 10,
+     "sage_brier": 0.0036293769127767202,
+     "skill_vs_last_month": 0.3040835846773
     }
    ],
    "views": null
@@ -1119,178 +1119,178 @@
    "title": "Attacks on civilians",
    "text": "Armed groups kill at least 10 civilians",
    "ahead": 1,
-   "forecasts": 13520,
-   "happened": 994,
+   "forecasts": 13650,
+   "happened": 1006,
    "first_month": 24216,
-   "last_month": 24319,
+   "last_month": 24320,
    "brier": {
-    "base_rate": 0.06854671864986676,
-    "last_month": 0.035635132169028916,
-    "sage": 0.028522815035322932
+    "base_rate": 0.06870510858515966,
+    "last_month": 0.03562049735476682,
+    "sage": 0.028469312208228164
    },
    "log_loss": {
-    "base_rate": 0.2665281784096503,
-    "last_month": 0.12527189982377718,
-    "sage": 0.0944220359766517
+    "base_rate": 0.26702856101212574,
+    "last_month": 0.12530457198984898,
+    "sage": 0.09425391763161778
    },
    "auc": {
-    "base_rate": 0.5429753999006011,
-    "last_month": 0.9259936916726288,
-    "sage": 0.9774220928316184
+    "base_rate": 0.5433848978259516,
+    "last_month": 0.9261461836384415,
+    "sage": 0.9776028265711018
    },
-   "skill_vs_base_rate": 0.5838923350800196,
-   "skill_vs_last_month": 0.199587224763752,
+   "skill_vs_base_rate": 0.5856303440239734,
+   "skill_vs_last_month": 0.20076039577200533,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 10497,
-     "said": 0.002851822455435789,
-     "happened": 0.0017147756501857674
+     "forecasts": 10605,
+     "said": 0.002874166349003574,
+     "happened": 0.001603017444601603
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 695,
-     "said": 0.03230008892503621,
-     "happened": 0.02302158273381295
+     "forecasts": 704,
+     "said": 0.03275669818488403,
+     "happened": 0.022727272727272728
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 491,
-     "said": 0.07052915476416707,
-     "happened": 0.05702647657841141
+     "forecasts": 479,
+     "said": 0.07128255951138669,
+     "happened": 0.05636743215031315
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 352,
-     "said": 0.14566874794803458,
-     "happened": 0.15056818181818182
+     "forecasts": 364,
+     "said": 0.1460735903638336,
+     "happened": 0.14835164835164835
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 377,
-     "said": 0.27158849914985267,
-     "happened": 0.3129973474801061
+     "forecasts": 366,
+     "said": 0.27099183731839344,
+     "happened": 0.319672131147541
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 281,
-     "said": 0.4195175670675358,
-     "happened": 0.43416370106761565
+     "forecasts": 299,
+     "said": 0.41812405566567196,
+     "happened": 0.43478260869565216
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 215,
-     "said": 0.5761637361181465,
-     "happened": 0.6
+     "forecasts": 214,
+     "said": 0.579322708495761,
+     "happened": 0.602803738317757
     },
     {
      "from": 0.65,
      "to": 0.8,
-     "forecasts": 268,
-     "said": 0.7212034714858756,
-     "happened": 0.7574626865671642
+     "forecasts": 270,
+     "said": 0.7229471678973057,
+     "happened": 0.7555555555555555
     },
     {
      "from": 0.8,
      "to": 0.9,
-     "forecasts": 155,
-     "said": 0.8477219847130383,
-     "happened": 0.8193548387096774
+     "forecasts": 159,
+     "said": 0.8478911251067489,
+     "happened": 0.8301886792452831
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 77,
-     "said": 0.9268582510422504,
-     "happened": 0.922077922077922
+     "forecasts": 82,
+     "said": 0.9264421832505388,
+     "happened": 0.9024390243902439
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 112,
-     "said": 0.965341540300291,
-     "happened": 0.9732142857142857
+     "forecasts": 108,
+     "said": 0.9655312458533116,
+     "happened": 0.9814814814814815
     }
    ],
    "new": {
-    "forecasts": 11299,
+    "forecasts": 11405,
     "happened": 51,
-    "auc": 0.9116758011881851,
-    "flagged": 9,
+    "auc": 0.9117543441544312,
+    "flagged": 8,
     "flagged_and_happened": 4,
-    "mean_when_happened": 0.06130817371676761,
-    "mean_when_calm": 0.0063002764417221645
+    "mean_when_happened": 0.06149806911687328,
+    "mean_when_calm": 0.006316791672342651
    },
    "by_year": [
     {
      "year": 2018,
      "forecasts": 1560,
      "happened": 99,
-     "sage_brier": 0.025747672036241457,
-     "skill_vs_last_month": 0.19509537426084322
+     "sage_brier": 0.025708542317840755,
+     "skill_vs_last_month": 0.19631861849435162
     },
     {
      "year": 2019,
      "forecasts": 1560,
      "happened": 92,
-     "sage_brier": 0.02402441593647651,
-     "skill_vs_last_month": 0.1895797917126808
+     "sage_brier": 0.024024495212297835,
+     "skill_vs_last_month": 0.18957711748626882
     },
     {
      "year": 2020,
      "forecasts": 1560,
      "happened": 97,
-     "sage_brier": 0.024174271723402817,
-     "skill_vs_last_month": 0.1923451041430091
+     "sage_brier": 0.02412737992213386,
+     "skill_vs_last_month": 0.19391174463186256
     },
     {
      "year": 2021,
      "forecasts": 1560,
      "happened": 106,
-     "sage_brier": 0.02989635982438472,
-     "skill_vs_last_month": 0.18970824519672036
+     "sage_brier": 0.030127194701517642,
+     "skill_vs_last_month": 0.18345184479344212
     },
     {
      "year": 2022,
      "forecasts": 1560,
      "happened": 117,
-     "sage_brier": 0.03494450790975099,
-     "skill_vs_last_month": 0.16393143068147376
+     "sage_brier": 0.03501833061963122,
+     "skill_vs_last_month": 0.16216517752397652
     },
     {
      "year": 2023,
      "forecasts": 1560,
      "happened": 126,
-     "sage_brier": 0.029940349095998662,
-     "skill_vs_last_month": 0.18209048974955622
+     "sage_brier": 0.02987761351194112,
+     "skill_vs_last_month": 0.18380429845189494
     },
     {
      "year": 2024,
      "forecasts": 1560,
      "happened": 131,
-     "sage_brier": 0.034335037545166106,
-     "skill_vs_last_month": 0.17276141058818317
+     "sage_brier": 0.03416824868660783,
+     "skill_vs_last_month": 0.17677987656195293
     },
     {
      "year": 2025,
      "forecasts": 1560,
      "happened": 126,
-     "sage_brier": 0.025116544054665877,
-     "skill_vs_last_month": 0.2920735852060379
+     "sage_brier": 0.025044287990868105,
+     "skill_vs_last_month": 0.29411017017888086
     },
     {
      "year": 2026,
-     "forecasts": 1040,
-     "happened": 100,
-     "sage_brier": 0.02852785827006739,
-     "skill_vs_last_month": 0.23898030137432336
+     "forecasts": 1170,
+     "happened": 112,
+     "sage_brier": 0.02801385181221078,
+     "skill_vs_last_month": 0.24511167130452605
     }
    ],
    "views": null
@@ -1300,178 +1300,178 @@
    "title": "Attacks on civilians",
    "text": "Armed groups kill at least 10 civilians",
    "ahead": 2,
-   "forecasts": 13390,
-   "happened": 988,
+   "forecasts": 13520,
+   "happened": 1000,
    "first_month": 24216,
-   "last_month": 24318,
+   "last_month": 24319,
    "brier": {
-    "base_rate": 0.06878579916566681,
-    "last_month": 0.03685986378382827,
-    "sage": 0.030141414403971906
+    "base_rate": 0.06894338400583448,
+    "last_month": 0.036857609588180934,
+    "sage": 0.03012077761369506
    },
    "log_loss": {
-    "base_rate": 0.26730954357930065,
-    "last_month": 0.1301774626913787,
-    "sage": 0.09989032955415025
+    "base_rate": 0.26780694346405504,
+    "last_month": 0.13020688696002863,
+    "sage": 0.09982963754097328
    },
    "auc": {
-    "base_rate": 0.5415945221059422,
-    "last_month": 0.91985681916264,
-    "sage": 0.9744120218300953
+    "base_rate": 0.5420111821086262,
+    "last_month": 0.9201027555910544,
+    "sage": 0.9744149361022365
    },
-   "skill_vs_base_rate": 0.5618076002667648,
-   "skill_vs_last_month": 0.1822700544760013,
+   "skill_vs_base_rate": 0.5631085121794134,
+   "skill_vs_last_month": 0.18277994828634136,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 10276,
-     "said": 0.003204148492152867,
-     "happened": 0.0018489684702218763
+     "forecasts": 10379,
+     "said": 0.003259835762791337,
+     "happened": 0.001734271124385779
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 738,
-     "said": 0.03251446884617355,
-     "happened": 0.02981029810298103
+     "forecasts": 733,
+     "said": 0.03260010608378763,
+     "happened": 0.03137789904502047
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 486,
-     "said": 0.07201805379761761,
-     "happened": 0.05555555555555555
+     "forecasts": 484,
+     "said": 0.07151442311826975,
+     "happened": 0.05165289256198347
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 366,
-     "said": 0.14310707544372644,
-     "happened": 0.15027322404371585
+     "forecasts": 381,
+     "said": 0.14243833773361675,
+     "happened": 0.14435695538057744
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 425,
-     "said": 0.26815874912576887,
-     "happened": 0.27058823529411763
+     "forecasts": 435,
+     "said": 0.26969831931962096,
+     "happened": 0.2827586206896552
     },
     {
      "from": 0.35,
      "to": 0.5,
      "forecasts": 296,
-     "said": 0.41859442867359253,
-     "happened": 0.46283783783783783
+     "said": 0.422800526256155,
+     "happened": 0.4560810810810811
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 260,
-     "said": 0.5762524042816227,
-     "happened": 0.6576923076923077
+     "forecasts": 271,
+     "said": 0.5805915087115089,
+     "happened": 0.6531365313653137
     },
     {
      "from": 0.65,
      "to": 0.8,
-     "forecasts": 264,
-     "said": 0.7197947116872281,
-     "happened": 0.7159090909090909
+     "forecasts": 262,
+     "said": 0.7230839593048761,
+     "happened": 0.7251908396946565
     },
     {
      "from": 0.8,
      "to": 0.9,
-     "forecasts": 118,
-     "said": 0.8496476252506067,
-     "happened": 0.8559322033898306
+     "forecasts": 113,
+     "said": 0.8476382428985216,
+     "happened": 0.8495575221238938
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 76,
-     "said": 0.9280742000257982,
-     "happened": 0.9210526315789473
+     "forecasts": 87,
+     "said": 0.929684729208808,
+     "happened": 0.9195402298850575
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 85,
-     "said": 0.961826667740324,
-     "happened": 0.9647058823529412
+     "forecasts": 79,
+     "said": 0.9619600853801654,
+     "happened": 0.9873417721518988
     }
    ],
    "new": {
-    "forecasts": 11191,
+    "forecasts": 11299,
     "happened": 57,
-    "auc": 0.9039216057027786,
-    "flagged": 5,
+    "auc": 0.9011632443499783,
+    "flagged": 7,
     "flagged_and_happened": 2,
-    "mean_when_happened": 0.05622070528415566,
-    "mean_when_calm": 0.007028257274862908
+    "mean_when_happened": 0.056428806471803594,
+    "mean_when_calm": 0.00712984299205671
    },
    "by_year": [
     {
      "year": 2018,
      "forecasts": 1560,
      "happened": 102,
-     "sage_brier": 0.02719715740581384,
-     "skill_vs_last_month": 0.19473895868906732
+     "sage_brier": 0.02706668629361711,
+     "skill_vs_last_month": 0.19860198386117878
     },
     {
      "year": 2019,
      "forecasts": 1560,
      "happened": 91,
-     "sage_brier": 0.026690598249913943,
-     "skill_vs_last_month": 0.13114205723500905
+     "sage_brier": 0.026690598764812706,
+     "skill_vs_last_month": 0.13114204047353084
     },
     {
      "year": 2020,
      "forecasts": 1560,
      "happened": 95,
-     "sage_brier": 0.026357989295665758,
-     "skill_vs_last_month": 0.16164264976020104
+     "sage_brier": 0.02647555426110842,
+     "skill_vs_last_month": 0.15790331092809395
     },
     {
      "year": 2021,
      "forecasts": 1560,
      "happened": 107,
-     "sage_brier": 0.030074191602794835,
-     "skill_vs_last_month": 0.21472082473038956
+     "sage_brier": 0.03007432856907,
+     "skill_vs_last_month": 0.2147172483495171
     },
     {
      "year": 2022,
      "forecasts": 1560,
      "happened": 121,
-     "sage_brier": 0.0371374293742707,
-     "skill_vs_last_month": 0.11086552719894094
+     "sage_brier": 0.0371632908431376,
+     "skill_vs_last_month": 0.1102463587784479
     },
     {
      "year": 2023,
      "forecasts": 1560,
      "happened": 127,
-     "sage_brier": 0.03289474621318686,
-     "skill_vs_last_month": 0.20662923222789842
+     "sage_brier": 0.03275169330935509,
+     "skill_vs_last_month": 0.21007944860620698
     },
     {
      "year": 2024,
      "forecasts": 1560,
      "happened": 132,
-     "sage_brier": 0.03282400682134732,
-     "skill_vs_last_month": 0.2164935610866504
+     "sage_brier": 0.03280332163954495,
+     "skill_vs_last_month": 0.21698731473532773
     },
     {
      "year": 2025,
      "forecasts": 1560,
      "happened": 126,
-     "sage_brier": 0.02606635434973383,
-     "skill_vs_last_month": 0.2521837757894043
+     "sage_brier": 0.026385351839333524,
+     "skill_vs_last_month": 0.2430320741358304
     },
     {
      "year": 2026,
-     "forecasts": 910,
-     "happened": 87,
-     "sage_brier": 0.03337942912234018,
-     "skill_vs_last_month": 0.12168863264627239
+     "forecasts": 1040,
+     "happened": 99,
+     "sage_brier": 0.032453870698066684,
+     "skill_vs_last_month": 0.14215281139146108
     }
    ],
    "views": null
@@ -1481,178 +1481,178 @@
    "title": "Attacks on civilians",
    "text": "Armed groups kill at least 10 civilians",
    "ahead": 3,
-   "forecasts": 13260,
-   "happened": 980,
+   "forecasts": 13390,
+   "happened": 992,
    "first_month": 24216,
-   "last_month": 24317,
+   "last_month": 24318,
    "brier": {
-    "base_rate": 0.06889279605233682,
-    "last_month": 0.03770140989368983,
-    "sage": 0.0309796257602603
+    "base_rate": 0.06905082869744195,
+    "last_month": 0.03769416953035135,
+    "sage": 0.03093583965133158
    },
    "log_loss": {
-    "base_rate": 0.26765199893866237,
-    "last_month": 0.1334562310542429,
-    "sage": 0.10270784503464532
+    "base_rate": 0.26815048682307596,
+    "last_month": 0.13334891166717794,
+    "sage": 0.10270069867678476
    },
    "auc": {
-    "base_rate": 0.5410597952536063,
-    "last_month": 0.9167127983115071,
-    "sage": 0.9721485076115136
+    "base_rate": 0.5414718782686072,
+    "last_month": 0.9175989786333903,
+    "sage": 0.9720557653679833
    },
-   "skill_vs_base_rate": 0.5503212594721001,
-   "skill_vs_last_month": 0.17828999372658927,
+   "skill_vs_base_rate": 0.5519845274141131,
+   "skill_vs_last_month": 0.17929377310138017,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 10058,
-     "said": 0.003276045547864592,
-     "happened": 0.0020878902366275602
+     "forecasts": 10150,
+     "said": 0.0033036527680838893,
+     "happened": 0.0020689655172413794
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 829,
-     "said": 0.03279422857092614,
-     "happened": 0.022919179734620022
+     "forecasts": 823,
+     "said": 0.03258080400863442,
+     "happened": 0.024301336573511544
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 530,
-     "said": 0.07060306229340664,
-     "happened": 0.07358490566037736
+     "forecasts": 556,
+     "said": 0.07068864749743665,
+     "happened": 0.0683453237410072
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 371,
-     "said": 0.14605369186452782,
-     "happened": 0.14555256064690028
+     "forecasts": 364,
+     "said": 0.14627448101479873,
+     "happened": 0.13736263736263737
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 377,
-     "said": 0.27292456802123083,
-     "happened": 0.3076923076923077
+     "forecasts": 389,
+     "said": 0.27393922604538795,
+     "happened": 0.30848329048843187
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 306,
-     "said": 0.4241752121292588,
-     "happened": 0.4411764705882353
+     "forecasts": 302,
+     "said": 0.4237499623217284,
+     "happened": 0.45695364238410596
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 250,
-     "said": 0.5764191942416331,
-     "happened": 0.632
+     "forecasts": 259,
+     "said": 0.5755175471717271,
+     "happened": 0.6293436293436293
     },
     {
      "from": 0.65,
      "to": 0.8,
-     "forecasts": 283,
-     "said": 0.7194737649782776,
-     "happened": 0.7243816254416962
+     "forecasts": 292,
+     "said": 0.7191664364727809,
+     "happened": 0.7226027397260274
     },
     {
      "from": 0.8,
      "to": 0.9,
-     "forecasts": 102,
-     "said": 0.844798444290459,
-     "happened": 0.8235294117647058
+     "forecasts": 99,
+     "said": 0.8465853974835453,
+     "happened": 0.797979797979798
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 63,
-     "said": 0.9287902837925206,
-     "happened": 0.9682539682539683
+     "forecasts": 66,
+     "said": 0.9278162925986049,
+     "happened": 1.0
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 91,
-     "said": 0.9632257277888174,
-     "happened": 0.967032967032967
+     "forecasts": 90,
+     "said": 0.9619666206827759,
+     "happened": 0.9555555555555556
     }
    ],
    "new": {
-    "forecasts": 11083,
+    "forecasts": 11191,
     "happened": 62,
-    "auc": 0.8908520683387433,
-    "flagged": 4,
-    "flagged_and_happened": 1,
-    "mean_when_happened": 0.04922326272803755,
-    "mean_when_calm": 0.007183831514635676
+    "auc": 0.8855402479427477,
+    "flagged": 6,
+    "flagged_and_happened": 2,
+    "mean_when_happened": 0.04958937428459052,
+    "mean_when_calm": 0.007259532121018104
    },
    "by_year": [
     {
      "year": 2018,
      "forecasts": 1560,
      "happened": 105,
-     "sage_brier": 0.02953626258446154,
-     "skill_vs_last_month": 0.1303147676238674
+     "sage_brier": 0.02949710119084634,
+     "skill_vs_last_month": 0.13146786157436352
     },
     {
      "year": 2019,
      "forecasts": 1560,
      "happened": 86,
-     "sage_brier": 0.025333950376432022,
-     "skill_vs_last_month": 0.17563962950388157
+     "sage_brier": 0.025402431673986852,
+     "skill_vs_last_month": 0.17341126531331796
     },
     {
      "year": 2020,
      "forecasts": 1560,
      "happened": 98,
-     "sage_brier": 0.027365843052391745,
-     "skill_vs_last_month": 0.15930481264277485
+     "sage_brier": 0.027485216926568506,
+     "skill_vs_last_month": 0.15563757530152222
     },
     {
      "year": 2021,
      "forecasts": 1560,
      "happened": 110,
-     "sage_brier": 0.031636230641123135,
-     "skill_vs_last_month": 0.2269558618912313
+     "sage_brier": 0.031536535152798785,
+     "skill_vs_last_month": 0.22939196161876485
     },
     {
      "year": 2022,
      "forecasts": 1560,
      "happened": 119,
-     "sage_brier": 0.03589507075607587,
-     "skill_vs_last_month": 0.15450181301132015
+     "sage_brier": 0.03596634818868388,
+     "skill_vs_last_month": 0.1528228933498208
     },
     {
      "year": 2023,
      "forecasts": 1560,
      "happened": 125,
-     "sage_brier": 0.034277176287840785,
-     "skill_vs_last_month": 0.18677370935498483
+     "sage_brier": 0.03408428361552426,
+     "skill_vs_last_month": 0.19135008959947464
     },
     {
      "year": 2024,
      "forecasts": 1560,
      "happened": 135,
-     "sage_brier": 0.03403623912809816,
-     "skill_vs_last_month": 0.19439911574901747
+     "sage_brier": 0.034265559557459725,
+     "skill_vs_last_month": 0.18897134977360508
     },
     {
      "year": 2025,
      "forecasts": 1560,
      "happened": 129,
-     "sage_brier": 0.02894850139139447,
-     "skill_vs_last_month": 0.19037659418034825
+     "sage_brier": 0.028821285638355766,
+     "skill_vs_last_month": 0.19393452796961608
     },
     {
      "year": 2026,
-     "forecasts": 780,
-     "happened": 73,
-     "sage_brier": 0.032595089488789704,
-     "skill_vs_last_month": 0.17202738329522638
+     "forecasts": 910,
+     "happened": 85,
+     "sage_brier": 0.031669477250923256,
+     "skill_vs_last_month": 0.18843706375318192
     }
    ],
    "views": null
@@ -1668,19 +1668,19 @@
      "alerts": 35,
      "followed": 8,
      "rate": 0.22857142857142856,
-     "usual": 0.037738052324548264
+     "usual": 0.03728232032075961
     },
     "major_war": {
      "alerts": 59,
      "followed": 8,
      "rate": 0.13559322033898305,
-     "usual": 0.005582252677234948
+     "usual": 0.00555571619171145
     },
     "attacks": {
      "alerts": 50,
      "followed": 4,
      "rate": 0.08,
-     "usual": 0.035256448153464515
+     "usual": 0.03491321095073934
     }
    },
    "own_forces": {
@@ -1692,23 +1692,23 @@
       "alerts": 92,
       "followed": 15,
       "rate": 0.16304347826086957,
-      "usual": 0.037738052324548264
+      "usual": 0.03728232032075961
      },
      "major_war": {
       "alerts": 133,
       "followed": 9,
       "rate": 0.06766917293233082,
-      "usual": 0.005582252677234948
+      "usual": 0.00555571619171145
      },
      "attacks": {
       "alerts": 109,
       "followed": 9,
       "rate": 0.08256880733944955,
-      "usual": 0.035256448153464515
+      "usual": 0.03491321095073934
      }
     }
    },
-   "checked_through": "2026-10-26"
+   "checked_through": "2026-11-20"
   },
   "list": [
    {
@@ -2384,7 +2384,7 @@
    {
     "country": "Saudi Arabia",
     "start": "2026-10-12",
-    "end": "2026-10-25",
+    "end": "2026-10-28",
     "times_usual": 4.7,
     "kind": "aimed",
     "fighting": "already",
@@ -2487,415 +2487,422 @@
   {
    "question": "clash",
    "within": 3,
-   "forecasts": 174048,
-   "happened": 519,
+   "forecasts": 174832,
+   "happened": 523,
    "brier": {
-    "base_rate": 0.0029744137229394093,
-    "recent": 0.001683215918381497,
-    "trees": 0.0016106541569444984,
-    "line": 0.0015513135158839657,
-    "sage": 0.0014802639099348513
+    "base_rate": 0.002983877563159317,
+    "recent": 0.001692314810968219,
+    "trees": 0.0016149208736459123,
+    "line": 0.0015564149197372483,
+    "sage": 0.0014845737885490486
    },
    "auc": {
-    "base_rate": 0.6310474433201799,
-    "recent": 0.8860388269351479,
-    "trees": 0.9874346267920702,
-    "line": 0.9796007732533945,
-    "sage": 0.987358467766117
+    "base_rate": 0.6310542264963255,
+    "recent": 0.886300884299148,
+    "trees": 0.9874837225341468,
+    "line": 0.9797201310825714,
+    "sage": 0.9874058844556249
    },
-   "skill_vs_recent": 0.12057395978157992,
+   "skill_vs_recent": 0.1227555423333535,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 172904,
-     "said": 0.00028779145335089054,
-     "happened": 0.00033544625919585433
+     "forecasts": 173676,
+     "said": 0.00028823831526970744,
+     "happened": 0.00033395518091158246
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 188,
-     "said": 0.02972744815559034,
-     "happened": 0.0851063829787234
+     "forecasts": 189,
+     "said": 0.029763981470861022,
+     "happened": 0.08994708994708994
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 105,
-     "said": 0.0695061008393359,
-     "happened": 0.09523809523809523
+     "forecasts": 110,
+     "said": 0.07038532407011236,
+     "happened": 0.09090909090909091
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 117,
-     "said": 0.14332690001553988,
-     "happened": 0.24786324786324787
+     "forecasts": 116,
+     "said": 0.14412333241417094,
+     "happened": 0.25
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 126,
-     "said": 0.2778433818848206,
-     "happened": 0.2857142857142857
+     "forecasts": 130,
+     "said": 0.2787400624114461,
+     "happened": 0.2846153846153846
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 109,
-     "said": 0.42565610447018276,
-     "happened": 0.3302752293577982
+     "forecasts": 110,
+     "said": 0.425361653304242,
+     "happened": 0.32727272727272727
     },
     {
      "from": 0.5,
      "to": 0.65,
      "forecasts": 125,
-     "said": 0.573249766576305,
+     "said": 0.5736939174384066,
      "happened": 0.472
     },
     {
      "from": 0.65,
      "to": 0.8,
      "forecasts": 138,
-     "said": 0.7207709125199658,
+     "said": 0.7206054354875996,
      "happened": 0.5652173913043478
     },
     {
      "from": 0.8,
      "to": 0.9,
-     "forecasts": 137,
-     "said": 0.8593999938643293,
-     "happened": 0.7883211678832117
+     "forecasts": 138,
+     "said": 0.8588690923941897,
+     "happened": 0.7898550724637681
     },
     {
      "from": 0.9,
      "to": 0.95,
      "forecasts": 71,
-     "said": 0.9210828047201736,
+     "said": 0.9210826842807638,
      "happened": 0.8732394366197183
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 28,
-     "said": 0.9648317569187738,
-     "happened": 0.9642857142857143
+     "forecasts": 29,
+     "said": 0.965097507928099,
+     "happened": 0.9655172413793104
     }
    ],
    "fresh": {
-    "forecasts": 173198,
+    "forecasts": 173971,
     "happened": 87,
-    "auc": 0.9296846744468052,
-    "mean_when_happened": 0.031082833730024875,
-    "mean_when_calm": 0.0003712516094607942
+    "auc": 0.9294682384371984,
+    "mean_when_happened": 0.031004293811979496,
+    "mean_when_calm": 0.00037176023129348166
    }
   },
   {
    "question": "clash",
    "within": 6,
-   "forecasts": 171696,
-   "happened": 683,
+   "forecasts": 172480,
+   "happened": 689,
    "brier": {
-    "base_rate": 0.003964658938403951,
-    "recent": 0.002140690801238659,
-    "trees": 0.002016112473166967,
-    "line": 0.0018804590568501536,
-    "sage": 0.001836449630158624
+    "base_rate": 0.0039812660498828945,
+    "recent": 0.0021453299456915494,
+    "trees": 0.0020163558535988882,
+    "line": 0.001889185898683224,
+    "sage": 0.0018401536633552123
    },
    "auc": {
-    "base_rate": 0.6199843026497887,
-    "recent": 0.8476995776754583,
-    "trees": 0.9795577261218545,
-    "line": 0.9649022041845748,
-    "sage": 0.9767118044393789
+    "base_rate": 0.6204971792140953,
+    "recent": 0.8481986528691042,
+    "trees": 0.9797262510537517,
+    "line": 0.9651839703388192,
+    "sage": 0.9768943426793142
    },
-   "skill_vs_recent": 0.14212289364909358,
+   "skill_vs_recent": 0.14225144386261912,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 170358,
-     "said": 0.0004378893759093425,
-     "happened": 0.0006104791087005013
+     "forecasts": 171131,
+     "said": 0.00043812117398871534,
+     "happened": 0.0006077215700253022
     },
     {
      "from": 0.02,
      "to": 0.05,
      "forecasts": 266,
-     "said": 0.03201772341775312,
+     "said": 0.031997018073722315,
      "happened": 0.06015037593984962
     },
     {
      "from": 0.05,
      "to": 0.1,
      "forecasts": 134,
-     "said": 0.07178699687749032,
+     "said": 0.07178696761557384,
      "happened": 0.1044776119402985
     },
     {
      "from": 0.1,
      "to": 0.2,
      "forecasts": 133,
-     "said": 0.14219021025011022,
+     "said": 0.1421901849898472,
      "happened": 0.2556390977443609
     },
     {
      "from": 0.2,
      "to": 0.35,
-     "forecasts": 115,
-     "said": 0.26375850144472446,
-     "happened": 0.3217391304347826
+     "forecasts": 117,
+     "said": 0.26491474418882327,
+     "happened": 0.3247863247863248
     },
     {
      "from": 0.35,
      "to": 0.5,
-     "forecasts": 96,
-     "said": 0.42167356030893055,
-     "happened": 0.46875
+     "forecasts": 97,
+     "said": 0.42117573378712253,
+     "happened": 0.4639175257731959
     },
     {
      "from": 0.5,
      "to": 0.65,
-     "forecasts": 117,
-     "said": 0.5783440899094108,
-     "happened": 0.5213675213675214
+     "forecasts": 119,
+     "said": 0.5792562469289099,
+     "happened": 0.5126050420168067
     },
     {
      "from": 0.65,
      "to": 0.8,
-     "forecasts": 155,
-     "said": 0.7235058633153233,
-     "happened": 0.6580645161290323
+     "forecasts": 158,
+     "said": 0.7232773141755385,
+     "happened": 0.6582278481012658
     },
     {
      "from": 0.8,
      "to": 0.9,
      "forecasts": 117,
-     "said": 0.8528294777103855,
+     "said": 0.8528294759954792,
      "happened": 0.717948717948718
     },
     {
      "from": 0.9,
      "to": 0.95,
      "forecasts": 123,
-     "said": 0.9300963412758808,
+     "said": 0.9300963410528112,
      "happened": 0.9105691056910569
     },
     {
      "from": 0.95,
      "to": 1.0,
-     "forecasts": 82,
-     "said": 0.9617946617147981,
-     "happened": 0.9024390243902439
+     "forecasts": 85,
+     "said": 0.9619357965553803,
+     "happened": 0.9058823529411765
     }
    ],
    "fresh": {
-    "forecasts": 170879,
+    "forecasts": 171652,
     "happened": 165,
-    "auc": 0.9065660766669472,
-    "mean_when_happened": 0.050525843693285846,
-    "mean_when_calm": 0.0006455258682661524
+    "auc": 0.9065255410296142,
+    "mean_when_happened": 0.050525841878965354,
+    "mean_when_calm": 0.0006447890754081037
    }
   },
   {
    "question": "war",
    "within": 3,
-   "forecasts": 174048,
-   "happened": 59,
+   "forecasts": 174832,
+   "happened": 60,
    "brier": {
-    "base_rate": 0.0003389026652440742,
-    "recent": 0.0003173670574846311,
-    "trees": 0.00013931650810102908,
-    "line": 0.00011437528484864615,
-    "sage": 0.00011578158711518531
+    "base_rate": 0.0003431003151514826,
+    "recent": 0.0003210611874860628,
+    "trees": 0.00013873108448193052,
+    "line": 0.00011395851079994528,
+    "sage": 0.00011531986199116162
    },
    "auc": {
-    "base_rate": 0.6239540664513079,
-    "recent": 0.9509243278676005,
-    "trees": 0.997053632165135,
-    "line": 0.9996500850287535,
-    "sage": 0.9995778030385907
+    "base_rate": 0.6274353634068005,
+    "recent": 0.9517016455725172,
+    "trees": 0.9971123807017143,
+    "line": 0.9996548836960917,
+    "sage": 0.9995844109277611
    },
-   "skill_vs_recent": 0.635180828051783,
+   "skill_vs_recent": 0.6408165593165396,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 173929,
-     "said": 3.7340990385934035e-05,
-     "happened": 3.4496834915396513e-05
+     "forecasts": 174711,
+     "said": 3.731625401728283e-05,
+     "happened": 3.434242835310885e-05
     },
     {
      "from": 0.02,
      "to": 0.05,
-     "forecasts": 31,
-     "said": 0.029838010940007216,
+     "forecasts": 32,
+     "said": 0.030244219111009437,
      "happened": 0.0
     },
     {
      "from": 0.05,
      "to": 0.1,
      "forecasts": 10,
-     "said": 0.0651386219588029,
+     "said": 0.06513862195880542,
      "happened": 0.0
     },
     {
      "from": 0.1,
      "to": 0.2,
      "forecasts": 22,
-     "said": 0.1403626292466497,
+     "said": 0.14036262924660645,
      "happened": 0.4090909090909091
     },
     {
      "from": 0.2,
      "to": 0.35,
      "forecasts": 9,
-     "said": 0.24416524273893003,
+     "said": 0.24416524273882884,
      "happened": 0.3333333333333333
     },
     {
      "from": 0.35,
      "to": 0.5,
      "forecasts": 15,
-     "said": 0.4275115360866998,
+     "said": 0.4275115360867004,
      "happened": 0.6666666666666666
     },
     {
      "from": 0.5,
      "to": 0.65,
      "forecasts": 2,
-     "said": 0.6021316234048812,
+     "said": 0.6021316234048802,
      "happened": 0.5
     },
     {
      "from": 0.8,
      "to": 0.9,
      "forecasts": 16,
-     "said": 0.8731007858948159,
+     "said": 0.8731007858948172,
      "happened": 1.0
     },
     {
      "from": 0.9,
      "to": 0.95,
-     "forecasts": 11,
-     "said": 0.9191493151306344,
+     "forecasts": 12,
+     "said": 0.9183486510314304,
      "happened": 1.0
     },
     {
      "from": 0.95,
      "to": 1.0,
      "forecasts": 3,
-     "said": 0.9531039635756905,
+     "said": 0.9531039635756885,
      "happened": 1.0
     }
    ],
    "fresh": {
-    "forecasts": 173198,
+    "forecasts": 173971,
     "happened": 3,
-    "auc": 0.9958524591741486,
-    "mean_when_happened": 0.0003740040751950607,
-    "mean_when_calm": 3.241502657213945e-05
+    "auc": 0.9958708881326834,
+    "mean_when_happened": 0.0003740040751949376,
+    "mean_when_calm": 3.234841465651898e-05
    }
   },
   {
    "question": "war",
    "within": 6,
-   "forecasts": 171696,
-   "happened": 62,
+   "forecasts": 172480,
+   "happened": 63,
    "brier": {
-    "base_rate": 0.0003609985719180162,
-    "recent": 0.00033867110147657787,
-    "trees": 0.0001676179994411926,
-    "line": 0.00016188154795563833,
-    "sage": 0.00015083932663982564
+    "base_rate": 0.00036515240521016874,
+    "recent": 0.0003423700003393101,
+    "trees": 0.000167191848756842,
+    "line": 0.00016132913676838125,
+    "sage": 0.00015036713498308476
    },
    "auc": {
-    "base_rate": 0.47889206853142496,
-    "recent": 0.9085447484463376,
-    "trees": 0.9801473183559766,
-    "line": 0.9955353232892046,
-    "sage": 0.9948072173082482
+    "base_rate": 0.48498730145841507,
+    "recent": 0.9099239468431602,
+    "trees": 0.980914994663639,
+    "line": 0.9956119673316933,
+    "sage": 0.9949332878916389
    },
-   "skill_vs_recent": 0.5546141197693611,
+   "skill_vs_recent": 0.560805167409348,
    "calibration": [
     {
      "from": 0.0,
      "to": 0.02,
-     "forecasts": 171551,
-     "said": 6.809799914968905e-05,
-     "happened": 5.8291703341863356e-05
+     "forecasts": 172332,
+     "said": 6.780776734278972e-05,
+     "happened": 5.802752825940626e-05
     },
     {
      "from": 0.02,
      "to": 0.05,
      "forecasts": 58,
-     "said": 0.0311406384159391,
+     "said": 0.031049819057766628,
      "happened": 0.017241379310344827
     },
     {
      "from": 0.05,
      "to": 0.1,
-     "forecasts": 20,
-     "said": 0.07223658802461337,
-     "happened": 0.1
+     "forecasts": 21,
+     "said": 0.07193677107097173,
+     "happened": 0.09523809523809523
     },
     {
      "from": 0.1,
      "to": 0.2,
-     "forecasts": 16,
-     "said": 0.1386773909710279,
-     "happened": 0.5
+     "forecasts": 17,
+     "said": 0.14047200422655395,
+     "happened": 0.47058823529411764
     },
     {
      "from": 0.2,
      "to": 0.35,
      "forecasts": 7,
-     "said": 0.2756296643244672,
+     "said": 0.27562966432450825,
      "happened": 0.2857142857142857
     },
     {
      "from": 0.35,
      "to": 0.5,
      "forecasts": 15,
-     "said": 0.4411603875396993,
+     "said": 0.4411603626559634,
      "happened": 0.6666666666666666
     },
     {
      "from": 0.5,
      "to": 0.65,
      "forecasts": 5,
-     "said": 0.5877393137750714,
+     "said": 0.5877392952184182,
      "happened": 1.0
     },
     {
      "from": 0.65,
      "to": 0.8,
      "forecasts": 12,
-     "said": 0.7365200483096629,
+     "said": 0.7365200330467144,
      "happened": 1.0
     },
     {
      "from": 0.8,
      "to": 0.9,
      "forecasts": 9,
-     "said": 0.8449286471883748,
+     "said": 0.8449286471883577,
+     "happened": 1.0
+    },
+    {
+     "from": 0.9,
+     "to": 0.95,
+     "forecasts": 1,
+     "said": 0.9366780541396562,
      "happened": 1.0
     },
     {
      "from": 0.95,
      "to": 1.0,
      "forecasts": 3,
-     "said": 0.9648686579187072,
+     "said": 0.9648686579187071,
      "happened": 1.0
     }
    ],
    "fresh": {
-    "forecasts": 170879,
+    "forecasts": 171652,
     "happened": 6,
-    "auc": 0.9497706873916106,
-    "mean_when_happened": 0.0025010116859573,
-    "mean_when_calm": 6.131573213661489e-05
+    "auc": 0.9502755671556576,
+    "mean_when_happened": 0.0025010116859579524,
+    "mean_when_calm": 6.0819166470296805e-05
    }
   }
  ]
