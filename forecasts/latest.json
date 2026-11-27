@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T01:57:26Z",
+ "generated": "2026-11-27T16:59:57Z",
  "data_through": "2026-10",
  "months": [
   "2026-11",
@@ -964,7 +964,7 @@
  "summary": [
   "Global threat level: High. SAGE expects about 19 countries to see deadly fighting in December and about 2 to be at full-scale war, more than in 84% of months since 1989.",
   "Most likely to see full-scale war in December: Ukraine (93%), Yemen (45%).",
-  "Among countries below the fighting mark last month, the highest chance of deadly fighting in December: Afghanistan (60%), Niger (59%), Colombia (35%).",
+  "Among countries below the fighting mark last month, the highest chance of deadly fighting in December: Afghanistan (60%), Niger (58%), Colombia (34%).",
   "Most tense between countries not already fighting: Ethiopia–Eritrea, Saudi Arabia–Yemen, United States of America–Ukraine.",
   "Highest chance of new clashes between countries in the next six months: Ethiopia–Eritrea (21%), Israel–Yemen (9%), Tajikistan–Kyrgyzstan (5%).",
   "No build-up alerts right now: no country shows the pattern of news that came before past wars."
@@ -15294,7 +15294,7 @@
     }
    }
   },
-  "checked_through": "2026-11-25"
+  "checked_through": "2026-11-26"
  },
  "countries": [
   {
@@ -15313,8 +15313,8 @@
    "fighting": {
     "chance": [
      0.5024,
-     0.6,
-     0.5122
+     0.5966,
+     0.5036
     ],
     "usual": [
      0.3071,
@@ -15324,7 +15324,7 @@
     "rank": [
      17,
      16,
-     17
+     18
     ],
     "why": [
      "12 killed in fighting involving the government in October 2026, below the 25 mark",
@@ -15355,9 +15355,9 @@
    },
    "attacks": {
     "chance": [
-     0.0247,
-     0.0363,
-     0.0428
+     0.0248,
+     0.0344,
+     0.0455
     ],
     "usual": [
      0.0084,
@@ -15366,8 +15366,8 @@
     ],
     "rank": [
      33,
-     30,
-     31
+     32,
+     30
     ],
     "why": [
      "None in October 2026; the last month at this level was April 2026"
@@ -15384,7 +15384,7 @@
      "summary": "Afghanistan and Pakistan have clashed in the past year. Deadly clashes between their forces in the next six months: very likely (94%); war: unlikely (7%). They last fought in October 2026."
     }
    ],
-   "summary": "Afghanistan saw some armed clashes in October (12 killed), below the level SAGE counts as fighting. Deadly fighting in December is likely (60%). It's leaning worse: deaths are 3 times the three months before."
+   "summary": "Afghanistan saw some armed clashes in October (12 killed), below the level SAGE counts as fighting. Deadly fighting in December is about as likely as not (60%). It's leaning worse: deaths are 3 times the three months before."
   },
   {
    "id": 339,
@@ -15402,7 +15402,7 @@
    "fighting": {
     "chance": [
      0.0011,
-     0.0015,
+     0.0013,
      0.0013
     ],
     "usual": [
@@ -15412,8 +15412,8 @@
     ],
     "rank": [
      90,
-     90,
-     109
+     102,
+     113
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -15443,7 +15443,7 @@
     "chance": [
      0.0008,
      0.0011,
-     0.001
+     0.0009
     ],
     "usual": [
      0.0084,
@@ -15451,9 +15451,9 @@
      0.0098
     ],
     "rank": [
-     107,
-     93,
-     98
+     106,
+     94,
+     104
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -15478,8 +15478,8 @@
    "fighting": {
     "chance": [
      0.0051,
-     0.0058,
-     0.0086
+     0.0059,
+     0.0083
     ],
     "usual": [
      0.0075,
@@ -15489,7 +15489,7 @@
     "rank": [
      51,
      53,
-     48
+     50
     ],
     "why": [
      "None in October 2026; the last month at this level was May 2015"
@@ -15517,8 +15517,8 @@
    },
    "attacks": {
     "chance": [
-     0.0014,
-     0.0018,
+     0.0015,
+     0.0017,
      0.0017
     ],
     "usual": [
@@ -15527,9 +15527,9 @@
      0.0098
     ],
     "rank": [
-     78,
-     79,
-     76
+     76,
+     80,
+     75
     ],
     "why": [
      "None in October 2026; the last month at this level was January 2013"
@@ -15554,7 +15554,7 @@
    "fighting": {
     "chance": [
      0.0012,
-     0.0015,
+     0.0016,
      0.0019
     ],
     "usual": [
@@ -15565,7 +15565,7 @@
     "rank": [
      88,
      88,
-     89
+     87
     ],
     "why": [
      "None in October 2026; the last month at this level was January 2007"
@@ -15594,7 +15594,7 @@
    "attacks": {
     "chance": [
      0.0007,
-     0.0011,
+     0.0012,
      0.0011
     ],
     "usual": [
@@ -15603,9 +15603,9 @@
      0.0098
     ],
     "rank": [
-     115,
-     95,
-     88
+     118,
+     88,
+     89
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -15631,7 +15631,7 @@
     "chance": [
      0.0021,
      0.0018,
-     0.0021
+     0.002
     ],
     "usual": [
      0.0075,
@@ -15640,7 +15640,7 @@
     ],
     "rank": [
      76,
-     84,
+     83,
      84
     ],
     "why": [
@@ -15669,9 +15669,9 @@
    },
    "attacks": {
     "chance": [
-     0.0061,
      0.006,
-     0.005
+     0.006,
+     0.0048
     ],
     "usual": [
      0.0084,
@@ -15680,7 +15680,7 @@
     ],
     "rank": [
      50,
-     54,
+     53,
      58
     ],
     "why": [
@@ -15706,8 +15706,8 @@
    "fighting": {
     "chance": [
      0.0011,
-     0.0017,
-     0.002
+     0.0018,
+     0.0018
     ],
     "usual": [
      0.0075,
@@ -15716,8 +15716,8 @@
     ],
     "rank": [
      89,
-     85,
-     87
+     84,
+     89
     ],
     "why": [
      "None in October 2026; the last month at this level was September 2022",
@@ -15747,7 +15747,7 @@
    },
    "attacks": {
     "chance": [
-     0.0009,
+     0.001,
      0.0011,
      0.001
     ],
@@ -15758,7 +15758,7 @@
     ],
     "rank": [
      92,
-     92,
+     90,
      94
     ],
     "why": [
@@ -15795,8 +15795,8 @@
    "fighting": {
     "chance": [
      0.0006,
-     0.0009,
-     0.0011
+     0.001,
+     0.0012
     ],
     "usual": [
      0.0075,
@@ -15805,8 +15805,8 @@
     ],
     "rank": [
      118,
-     127,
-     122
+     125,
+     120
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -15834,9 +15834,9 @@
    },
    "attacks": {
     "chance": [
-     0.0008,
+     0.0009,
      0.001,
-     0.001
+     0.0009
     ],
     "usual": [
      0.0084,
@@ -15844,9 +15844,9 @@
      0.0098
     ],
     "rank": [
-     106,
-     101,
-     92
+     104,
+     112,
+     102
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -15871,7 +15871,7 @@
    "fighting": {
     "chance": [
      0.001,
-     0.0013,
+     0.0014,
      0.0016
     ],
     "usual": [
@@ -15881,8 +15881,8 @@
     ],
     "rank": [
      94,
-     99,
-     95
+     94,
+     96
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -15912,8 +15912,8 @@
    },
    "attacks": {
     "chance": [
-     0.0011,
-     0.0014,
+     0.0012,
+     0.0022,
      0.0012
     ],
     "usual": [
@@ -15922,9 +15922,9 @@
      0.0098
     ],
     "rank": [
-     87,
-     85,
-     84
+     84,
+     71,
+     87
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -15960,7 +15960,7 @@
     "rank": [
      96,
      89,
-     94
+     95
     ],
     "why": [
      "None in October 2026; the last month at this level was September 2023",
@@ -15991,7 +15991,7 @@
    "attacks": {
     "chance": [
      0.0009,
-     0.0012,
+     0.001,
      0.001
     ],
     "usual": [
@@ -16000,9 +16000,9 @@
      0.0098
     ],
     "rank": [
-     102,
-     90,
-     97
+     98,
+     105,
+     100
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -16046,8 +16046,8 @@
    "fighting": {
     "chance": [
      0.0021,
-     0.0066,
-     0.0079
+     0.0069,
+     0.0097
     ],
     "usual": [
      0.0075,
@@ -16056,8 +16056,8 @@
     ],
     "rank": [
      77,
-     51,
-     52
+     50,
+     47
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -16085,8 +16085,8 @@
    },
    "attacks": {
     "chance": [
-     0.0016,
-     0.002,
+     0.0014,
+     0.0017,
      0.0014
     ],
     "usual": [
@@ -16095,9 +16095,9 @@
      0.0098
     ],
     "rank": [
-     74,
-     71,
-     80
+     77,
+     81,
+     81
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -16122,8 +16122,8 @@
    "fighting": {
     "chance": [
      0.0252,
-     0.0464,
-     0.043
+     0.0473,
+     0.0413
     ],
     "usual": [
      0.1132,
@@ -16133,7 +16133,7 @@
     "rank": [
      33,
      34,
-     33
+     35
     ],
     "why": [
      "4 killed in fighting involving the government in October 2026, below the 25 mark",
@@ -16163,9 +16163,9 @@
    },
    "attacks": {
     "chance": [
-     0.0265,
-     0.03,
-     0.0282
+     0.0263,
+     0.0267,
+     0.027
     ],
     "usual": [
      0.0084,
@@ -16174,7 +16174,7 @@
     ],
     "rank": [
      32,
-     33,
+     35,
      35
     ],
     "why": [
@@ -16210,7 +16210,7 @@
    "fighting": {
     "chance": [
      0.0015,
-     0.0015,
+     0.0014,
      0.0015
     ],
     "usual": [
@@ -16220,8 +16220,8 @@
     ],
     "rank": [
      85,
-     92,
-     101
+     97,
+     103
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -16250,8 +16250,8 @@
    "attacks": {
     "chance": [
      0.001,
-     0.001,
-     0.0011
+     0.0011,
+     0.0012
     ],
     "usual": [
      0.0084,
@@ -16260,8 +16260,8 @@
     ],
     "rank": [
      89,
-     104,
-     87
+     101,
+     85
     ],
     "why": [
      "None in October 2026; the last month at this level was March 2016"
@@ -16287,7 +16287,7 @@
     "chance": [
      0.0024,
      0.0031,
-     0.0028
+     0.0029
     ],
     "usual": [
      0.0075,
@@ -16296,8 +16296,8 @@
     ],
     "rank": [
      73,
-     74,
-     78
+     75,
+     77
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -16326,8 +16326,8 @@
    "attacks": {
     "chance": [
      0.002,
-     0.002,
-     0.0017
+     0.0021,
+     0.0018
     ],
     "usual": [
      0.0084,
@@ -16337,7 +16337,7 @@
     "rank": [
      67,
      73,
-     75
+     74
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -16362,8 +16362,8 @@
    "fighting": {
     "chance": [
      0.0154,
-     0.0225,
-     0.0295
+     0.0229,
+     0.0287
     ],
     "usual": [
      0.0075,
@@ -16373,7 +16373,7 @@
     "rank": [
      40,
      38,
-     37
+     38
     ],
     "why": [
      "None in October 2026; the last month at this level was June 2025",
@@ -16404,8 +16404,8 @@
    "attacks": {
     "chance": [
      0.0049,
-     0.0071,
-     0.0096
+     0.0069,
+     0.0093
     ],
     "usual": [
      0.0084,
@@ -16414,8 +16414,8 @@
     ],
     "rank": [
      53,
-     49,
-     47
+     50,
+     48
     ],
     "why": [
      "None in October 2026; the last month at this level was May 2023"
@@ -16440,8 +16440,8 @@
    "fighting": {
     "chance": [
      0.0007,
-     0.0013,
-     0.0018
+     0.0014,
+     0.0016
     ],
     "usual": [
      0.0075,
@@ -16450,8 +16450,8 @@
     ],
     "rank": [
      111,
-     102,
-     91
+     93,
+     93
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -16483,7 +16483,7 @@
     "chance": [
      0.0007,
      0.0009,
-     0.001
+     0.0011
     ],
     "usual": [
      0.0084,
@@ -16491,9 +16491,9 @@
      0.0098
     ],
     "rank": [
-     122,
-     112,
-     93
+     120,
+     116,
+     90
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -16519,7 +16519,7 @@
     "chance": [
      0.0014,
      0.0011,
-     0.0013
+     0.0014
     ],
     "usual": [
      0.0075,
@@ -16528,8 +16528,8 @@
     ],
     "rank": [
      86,
-     114,
-     111
+     113,
+     106
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -16559,7 +16559,7 @@
     "chance": [
      0.0009,
      0.0011,
-     0.0009
+     0.0011
     ],
     "usual": [
      0.0084,
@@ -16568,8 +16568,8 @@
     ],
     "rank": [
      101,
-     94,
-     110
+     96,
+     92
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -16604,8 +16604,8 @@
     ],
     "rank": [
      125,
-     113,
-     118
+     115,
+     119
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -16634,8 +16634,8 @@
    "attacks": {
     "chance": [
      0.0009,
-     0.0008,
-     0.0009
+     0.001,
+     0.0008
     ],
     "usual": [
      0.0084,
@@ -16643,9 +16643,9 @@
      0.0098
     ],
     "rank": [
-     98,
-     119,
-     104
+     94,
+     104,
+     116
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -16670,8 +16670,8 @@
    "fighting": {
     "chance": [
      0.0007,
-     0.0012,
-     0.0015
+     0.0011,
+     0.0014
     ],
     "usual": [
      0.0075,
@@ -16680,8 +16680,8 @@
     ],
     "rank": [
      116,
-     106,
-     98
+     109,
+     104
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -16710,8 +16710,8 @@
    "attacks": {
     "chance": [
      0.0007,
-     0.0008,
-     0.0009
+     0.0009,
+     0.0008
     ],
     "usual": [
      0.0084,
@@ -16720,8 +16720,8 @@
     ],
     "rank": [
      116,
-     121,
-     114
+     120,
+     115
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -16746,8 +16746,8 @@
    "fighting": {
     "chance": [
      0.0092,
-     0.0097,
-     0.0105
+     0.0098,
+     0.0103
     ],
     "usual": [
      0.1132,
@@ -16785,9 +16785,9 @@
    },
    "attacks": {
     "chance": [
-     0.1796,
-     0.2473,
-     0.2441
+     0.1868,
+     0.2696,
+     0.2418
     ],
     "usual": [
      0.2162,
@@ -16815,7 +16815,7 @@
      "summary": "Tension between United States of America and Brazil is above usual. From United States of America towards Brazil: criticism and demands (about 2× usual). From Brazil towards United States of America: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). There's no record of their forces fighting each other; their last military stand-off was in 1903. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Brazil saw some armed clashes in October (1 killed), below the level SAGE counts as fighting. Deadly fighting in December is extremely unlikely (1%). Armed groups killing 10 or more civilians in December is a real possibility (25%). Tension with United States of America is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Brazil saw some armed clashes in October (1 killed), below the level SAGE counts as fighting. Deadly fighting in December is extremely unlikely (1%). Armed groups killing 10 or more civilians in December is a real possibility (27%). Tension with United States of America is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 439,
@@ -16833,8 +16833,8 @@
    "fighting": {
     "chance": [
      0.695,
-     0.7571,
-     0.7195
+     0.7576,
+     0.727
     ],
     "usual": [
      0.6623,
@@ -16875,9 +16875,9 @@
    },
    "attacks": {
     "chance": [
-     0.1386,
-     0.2272,
-     0.2282
+     0.1354,
+     0.239,
+     0.2339
     ],
     "usual": [
      0.0084,
@@ -16895,7 +16895,7 @@
     ]
    },
    "relations": [],
-   "summary": "Fighting is going on in Burkina Faso: 29 people were killed in fighting involving the government in October. More deadly fighting in December is likely (76%). It's leaning calmer: deaths are down 69% on the three months before. Armed groups killing 10 or more civilians in December is a real possibility (23%)."
+   "summary": "Fighting is going on in Burkina Faso: 29 people were killed in fighting involving the government in October. More deadly fighting in December is likely (76%). It's leaning calmer: deaths are down 69% on the three months before. Armed groups killing 10 or more civilians in December is a real possibility (24%)."
   },
   {
    "id": 516,
@@ -16913,8 +16913,8 @@
    "fighting": {
     "chance": [
      0.0094,
-     0.0105,
-     0.0144
+     0.011,
+     0.0148
     ],
     "usual": [
      0.0075,
@@ -16924,7 +16924,7 @@
     "rank": [
      41,
      45,
-     44
+     42
     ],
     "why": [
      "None in October 2026; the last month at this level was September 2023",
@@ -16954,9 +16954,9 @@
    },
    "attacks": {
     "chance": [
-     0.0579,
-     0.0563,
-     0.0689
+     0.0562,
+     0.0646,
+     0.0695
     ],
     "usual": [
      0.2162,
@@ -16964,8 +16964,8 @@
      0.2186
     ],
     "rank": [
+     24,
      23,
-     25,
      25
     ],
     "why": [
@@ -16992,7 +16992,7 @@
    "fighting": {
     "chance": [
      0.0052,
-     0.0105,
+     0.0115,
      0.008
     ],
     "usual": [
@@ -17003,7 +17003,7 @@
     "rank": [
      49,
      44,
-     51
+     52
     ],
     "why": [
      "None in October 2026; the last month at this level was December 2025"
@@ -17031,8 +17031,8 @@
    },
    "attacks": {
     "chance": [
-     0.0009,
-     0.0009,
+     0.0008,
+     0.001,
      0.0008
     ],
     "usual": [
@@ -17041,9 +17041,9 @@
      0.0098
     ],
     "rank": [
-     94,
-     108,
-     117
+     109,
+     109,
+     121
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -17078,8 +17078,8 @@
    "fighting": {
     "chance": [
      0.2964,
-     0.3089,
-     0.3414
+     0.3195,
+     0.3738
     ],
     "usual": [
      0.6623,
@@ -17089,7 +17089,7 @@
     "rank": [
      20,
      21,
-     21
+     20
     ],
     "why": [
      "26 killed in fighting involving the government in October 2026",
@@ -17120,9 +17120,9 @@
    },
    "attacks": {
     "chance": [
-     0.5404,
-     0.6452,
-     0.6517
+     0.5303,
+     0.6135,
+     0.6183
     ],
     "usual": [
      0.5246,
@@ -17140,7 +17140,7 @@
     ]
    },
    "relations": [],
-   "summary": "Fighting is going on in Cameroon: 26 people were killed in fighting involving the government in October. More deadly fighting in December is a real possibility (31%). It's leaning calmer: deaths are down 29% on the three months before. Armed groups killing 10 or more civilians in December is likely (65%)."
+   "summary": "Fighting is going on in Cameroon: 26 people were killed in fighting involving the government in October. More deadly fighting in December is a real possibility (32%). It's leaning calmer: deaths are down 29% on the three months before. Armed groups killing 10 or more civilians in December is likely (61%)."
   },
   {
    "id": 20,
@@ -17158,8 +17158,8 @@
    "fighting": {
     "chance": [
      0.0028,
-     0.0036,
-     0.0049
+     0.0037,
+     0.005
     ],
     "usual": [
      0.0075,
@@ -17169,7 +17169,7 @@
     "rank": [
      65,
      66,
-     61
+     62
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -17197,9 +17197,9 @@
    },
    "attacks": {
     "chance": [
-     0.0055,
-     0.0067,
-     0.0075
+     0.0054,
+     0.0069,
+     0.0078
     ],
     "usual": [
      0.0084,
@@ -17207,9 +17207,9 @@
      0.0098
     ],
     "rank": [
-     51,
-     50,
-     53
+     52,
+     49,
+     52
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -17234,8 +17234,8 @@
    "fighting": {
     "chance": [
      0.2032,
-     0.2421,
-     0.2529
+     0.2367,
+     0.2551
     ],
     "usual": [
      0.3071,
@@ -17245,7 +17245,7 @@
     "rank": [
      23,
      23,
-     23
+     25
     ],
     "why": [
      "10 killed in fighting involving the government in October 2026, below the 25 mark",
@@ -17276,9 +17276,9 @@
    },
    "attacks": {
     "chance": [
-     0.0802,
-     0.0891,
-     0.1034
+     0.079,
+     0.0925,
+     0.1042
     ],
     "usual": [
      0.2162,
@@ -17288,7 +17288,7 @@
     "rank": [
      21,
      21,
-     22
+     21
     ],
     "why": [
      "1 civilians killed by armed groups in October 2026, below the 10 mark",
@@ -17315,8 +17315,8 @@
    "fighting": {
     "chance": [
      0.1417,
-     0.1781,
-     0.1668
+     0.1728,
+     0.1687
     ],
     "usual": [
      0.1132,
@@ -17357,9 +17357,9 @@
    },
    "attacks": {
     "chance": [
-     0.0558,
-     0.0594,
-     0.0761
+     0.0571,
+     0.0624,
+     0.0741
     ],
     "usual": [
      0.0084,
@@ -17367,8 +17367,8 @@
      0.0098
     ],
     "rank": [
-     24,
-     24,
+     23,
+     25,
      23
     ],
     "why": [
@@ -17378,7 +17378,7 @@
     ]
    },
    "relations": [],
-   "summary": "Chad saw some armed clashes in October (7 killed), below the level SAGE counts as fighting. Deadly fighting in December is unlikely (18%). It's leaning calmer: deaths are down 68% on the three months before."
+   "summary": "Chad saw some armed clashes in October (7 killed), below the level SAGE counts as fighting. Deadly fighting in December is unlikely (17%). It's leaning calmer: deaths are down 68% on the three months before."
   },
   {
    "id": 155,
@@ -17396,8 +17396,8 @@
    "fighting": {
     "chance": [
      0.0024,
-     0.0033,
-     0.0039
+     0.0035,
+     0.0038
     ],
     "usual": [
      0.0075,
@@ -17407,7 +17407,7 @@
     "rank": [
      74,
      70,
-     70
+     71
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -17436,8 +17436,8 @@
    "attacks": {
     "chance": [
      0.0048,
-     0.006,
-     0.0061
+     0.0059,
+     0.0062
     ],
     "usual": [
      0.0084,
@@ -17446,7 +17446,7 @@
     ],
     "rank": [
      54,
-     53,
+     54,
      54
     ],
     "why": [
@@ -17473,7 +17473,7 @@
     "chance": [
      0.0006,
      0.0011,
-     0.0012
+     0.0011
     ],
     "usual": [
      0.0075,
@@ -17482,8 +17482,8 @@
     ],
     "rank": [
      120,
-     116,
-     121
+     114,
+     126
     ],
     "why": [
      "None in October 2026; the last month at this level was August 2008"
@@ -17511,7 +17511,7 @@
    },
    "attacks": {
     "chance": [
-     0.0009,
+     0.001,
      0.0009,
      0.0008
     ],
@@ -17521,9 +17521,9 @@
      0.0098
     ],
     "rank": [
-     97,
-     111,
-     118
+     90,
+     121,
+     114
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -17558,8 +17558,8 @@
    "fighting": {
     "chance": [
      0.4576,
-     0.3522,
-     0.3661
+     0.3427,
+     0.3877
     ],
     "usual": [
      0.0075,
@@ -17597,9 +17597,9 @@
    },
    "attacks": {
     "chance": [
-     0.9625,
-     0.9601,
-     0.9643
+     0.9598,
+     0.9521,
+     0.9693
     ],
     "usual": [
      0.7032,
@@ -17616,7 +17616,7 @@
     ]
    },
    "relations": [],
-   "summary": "There was no fighting involving the government in Colombia in October, but armed groups killed 26 civilians. Deadly fighting in December is a real possibility (35%), about 40 times what's usual for a country in its situation. Armed groups killing 10 or more civilians in December is almost certain (96%)."
+   "summary": "There was no fighting involving the government in Colombia in October, but armed groups killed 26 civilians. Deadly fighting in December is a real possibility (34%), about 39 times what's usual for a country in its situation. Armed groups killing 10 or more civilians in December is almost certain (95%)."
   },
   {
    "id": 581,
@@ -17635,7 +17635,7 @@
     "chance": [
      0.0008,
      0.0014,
-     0.0021
+     0.0023
     ],
     "usual": [
      0.0075,
@@ -17644,8 +17644,8 @@
     ],
     "rank": [
      103,
-     94,
-     85
+     91,
+     81
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -17673,9 +17673,9 @@
    },
    "attacks": {
     "chance": [
-     0.0009,
      0.0008,
-     0.0009
+     0.0009,
+     0.0008
     ],
     "usual": [
      0.0084,
@@ -17683,9 +17683,9 @@
      0.0098
     ],
     "rank": [
-     103,
-     118,
-     113
+     105,
+     114,
+     119
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -17720,8 +17720,8 @@
     ],
     "rank": [
      102,
-     101,
-     100
+     98,
+     98
     ],
     "why": [
      "None in October 2026; the last month at this level was April 2016"
@@ -17760,8 +17760,8 @@
     ],
     "rank": [
      95,
-     97,
-     95
+     91,
+     93
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -17787,7 +17787,7 @@
     "chance": [
      0.0018,
      0.0028,
-     0.0028
+     0.0029
     ],
     "usual": [
      0.0075,
@@ -17796,8 +17796,8 @@
     ],
     "rank": [
      80,
-     77,
-     77
+     79,
+     76
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -17825,9 +17825,9 @@
    },
    "attacks": {
     "chance": [
-     0.0017,
-     0.0024,
-     0.0033
+     0.0016,
+     0.0026,
+     0.0028
     ],
     "usual": [
      0.0084,
@@ -17835,9 +17835,9 @@
      0.0098
     ],
     "rank": [
-     71,
-     68,
-     66
+     72,
+     67,
+     68
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -17872,8 +17872,8 @@
     ],
     "rank": [
      129,
-     126,
-     129
+     127,
+     128
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -17913,7 +17913,7 @@
     "rank": [
      125,
      125,
-     119
+     112
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -17939,7 +17939,7 @@
     "chance": [
      0.0006,
      0.001,
-     0.0013
+     0.0012
     ],
     "usual": [
      0.0075,
@@ -17949,7 +17949,7 @@
     "rank": [
      124,
      118,
-     113
+     116
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -17980,7 +17980,7 @@
    "attacks": {
     "chance": [
      0.0006,
-     0.0008,
+     0.001,
      0.0008
     ],
     "usual": [
@@ -17990,8 +17990,8 @@
     ],
     "rank": [
      126,
-     115,
-     120
+     111,
+     117
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years",
@@ -18017,8 +18017,8 @@
    "fighting": {
     "chance": [
      0.9573,
-     0.9447,
-     0.9248
+     0.9387,
+     0.9158
     ],
     "usual": [
      0.8915,
@@ -18056,9 +18056,9 @@
    },
    "attacks": {
     "chance": [
-     0.9728,
-     0.9603,
-     0.9665
+     0.9739,
+     0.9606,
+     0.9709
     ],
     "usual": [
      0.7032,
@@ -18104,8 +18104,8 @@
    "fighting": {
     "chance": [
      0.0045,
-     0.0083,
-     0.0191
+     0.0105,
+     0.0146
     ],
     "usual": [
      0.0075,
@@ -18114,8 +18114,8 @@
     ],
     "rank": [
      54,
-     48,
-     41
+     46,
+     43
     ],
     "why": [
      "None in October 2026; the last month at this level was June 2008",
@@ -18146,8 +18146,8 @@
    "attacks": {
     "chance": [
      0.0013,
-     0.0021,
-     0.0021
+     0.002,
+     0.0019
     ],
     "usual": [
      0.0084,
@@ -18155,8 +18155,8 @@
      0.0098
     ],
     "rank": [
-     80,
-     70,
+     79,
+     75,
      73
     ],
     "why": [
@@ -18175,7 +18175,7 @@
      "summary": "Tension between Djibouti and Yemen is above usual. From Yemen towards Djibouti: fighting (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). There's no record of their forces fighting each other. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Djibouti was largely calm in October. Deadly fighting in December is extremely unlikely (1%). Tension with Yemen is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Djibouti was largely calm in October. Deadly fighting in December is very unlikely (1%). Tension with Yemen is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 42,
@@ -18193,8 +18193,8 @@
    "fighting": {
     "chance": [
      0.0028,
-     0.0043,
-     0.0057
+     0.0044,
+     0.0058
     ],
     "usual": [
      0.0075,
@@ -18203,8 +18203,8 @@
     ],
     "rank": [
      66,
-     62,
-     58
+     60,
+     57
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -18232,9 +18232,9 @@
    },
    "attacks": {
     "chance": [
-     0.0064,
-     0.0061,
-     0.0093
+     0.0063,
+     0.0062,
+     0.0104
     ],
     "usual": [
      0.0084,
@@ -18242,9 +18242,9 @@
      0.0098
     ],
     "rank": [
-     48,
+     49,
      52,
-     49
+     47
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -18269,8 +18269,8 @@
    "fighting": {
     "chance": [
      0.0034,
-     0.0054,
-     0.0054
+     0.005,
+     0.0057
     ],
     "usual": [
      0.0075,
@@ -18279,8 +18279,8 @@
     ],
     "rank": [
      57,
-     55,
-     59
+     57,
+     58
     ],
     "why": [
      "None in October 2026; the last month at this level was March 2008"
@@ -18308,9 +18308,9 @@
    },
    "attacks": {
     "chance": [
-     0.128,
-     0.1574,
-     0.1289
+     0.127,
+     0.1442,
+     0.1298
     ],
     "usual": [
      0.2162,
@@ -18319,7 +18319,7 @@
     ],
     "rank": [
      19,
-     19,
+     20,
      20
     ],
     "why": [
@@ -18328,7 +18328,7 @@
     ]
    },
    "relations": [],
-   "summary": "Ecuador was largely calm in October. Deadly fighting in December is extremely unlikely (1%)."
+   "summary": "Ecuador was largely calm in October. Deadly fighting in December is extremely unlikely (0%)."
   },
   {
    "id": 651,
@@ -18346,8 +18346,8 @@
    "fighting": {
     "chance": [
      0.0015,
-     0.0021,
-     0.0027
+     0.0023,
+     0.0028
     ],
     "usual": [
      0.0075,
@@ -18357,7 +18357,7 @@
     "rank": [
      84,
      82,
-     80
+     79
     ],
     "why": [
      "None in October 2026; the last month at this level was June 2022",
@@ -18399,7 +18399,7 @@
     "rank": [
      88,
      86,
-     82
+     80
     ],
     "why": [
      "None in October 2026; the last month at this level was July 2019",
@@ -18453,8 +18453,8 @@
    "fighting": {
     "chance": [
      0.0079,
-     0.0027,
-     0.003
+     0.0028,
+     0.0032
     ],
     "usual": [
      0.0075,
@@ -18494,9 +18494,9 @@
    },
    "attacks": {
     "chance": [
-     0.0024,
      0.0025,
-     0.002
+     0.0023,
+     0.0021
     ],
     "usual": [
      0.0084,
@@ -18505,8 +18505,8 @@
     ],
     "rank": [
      66,
-     67,
-     74
+     70,
+     72
     ],
     "why": [
      "None in October 2026; the last month at this level was March 2022"
@@ -18531,8 +18531,8 @@
    "fighting": {
     "chance": [
      0.0062,
-     0.0117,
-     0.016
+     0.0115,
+     0.0144
     ],
     "usual": [
      0.0075,
@@ -18542,7 +18542,7 @@
     "rank": [
      46,
      43,
-     43
+     44
     ],
     "why": [
      "None in October 2026; the last month at this level was June 2016",
@@ -18573,8 +18573,8 @@
    "attacks": {
     "chance": [
      0.0055,
-     0.0099,
-     0.0112
+     0.0092,
+     0.0117
     ],
     "usual": [
      0.0084,
@@ -18582,8 +18582,8 @@
      0.0098
     ],
     "rank": [
-     52,
-     45,
+     51,
+     47,
      46
     ],
     "why": [
@@ -18620,8 +18620,8 @@
    "fighting": {
     "chance": [
      0.9664,
-     0.9751,
-     0.9783
+     0.9802,
+     0.9752
     ],
     "usual": [
      0.8915,
@@ -18630,7 +18630,7 @@
     ],
     "rank": [
      8,
-     7,
+     5,
      4
     ],
     "why": [
@@ -18665,9 +18665,9 @@
    },
    "attacks": {
     "chance": [
-     0.7845,
-     0.7121,
-     0.777
+     0.8037,
+     0.7243,
+     0.7341
     ],
     "usual": [
      0.7032,
@@ -18677,7 +18677,7 @@
     "rank": [
      7,
      7,
-     6
+     7
     ],
     "why": [
      "42 civilians killed by armed groups in October 2026, 3 months in a row at this level",
@@ -18704,7 +18704,7 @@
      "summary": "Tension between Ethiopia and Sudan is above usual. From Ethiopia towards Sudan: criticism and demands (about 5× usual). From Sudan towards Ethiopia: criticism and demands (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). There's no record of their forces fighting each other; their last military stand-off was in 2008. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Fighting is going on in Ethiopia: 503 people were killed in fighting involving the government in October. More deadly fighting in December is almost certain (98%), and escalation to full-scale war is unlikely (5%). It's leaning worse: deaths are up 94% on the three months before and the news shows fighting at about 2 times the usual level. Armed groups killing 10 or more civilians in December is likely (71%). Tension with Eritrea is very high; deadly clashes between their forces in the next six months are a real possibility (21%). Tension with Sudan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Fighting is going on in Ethiopia: 503 people were killed in fighting involving the government in October. More deadly fighting in December is almost certain (98%), and escalation to full-scale war is unlikely (5%). It's leaning worse: deaths are up 94% on the three months before and the news shows fighting at about 2 times the usual level. Armed groups killing 10 or more civilians in December is likely (72%). Tension with Eritrea is very high; deadly clashes between their forces in the next six months are a real possibility (21%). Tension with Sudan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 220,
@@ -18722,7 +18722,7 @@
    "fighting": {
     "chance": [
      0.0009,
-     0.0014,
+     0.0013,
      0.0014
     ],
     "usual": [
@@ -18732,8 +18732,8 @@
     ],
     "rank": [
      97,
-     96,
-     103
+     99,
+     109
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -18764,8 +18764,8 @@
    "attacks": {
     "chance": [
      0.0014,
-     0.0013,
-     0.0015
+     0.0023,
+     0.0016
     ],
     "usual": [
      0.0084,
@@ -18773,9 +18773,9 @@
      0.0098
     ],
     "rank": [
-     77,
-     87,
-     79
+     78,
+     69,
+     76
     ],
     "why": [
      "None in October 2026; the last month at this level was July 2016"
@@ -18810,8 +18810,8 @@
    "fighting": {
     "chance": [
      0.0011,
-     0.0012,
-     0.0015
+     0.0013,
+     0.0014
     ],
     "usual": [
      0.0075,
@@ -18821,7 +18821,7 @@
     "rank": [
      91,
      104,
-     97
+     107
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -18860,8 +18860,8 @@
     ],
     "rank": [
      96,
-     96,
-     115
+     95,
+     110
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -18887,7 +18887,7 @@
     "chance": [
      0.0008,
      0.0015,
-     0.0021
+     0.0016
     ],
     "usual": [
      0.0075,
@@ -18896,8 +18896,8 @@
     ],
     "rank": [
      106,
-     91,
-     86
+     90,
+     92
     ],
     "why": [
      "None in October 2026; the last month at this level was August 2008",
@@ -18928,7 +18928,7 @@
    "attacks": {
     "chance": [
      0.0009,
-     0.001,
+     0.0011,
      0.0012
     ],
     "usual": [
@@ -18937,9 +18937,9 @@
      0.0098
     ],
     "rank": [
-     104,
-     106,
-     85
+     100,
+     99,
+     83
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years",
@@ -19014,9 +19014,9 @@
      0.0098
     ],
     "rank": [
-     73,
+     74,
      77,
-     86
+     84
     ],
     "why": [
      "None in October 2026; the last month at this level was December 2016"
@@ -19051,8 +19051,8 @@
    "fighting": {
     "chance": [
      0.0238,
-     0.0261,
-     0.033
+     0.0265,
+     0.0341
     ],
     "usual": [
      0.0075,
@@ -19092,9 +19092,9 @@
    },
    "attacks": {
     "chance": [
-     0.0147,
+     0.0143,
      0.0153,
-     0.0159
+     0.0157
     ],
     "usual": [
      0.0084,
@@ -19104,7 +19104,7 @@
     "rank": [
      39,
      39,
-     39
+     40
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -19129,7 +19129,7 @@
    "fighting": {
     "chance": [
      0.0042,
-     0.0051,
+     0.0049,
      0.0059
     ],
     "usual": [
@@ -19139,8 +19139,8 @@
     ],
     "rank": [
      56,
-     57,
-     57
+     58,
+     56
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -19168,9 +19168,9 @@
    },
    "attacks": {
     "chance": [
-     0.0446,
-     0.046,
-     0.0438
+     0.0437,
+     0.0459,
+     0.0431
     ],
     "usual": [
      0.2162,
@@ -19179,15 +19179,15 @@
     ],
     "rank": [
      27,
-     28,
-     30
+     29,
+     31
     ],
     "why": [
      "1 civilians killed by armed groups in October 2026, below the 10 mark"
     ]
    },
    "relations": [],
-   "summary": "Guatemala was largely calm in October. Deadly fighting in December is extremely unlikely (1%)."
+   "summary": "Guatemala was largely calm in October. Deadly fighting in December is extremely unlikely (under 1%)."
   },
   {
    "id": 438,
@@ -19215,8 +19215,8 @@
     ],
     "rank": [
      92,
-     98,
-     107
+     101,
+     105
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -19254,9 +19254,9 @@
      0.0098
     ],
     "rank": [
-     90,
-     99,
-     100
+     91,
+     98,
+     96
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -19292,7 +19292,7 @@
     "rank": [
      98,
      110,
-     115
+     110
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -19321,7 +19321,7 @@
    "attacks": {
     "chance": [
      0.0009,
-     0.0011,
+     0.001,
      0.0009
     ],
     "usual": [
@@ -19331,8 +19331,8 @@
     ],
     "rank": [
      99,
-     98,
-     102
+     107,
+     109
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -19358,7 +19358,7 @@
     "chance": [
      0.001,
      0.0012,
-     0.0012
+     0.0013
     ],
     "usual": [
      0.0075,
@@ -19368,7 +19368,7 @@
     "rank": [
      93,
      107,
-     116
+     111
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -19397,7 +19397,7 @@
    "attacks": {
     "chance": [
      0.0009,
-     0.001,
+     0.0011,
      0.0009
     ],
     "usual": [
@@ -19406,9 +19406,9 @@
      0.0098
     ],
     "rank": [
+     97,
      93,
-     102,
-     107
+     105
     ],
     "why": [
      "None in October 2026; the last month at this level was January 2008"
@@ -19433,8 +19433,8 @@
    "fighting": {
     "chance": [
      0.5541,
-     0.5939,
-     0.4752
+     0.5914,
+     0.5143
     ],
     "usual": [
      0.6623,
@@ -19444,7 +19444,7 @@
     "rank": [
      15,
      17,
-     18
+     17
     ],
     "why": [
      "50 killed in fighting involving the government in October 2026",
@@ -19474,9 +19474,9 @@
    },
    "attacks": {
     "chance": [
-     0.5167,
-     0.484,
-     0.4652
+     0.5275,
+     0.488,
+     0.4911
     ],
     "usual": [
      0.2162,
@@ -19494,7 +19494,7 @@
     ]
    },
    "relations": [],
-   "summary": "Fighting is going on in Haiti: 50 people were killed in fighting involving the government in October. More deadly fighting in December is about as likely as not (59%). It's leaning worse: the news shows troop mobilisations and military alerts at about 4 times the usual level. Armed groups killing 10 or more civilians in December is about as likely as not (48%)."
+   "summary": "Fighting is going on in Haiti: 50 people were killed in fighting involving the government in October. More deadly fighting in December is about as likely as not (59%). It's leaning worse: the news shows troop mobilisations and military alerts at about 4 times the usual level. Armed groups killing 10 or more civilians in December is about as likely as not (49%)."
   },
   {
    "id": 91,
@@ -19522,8 +19522,8 @@
     ],
     "rank": [
      75,
-     75,
-     76
+     76,
+     78
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -19551,9 +19551,9 @@
    },
    "attacks": {
     "chance": [
-     0.0137,
-     0.0114,
-     0.0156
+     0.0136,
+     0.0125,
+     0.0149
     ],
     "usual": [
      0.0084,
@@ -19563,7 +19563,7 @@
     "rank": [
      40,
      41,
-     40
+     41
     ],
     "why": [
      "None in October 2026; the last month at this level was May 2026",
@@ -19589,8 +19589,8 @@
    "fighting": {
     "chance": [
      0.156,
-     0.1981,
-     0.2477
+     0.197,
+     0.2606
     ],
     "usual": [
      0.3071,
@@ -19600,7 +19600,7 @@
     "rank": [
      27,
      27,
-     24
+     23
     ],
     "why": [
      "10 killed in fighting involving the government in October 2026, below the 25 mark",
@@ -19630,9 +19630,9 @@
    },
    "attacks": {
     "chance": [
-     0.1448,
-     0.1416,
-     0.1673
+     0.1408,
+     0.1444,
+     0.1621
     ],
     "usual": [
      0.2162,
@@ -19641,7 +19641,7 @@
     ],
     "rank": [
      17,
-     20,
+     19,
      18
     ],
     "why": [
@@ -19687,8 +19687,8 @@
    "fighting": {
     "chance": [
      0.0862,
-     0.0918,
-     0.1105
+     0.0924,
+     0.1118
     ],
     "usual": [
      0.1132,
@@ -19726,9 +19726,9 @@
    },
    "attacks": {
     "chance": [
-     0.0348,
-     0.0517,
-     0.0479
+     0.0359,
+     0.0478,
+     0.0471
     ],
     "usual": [
      0.0084,
@@ -19736,7 +19736,7 @@
      0.0098
     ],
     "rank": [
-     30,
+     29,
      27,
      28
     ],
@@ -19773,8 +19773,8 @@
    "fighting": {
     "chance": [
      0.5642,
-     0.6063,
-     0.7868
+     0.64,
+     0.7842
     ],
     "usual": [
      0.6623,
@@ -19784,7 +19784,7 @@
     "rank": [
      14,
      15,
-     13
+     12
     ],
     "why": [
      "28 killed in fighting involving the government in October 2026, 2 months in a row at this level",
@@ -19813,9 +19813,9 @@
    },
    "attacks": {
     "chance": [
-     0.0203,
-     0.0296,
-     0.0459
+     0.0195,
+     0.0317,
+     0.0471
     ],
     "usual": [
      0.2162,
@@ -19824,7 +19824,7 @@
     ],
     "rank": [
      36,
-     34,
+     33,
      29
     ],
     "why": [
@@ -19860,7 +19860,7 @@
      "summary": "Tension between United Kingdom and Iran is above usual. From United Kingdom towards Iran: seizures and arrests (about 4× usual). From Iran towards United Kingdom: seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (1%); war: extremely unlikely (under 1%). They were last at war in 1857; their last military stand-off was in 2003. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Fighting is going on in Iran: 28 people were killed in fighting involving the government in October. More deadly fighting in December is likely (61%). It's leaning calmer: deaths are down 42% on the three months before."
+   "summary": "Fighting is going on in Iran: 28 people were killed in fighting involving the government in October. More deadly fighting in December is likely (64%). It's leaning calmer: deaths are down 42% on the three months before."
   },
   {
    "id": 645,
@@ -19878,8 +19878,8 @@
    "fighting": {
     "chance": [
      0.1953,
-     0.2119,
-     0.2304
+     0.2134,
+     0.2273
     ],
     "usual": [
      0.1132,
@@ -19920,9 +19920,9 @@
    },
    "attacks": {
     "chance": [
-     0.0104,
-     0.0104,
-     0.0154
+     0.0101,
+     0.0119,
+     0.0158
     ],
     "usual": [
      0.0084,
@@ -19932,7 +19932,7 @@
     "rank": [
      42,
      43,
-     41
+     39
     ],
     "why": [
      "None in October 2026; the last month at this level was November 2023",
@@ -19977,8 +19977,8 @@
    "fighting": {
     "chance": [
      0.9785,
-     0.9839,
-     0.9801
+     0.9821,
+     0.9736
     ],
     "usual": [
      0.8915,
@@ -19988,7 +19988,7 @@
     "rank": [
      5,
      2,
-     3
+     6
     ],
     "why": [
      "147 killed in fighting involving the government in October 2026, 37 months in a row at this level",
@@ -20018,9 +20018,9 @@
    },
    "attacks": {
     "chance": [
-     0.0177,
-     0.019,
-     0.0199
+     0.0169,
+     0.0207,
+     0.0203
     ],
     "usual": [
      0.0084,
@@ -20095,7 +20095,7 @@
     "rank": [
      78,
      81,
-     79
+     80
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -20127,7 +20127,7 @@
     "chance": [
      0.0018,
      0.0019,
-     0.0021
+     0.0022
     ],
     "usual": [
      0.0084,
@@ -20136,7 +20136,7 @@
     ],
     "rank": [
      70,
-     74,
+     76,
      71
     ],
     "why": [
@@ -20162,8 +20162,8 @@
    "fighting": {
     "chance": [
      0.0027,
-     0.0044,
-     0.0047
+     0.0042,
+     0.0053
     ],
     "usual": [
      0.0075,
@@ -20172,8 +20172,8 @@
     ],
     "rank": [
      67,
-     60,
-     64
+     61,
+     59
     ],
     "why": [
      "None in October 2026; the last month at this level was March 2011",
@@ -20203,9 +20203,9 @@
    },
    "attacks": {
     "chance": [
-     0.003,
-     0.0038,
-     0.0047
+     0.0029,
+     0.0039,
+     0.0046
     ],
     "usual": [
      0.0084,
@@ -20214,7 +20214,7 @@
     ],
     "rank": [
      61,
-     61,
+     62,
      60
     ],
     "why": [
@@ -20240,8 +20240,8 @@
    "fighting": {
     "chance": [
      0.0024,
-     0.0031,
-     0.0034
+     0.0032,
+     0.0035
     ],
     "usual": [
      0.0075,
@@ -20280,8 +20280,8 @@
    "attacks": {
     "chance": [
      0.0038,
-     0.0047,
-     0.0058
+     0.0048,
+     0.0053
     ],
     "usual": [
      0.0084,
@@ -20291,7 +20291,7 @@
     "rank": [
      56,
      57,
-     56
+     57
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -20316,8 +20316,8 @@
    "fighting": {
     "chance": [
      0.0051,
-     0.0163,
-     0.0123
+     0.0129,
+     0.0124
     ],
     "usual": [
      0.0075,
@@ -20326,7 +20326,7 @@
     ],
     "rank": [
      50,
-     40,
+     42,
      45
     ],
     "why": [
@@ -20357,9 +20357,9 @@
    },
    "attacks": {
     "chance": [
-     0.0483,
-     0.062,
-     0.0736
+     0.0484,
+     0.0643,
+     0.0696
     ],
     "usual": [
      0.2162,
@@ -20368,7 +20368,7 @@
     ],
     "rank": [
      25,
-     23,
+     24,
      24
     ],
     "why": [
@@ -20387,7 +20387,7 @@
      "summary": "Tension between Syria and Jordan is above usual. From Syria towards Jordan: criticism and demands (about 2× usual). From Jordan towards Syria: fighting (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their last deadly military stand-off was in 1970; their last of any kind was in 2013. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Jordan was largely calm in October. Deadly fighting in December is very unlikely (2%). Tension with Syria is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Jordan was largely calm in October. Deadly fighting in December is very unlikely (1%). Tension with Syria is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 501,
@@ -20405,8 +20405,8 @@
    "fighting": {
     "chance": [
      0.024,
-     0.0469,
-     0.0424
+     0.048,
+     0.043
     ],
     "usual": [
      0.0075,
@@ -20447,9 +20447,9 @@
    },
    "attacks": {
     "chance": [
-     0.0351,
-     0.0351,
-     0.0399
+     0.0341,
+     0.0358,
+     0.039
     ],
     "usual": [
      0.0084,
@@ -20457,7 +20457,7 @@
      0.0098
     ],
     "rank": [
-     29,
+     30,
      31,
      32
     ],
@@ -20496,8 +20496,8 @@
     ],
     "rank": [
      110,
-     108,
-     99
+     106,
+     102
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -20526,8 +20526,8 @@
    "attacks": {
     "chance": [
      0.0007,
-     0.0007,
-     0.0008
+     0.0008,
+     0.0007
     ],
     "usual": [
      0.0084,
@@ -20535,9 +20535,9 @@
      0.0098
     ],
     "rank": [
-     120,
-     127,
-     123
+     122,
+     126,
+     126
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -20562,8 +20562,8 @@
    "fighting": {
     "chance": [
      0.0034,
-     0.0053,
-     0.0076
+     0.0052,
+     0.0077
     ],
     "usual": [
      0.0075,
@@ -20603,9 +20603,9 @@
    },
    "attacks": {
     "chance": [
-     0.0017,
-     0.0021,
-     0.0031
+     0.0016,
+     0.0023,
+     0.0026
     ],
     "usual": [
      0.0084,
@@ -20613,9 +20613,9 @@
      0.0098
     ],
     "rank": [
-     72,
-     69,
-     67
+     73,
+     68,
+     69
     ],
     "why": [
      "None in October 2026; the last month at this level was June 2015"
@@ -20641,7 +20641,7 @@
     "chance": [
      0.0009,
      0.0016,
-     0.0022
+     0.002
     ],
     "usual": [
      0.0075,
@@ -20651,7 +20651,7 @@
     "rank": [
      95,
      87,
-     82
+     85
     ],
     "why": [
      "None in October 2026; the last month at this level was September 2022",
@@ -20681,7 +20681,7 @@
    },
    "attacks": {
     "chance": [
-     0.0007,
+     0.0008,
      0.0009,
      0.0009
     ],
@@ -20691,9 +20691,9 @@
      0.0098
     ],
     "rank": [
-     114,
-     113,
-     103
+     115,
+     115,
+     106
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -20729,7 +20729,7 @@
     "chance": [
      0.0005,
      0.0013,
-     0.0016
+     0.0017
     ],
     "usual": [
      0.0075,
@@ -20739,7 +20739,7 @@
     "rank": [
      128,
      100,
-     93
+     91
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -20780,8 +20780,8 @@
     ],
     "rank": [
      128,
-     126,
-     112
+     129,
+     111
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -20806,8 +20806,8 @@
    "fighting": {
     "chance": [
      0.2102,
-     0.3237,
-     0.3417
+     0.3268,
+     0.3634
     ],
     "usual": [
      0.1132,
@@ -20817,7 +20817,7 @@
     "rank": [
      22,
      20,
-     20
+     21
     ],
     "why": [
      "4 killed in fighting involving the government in October 2026, below the 25 mark",
@@ -20848,9 +20848,9 @@
    },
    "attacks": {
     "chance": [
-     0.0094,
-     0.01,
-     0.0138
+     0.009,
+     0.0104,
+     0.0139
     ],
     "usual": [
      0.2162,
@@ -20859,7 +20859,7 @@
     ],
     "rank": [
      44,
-     44,
+     45,
      43
     ],
     "why": [
@@ -20868,7 +20868,7 @@
     ]
    },
    "relations": [],
-   "summary": "Lebanon saw some armed clashes in October (4 killed), below the level SAGE counts as fighting. Deadly fighting in December is a real possibility (32%), about 3 times what's usual for a country in its situation. It's leaning calmer: deaths are down 90% on the three months before."
+   "summary": "Lebanon saw some armed clashes in October (4 killed), below the level SAGE counts as fighting. Deadly fighting in December is a real possibility (33%), about 3 times what's usual for a country in its situation. It's leaning calmer: deaths are down 90% on the three months before."
   },
   {
    "id": 570,
@@ -20887,7 +20887,7 @@
     "chance": [
      0.0006,
      0.0011,
-     0.0013
+     0.0016
     ],
     "usual": [
      0.0075,
@@ -20897,7 +20897,7 @@
     "rank": [
      122,
      112,
-     112
+     94
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -20925,9 +20925,9 @@
    },
    "attacks": {
     "chance": [
-     0.0007,
+     0.0008,
      0.001,
-     0.0009
+     0.001
     ],
     "usual": [
      0.0084,
@@ -20936,8 +20936,8 @@
     ],
     "rank": [
      113,
-     103,
-     106
+     102,
+     101
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -20962,7 +20962,7 @@
    "fighting": {
     "chance": [
      0.0007,
-     0.0009,
+     0.001,
      0.0011
     ],
     "usual": [
@@ -20972,8 +20972,8 @@
     ],
     "rank": [
      114,
-     125,
-     123
+     124,
+     122
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -21001,8 +21001,8 @@
    },
    "attacks": {
     "chance": [
-     0.0006,
-     0.0008,
+     0.0007,
+     0.0009,
      0.0007
     ],
     "usual": [
@@ -21011,9 +21011,9 @@
      0.0098
     ],
     "rank": [
-     123,
+     121,
      122,
-     129
+     128
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -21039,7 +21039,7 @@
     "chance": [
      0.0062,
      0.0138,
-     0.0178
+     0.0158
     ],
     "usual": [
      0.0075,
@@ -21048,8 +21048,8 @@
     ],
     "rank": [
      45,
-     42,
-     42
+     41,
+     41
     ],
     "why": [
      "None in October 2026; the last month at this level was June 2020"
@@ -21078,8 +21078,8 @@
    "attacks": {
     "chance": [
      0.0065,
-     0.0064,
-     0.009
+     0.0063,
+     0.0082
     ],
     "usual": [
      0.0084,
@@ -21087,9 +21087,9 @@
      0.0098
     ],
     "rank": [
-     47,
+     48,
      51,
-     50
+     51
     ],
     "why": [
      "None in October 2026; the last month at this level was July 2015"
@@ -21124,7 +21124,7 @@
    "fighting": {
     "chance": [
      0.0006,
-     0.0009,
+     0.001,
      0.0011
     ],
     "usual": [
@@ -21134,8 +21134,8 @@
     ],
     "rank": [
      119,
-     124,
-     124
+     126,
+     125
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -21164,7 +21164,7 @@
    "attacks": {
     "chance": [
      0.0006,
-     0.0007,
+     0.0008,
      0.0007
     ],
     "usual": [
@@ -21174,7 +21174,7 @@
     ],
     "rank": [
      127,
-     128,
+     124,
      130
     ],
     "why": [
@@ -21210,8 +21210,8 @@
     ],
     "rank": [
      104,
-     95,
-     102
+     96,
+     108
     ],
     "why": [
      "None in October 2026; the last month at this level was March 2013"
@@ -21249,8 +21249,8 @@
      0.0098
     ],
     "rank": [
-     105,
-     107,
+     103,
+     103,
      99
     ],
     "why": [
@@ -21286,8 +21286,8 @@
    "fighting": {
     "chance": [
      0.9616,
-     0.9523,
-     0.9678
+     0.9589,
+     0.9672
     ],
     "usual": [
      0.6623,
@@ -21296,7 +21296,7 @@
     ],
     "rank": [
      10,
-     10,
+     9,
      8
     ],
     "why": [
@@ -21328,9 +21328,9 @@
    },
    "attacks": {
     "chance": [
-     0.4249,
-     0.4807,
-     0.4141
+     0.4072,
+     0.4081,
+     0.4424
     ],
     "usual": [
      0.7032,
@@ -21338,7 +21338,7 @@
      0.6809
     ],
     "rank": [
-     13,
+     14,
      13,
      13
     ],
@@ -21348,7 +21348,7 @@
     ]
    },
    "relations": [],
-   "summary": "Fighting is going on in Mali: 62 people were killed in fighting involving the government in October. More deadly fighting in December is almost certain (95%). It's leaning calmer: deaths are down 49% on the three months before. Armed groups killing 10 or more civilians in December is about as likely as not (48%)."
+   "summary": "Fighting is going on in Mali: 62 people were killed in fighting involving the government in October. More deadly fighting in December is almost certain (96%). It's leaning calmer: deaths are down 49% on the three months before. Armed groups killing 10 or more civilians in December is about as likely as not (41%)."
   },
   {
    "id": 338,
@@ -21367,7 +21367,7 @@
     "chance": [
      0.0008,
      0.0011,
-     0.0013
+     0.0015
     ],
     "usual": [
      0.0075,
@@ -21376,8 +21376,8 @@
     ],
     "rank": [
      107,
-     115,
-     108
+     117,
+     101
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -21406,7 +21406,7 @@
    "attacks": {
     "chance": [
      0.0008,
-     0.0008,
+     0.0009,
      0.0008
     ],
     "usual": [
@@ -21415,9 +21415,9 @@
      0.0098
     ],
     "rank": [
-     112,
-     116,
-     126
+     111,
+     117,
+     123
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -21442,8 +21442,8 @@
    "fighting": {
     "chance": [
      0.0009,
-     0.0011,
-     0.0014
+     0.0012,
+     0.0015
     ],
     "usual": [
      0.0075,
@@ -21452,8 +21452,8 @@
     ],
     "rank": [
      100,
-     109,
-     105
+     108,
+     100
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -21482,8 +21482,8 @@
    "attacks": {
     "chance": [
      0.0008,
-     0.0008,
-     0.0008
+     0.0009,
+     0.0007
     ],
     "usual": [
      0.0084,
@@ -21491,9 +21491,9 @@
      0.0098
     ],
     "rank": [
-     109,
+     110,
      123,
-     124
+     127
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -21518,8 +21518,8 @@
    "fighting": {
     "chance": [
      0.0601,
-     0.0604,
-     0.0554
+     0.071,
+     0.0572
     ],
     "usual": [
      0.3071,
@@ -21528,8 +21528,8 @@
     ],
     "rank": [
      31,
-     32,
-     32
+     31,
+     31
     ],
     "why": [
      "12 killed in fighting involving the government in October 2026, below the 25 mark"
@@ -21557,9 +21557,9 @@
    },
    "attacks": {
     "chance": [
-     0.8371,
-     0.8695,
-     0.7684
+     0.8357,
+     0.8612,
+     0.7745
     ],
     "usual": [
      0.5246,
@@ -21569,7 +21569,7 @@
     "rank": [
      6,
      4,
-     7
+     6
     ],
     "why": [
      "20 civilians killed by armed groups in October 2026, 10 months in a row at this level",
@@ -21577,7 +21577,7 @@
     ]
    },
    "relations": [],
-   "summary": "Mexico saw some armed clashes in October (12 killed), below the level SAGE counts as fighting. Deadly fighting in December is unlikely (6%), lower than usual for a country in its situation. Armed groups killing 10 or more civilians in December is very likely (87%)."
+   "summary": "Mexico saw some armed clashes in October (12 killed), below the level SAGE counts as fighting. Deadly fighting in December is unlikely (7%), lower than usual for a country in its situation. Armed groups killing 10 or more civilians in December is very likely (86%)."
   },
   {
    "id": 359,
@@ -21595,7 +21595,7 @@
    "fighting": {
     "chance": [
      0.0016,
-     0.0032,
+     0.0033,
      0.0032
     ],
     "usual": [
@@ -21605,7 +21605,7 @@
     ],
     "rank": [
      82,
-     72,
+     71,
      74
     ],
     "why": [
@@ -21637,7 +21637,7 @@
    "attacks": {
     "chance": [
      0.0015,
-     0.002,
+     0.0021,
      0.0029
     ],
     "usual": [
@@ -21646,9 +21646,9 @@
      0.0098
     ],
     "rank": [
-     76,
+     75,
      72,
-     68
+     67
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -21673,8 +21673,8 @@
    "fighting": {
     "chance": [
      0.003,
-     0.0045,
-     0.0046
+     0.0046,
+     0.0044
     ],
     "usual": [
      0.0075,
@@ -21684,7 +21684,7 @@
     "rank": [
      63,
      59,
-     65
+     66
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -21714,9 +21714,9 @@
    },
    "attacks": {
     "chance": [
-     0.0015,
+     0.0017,
      0.0026,
-     0.0028
+     0.0029
     ],
     "usual": [
      0.0084,
@@ -21724,9 +21724,9 @@
      0.0098
     ],
     "rank": [
-     75,
+     71,
      66,
-     69
+     66
     ],
     "why": [
      "None in October 2026; the last month at this level was April 2011"
@@ -21751,8 +21751,8 @@
    "fighting": {
     "chance": [
      0.2135,
-     0.257,
-     0.2542
+     0.2592,
+     0.2564
     ],
     "usual": [
      0.3071,
@@ -21762,7 +21762,7 @@
     "rank": [
      21,
      22,
-     22
+     24
     ],
     "why": [
      "10 killed in fighting involving the government in October 2026, below the 25 mark",
@@ -21791,9 +21791,9 @@
    },
    "attacks": {
     "chance": [
-     0.4926,
-     0.5735,
-     0.5973
+     0.4997,
+     0.5309,
+     0.6094
     ],
     "usual": [
      0.5246,
@@ -21802,7 +21802,7 @@
     ],
     "rank": [
      11,
-     10,
+     11,
      11
     ],
     "why": [
@@ -21810,7 +21810,7 @@
     ]
    },
    "relations": [],
-   "summary": "Mozambique saw some armed clashes in October (10 killed), below the level SAGE counts as fighting. Deadly fighting in December is a real possibility (26%). It's leaning calmer: deaths are down 48% on the three months before. Armed groups killing 10 or more civilians in December is about as likely as not (57%)."
+   "summary": "Mozambique saw some armed clashes in October (10 killed), below the level SAGE counts as fighting. Deadly fighting in December is a real possibility (26%). It's leaning calmer: deaths are down 48% on the three months before. Armed groups killing 10 or more civilians in December is about as likely as not (53%)."
   },
   {
    "id": 775,
@@ -21828,8 +21828,8 @@
    "fighting": {
     "chance": [
      0.9782,
-     0.9772,
-     0.977
+     0.979,
+     0.9748
     ],
     "usual": [
      0.8915,
@@ -21838,7 +21838,7 @@
     ],
     "rank": [
      6,
-     6,
+     7,
      5
     ],
     "why": [
@@ -21868,9 +21868,9 @@
    },
    "attacks": {
     "chance": [
-     0.0426,
-     0.0556,
-     0.0512
+     0.0434,
+     0.0504,
+     0.05
     ],
     "usual": [
      0.0084,
@@ -21925,8 +21925,8 @@
     ],
     "rank": [
      127,
-     119,
-     125
+     121,
+     127
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -21964,9 +21964,9 @@
      0.0098
     ],
     "rank": [
-     121,
      124,
-     125
+     128,
+     124
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -21991,8 +21991,8 @@
    "fighting": {
     "chance": [
      0.0029,
-     0.0036,
-     0.0041
+     0.0038,
+     0.0043
     ],
     "usual": [
      0.0075,
@@ -22002,7 +22002,7 @@
     "rank": [
      64,
      65,
-     68
+     67
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -22033,7 +22033,7 @@
    "attacks": {
     "chance": [
      0.0026,
-     0.0037,
+     0.0036,
      0.0035
     ],
     "usual": [
@@ -22069,7 +22069,7 @@
    "fighting": {
     "chance": [
      0.0006,
-     0.0009,
+     0.001,
      0.001
     ],
     "usual": [
@@ -22079,8 +22079,8 @@
     ],
     "rank": [
      123,
-     122,
-     128
+     123,
+     129
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -22109,7 +22109,7 @@
    "attacks": {
     "chance": [
      0.0007,
-     0.0008,
+     0.0009,
      0.0008
     ],
     "usual": [
@@ -22119,7 +22119,7 @@
     ],
     "rank": [
      117,
-     120,
+     118,
      122
     ],
     "why": [
@@ -22146,7 +22146,7 @@
     "chance": [
      0.0006,
      0.0009,
-     0.001
+     0.0011
     ],
     "usual": [
      0.0075,
@@ -22156,7 +22156,7 @@
     "rank": [
      121,
      128,
-     127
+     123
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -22184,9 +22184,9 @@
    },
    "attacks": {
     "chance": [
-     0.0007,
+     0.0008,
      0.0009,
-     0.0009
+     0.0008
     ],
     "usual": [
      0.0084,
@@ -22194,9 +22194,9 @@
      0.0098
     ],
     "rank": [
-     118,
-     109,
-     116
+     114,
+     119,
+     120
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -22221,8 +22221,8 @@
    "fighting": {
     "chance": [
      0.5084,
-     0.5902,
-     0.549
+     0.5845,
+     0.5399
     ],
     "usual": [
      0.3071,
@@ -22263,9 +22263,9 @@
    },
    "attacks": {
     "chance": [
-     0.3916,
-     0.3603,
-     0.3592
+     0.411,
+     0.3531,
+     0.3665
     ],
     "usual": [
      0.0084,
@@ -22273,7 +22273,7 @@
      0.0098
     ],
     "rank": [
-     14,
+     13,
      14,
      14
     ],
@@ -22284,7 +22284,7 @@
     ]
    },
    "relations": [],
-   "summary": "Niger saw some armed clashes in October (21 killed), below the level SAGE counts as fighting. Deadly fighting in December is about as likely as not (59%). It's leaning calmer: deaths are down 71% on the three months before. Armed groups killing 10 or more civilians in December is a real possibility (36%)."
+   "summary": "Niger saw some armed clashes in October (21 killed), below the level SAGE counts as fighting. Deadly fighting in December is about as likely as not (58%). It's leaning calmer: deaths are down 71% on the three months before. Armed groups killing 10 or more civilians in December is a real possibility (35%)."
   },
   {
    "id": 475,
@@ -22302,8 +22302,8 @@
    "fighting": {
     "chance": [
      0.9828,
-     0.9805,
-     0.9829
+     0.9801,
+     0.9807
     ],
     "usual": [
      0.8915,
@@ -22312,7 +22312,7 @@
     ],
     "rank": [
      3,
-     4,
+     6,
      1
     ],
     "why": [
@@ -22343,9 +22343,9 @@
    },
    "attacks": {
     "chance": [
-     0.9104,
-     0.943,
-     0.9069
+     0.9038,
+     0.9296,
+     0.9065
     ],
     "usual": [
      0.8501,
@@ -22362,7 +22362,7 @@
     ]
    },
    "relations": [],
-   "summary": "Fighting is going on in Nigeria: 659 people were killed in fighting involving the government in October. More deadly fighting in December is almost certain (98%). Armed groups killing 10 or more civilians in December is very likely (94%)."
+   "summary": "Fighting is going on in Nigeria: 659 people were killed in fighting involving the government in October. More deadly fighting in December is almost certain (98%). Armed groups killing 10 or more civilians in December is very likely (93%)."
   },
   {
    "id": 343,
@@ -22381,7 +22381,7 @@
     "chance": [
      0.0008,
      0.0011,
-     0.0013
+     0.0012
     ],
     "usual": [
      0.0075,
@@ -22429,9 +22429,9 @@
      0.0098
     ],
     "rank": [
-     111,
-     110,
-     109
+     107,
+     113,
+     107
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -22456,7 +22456,7 @@
    "fighting": {
     "chance": [
      0.0026,
-     0.0034,
+     0.0035,
      0.0037
     ],
     "usual": [
@@ -22495,9 +22495,9 @@
    },
    "attacks": {
     "chance": [
-     0.002,
-     0.0034,
-     0.0033
+     0.0019,
+     0.0036,
+     0.0032
     ],
     "usual": [
      0.0084,
@@ -22506,7 +22506,7 @@
     ],
     "rank": [
      68,
-     65,
+     64,
      65
     ],
     "why": [
@@ -22532,8 +22532,8 @@
    "fighting": {
     "chance": [
      0.984,
-     0.9809,
-     0.9824
+     0.9805,
+     0.9803
     ],
     "usual": [
      0.8915,
@@ -22542,7 +22542,7 @@
     ],
     "rank": [
      1,
-     3,
+     4,
      2
     ],
     "why": [
@@ -22575,9 +22575,9 @@
    },
    "attacks": {
     "chance": [
-     0.8828,
-     0.8401,
-     0.8688
+     0.8673,
+     0.837,
+     0.8587
     ],
     "usual": [
      0.7032,
@@ -22631,8 +22631,8 @@
    "fighting": {
     "chance": [
      0.0005,
-     0.0009,
-     0.0013
+     0.001,
+     0.0012
     ],
     "usual": [
      0.0075,
@@ -22641,8 +22641,8 @@
     ],
     "rank": [
      130,
-     121,
-     110
+     122,
+     121
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -22671,7 +22671,7 @@
    "attacks": {
     "chance": [
      0.0005,
-     0.0007,
+     0.0008,
      0.0008
     ],
     "usual": [
@@ -22680,9 +22680,9 @@
      0.0098
     ],
     "rank": [
-     129,
-     129,
-     121
+     130,
+     127,
+     118
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -22707,8 +22707,8 @@
    "fighting": {
     "chance": [
      0.0061,
-     0.0102,
-     0.0086
+     0.0097,
+     0.0091
     ],
     "usual": [
      0.0075,
@@ -22717,8 +22717,8 @@
     ],
     "rank": [
      47,
-     46,
-     49
+     48,
+     48
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -22746,9 +22746,9 @@
    },
    "attacks": {
     "chance": [
-     0.0167,
-     0.0172,
-     0.0189
+     0.0162,
+     0.0176,
+     0.0193
     ],
     "usual": [
      0.0084,
@@ -22765,7 +22765,7 @@
     ]
    },
    "relations": [],
-   "summary": "Papua New Guinea was largely calm in October. Deadly fighting in December is very unlikely (1%)."
+   "summary": "Papua New Guinea was largely calm in October. Deadly fighting in December is extremely unlikely (1%)."
   },
   {
    "id": 150,
@@ -22783,8 +22783,8 @@
    "fighting": {
     "chance": [
      0.0046,
-     0.0035,
-     0.002
+     0.004,
+     0.0023
     ],
     "usual": [
      0.0075,
@@ -22793,8 +22793,8 @@
     ],
     "rank": [
      53,
-     67,
-     88
+     63,
+     83
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -22824,9 +22824,9 @@
    },
    "attacks": {
     "chance": [
-     0.0018,
-     0.0018,
-     0.0011
+     0.0019,
+     0.0017,
+     0.001
     ],
     "usual": [
      0.0084,
@@ -22835,8 +22835,8 @@
     ],
     "rank": [
      69,
-     78,
-     91
+     82,
+     95
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -22861,8 +22861,8 @@
    "fighting": {
     "chance": [
      0.0053,
-     0.0063,
-     0.0061
+     0.006,
+     0.0062
     ],
     "usual": [
      0.0075,
@@ -22901,8 +22901,8 @@
    "attacks": {
     "chance": [
      0.0076,
-     0.0091,
-     0.0082
+     0.0094,
+     0.0083
     ],
     "usual": [
      0.0084,
@@ -22911,8 +22911,8 @@
     ],
     "rank": [
      45,
-     47,
-     51
+     46,
+     50
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -22937,8 +22937,8 @@
    "fighting": {
     "chance": [
      0.1299,
-     0.1348,
-     0.1461
+     0.1363,
+     0.1425
     ],
     "usual": [
      0.1132,
@@ -22977,9 +22977,9 @@
    },
    "attacks": {
     "chance": [
-     0.0458,
-     0.0445,
-     0.0506
+     0.0462,
+     0.0476,
+     0.0488
     ],
     "usual": [
      0.2162,
@@ -22988,7 +22988,7 @@
     ],
     "rank": [
      26,
-     29,
+     28,
      27
     ],
     "why": [
@@ -22996,7 +22996,7 @@
     ]
    },
    "relations": [],
-   "summary": "Philippines saw some armed clashes in October (8 killed), below the level SAGE counts as fighting. Deadly fighting in December is unlikely (13%). It's leaning worse: deaths are up 39% on the three months before."
+   "summary": "Philippines saw some armed clashes in October (8 killed), below the level SAGE counts as fighting. Deadly fighting in December is unlikely (14%). It's leaning worse: deaths are up 39% on the three months before."
   },
   {
    "id": 290,
@@ -23014,7 +23014,7 @@
    "fighting": {
     "chance": [
      0.0157,
-     0.0029,
+     0.0031,
      0.0023
     ],
     "usual": [
@@ -23024,8 +23024,8 @@
     ],
     "rank": [
      38,
-     76,
-     81
+     74,
+     82
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -23057,7 +23057,7 @@
     "chance": [
      0.0025,
      0.0016,
-     0.0023
+     0.0022
     ],
     "usual": [
      0.0084,
@@ -23066,7 +23066,7 @@
     ],
     "rank": [
      65,
-     81,
+     84,
      70
     ],
     "why": [
@@ -23094,7 +23094,7 @@
     "chance": [
      0.0008,
      0.0008,
-     0.0014
+     0.0013
     ],
     "usual": [
      0.0075,
@@ -23104,7 +23104,7 @@
     "rank": [
      105,
      130,
-     106
+     112
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -23132,8 +23132,8 @@
    },
    "attacks": {
     "chance": [
-     0.0006,
-     0.0008,
+     0.0007,
+     0.001,
      0.0007
     ],
     "usual": [
@@ -23142,9 +23142,9 @@
      0.0098
     ],
     "rank": [
-     124,
-     117,
-     127
+     123,
+     108,
+     129
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -23169,7 +23169,7 @@
    "fighting": {
     "chance": [
      0.0007,
-     0.0017,
+     0.0018,
      0.0018
     ],
     "usual": [
@@ -23179,8 +23179,8 @@
     ],
     "rank": [
      113,
-     86,
-     90
+     85,
+     88
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -23210,9 +23210,9 @@
    },
    "attacks": {
     "chance": [
-     0.0012,
-     0.0016,
-     0.0021
+     0.0011,
+     0.0018,
+     0.0015
     ],
     "usual": [
      0.0084,
@@ -23220,9 +23220,9 @@
      0.0098
     ],
     "rank": [
-     84,
-     80,
-     72
+     86,
+     78,
+     77
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -23247,8 +23247,8 @@
    "fighting": {
     "chance": [
      0.8429,
-     0.8365,
-     0.7924
+     0.8301,
+     0.7772
     ],
     "usual": [
      0.6623,
@@ -23258,7 +23258,7 @@
     "rank": [
      12,
      12,
-     12
+     13
     ],
     "why": [
      "42 killed in fighting involving the government in October 2026, 8 months in a row at this level",
@@ -23289,9 +23289,9 @@
    },
    "attacks": {
     "chance": [
-     0.0116,
-     0.0113,
-     0.0145
+     0.0114,
+     0.0112,
+     0.0146
     ],
     "usual": [
      0.0084,
@@ -23300,7 +23300,7 @@
     ],
     "rank": [
      41,
-     42,
+     44,
      42
     ],
     "why": [
@@ -23337,7 +23337,7 @@
      "summary": "Tension between United States of America and Russia is above usual. From United States of America towards Russia: criticism and demands (about 2× usual). From Russia towards United States of America: seizures and arrests (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their last deadly military stand-off was in 1985; their last of any kind was in 2014. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Fighting is going on in Russia: 42 people were killed in fighting involving the government in October. More deadly fighting in December is very likely (84%). It's leaning calmer: deaths are down 46% on the three months before. Tension with Japan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Fighting is going on in Russia: 42 people were killed in fighting involving the government in October. More deadly fighting in December is very likely (83%). It's leaning calmer: deaths are down 46% on the three months before. Tension with Japan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 517,
@@ -23355,8 +23355,8 @@
    "fighting": {
     "chance": [
      0.0009,
-     0.0018,
-     0.0021
+     0.0017,
+     0.0019
     ],
     "usual": [
      0.0075,
@@ -23365,8 +23365,8 @@
     ],
     "rank": [
      99,
-     83,
-     83
+     86,
+     86
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -23398,7 +23398,7 @@
     "chance": [
      0.0012,
      0.0014,
-     0.0011
+     0.0012
     ],
     "usual": [
      0.0084,
@@ -23407,8 +23407,8 @@
     ],
     "rank": [
      83,
-     83,
-     90
+     85,
+     86
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years",
@@ -23453,8 +23453,8 @@
    "fighting": {
     "chance": [
      0.1764,
-     0.2194,
-     0.2459
+     0.2195,
+     0.2752
     ],
     "usual": [
      0.6623,
@@ -23464,7 +23464,7 @@
     "rank": [
      26,
      24,
-     25
+     22
     ],
     "why": [
      "32 killed in fighting involving the government in October 2026, 2 months in a row at this level",
@@ -23495,9 +23495,9 @@
    },
    "attacks": {
     "chance": [
-     0.0062,
-     0.0099,
-     0.0135
+     0.0066,
+     0.0124,
+     0.0117
     ],
     "usual": [
      0.0084,
@@ -23505,9 +23505,9 @@
      0.0098
     ],
     "rank": [
-     49,
-     46,
-     44
+     47,
+     42,
+     45
     ],
     "why": [
      "None in October 2026; the last month at this level was May 2015"
@@ -23571,7 +23571,7 @@
     "rank": [
      112,
      120,
-     120
+     118
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -23600,7 +23600,7 @@
    "attacks": {
     "chance": [
      0.0009,
-     0.001,
+     0.0011,
      0.0009
     ],
     "usual": [
@@ -23609,8 +23609,8 @@
      0.0098
     ],
     "rank": [
+     102,
      100,
-     105,
      108
     ],
     "why": [
@@ -23637,7 +23637,7 @@
     "chance": [
      0.0032,
      0.0057,
-     0.0062
+     0.0063
     ],
     "usual": [
      0.1132,
@@ -23675,9 +23675,9 @@
    },
    "attacks": {
     "chance": [
-     0.0027,
-     0.0044,
-     0.0057
+     0.0028,
+     0.0046,
+     0.0055
     ],
     "usual": [
      0.0084,
@@ -23685,9 +23685,9 @@
      0.0098
     ],
     "rank": [
-     63,
+     62,
      58,
-     57
+     55
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -23753,7 +23753,7 @@
     "chance": [
      0.0005,
      0.0007,
-     0.0007
+     0.0008
     ],
     "usual": [
      0.0084,
@@ -23761,9 +23761,9 @@
      0.0098
     ],
     "rank": [
+     129,
      130,
-     130,
-     128
+     125
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -23788,8 +23788,8 @@
    "fighting": {
     "chance": [
      0.0009,
-     0.0012,
-     0.0014
+     0.0013,
+     0.0015
     ],
     "usual": [
      0.0075,
@@ -23799,7 +23799,7 @@
     "rank": [
      101,
      103,
-     104
+     99
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -23828,8 +23828,8 @@
    "attacks": {
     "chance": [
      0.0008,
-     0.0012,
-     0.0009
+     0.0011,
+     0.0008
     ],
     "usual": [
      0.0084,
@@ -23837,9 +23837,9 @@
      0.0098
     ],
     "rank": [
-     110,
-     89,
-     111
+     112,
+     92,
+     113
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -23864,8 +23864,8 @@
    "fighting": {
     "chance": [
      0.9641,
-     0.9594,
-     0.9553
+     0.9614,
+     0.9586
     ],
     "usual": [
      0.8915,
@@ -23904,9 +23904,9 @@
    },
    "attacks": {
     "chance": [
-     0.0741,
-     0.0777,
-     0.1079
+     0.0737,
+     0.0805,
+     0.1002
     ],
     "usual": [
      0.0084,
@@ -23916,7 +23916,7 @@
     "rank": [
      22,
      22,
-     21
+     22
     ],
     "why": [
      "None in October 2026; the last month at this level was April 2026"
@@ -23941,8 +23941,8 @@
    "fighting": {
     "chance": [
      0.0155,
-     0.0231,
-     0.0286
+     0.0233,
+     0.0289
     ],
     "usual": [
      0.1132,
@@ -23952,7 +23952,7 @@
     "rank": [
      39,
      37,
-     38
+     37
     ],
     "why": [
      "2 killed in fighting involving the government in October 2026, below the 25 mark"
@@ -23980,9 +23980,9 @@
    },
    "attacks": {
     "chance": [
-     0.4318,
-     0.5892,
-     0.6395
+     0.4309,
+     0.5472,
+     0.6128
     ],
     "usual": [
      0.5246,
@@ -23991,7 +23991,7 @@
     ],
     "rank": [
      12,
-     9,
+     10,
      10
     ],
     "why": [
@@ -24000,7 +24000,7 @@
     ]
    },
    "relations": [],
-   "summary": "South Africa saw some armed clashes in October (2 killed), below the level SAGE counts as fighting. Deadly fighting in December is very unlikely (2%). Armed groups killing 10 or more civilians in December is about as likely as not (59%)."
+   "summary": "South Africa saw some armed clashes in October (2 killed), below the level SAGE counts as fighting. Deadly fighting in December is very unlikely (2%). Armed groups killing 10 or more civilians in December is about as likely as not (55%)."
   },
   {
    "id": 626,
@@ -24018,8 +24018,8 @@
    "fighting": {
     "chance": [
      0.2006,
-     0.2087,
-     0.1999
+     0.2045,
+     0.2001
     ],
     "usual": [
      0.3071,
@@ -24060,9 +24060,9 @@
    },
    "attacks": {
     "chance": [
-     0.1164,
-     0.1582,
-     0.1491
+     0.1211,
+     0.1482,
+     0.1588
     ],
     "usual": [
      0.0084,
@@ -24091,7 +24091,7 @@
      "summary": "Tension between Sudan and South Sudan is above usual. From South Sudan towards Sudan: criticism and demands (about 3× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). They last fought in February 2013."
     }
    ],
-   "summary": "South Sudan saw some armed clashes in October (13 killed), below the level SAGE counts as fighting. Deadly fighting in December is a real possibility (21%). It's leaning worse: deaths are 14 times the three months before. Tension with Sudan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "South Sudan saw some armed clashes in October (13 killed), below the level SAGE counts as fighting. Deadly fighting in December is a real possibility (20%). It's leaning worse: deaths are 14 times the three months before. Tension with Sudan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 230,
@@ -24110,7 +24110,7 @@
     "chance": [
      0.0019,
      0.0032,
-     0.0039
+     0.0041
     ],
     "usual": [
      0.0075,
@@ -24119,8 +24119,8 @@
     ],
     "rank": [
      79,
-     71,
-     69
+     72,
+     68
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -24150,9 +24150,9 @@
    },
    "attacks": {
     "chance": [
-     0.0031,
-     0.0035,
-     0.0041
+     0.003,
+     0.0034,
+     0.004
     ],
     "usual": [
      0.0084,
@@ -24161,7 +24161,7 @@
     ],
     "rank": [
      59,
-     64,
+     65,
      62
     ],
     "why": [
@@ -24188,7 +24188,7 @@
     "chance": [
      0.0229,
      0.0297,
-     0.0419
+     0.0444
     ],
     "usual": [
      0.0075,
@@ -24198,7 +24198,7 @@
     "rank": [
      36,
      35,
-     35
+     33
     ],
     "why": [
      "None in October 2026; the last month at this level was March 2026"
@@ -24226,9 +24226,9 @@
    },
    "attacks": {
     "chance": [
-     0.003,
-     0.004,
-     0.004
+     0.0029,
+     0.0041,
+     0.0039
     ],
     "usual": [
      0.0084,
@@ -24263,8 +24263,8 @@
    "fighting": {
     "chance": [
      0.9819,
-     0.98,
-     0.9742
+     0.9807,
+     0.9732
     ],
     "usual": [
      0.8915,
@@ -24273,7 +24273,7 @@
     ],
     "rank": [
      4,
-     5,
+     3,
      7
     ],
     "why": [
@@ -24304,9 +24304,9 @@
    },
    "attacks": {
     "chance": [
-     0.8399,
-     0.8379,
-     0.8076
+     0.8451,
+     0.826,
+     0.8269
     ],
     "usual": [
      0.7032,
@@ -24352,7 +24352,7 @@
      "summary": "Tension between Sudan and Egypt is above usual. From Sudan towards Egypt: criticism and demands (about 2× usual). From Egypt towards Sudan: fighting (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their last deadly military stand-off was in 1995; their last of any kind was in 1996. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Fighting is going on in Sudan: 692 people were killed in fighting involving the government in October. More deadly fighting in December is almost certain (98%). It's leaning worse: deaths are up 58% on the three months before. Armed groups killing 10 or more civilians in December is very likely (84%). Tension with South Sudan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Ethiopia is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Fighting is going on in Sudan: 692 people were killed in fighting involving the government in October. More deadly fighting in December is almost certain (98%). It's leaning worse: deaths are up 58% on the three months before. Armed groups killing 10 or more civilians in December is very likely (83%). Tension with South Sudan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Ethiopia is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 380,
@@ -24371,7 +24371,7 @@
     "chance": [
      0.0024,
      0.0037,
-     0.0049
+     0.0048
     ],
     "usual": [
      0.0075,
@@ -24380,8 +24380,8 @@
     ],
     "rank": [
      71,
-     63,
-     62
+     67,
+     64
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -24409,9 +24409,9 @@
    },
    "attacks": {
     "chance": [
-     0.0095,
-     0.0121,
-     0.0125
+     0.0096,
+     0.013,
+     0.0121
     ],
     "usual": [
      0.2162,
@@ -24421,7 +24421,7 @@
     "rank": [
      43,
      40,
-     45
+     44
     ],
     "why": [
      "1 civilians killed by armed groups in October 2026, below the 10 mark"
@@ -24446,8 +24446,8 @@
    "fighting": {
     "chance": [
      0.3933,
-     0.6966,
-     0.7292
+     0.6852,
+     0.7274
     ],
     "usual": [
      0.6623,
@@ -24488,9 +24488,9 @@
    },
    "attacks": {
     "chance": [
-     0.7092,
-     0.5289,
-     0.6792
+     0.7139,
+     0.5541,
+     0.6547
     ],
     "usual": [
      0.7032,
@@ -24499,7 +24499,7 @@
     ],
     "rank": [
      8,
-     11,
+     9,
      8
     ],
     "why": [
@@ -24526,7 +24526,7 @@
      "summary": "Tension between Syria and Jordan is above usual. From Syria towards Jordan: criticism and demands (about 2× usual). From Jordan towards Syria: fighting (about 2× usual). Deadly clashes between their forces in the next six months: extremely unlikely (under 1%); war: extremely unlikely (under 1%). Their last deadly military stand-off was in 1970; their last of any kind was in 2013. Since 1990, about 8 in 100 military stand-offs between countries led to deaths, and about 1 in 100 to war."
     }
    ],
-   "summary": "Fighting is going on in Syria: 38 people were killed in fighting involving the government in October. More deadly fighting in December is likely (70%). It's leaning worse: deaths are up 51% on the three months before. Armed groups killing 10 or more civilians in December is about as likely as not (53%). Tension with Jordan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Fighting is going on in Syria: 38 people were killed in fighting involving the government in October. More deadly fighting in December is likely (69%). It's leaning worse: deaths are up 51% on the three months before. Armed groups killing 10 or more civilians in December is about as likely as not (55%). Tension with Jordan is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 702,
@@ -24544,8 +24544,8 @@
    "fighting": {
     "chance": [
      0.005,
-     0.0083,
-     0.0082
+     0.008,
+     0.0081
     ],
     "usual": [
      0.0075,
@@ -24555,7 +24555,7 @@
     "rank": [
      52,
      49,
-     50
+     51
     ],
     "why": [
      "None in October 2026; the last month at this level was September 2022",
@@ -24585,8 +24585,8 @@
    },
    "attacks": {
     "chance": [
-     0.0031,
-     0.0042,
+     0.0032,
+     0.0043,
      0.0048
     ],
     "usual": [
@@ -24632,8 +24632,8 @@
    "fighting": {
     "chance": [
      0.0017,
-     0.0025,
-     0.0043
+     0.0028,
+     0.004
     ],
     "usual": [
      0.0075,
@@ -24642,8 +24642,8 @@
     ],
     "rank": [
      81,
-     80,
-     67
+     77,
+     69
     ],
     "why": [
      "None in October 2026; the last month at this level was October 2020"
@@ -24672,7 +24672,7 @@
    "attacks": {
     "chance": [
      0.0013,
-     0.0018,
+     0.002,
      0.0015
     ],
     "usual": [
@@ -24681,9 +24681,9 @@
      0.0098
     ],
     "rank": [
-     79,
-     76,
-     77
+     81,
+     74,
+     78
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -24708,8 +24708,8 @@
    "fighting": {
     "chance": [
      0.0299,
-     0.0624,
-     0.0578
+     0.0598,
+     0.0557
     ],
     "usual": [
      0.1132,
@@ -24718,8 +24718,8 @@
     ],
     "rank": [
      32,
-     31,
-     31
+     32,
+     32
     ],
     "why": [
      "6 killed in fighting involving the government in October 2026, below the 25 mark"
@@ -24747,9 +24747,9 @@
    },
    "attacks": {
     "chance": [
-     0.0067,
-     0.0074,
-     0.0094
+     0.0068,
+     0.0086,
+     0.0091
     ],
     "usual": [
      0.0084,
@@ -24759,7 +24759,7 @@
     "rank": [
      46,
      48,
-     48
+     49
     ],
     "why": [
      "None in October 2026; the last month at this level was October 2013"
@@ -24794,8 +24794,8 @@
    "fighting": {
     "chance": [
      0.0032,
-     0.0051,
-     0.0045
+     0.0056,
+     0.0047
     ],
     "usual": [
      0.0075,
@@ -24804,8 +24804,8 @@
     ],
     "rank": [
      60,
-     58,
-     66
+     55,
+     65
     ],
     "why": [
      "None in October 2026; the last month at this level was January 2025",
@@ -24836,7 +24836,7 @@
    "attacks": {
     "chance": [
      0.0011,
-     0.0019,
+     0.0016,
      0.0014
     ],
     "usual": [
@@ -24845,9 +24845,9 @@
      0.0098
     ],
     "rank": [
-     86,
-     75,
-     81
+     87,
+     83,
+     82
     ],
     "why": [
      "None in October 2026; the last month at this level was February 2023"
@@ -24882,8 +24882,8 @@
     ],
     "rank": [
      83,
-     93,
-     96
+     92,
+     97
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -24912,8 +24912,8 @@
    "attacks": {
     "chance": [
      0.001,
-     0.001,
-     0.0012
+     0.0012,
+     0.0011
     ],
     "usual": [
      0.0084,
@@ -24921,9 +24921,9 @@
      0.0098
     ],
     "rank": [
-     91,
-     100,
-     83
+     93,
+     89,
+     91
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -24948,8 +24948,8 @@
    "fighting": {
     "chance": [
      0.0026,
-     0.0035,
-     0.0053
+     0.0037,
+     0.0051
     ],
     "usual": [
      0.0075,
@@ -24959,7 +24959,7 @@
     "rank": [
      70,
      68,
-     60
+     61
     ],
     "why": [
      "None in October 2026; the last month at this level was March 2016"
@@ -24987,8 +24987,8 @@
    },
    "attacks": {
     "chance": [
-     0.0013,
-     0.0013,
+     0.0012,
+     0.0012,
      0.0011
     ],
     "usual": [
@@ -24997,9 +24997,9 @@
      0.0098
     ],
     "rank": [
-     81,
-     88,
-     89
+     82,
+     87,
+     88
     ],
     "why": [
      "None in October 2026; the last month at this level was June 2015"
@@ -25024,8 +25024,8 @@
    "fighting": {
     "chance": [
      0.0073,
-     0.016,
-     0.0198
+     0.0165,
+     0.0188
     ],
     "usual": [
      0.0075,
@@ -25034,7 +25034,7 @@
     ],
     "rank": [
      44,
-     41,
+     40,
      40
     ],
     "why": [
@@ -25065,9 +25065,9 @@
    },
    "attacks": {
     "chance": [
-     0.0041,
-     0.0054,
-     0.0079
+     0.004,
+     0.0049,
+     0.0077
     ],
     "usual": [
      0.0084,
@@ -25076,8 +25076,8 @@
     ],
     "rank": [
      55,
-     55,
-     52
+     56,
+     53
     ],
     "why": [
      "None in October 2026; the last month at this level was January 2017",
@@ -25123,7 +25123,7 @@
     "chance": [
      0.0045,
      0.0068,
-     0.0095
+     0.0089
     ],
     "usual": [
      0.0075,
@@ -25132,8 +25132,8 @@
     ],
     "rank": [
      55,
-     50,
-     47
+     51,
+     49
     ],
     "why": [
      "None in October 2026; the last month at this level was April 2007",
@@ -25163,9 +25163,9 @@
    },
    "attacks": {
     "chance": [
-     0.0235,
-     0.0258,
-     0.0243
+     0.0219,
+     0.0261,
+     0.0231
     ],
     "usual": [
      0.2162,
@@ -25173,8 +25173,8 @@
      0.2186
     ],
     "rank": [
-     34,
      35,
+     36,
      36
     ],
     "why": [
@@ -25211,8 +25211,8 @@
    "fighting": {
     "chance": [
      0.9835,
-     0.9855,
-     0.9766
+     0.9831,
+     0.9787
     ],
     "usual": [
      0.9747,
@@ -25222,7 +25222,7 @@
     "rank": [
      2,
      1,
-     6
+     3
     ],
     "why": [
      "6,194 killed in fighting involving the government in October 2026, 58 months in a row at this level",
@@ -25252,9 +25252,9 @@
    },
    "attacks": {
     "chance": [
-     0.0276,
-     0.0348,
-     0.0359
+     0.0267,
+     0.0358,
+     0.0342
     ],
     "usual": [
      0.0084,
@@ -25263,7 +25263,7 @@
     ],
     "rank": [
      31,
-     32,
+     30,
      33
     ],
     "why": [
@@ -25317,8 +25317,8 @@
    "fighting": {
     "chance": [
      0.003,
-     0.0044,
-     0.006
+     0.0042,
+     0.0052
     ],
     "usual": [
      0.0075,
@@ -25327,8 +25327,8 @@
     ],
     "rank": [
      62,
-     61,
-     56
+     62,
+     60
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -25356,8 +25356,8 @@
    },
    "attacks": {
     "chance": [
-     0.0012,
-     0.0015,
+     0.0011,
+     0.0018,
      0.0015
     ],
     "usual": [
@@ -25366,9 +25366,9 @@
      0.0098
     ],
     "rank": [
-     82,
-     82,
-     78
+     85,
+     79,
+     79
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -25393,7 +25393,7 @@
    "fighting": {
     "chance": [
      0.0007,
-     0.0009,
+     0.001,
      0.0011
     ],
     "usual": [
@@ -25403,8 +25403,8 @@
     ],
     "rank": [
      115,
-     123,
-     126
+     119,
+     124
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -25432,9 +25432,9 @@
    },
    "attacks": {
     "chance": [
-     0.0012,
-     0.0014,
-     0.0009
+     0.0013,
+     0.001,
+     0.001
     ],
     "usual": [
      0.0084,
@@ -25442,9 +25442,9 @@
      0.0098
     ],
     "rank": [
-     85,
-     84,
-     105
+     80,
+     106,
+     97
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -25488,7 +25488,7 @@
    "fighting": {
     "chance": [
      0.0032,
-     0.0026,
+     0.0028,
      0.0038
     ],
     "usual": [
@@ -25498,8 +25498,8 @@
     ],
     "rank": [
      59,
-     79,
-     71
+     80,
+     70
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -25528,8 +25528,8 @@
    "attacks": {
     "chance": [
      0.0037,
-     0.0048,
-     0.0058
+     0.0053,
+     0.0055
     ],
     "usual": [
      0.0084,
@@ -25538,8 +25538,8 @@
     ],
     "rank": [
      57,
-     56,
-     55
+     55,
+     56
     ],
     "why": [
      "None in October 2026; the last month at this level was December 2015"
@@ -25592,8 +25592,8 @@
    "fighting": {
     "chance": [
      0.0008,
-     0.0013,
-     0.0016
+     0.0014,
+     0.0018
     ],
     "usual": [
      0.0075,
@@ -25602,8 +25602,8 @@
     ],
     "rank": [
      108,
-     97,
-     92
+     95,
+     90
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years",
@@ -25634,8 +25634,8 @@
    "attacks": {
     "chance": [
      0.0007,
-     0.0009,
-     0.001
+     0.001,
+     0.0009
     ],
     "usual": [
      0.0084,
@@ -25644,8 +25644,8 @@
     ],
     "rank": [
      119,
-     114,
-     101
+     110,
+     103
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
@@ -25670,8 +25670,8 @@
    "fighting": {
     "chance": [
      0.0205,
-     0.0196,
-     0.025
+     0.02,
+     0.0281
     ],
     "usual": [
      0.0075,
@@ -25709,9 +25709,9 @@
    },
    "attacks": {
     "chance": [
-     0.023,
-     0.0225,
-     0.0292
+     0.0224,
+     0.0286,
+     0.0277
     ],
     "usual": [
      0.0084,
@@ -25719,8 +25719,8 @@
      0.0098
     ],
     "rank": [
-     35,
-     36,
+     34,
+     34,
      34
     ],
     "why": [
@@ -25756,8 +25756,8 @@
    "fighting": {
     "chance": [
      0.976,
-     0.9533,
-     0.9103
+     0.9559,
+     0.9107
     ],
     "usual": [
      0.9747,
@@ -25766,7 +25766,7 @@
     ],
     "rank": [
      7,
-     9,
+     10,
      11
     ],
     "why": [
@@ -25801,9 +25801,9 @@
    },
    "attacks": {
     "chance": [
-     0.2164,
-     0.2071,
-     0.1916
+     0.2115,
+     0.2166,
+     0.1949
     ],
     "usual": [
      0.2162,
@@ -25849,7 +25849,7 @@
      "summary": "Tension between Israel and Yemen is at its usual level. Deadly clashes between their forces in the next six months: unlikely (9%); war: extremely unlikely (under 1%). They last fought in September 2025."
     }
    ],
-   "summary": "Yemen is at full-scale war: 1,563 people were killed in fighting involving the government in October. A war on this scale continuing into December is about as likely as not (45%). It's leaning worse: deaths are 20 times the three months before and the news shows troop mobilisations and military alerts at about 3 times the usual level. Armed groups killing 10 or more civilians in December is a real possibility (21%). Tension with Saudi Arabia is very high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Djibouti is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
+   "summary": "Yemen is at full-scale war: 1,563 people were killed in fighting involving the government in October. A war on this scale continuing into December is about as likely as not (45%). It's leaning worse: deaths are 20 times the three months before and the news shows troop mobilisations and military alerts at about 3 times the usual level. Armed groups killing 10 or more civilians in December is a real possibility (22%). Tension with Saudi Arabia is very high; deadly clashes between their forces in the next six months are extremely unlikely (under 1%). Tension with Djibouti is above usual; deadly clashes between their forces in the next six months are extremely unlikely (under 1%)."
   },
   {
    "id": 551,
@@ -25867,7 +25867,7 @@
    "fighting": {
     "chance": [
      0.0026,
-     0.0037,
+     0.0038,
      0.0048
     ],
     "usual": [
@@ -25907,8 +25907,8 @@
    "attacks": {
     "chance": [
      0.0027,
-     0.0038,
-     0.0045
+     0.0039,
+     0.0044
     ],
     "usual": [
      0.0084,
@@ -25916,8 +25916,8 @@
      0.0098
     ],
     "rank": [
-     62,
-     62,
+     63,
+     61,
      61
     ],
     "why": [
@@ -25943,7 +25943,7 @@
    "fighting": {
     "chance": [
      0.0006,
-     0.001,
+     0.0011,
      0.0012
     ],
     "usual": [
@@ -25953,8 +25953,8 @@
     ],
     "rank": [
      117,
-     117,
-     119
+     116,
+     115
     ],
     "why": [
      "No month with 25 or more killed in fighting involving the government in the last 20 years"
@@ -25993,8 +25993,8 @@
     ],
     "rank": [
      108,
-     91,
-     96
+     97,
+     98
     ],
     "why": [
      "No month with 10 or more civilians killed by armed groups in the last 20 years"
